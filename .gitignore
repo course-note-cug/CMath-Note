@@ -1,0 +1,12 @@
+*.aux
+*.fls
+*.log
+*.fdb_latexmk
+*.synctex*
+*.out
+*.toc
+*.DS_Store
+*.xsim
+*.idx
+*.ilg
+*.ind
