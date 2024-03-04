@@ -46,7 +46,7 @@
 
 尽管我们可以对可数无限个元素进行求和操作, 但是, 那样的数列我们在高等数学的级数部分就已经学过了. 这里先讨论有限项求和的情形.
 
-\begin{theorem}
+\begin{theorem}\label{thm:sum-prop}
 	设$K$是某一有限个正整数的集合, 我们有如下的三条规则:
 
 	\begin{itemize}
@@ -291,5 +291,244 @@ $$
 	$$
 
 \end{example}
+
+\newpage
+\section{多重和式}
+
+\subsection{引例与启发性讨论} 考虑
+
+$$
+\begin{aligned}
+\sum_{1 \leqslant j, k \leqslant 3} a_j b_k= & a_1 b_1+a_1 b_2+a_1 b_3 \\
+& +a_1 b_1+a_2 b_2+a_2 b_3 \\
+& +a_3 b_1+a_3 b_2+a_3 b_3 .
+\end{aligned}
+$$
+
+其中$j,k$是两个指标. 
+
+如果$P(j,k)$是关于$j,k$的性质, 那么$\sum_{P(j, k)} a_{j, k}=\sum a_{j, k}[P(j, k)]$, 有时候也写作$\sum_j\left(\sum_k a_{j, k}[P(j, k)]\right)$, 可以简写做作$\sum_j \sum_k a_{j, k}[P(j, k)]$.
+
+\begin{proposition}
+	如果$k$的表示不依赖于$j$的话, 那么
+	$$\sum_j \sum_k a_{j, k}[P(i, k)]=\sum_k \sum_j a_{j, k}[P(j, k)]$$
+\end{proposition}
+
+\begin{example}
+上述的考量最简单的情形如下:
+	$$
+\begin{aligned}
+\sum_{1 \leqslant j \leqslant 2} \sum_{1 \leqslant k \leqslant 2} a_{j, k} & =a_{1,1}+a_{1,2}+a_{2,1}+a_{2,2} \\
+& =a_{2,1}+a_{2,1}+a_{1,2}+a_{2,2}=\sum_{1 \leqslant k \leqslant 2} \sum_{1 \leqslant j \leqslant 2} a_{j, k} .
+\end{aligned}
+$$
+\end{example}
+
+\begin{proposition}[一般分配率]
+	对于任意的整数集合$J,K$有
+	$$
+\sum_{\substack{j \in J \\ k \in K}} a_j b_k=\left(\sum_{j \in J} a_j\right)\left(\sum_{k \in K} b_k\right) .
+$$
+\end{proposition}
+
+\begin{remark}
+	这里$J$和$K$集合要不依赖对方就能确定. 例如, 
+	$$
+	\sum_{i=1}^n \sum_{j=i}^m f(i, j)
+	$$
+	就无法使用这个方式. 
+\end{remark}
+
+\begin{proof} 我们可以考虑
+	$$
+\begin{aligned}
+& \left(\sum_{j \in J} a_j\right)\left(\sum_{k \in k} b_k\right)=\sum_j a_j[j \in J] \quad \sum_{k \in k} b_k[k \in K] \\
+& =\sum_j a_j[j \in J]\left(\sum_k b_k[k \in k]\right) \\
+& \varsub{j \mp k \text { 独立 }}{1.5cm} \sum_j \sum_k a_j b_k[j \in J][k \in k] \\
+& =\sum_j \sum_k a_j b_k[j \in J ,k \in K] . \\
+&
+\end{aligned}
+$$
+\end{proof}
+
+\begin{example}
+	例如, 
+	$$
+	\sum_{1 \leqslant j, k \leqslant 3} a_j b_k=\left(\sum_{j=1}^3 a_j\right)\left(\sum_{k=1}^3 b_k\right)
+	$$
+
+	请再次注意这里的$k$的取值构成何种集合与$j$无关. 与这个例子相对, $\sum_{i=1}^n \sum_{j=i}^m f(i, j)$就不适用这个规则. 因为$i\leq j\leq m$表示什么集合与$i$的值有关. 
+\end{example}
+
+下面我们来看相互依赖的集合的情形. 
+
+\begin{proposition}
+	对于依赖于$j$取值的集合$K(j),j\in J$, 可以按照如下的方式进行交换求和记号, 
+	$$
+\sum_{j \in J} \sum_{k \in K(j)} a_{j, k}=\sum_{k \in K^{\prime}} \sum_{j \in J^{\prime}(k)} a_{j, k}
+$$
+满足$[j \in J][k \in K(j)]=\left[k \in K^{\prime}\right]\left[j \in J^{\prime}(k)\right]$.
+\end{proposition}
+
+\begin{remark}
+	可以把这个与交换二重积分次序相联系起来. 例如对于区域$D:0\leq x\leq 1, 0\leq y\leq x$的区域积分, 可以写作
+
+	$$
+\begin{aligned}
+\iint_D f(x, y) d x d y & =\int_0^1 d x \int_0^x f(x, y) d y & \text { (从下向上) } \\
+& =\int_0^1 d y \int_x^1 f(x, y) d x . & \text { (从左向右) }
+\end{aligned}
+$$
+	
+	命题中表述的事实是保证每个元素都计算了且仅仅被计算了一次. 
+\end{remark}
+
+\begin{corollary}
+	类似上面举例的二重积分更换$x,y$, 有
+	$$
+\begin{aligned}
+{[1 \leqslant j \leqslant n][1 \leqslant k \leqslant n] } & =[1 \leqslant j \leqslant k \leqslant n] \\
+& =[1 \leqslant k \leqslant n][1 \leqslant j \leqslant k]
+\end{aligned}
+$$
+\end{corollary}
+
+\begin{example}
+	根据上述推论, 
+	$$
+\sum_{j=1}^n \sum_{k=j}^n a_{j, k}=\sum_{1 \leqslant j \leqslant k \leqslant n} a_{j, k}=\sum_{k=1}^n \sum_{j=1}^k a_{j, k} .
+$$
+\end{example}
+
+\begin{example}
+	给出矩阵
+	$$
+\left[\begin{array}{cccc}
+a_1 a_1 & a_1 a_2 & \cdots & a_1 a_n \\
+a_2 a_1 & & & \\
+\vdots & & \ddots & \\
+a_n a_1 & & & a_n a_n
+\end{array}\right]
+$$
+求
+$$
+S_{\overline\backslash|}=\sum_{1 \leqslant j \leqslant k \leqslant n} a_j a_k
+$$
+
+\newcommand\ssj{\overline\backslash|}
+\newcommand\xsj{\underline/|}
+
+由于该矩阵是对称的, 即$a_i a_j=a_j a_i$, $S_{\overline\backslash|} \approx \frac{1}{2} S_{\square}$, 那么
+$$
+S_{\ssj}=\sum_{1 \leq j \leq k \leqslant n} a_j a_k=\sum_{1 \leqslant j \leqslant k \leqslant n} a_k a_j\varsub{\text{对换}j,k}{1.0cm}\sum_{l \leqslant k \leqslant j \leqslant n} a_j a_k=S_{\xsj}
+$$
+
+根据 $\left[k \in k^{\prime}\right]+[k \in k]=\left[k \in\left(k \cap k^{\prime}\right)\right]+\left[k \in\left(k \cup K^{\prime}\right)\right]$, 就有
+$$
+[1 \leqslant j \leqslant k \leqslant n]+[1 \leqslant k \leqslant j \leqslant n]=[1 \leqslant j, k \leqslant n]+[1 \leqslant j=k \leqslant n] .
+$$
+所以
+$$
+\begin{aligned}
+2 S_{\ssj}=S_{\ssj}+S_{\xsj} & =\sum_{1 \leqslant i, k \leqslant n} a_j a_k+\sum_{1 \leqslant j=k \leqslant n} a_j a_k \\
+& =\left(\sum_{k=1}^n a_k\right)^2+\sum_{k=1}^n a_k^2
+\end{aligned}
+$$
+那么 
+$$
+S_{\ssj}=\frac{1}{2}\left(\left(\sum_{k=1}^n a_k\right)^2+\sum_{k=1}^n a_k^2\right).
+$$
+
+
+\end{example}
+
+\begin{example}
+	求解 
+	$$
+	S=\sum_{1 \leqslant j<k \leqslant n}\left(a_k-a_j\right)\left(b_k-b_j\right).
+	$$
+	注意到$i,j$的对称性, 将$i,j$对换得: 
+	$$
+	S=\sum_{1 \leqslant k<j \leqslant n}\left(a_j-a_k\right)\left(b_j-b_k\right)=\sum_{1 \leqslant k<j \leqslant n}\left(a_k-a_j\right)\left(b_k-b_j\right)
+	$$
+	由于
+	$$
+[1 \leqslant j<k \leqslant n]+[1 \leqslant k<j \leqslant n]=[1 \leqslant j, k \leqslant n]-[1 \leqslant j=k \leqslant n]
+$$
+因此
+$$
+\begin{aligned}
+2 S & =\sum_{1 \leqslant j, k \leqslant n}\left(a_j-a_k\right)\left(b_j-b_k\right)-\sum_{1 \leqslant j=k \leqslant n}\left(a_j-a_k\right)\left(b_j-b_k\right) . \\
+& =\sum_{1 \leqslant j \leqslant k \leqslant n}\left(a_j-a_k\right)\left(b_j-b_k\right)-0 .\\
+& = \boxed{\sum_{1 \leq j, k \leqslant n} a_j b_j}-\sum_{1 \leq j, k \leq n} a_j b_k-\sum_{1 \leq j, k \leqslant n} a_k b_j+\boxed{\sum_{1\leqslant j, k \leqslant n} a_k b_k}\\
+& = \boxed{2 n \sum_{1 \leqslant k \leqslant n} a_k b_k}-2\left(\sum_{k=1}^n a_k\right)\left(\sum_{k=1}^n b_k\right) .
+\end{aligned}
+$$
+
+那么
+$$
+S=n \sum_{1 \leqslant k \leqslant n} a_k b_k-\left(\sum_{k=1}^n a_k\right)\left(\sum_{k=1}^n b_k\right) .
+$$
+
+我们便得到
+$$
+\left(\sum_{k=1}^n a_k\right)\left(\sum_{k=1}^n b_k\right)=n \sum_{k=1}^n a_k b_k-\sum_{1 \leqslant j<k \leqslant n}\left(a_k-a_j\right)\left(b_k-b_j\right)
+$$
+这是Chebyshev单调不等式的特例. 
+
+Chebyshev单调不等式是说, 如果$a_1 \leqslant a_2 \leqslant \cdots \leqslant a_n, b_n \leqslant b_2 \leqslant \cdots \leqslant b_n$, 那么
+$$
+\left(\sum_{k=1}^n a_k\right)\left(\sum_{k=1}^n b_k\right) \leqslant n \sum_{i=1}^n a_k b_k
+$$
+反之亦然. 
+\end{example}
+
+\subsection{与一重求和中第三条的联系} 回顾\cref{thm:sum-prop}中的第三条($\sum_{k \in K} a_k=\sum_{p(k) \in K} a_{p(k)}$, $p(k)$是一个原集合的排列). 如果现在将$k$换做$f(j)$, 其中$f$是一个$J\to K$的映射, 那么
+$$
+\sum_{j \in J} a_{f(j)}=\sum_{k \in K} a_k \# f^{-}(k) .
+$$
+其中$f^{-}(k)=\{j \mid f(j)=k\}$, $\#S$是集合$S$的元素个数. 通俗地说, 就是对 $j \in J ,\quad f(j)=k$ 的数量. 
+
+\begin{proof}
+	直接展开: 
+	$$
+	\begin{aligned} \sum_{j \in J} a_{f(j)}=\sum_{\substack{j \in J \\ k \in K}} a_k[f(j)=k] & =\sum_{k \in K} a_k \sum_{j \in J}[f(j)=k] \\ & =\sum_{k \in k} a_k \# f^{-}(k) .\end{aligned}
+	$$
+\end{proof}
+
+\begin{example}
+	若$f$是一个一对一的函数, 那么$\# f^{-}(k)=1$, 也就是
+	$$
+\sum_{j \in J} a_{f(j)}=\sum_{f(j) \in k} a_{f(j)} \cdot 1=\sum_{k \in k} a_k .
+$$
+\end{example}
+
+\begin{example}
+	求算
+	$$
+S_n=\sum_{1 \leqslant j<k \leqslant n} \frac{1}{k-j}
+$$
+
+$$
+\begin{aligned}
+S_n & =\sum_{1 \leqslant k \leqslant n} \sum_{1 \leqslant j \leqslant k} \frac{1}{k-j} \\
+& \varsub{j:=k-j}{0.7cm} \sum_{1 \leqslant k \leqslant n} \sum_{1 \leqslant k-j<k} \frac{1}{j} \\
+& =\sum_{1 \leqslant j \leqslant n} \sum_{0<j \leqslant k-1} \frac{1}{j} \\
+& =\sum_{1 \leqslant k \leqslant n} H_{k-1} \\
+& \varsub{k :=k+1}{0.7cm} \sum_{0 \leqslant k<n} H_k
+\end{aligned}
+$$
+
+如果在换元之前进行代换, 就有
+$$
+\begin{aligned}
+S_n & =\sum_{1 \leqslant j<k \leqslant n} \frac{1}{k-j} \varsub{k:=k+j}{0.7cm} \sum_{1 \leqslant j \leqslant k+j \leqslant n} \frac{1}{k}=\sum_{1 \leqslant k \leqslant n} \sum_{1 \leqslant j \leqslant n-k} \frac{1}{k} \\
+& =\sum_{1 \leqslant k \leqslant n} \frac{n-k}{k}=\sum_{1 \leqslant k \leqslant n} \frac{n}{k}-\sum_{1 \leqslant k \leqslant n} 1 \\
+& =n\left(\sum_{1 \leqslant k \leqslant n} \frac{1}{k}\right)-n=n H_k-n .
+\end{aligned}
+$$
+\end{example}
+
+
 
 \end{document}
