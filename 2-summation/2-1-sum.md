@@ -1,4 +1,3 @@
-#! https://zhuanlan.zhihu.com/p/684979172
 (写在前面: 本文的 Markdown 版本由计算机程序自动生成并投稿.
 因此可能会有错误. 这系列是《具体数学》浅显的阅读笔记. )
 
@@ -15,11 +14,7 @@
 表示$f\left(a_1\right)+f\left(a_2\right)+f\left(a_3\right)+\cdots+f\left(a_n\right)+\cdots$.
 
 **例子 1**. 考虑
-
-$$
-\begin{aligned} & \sum_{\substack{1 \leq k \leq n}} a_k=a_1+a_2+\cdots+a_n . \\ & \sum_{\substack{1 \leq k \leq 100 \\ k \text { odd }}} k^2=\sum_{0 \leq k \leq 49}(2 k+1)^2 .\end{aligned}
-$$
-
+$$\begin{aligned} & \sum_{\substack{1 \leq k \leq n}} a_k=a_1+a_2+\cdots+a_n . \\ & \sum_{\substack{1 \leq k \leq 100 \\ k \text { odd }}} k^2=\sum_{0 \leq k \leq 49}(2 k+1)^2 .\end{aligned}$$
 
 ### 换元法
 
@@ -28,21 +23,13 @@ $$
 中的代表"用来表示的字母不同, 从而肯定不会影响整个映射$f$所表达的意思.
 
 **例子 2**. 考虑
-
-$$
-\sum_{1 \leq k \leq n} a_k \stackrel{k\text{代换为}s+1}{\stackrel{\rule{1.5cm}{0.4pt}}{\rule{1.5cm}{0.4pt}}} \sum_{1 \leq s+1 \leq n} a_{s+1} \stackrel{s\text{代换为}k}{\stackrel{\rule{1.5cm}{0.4pt}}{\rule{1.5cm}{0.4pt}}} \sum_{1 \leq k+1 \leq n} a_{k+1}
-$$
-
+$$\sum_{1 \leq k \leq n} a_k \stackrel{k\text{代换为}s+1}{\stackrel{\rule{1.5cm}{0.4pt}}{\rule{1.5cm}{0.4pt}}} \sum_{1 \leq s+1 \leq n} a_{s+1} \stackrel{s\text{代换为}k}{\stackrel{\rule{1.5cm}{0.4pt}}{\rule{1.5cm}{0.4pt}}} \sum_{1 \leq k+1 \leq n} a_{k+1}$$
 
 **注:**
 
 有时候$\sum_{a \leq i \leq b} f(i)$也写作$\sum_{i=a}^b f(i)$.
 但是看到这样一来, 变量代换之后就得到了
-
-$$
-\sum_{i=1}^n a_i\stackrel{k\text{代为}k+1}{\stackrel{\rule{1.2cm}{0.4pt}}{\rule{1.2cm}{0.4pt}}}\sum_{i=0}^{n-1} a_{i+1}
-$$
-
+$$\sum_{i=1}^n a_i\stackrel{k\text{代为}k+1}{\stackrel{\rule{1.2cm}{0.4pt}}{\rule{1.2cm}{0.4pt}}}\sum_{i=0}^{n-1} a_{i+1}$$
 更易于出错.
 
 此外, 我们用$k:=k+1$来表示把$k$代为$k+1$. 最后, 数列可以看做特殊的函数.
@@ -56,25 +43,13 @@ $$
 
 **定理 1**. 设$K$是某一有限个正整数的集合, 我们有如下的三条规则:
 
--   常数项进出求和记号: 
-$$
-\sum_{k \in k} c f(k)=c \sum_{k \in k} f(k);
-$$
-
+-   常数项进出求和记号: $$\sum_{k \in k} c f(k)=c \sum_{k \in k} f(k);$$
 
 -   求和记号的拆分:
-    
-$$
-\sum_{k \in K} f(k) g(k)=\sum_{k \in K} f(k)+\sum_{k \in K} g(k);
-$$
-
+    $$\sum_{k \in K} f(k) g(k)=\sum_{k \in K} f(k)+\sum_{k \in K} g(k);$$
 
 -   若$p(k)$应用于$K$中的每一个元素之后组成的集合依然是$K$的一个排列,
-    那么
-$$
-\sum_{k \in K} f(k)=\sum_{p(k) \in K} f(p(k)).
-$$
-
+    那么$$\sum_{k \in K} f(k)=\sum_{p(k) \in K} f(p(k)).$$
 
 上述定理的证明可以直接由定义得到.
 
@@ -82,11 +57,7 @@ $$
 $p(-1)=1, p(0)=0$,$p(1)=-1 , p$ 对 $k$ 中每一个元素构成集合为
 $\{-1,0,1\}=K$.
 
-**例子 4** (等差数列求和). 求 
-$$
-S=\sum_{0 \leq k \leq n}(a+b k)
-$$
-的值.
+**例子 4** (等差数列求和). 求 $$S=\sum_{0 \leq k \leq n}(a+b k)$$的值.
 
 考虑 $$\begin{aligned}
              & S_2=\sum_{0 \leq k \leq n}(a+b k)                                                           \\
@@ -100,11 +71,7 @@ $$\begin{aligned}
                       & =\sum_{0 \leq k \leq n}(2 a+b n)=(2 a+b n) \sum_{0 \leq k \leq n} 1=(2 a+b n)(n+1)
         \end{aligned}$$
 
-那 
-$$
-S=\frac{(n+1)(2 a+b n)}{2}.
-$$
-
+那 $$S=\frac{(n+1)(2 a+b n)}{2}.$$
 
 ## Iverson括号
 
@@ -128,18 +95,10 @@ $$\begin{aligned}
         \end{aligned}$$
 
 **例子 6**. 如果$K$与$K'$是两个整数集合, 那么$\forall k$,
-
-$$
-[k \in K]+\left[k \in K^{\prime}\right]=\left[k \in\left(K \cap K^{\prime}\right)\right]+\left[k \in\left(K \cup K^{\prime}\right)\right]
-$$
-
+$$[k \in K]+\left[k \in K^{\prime}\right]=\left[k \in\left(K \cap K^{\prime}\right)\right]+\left[k \in\left(K \cup K^{\prime}\right)\right]$$
 
 由此可以导出对应的和式
-
-$$
-\sum_{k \in k} a_k+\sum_{k \in k^{\prime}} a_k=\sum_{k \in k \cap k^{\prime}} a_k+\sum_{k \in k U k^{\prime}} a_k
-$$
-
+$$\sum_{k \in k} a_k+\sum_{k \in k^{\prime}} a_k=\sum_{k \in k \cap k^{\prime}} a_k+\sum_{k \in k U k^{\prime}} a_k$$
 
 这是一个很有用的命题. 下面我们会看到它的用途.
 
@@ -160,11 +119,12 @@ $k , k^{\prime}$ 为可数集, $\forall k$.
 
 **命题 3**. 扰动法是指
 
-$$\begin{align*}
-            \boxed{S_{n}+a_{n+1}}=\sum_{0\leq k\leq n+1}a_{k} & =a_{0}+\sum_{1\leq k\leq n+1}a_{k}                        \\
-                                                              & \stackrel{k:=k+1}{\stackrel{\rule{0.9cm}{0.4pt}}{\rule{0.9cm}{0.4pt}}}a_{0}+\sum_{1\leq k+1\leq n+1}a_{k} \\
-                                                              & \boxed{=a_{0}+\sum_{0\leq k\leq n}a_{k}}
-        \end{align*}$$
+$$\begin{aligned}
+        \boxed{S_{n}+a_{n+1}}=\sum_{0\leq k\leq n+1}a_{k} & =a_{0}+\sum_{1\leq k\leq n+1}a_{k}                        \\
+                                                          & \stackrel{k:=k+1}{\stackrel{\rule{0.9cm}{0.4pt}}{\rule{0.9cm}{0.4pt}}}a_{0}+\sum_{1\leq k+1\leq n+1}a_{k} \\
+                                                          & \boxed{=a_{0}+\sum_{0\leq k\leq n}a_{k}}
+    
+\end{aligned}$$
 
 **例子 7**. 用上述的方法计算等比数列.
 $S_n=\sum_{0 \leq k \leq n} a x^k$. $$\begin{aligned}
@@ -173,18 +133,10 @@ $S_n=\sum_{0 \leq k \leq n} a x^k$. $$\begin{aligned}
                           & =a x^0+x S_n
         \end{aligned}$$
 
-对于$x\neq 1$, 有 
-$$
-S_n=\sum_{k\neq 1}^n a x^k=\frac{a-a x^{n+1}}{1-x}
-$$
-
+对于$x\neq 1$, 有 $$S_n=\sum_{k\neq 1}^n a x^k=\frac{a-a x^{n+1}}{1-x}$$
 
 **例子 8** (等差数列乘等比数列). 计算
-
-$$
-S_n=\sum_{0 \leq k \leq n} k \cdot 2^k.
-$$
-
+$$S_n=\sum_{0 \leq k \leq n} k \cdot 2^k.$$
 
 按照上面的方法, $$\begin{aligned}
             S_n+(n+1) 2^{n+1} & =0+\sum_{0 \leq k \leq n}(k+1) 2^{k+1}                                    \\
@@ -194,11 +146,7 @@ $$
 
 解出 $S_n$, 就是
 
-
-$$
-S_n=\sum_{0 \leq k \leq n} k 2^k=(n-1) 2^{n+1}+2 \text {. }
-$$
-
+$$S_n=\sum_{0 \leq k \leq n} k 2^k=(n-1) 2^{n+1}+2 \text {. }$$
 
 **例子 9**. 从上面的推导中,
 我们知道$\sum_{k=0}^n x^k=\frac{1-x^{n-1}}{1-x}$ , 两边对 $x$ 求导, 就有
@@ -214,11 +162,7 @@ $$\begin{aligned}
 **例子 10**. 由递推关系 $$\begin{aligned}
              & T_0=0           \\
              & T_n=2 T_{n-1}+1
-        \end{aligned}
-$$
- 倘若两端同时除以$2^n$, 就得到 
-$$
-\begin{aligned}
+        \end{aligned}$$ 倘若两端同时除以$2^n$, 就得到 $$\begin{aligned}
              & T_0 / 2^0=0                         \\
              & T_n / 2^n=T_{n-1} / 2^{n-1}+1 / 2^n
         \end{aligned}$$ 令 $S=T_n / 2^n$ ,得
@@ -230,19 +174,11 @@ $S_n=S_{n-1}+ S_n c_n$的形式.
 
 $1^\circ$ 方法: 使两边同时乘以求和因子 $S_n$:
 
-
-$$
-\underbrace{\boxed{s_{n}a_{n}T_{n}}}_{:=S_{n}}=\underbrace{S_{n}b_{n}T_{n-1}}_{\text{必须得是}S_{n-1}=S_{n-1}a_{n-1}T_{n-1}}+S_{n}c_{n}
-$$
-
+$$\underbrace{\boxed{s_{n}a_{n}T_{n}}}_{:=S_{n}}=\underbrace{S_{n}b_{n}T_{n-1}}_{\text{必须得是}S_{n-1}=S_{n-1}a_{n-1}T_{n-1}}+S_{n}c_{n}$$
 由此
 $S_n=S_0 a_0 \cdot T_0+\sum_{k=1}^n S_k c_k=S_1 b_1 T_0+\sum_{k=1}^n S_k c_k$
 ,
-那么
-$$
-T_n=\frac{1}{S_n a_n}\left(S_1 b_1 T_0+\sum_{k=1}^n S_k c_k\right)
-$$
-.
+那么$$T_n=\frac{1}{S_n a_n}\left(S_1 b_1 T_0+\sum_{k=1}^n S_k c_k\right)$$.
 
 $2^\circ$ 寻找$S_n$的方法:
 由于上式要满足$S_n b_n T_{n-1}=S_{n-1} a_{n-1} T_{n-1}$, 代入展开, 有
@@ -263,17 +199,9 @@ $$\begin{aligned}
         \end{aligned}$$
 
 将 $C_n$ 两侧同乘以 $n$, 得
+$$n C_n=n^2+n+2 \sum_{k=0}^{n-1} C_k \quad(n>0).$$
 
-$$
-n C_n=n^2+n+2 \sum_{k=0}^{n-1} C_k \quad(n>0).
-$$
-
-
-令 $n:=n-1$, 有 
-$$
-(n-1) C_{n-1}=(n-1)^2+(n-1)+2 \sum_{k=0}^{n-2} c_k.
-$$
-
+令 $n:=n-1$, 有 $$(n-1) C_{n-1}=(n-1)^2+(n-1)+2 \sum_{k=0}^{n-2} c_k.$$
 
 上面两式相减, 有$n C_n-(n-1) C_{n-1}=2 n+2 C_{n-1}$, 即
 
@@ -285,8 +213,360 @@ $$\begin{aligned}
 将上述 $a_n=n, b_n=n+1, c_n=2 n$, 得
 $s=\frac{(n-1) \cdots 1}{(n+1) \cdots 3}=\frac{2}{n(n+1)}$.
 
-得 
-$$
-C_n=2(n+1) \sum_{k=1}^n \frac{1}{k+1}=2(n+1) H_{n+1}.
-$$
+得 $$C_n=2(n+1) \sum_{k=1}^n \frac{1}{k+1}=2(n+1) H_{n+1}.$$
 
+# 多重和式
+
+## 引例与启发性讨论
+
+考虑
+
+$$\begin{aligned}
+        \sum_{1 \leqslant j, k \leqslant 3} a_j b_k= & a_1 b_1+a_1 b_2+a_1 b_3    \\
+                                                     & +a_1 b_1+a_2 b_2+a_2 b_3   \\
+                                                     & +a_3 b_1+a_3 b_2+a_3 b_3 .
+    \end{aligned}$$
+
+其中$j,k$是两个指标.
+
+如果$P(j,k)$是关于$j,k$的性质,
+那么$\sum_{P(j, k)} a_{j, k}=\sum a_{j, k}[P(j, k)]$,
+有时候也写作$\sum_j\left(\sum_k a_{j, k}[P(j, k)]\right)$,
+可以简写做作$\sum_j \sum_k a_{j, k}[P(j, k)]$.
+
+**命题 4**. 如果$k$的表示不依赖于$j$的话, 那么
+$$\sum_j \sum_k a_{j, k}[P(i, k)]=\sum_k \sum_j a_{j, k}[P(j, k)]$$
+
+**例子 12**. 上述的考量最简单的情形如下: $$\begin{aligned}
+            \sum_{1 \leqslant j \leqslant 2} \sum_{1 \leqslant k \leqslant 2} a_{j, k} & =a_{1,1}+a_{1,2}+a_{2,1}+a_{2,2}                                                                              \\
+                                                                                       & =a_{2,1}+a_{2,1}+a_{1,2}+a_{2,2}=\sum_{1 \leqslant k \leqslant 2} \sum_{1 \leqslant j \leqslant 2} a_{j, k} .
+        \end{aligned}$$
+
+**命题 5** (一般分配率). 对于任意的整数集合$J,K$有
+$$\sum_{\substack{j \in J \\ k \in K}} a_j b_k=\left(\sum_{j \in J} a_j\right)\left(\sum_{k \in K} b_k\right) .$$
+
+**注:**
+
+这里$J$和$K$集合要不依赖对方就能确定. 例如,
+$$\sum_{i=1}^n \sum_{j=i}^m f(i, j)$$ 就无法使用这个方式.
+
+*Proof.* 我们可以考虑 $$\begin{aligned}
+             & \left(\sum_{j \in J} a_j\right)\left(\sum_{k \in k} b_k\right)=\sum_j a_j[j \in J] \quad \sum_{k \in k} b_k[k \in K] \\
+             & =\sum_j a_j[j \in J]\left(\sum_k b_k[k \in k]\right)                                                                 \\
+             & \stackrel{j \mp k \text { 独立 }}{\stackrel{\rule{1.5cm}{0.4pt}}{\rule{1.5cm}{0.4pt}}} \sum_j \sum_k a_j b_k[j \in J][k \in k]                                         \\
+             & =\sum_j \sum_k a_j b_k[j \in J ,k \in K] .                                                                           \\
+             &
+        \end{aligned}$$ ◻
+
+**例子 13**. 例如,
+$$\sum_{1 \leqslant j, k \leqslant 3} a_j b_k=\left(\sum_{j=1}^3 a_j\right)\left(\sum_{k=1}^3 b_k\right)$$
+
+请再次注意这里的$k$的取值构成何种集合与$j$无关. 与这个例子相对,
+$\sum_{i=1}^n \sum_{j=i}^m f(i, j)$就不适用这个规则.
+因为$i\leq j\leq m$表示什么集合与$i$的值有关.
+
+下面我们来看相互依赖的集合的情形.
+
+**命题 6**. 对于依赖于$j$取值的集合$K(j),j\in J$,
+可以按照如下的方式进行交换求和记号,
+$$\sum_{j \in J} \sum_{k \in K(j)} a_{j, k}=\sum_{k \in K^{\prime}} \sum_{j \in J^{\prime}(k)} a_{j, k}$$
+满足$[j \in J][k \in K(j)]=\left[k \in K^{\prime}\right]\left[j \in J^{\prime}(k)\right]$.
+
+**注:**
+
+可以把这个与交换二重积分次序相联系起来.
+例如对于区域$D:0\leq x\leq 1, 0\leq y\leq x$的区域积分, 可以写作
+
+$$\begin{aligned}
+            \iint_D f(x, y) d x d y & =\int_0^1 d x \int_0^x f(x, y) d y   & \text { (从下向上) } \\
+                                    & =\int_0^1 d y \int_x^1 f(x, y) d x . & \text { (从左向右) }
+        \end{aligned}$$
+
+命题中表述的事实是保证每个元素都计算了且仅仅被计算了一次.
+
+**推论 7**. 类似上面举例的二重积分更换$x,y$, 有 $$\begin{aligned}
+            {[1 \leqslant j \leqslant n][1 \leqslant k \leqslant n] } & =[1 \leqslant j \leqslant k \leqslant n]                \\
+                                                                      & =[1 \leqslant k \leqslant n][1 \leqslant j \leqslant k]
+        \end{aligned}$$
+
+**例子 14**. 根据上述推论,
+$$\sum_{j=1}^n \sum_{k=j}^n a_{j, k}=\sum_{1 \leqslant j \leqslant k \leqslant n} a_{j, k}=\sum_{k=1}^n \sum_{j=1}^k a_{j, k} .$$
+
+**例子 15**. 给出矩阵 $$\left[\begin{array}{cccc}
+                a_1 a_1 & a_1 a_2 & \cdots & a_1 a_n \\
+                a_2 a_1 &         &        &         \\
+                \vdots  &         & \ddots &         \\
+                a_n a_1 &         &        & a_n a_n
+            \end{array}\right]$$ 求
+$$S_{\overline\backslash|}=\sum_{1 \leqslant j \leqslant k \leqslant n} a_j a_k$$
+
+由于该矩阵是对称的, 即$a_i a_j=a_j a_i$,
+$S_{\overline\backslash|} \approx \frac{1}{2} S_{\square}$, 那么
+$$S_{\overline\backslash|}=\sum_{1 \leq j \leq k \leqslant n} a_j a_k=\sum_{1 \leqslant j \leqslant k \leqslant n} a_k a_j\stackrel{\text{对换}j,k}{\stackrel{\rule{1.0cm}{0.4pt}}{\rule{1.0cm}{0.4pt}}}\sum_{l \leqslant k \leqslant j \leqslant n} a_j a_k=S_{\underline/|}$$
+
+根据
+$\left[k \in k^{\prime}\right]+[k \in k]=\left[k \in\left(k \cap k^{\prime}\right)\right]+\left[k \in\left(k \cup K^{\prime}\right)\right]$,
+就有
+$$[1 \leqslant j \leqslant k \leqslant n]+[1 \leqslant k \leqslant j \leqslant n]=[1 \leqslant j, k \leqslant n]+[1 \leqslant j=k \leqslant n] .$$
+所以 $$\begin{aligned}
+            2 S_{\overline\backslash|}=S_{\overline\backslash|}+S_{\underline/|} & =\sum_{1 \leqslant i, k \leqslant n} a_j a_k+\sum_{1 \leqslant j=k \leqslant n} a_j a_k \\
+                                         & =\left(\sum_{k=1}^n a_k\right)^2+\sum_{k=1}^n a_k^2
+        \end{aligned}$$ 那么
+$$S_{\overline\backslash|}=\frac{1}{2}\left(\left(\sum_{k=1}^n a_k\right)^2+\sum_{k=1}^n a_k^2\right).$$
+
+**例子 16**. 求解
+$$S=\sum_{1 \leqslant j<k \leqslant n}\left(a_k-a_j\right)\left(b_k-b_j\right).$$
+注意到$i,j$的对称性, 将$i,j$对换得:
+$$S=\sum_{1 \leqslant k<j \leqslant n}\left(a_j-a_k\right)\left(b_j-b_k\right)=\sum_{1 \leqslant k<j \leqslant n}\left(a_k-a_j\right)\left(b_k-b_j\right)$$
+由于
+$$[1 \leqslant j<k \leqslant n]+[1 \leqslant k<j \leqslant n]=[1 \leqslant j, k \leqslant n]-[1 \leqslant j=k \leqslant n]$$
+因此 $$\begin{aligned}
+            2 S & =\sum_{1 \leqslant j, k \leqslant n}\left(a_j-a_k\right)\left(b_j-b_k\right)-\sum_{1 \leqslant j=k \leqslant n}\left(a_j-a_k\right)\left(b_j-b_k\right) .                    \\
+                & =\sum_{1 \leqslant j \leqslant k \leqslant n}\left(a_j-a_k\right)\left(b_j-b_k\right)-0 .                                                                                    \\
+                & = \boxed{\sum_{1 \leq j, k \leqslant n} a_j b_j}-\sum_{1 \leq j, k \leq n} a_j b_k-\sum_{1 \leq j, k \leqslant n} a_k b_j+\boxed{\sum_{1\leqslant j, k \leqslant n} a_k b_k} \\
+                & = \boxed{2 n \sum_{1 \leqslant k \leqslant n} a_k b_k}-2\left(\sum_{k=1}^n a_k\right)\left(\sum_{k=1}^n b_k\right) .
+        \end{aligned}$$
+
+那么
+$$S=n \sum_{1 \leqslant k \leqslant n} a_k b_k-\left(\sum_{k=1}^n a_k\right)\left(\sum_{k=1}^n b_k\right) .$$
+
+我们便得到
+$$\left(\sum_{k=1}^n a_k\right)\left(\sum_{k=1}^n b_k\right)=n \sum_{k=1}^n a_k b_k-\sum_{1 \leqslant j<k \leqslant n}\left(a_k-a_j\right)\left(b_k-b_j\right)$$
+这是Chebyshev单调不等式的特例.
+
+Chebyshev单调不等式是说,
+如果$a_1 \leqslant a_2 \leqslant \cdots \leqslant a_n, b_n \leqslant b_2 \leqslant \cdots \leqslant b_n$,
+那么
+$$\left(\sum_{k=1}^n a_k\right)\left(\sum_{k=1}^n b_k\right) \leqslant n \sum_{i=1}^n a_k b_k$$
+反之亦然.
+
+## 与一重求和中第三条的联系
+
+回顾[1](#thm:sum-prop){reference-type="ref"
+reference="thm:sum-prop"}中的第三条($\sum_{k \in K} a_k=\sum_{p(k) \in K} a_{p(k)}$,
+$p(k)$是一个原集合的排列). 如果现在将$k$换做$f(j)$,
+其中$f$是一个$J\to K$的映射, 那么
+$$\sum_{j \in J} a_{f(j)}=\sum_{k \in K} a_k \# f^{-}(k) .$$
+其中$f^{-}(k)=\{j \mid f(j)=k\}$, $\#S$是集合$S$的元素个数. 通俗地说,
+就是对 $j \in J ,\quad f(j)=k$ 的数量.
+
+*Proof.* 直接展开:
+$$\begin{aligned} \sum_{j \in J} a_{f(j)}=\sum_{\substack{j \in J \\ k \in K}} a_k[f(j)=k] & =\sum_{k \in K} a_k \sum_{j \in J}[f(j)=k] \\ & =\sum_{k \in k} a_k \# f^{-}(k) .\end{aligned}$$ ◻
+
+**例子 17**. 若$f$是一个一对一的函数, 那么$\# f^{-}(k)=1$, 也就是
+$$\sum_{j \in J} a_{f(j)}=\sum_{f(j) \in k} a_{f(j)} \cdot 1=\sum_{k \in k} a_k .$$
+
+**例子 18**. 求算
+$$S_n=\sum_{1 \leqslant j<k \leqslant n} \frac{1}{k-j}$$
+
+$$\begin{aligned}
+            S_n & =\sum_{1 \leqslant k \leqslant n} \sum_{1 \leqslant j \leqslant k} \frac{1}{k-j}             \\
+                & \stackrel{j:=k-j}{\stackrel{\rule{0.7cm}{0.4pt}}{\rule{0.7cm}{0.4pt}}} \sum_{1 \leqslant k \leqslant n} \sum_{1 \leqslant k-j<k} \frac{1}{j} \\
+                & =\sum_{1 \leqslant j \leqslant n} \sum_{0<j \leqslant k-1} \frac{1}{j}                       \\
+                & =\sum_{1 \leqslant k \leqslant n} H_{k-1}                                                    \\
+                & \stackrel{k :=k+1}{\stackrel{\rule{0.7cm}{0.4pt}}{\rule{0.7cm}{0.4pt}}} \sum_{0 \leqslant k<n} H_k
+        \end{aligned}$$
+
+如果在换元之前进行代换, 就有 $$\begin{aligned}
+            S_n & =\sum_{1 \leqslant j<k \leqslant n} \frac{1}{k-j} \stackrel{k:=k+j}{\stackrel{\rule{0.7cm}{0.4pt}}{\rule{0.7cm}{0.4pt}}} \sum_{1 \leqslant j \leqslant k+j \leqslant n} \frac{1}{k}=\sum_{1 \leqslant k \leqslant n} \sum_{1 \leqslant j \leqslant n-k} \frac{1}{k} \\
+                & =\sum_{1 \leqslant k \leqslant n} \frac{n-k}{k}=\sum_{1 \leqslant k \leqslant n} \frac{n}{k}-\sum_{1 \leqslant k \leqslant n} 1                                                                                     \\
+                & =n\left(\sum_{1 \leqslant k \leqslant n} \frac{1}{k}\right)-n=n H_k-n .
+        \end{aligned}$$
+
+# 差分与微分、求和与积分
+
+本节的目标是, 是不是有这样的一种记号,
+使得我们可以使用类似于积分的方式记录求和?
+是否能够像不定积分那样引申出"不定求和"?
+
+## 回忆: 微分与差分
+
+数学分析中我们定义过微分算子
+$$\mathscr D f(x)=\frac{d f(x)}{d x}=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h} .$$
+
+同样的可以定义差分算子.
+
+**定义 3** (差分). 对于一个数列, 定义其差分算子$\Delta f(x)$为
+$$\Delta f(x):=f(x+1)-f(x) .$$
+
+**注:**
+
+1.  实际上这是极限定义中, $h=1$的特例.
+
+2.  算子作用在函数上, 给出新的函数. 其本质就是从函数到函数的映射.
+    例如在多项式上面求导算子给出的实际上是映射
+    $$\mathbb P [x]_n\stackrel{\mathscr D}{\longrightarrow} \mathbb P[x]_{n-1}.$$
+
+**例子 19**. 回忆$\mathscr D x^m=m x^{m-1}$, 其中$m$是给定的数,
+$x$是变元.
+
+如果对它施以差分算子, 得到$\Delta x^3=(x+1)^3-x^3=3 x^2+3 x+1$.
+这表明求导算子和差分算子他们之间的性质有所不同. 接下来考察特殊的多项式,
+使得差分算子得到类似的结构.
+
+**例子 20** (下降幂). 如果我们求
+$$\Delta \underbrace{x(x-1) \cdots(x-m+1)}_{m \text { 项 }})$$ 就会得到
+$$\begin{aligned}
+             & \Delta(\underbrace{(x(x-1) \cdots(x-m+1))}_{m \text { 项 }} \\
+             & =(x+1) x \cdots(x-m+2)-x(x-1) \cdots(x-m+1)                \\
+             & =\underbrace{m(x-1) \cdots(x-m+2)}_{m-1 \text { 项 }}
+        \end{aligned}$$
+说明$\Delta$算子在上述的多项式上面作用有与求导算子在$x^m$次多项式有类似的效果.
+
+我们先定义 $$\underbrace{x(x-1) \cdots(x-m+1)}_{m \text { 项 }}$$
+为$x$的$m$次下降幂. 记作$x^{\underline m}$
+
+**命题 8**. 由于上面的性质, 注意到
+$$\Delta x^{\underline{m}}=m x^{\underline{m-1}} \text {. }$$
+
+我们发现, $\mathscr D$ 有逆运算$\int$,
+意味着$\int \cdot \mathscr D=\text{id}$. 并且微积分基本定理告诉我们:
+$$g(x)=\mathscr D f(x) \Leftrightarrow \int g(x) d x=f(x)+C .$$
+
+**定理 9** (差分基本定理). 对于差分而言,
+$$g(x)=\Delta f(x) \Leftrightarrow \sum g(x) \delta x=f(x)+C .$$
+这里$\sum g(x) \delta x$是$g(x)$的不定和式, 是差分等于$f(x)$的函数类.
+其中$C$是满足$p(x+1)=p(x)$的任意一个函数$p(x)$.
+
+正如微积分中有定积分这件事情, 有限和式也可以仿照写作"定和式". 仿照
+$\int_a^b g(x) d x=[f(x)]_a^b=f(b)-f(a)$. 我们给出下面的定义.
+
+**定义 4** (定和式). 定义
+$$\sum_a^b g(x) \delta x=[f(x)]_a^b=f(b)-f(a) .$$
+如果$g(x)=\Delta f(x) .$
+
+**命题 10**. 对于这样的一个和式, 有
+$$\sum_a^b g(x) \delta x=\sum_{k=a}^{b-1} g(k)=\sum_{a \leq k<b} g(k) .$$
+
+*Proof.* 若 $b=a , \quad \sum_a^a g(x) \delta x=f(a)-f(a)=0$ ; 若
+$b:=a+1, \quad \sum_a^b g(x) \delta x=f(a+1)-f(a)=g(a)$. 若 $b:=b+1$,
+$$\begin{aligned}
+            \sum_a^{b+1} g(x) \delta x-\sum_a^b g(x) \delta x & =(f(b+1)-f(a))-(f(b)-f(a)) \\
+                                                              & =f(b+1)-f(b)=g(b) .
+        \end{aligned}$$ 根据数学归纳法可以证明. ◻
+
+*Proof.* 另外的证明: 考虑裂项(伸缩法, telescoping) $$\begin{aligned}
+            \sum_{a \leq k<b} f(k+1)-f(k)= & (f(a-1)-f(a))+(f(a+2)-f(a+1))+\cdots \\
+                                           & +(f(b)-f(b-1))                       \\
+            =                              & f(b)-f(a) .
+        \end{aligned}$$ ◻
+
+**命题 11**. 像定积分那样, 不定求和有
+$$\sum_a^b g(x) \delta x=-\sum_b^a g(x) \delta x .$$
+
+*Proof.* 实际上 $$f(b)-f(a)=-(f(a)-f(b))=-\sum_b^a g(x) \delta x .$$ ◻
+
+**命题 12**. 像定积分那样, 不定求和有
+$$\sum_a^b g(x) \delta x+\sum_b^c g(x) \delta x=\sum_a^c g(x) \delta x .$$
+
+## 带来的好处: 有限微积分
+
+### 下降幂
+
+下面给$m<0$的时候下降幂给出定义. 观察
+
+$$\begin{array}{ll}
+        x^3=x(x-1)(x-2)             & \text { 除以 } x-2   \\
+        x^2=x(x-1)                  & \text { 除以 } x-1   \\
+        x^2=x                       & \text { 除以 } x     \\
+        x^{-0}=1                    & \text { 除以 } x+1   \\
+        x^{-1}=\frac{1}{x+1}        & \text { 除以 } x+2 . \\
+        x^{-2}=\frac{1}{(x+1)(x+2)} &
+    \end{array}$$
+
+**定义 5** (下降幂). 我们定义
+$$\underbrace{x(x-1) \cdots(x-m+1)}_{m \text { 项 }}$$
+为$x$的$m$次下降幂. 记作$x^{\underline m}$.
+
+如果$m>0$, $$m>0, x^{\underline{-m}}=\frac{1}{(x+1) \cdots(x+m)}$$
+
+像这样的扩展定义仍然保留了对应的性质.
+
+**命题 13** (下降幂的性质).
+$$\forall m, n \in \mathbb{Z}, \quad x^{m+n}=x^m x^n .$$
+
+**命题 14** (下降幂的满足差分的性质).
+若$m>0, \Delta x^{\frac{-m}{n}}=-m x^{-m-1}$.
+
+因此可得, 对于下降幂, 有
+$$\sum_a^b x^m \delta x=\left[\frac{x^{m+1}}{m+1}\right]_a^b \quad m \neq-1 .$$
+
+### 调和级数
+
+根据上述的描述, 如果
+$m=-1 ， \quad x^{-1}=\frac{1}{x+1}=\Delta f(x)=f(x+1)-f(x)$. 若
+$x \in \mathbb{Z} ， f(x)=\frac{1}{1}+\frac{1}{2}+\cdots+\frac{1}{x}=H_n$.
+所以
+
+**命题 15**. 类似与积分的情形,
+$$\sum_a^b x^m \delta x=\left\{\begin{array}{cl}
+            {\left[\frac{x^{m+1}}{m+1}\right]_a^b} & , m \neq-1 \\
+            {\left[H_x\right]_a^b,}                & m=1
+        \end{array}\right.$$
+
+### 指数函数的类似物
+
+由于 $\mathscr D e^x=e^x$, 希望找一个 $\Delta f(x)=f(x)$. 实际上,
+$$\begin{aligned}
+         & f(x+1)-f(x)=f(x) \Leftrightarrow f(x+1)=2 f(x), \text { 即 } \\
+         & f(x)=2^x .
+    \end{aligned}$$
+
+对于 $\Delta c^x=c^{x+1}-c^x=(c-1) c^x$. 老 $c \neq 1$ ，那
+
+**命题 16**. 等比数列的求和
+$$\sum_{a \leqslant k<b}=\sum_a^b c^x \delta x=\left[\frac{c^x}{c-1}\right]_a^b=\frac{c^b-c^a}{c-1}.$$
+
+### 差分表和加法, 乘法的差分
+
+我们希望得到如下的差分表: $$\begin{array}{|ll|}
+        \hline  f=\sum g       & \boxed{\Delta f}=g .                 \\
+        \hline x^{\frac{m}{m}} & m x^{\frac{m-1}{}}                   \\
+        2^x                    & 2^x                                  \\
+        c^x                    & (c-1) c^x                            \\
+        \hline c \cdot u       & c \cdot \Delta u                     \\
+        u+v                    & \Delta u+\Delta v                    \\
+        u v                    & u \Delta v+E v \Delta u\text{ (见下文)} \\
+        \hline
+    \end{array}$$
+
+具体地, 我们需要看加法, 乘法的情形下, 差分的变化. 注意,
+复合函数差分在离散的情形没有很好的对应物.
+
+## 分部求和法
+
+注意到 $$\begin{aligned}
+         & \Delta(u(x) v(x))= u(x+1) v(x+1)-u(x) v(x) \\
+         & = u(x+1) v(x+1)-u(x) v(x+1)                \\
+         & +u(x) v(x+1)-u(x) v(x)                     \\
+         & =u(x) \Delta v(x)+v(x+1) \Delta u(x)
+    \end{aligned}$$
+
+若定义$E f(x):=f(x+1)$, 那么
+$$\Delta(u v)=u \Delta v+(E v) \Delta u \text {. }$$ 此时,
+对两边同时取$\sum$, 有 $$\sum u \Delta v=u v-\sum(E \eta) \Delta u .$$
+
+**注:**
+
+实际上, 这个还有另一种选择方式, 如 $$\begin{aligned}
+            \Delta(u v) & =u \Delta v+E v \Delta u \\
+                        & =E u \Delta v+v \Delta u
+        \end{aligned}$$ 两种形式都是正确的, 因此左右是对称的.
+
+**例子 21**. 仿照 $\int x e^x d x$ ， 求 $\sum x 2^x \delta x$
+$$\begin{aligned} \sum x\boxed{2^x} \delta x=\sum x \delta\left(2^x\right) & =x 2^x-\sum 2^{\boxed{x+1}} \delta x \\ & =x 2^x-2^{x+1}+c .\end{aligned}$$
+那么 $$\begin{aligned}
+            \sum_{k=0}^n k 2^k & =\sum_0^{n+1} x 2^x \delta x=\left[x 2^x-2^{x+1}\right]_0^{n+1} \\
+                               & =(n-1) 2^{n+1}+2 .
+        \end{aligned}$$
+
+**例子 22**. 仿照$\int x \ln x d x$, 求 $\sum k H_k \delta k$,
+$$\begin{aligned}
+            \sum \boxed{x} H_x \delta x & = \sum H_x \delta\left(\frac{x^{\underline{2}}}{2}\right)                                \\
+                                        & = \frac{x^2}{2} H_x - \sum \frac{(x+1)^{\underline{2}}}{{2}} x^{\underline{-1}} \delta x \\
+                                        & = \frac{x^2}{2} H_x - \frac{1}{2} \sum x^{\underline{1}} \delta x                        \\
+                                        & = \frac{x^2}{2} H_x - \frac{x^2}{4} + C.
+        \end{aligned}$$
+
+那么
+$$\sum_{0 \leqslant k<n} k H_k=\left[\frac{x^2}{2} H_x-\frac{x^2}{4}+C\right]_0^n=\frac{n^{\underline{2}}}{2}\left(H_n-\frac{1}{2}\right) .$$
