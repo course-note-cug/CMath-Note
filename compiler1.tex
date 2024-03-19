@@ -1,0 +1,238 @@
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\input{include.tex}
+\input{ncmd.tex}
+
+\begin{document}
+
+\section{词法分析}
+
+\subsection{语言}
+
+语言是字符串的集合. 
+
+\begin{definition}[字母表]
+    字母表 $\Sigma$ 是一个有限的符号集合. 
+\end{definition}
+
+现在, 符号没有任何的含义. 符号是什么意思是语义干的事情. 
+
+\begin{definition}[字母表]
+    字母表 $\Sigma$ 上的串 $(s)$ 是由 $\Sigma$ 中符号构成的一个有穷序列.
+\end{definition}
+
+其中特殊的串是空串, $|\epsilon|=0$
+
+\begin{definition}[串上的连接运算]
+    例如$x=\operatorname{dog}, y=$ house $\quad x y=$ doghouse, $s \epsilon=\epsilon S=s$
+\end{definition}
+
+\begin{definition}[串上的指数运算]
+    $$
+\begin{aligned}
+&s^0 \triangleq \epsilon\\
+&s^i \triangleq s s^{i-1}, i>0
+\end{aligned}
+$$
+\end{definition}
+
+\begin{definition}
+    语言是给定字母表 $\Sigma$ 上一个任意的可数的串集合。
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item 注意$\emptyset$和$\{\epsilon\}$. 后者是只有空串的语言. 
+        \item 例如ws : \{blank, tab, newline $\}$
+        \item 这就可以通过集合操作构造新的语言.
+    \end{enumerate}
+    
+\end{remark}
+
+\begin{definition}
+    我们可以通过如下的方式构造新语言.
+
+    $$
+\begin{array}{|c|c|}
+\hline \text { 运算 } & \text { 定义和表示 } \\
+\hline L \text { 和 } M \text { 的并 } & L \cup M :=\{s \mid s \text { 属于 } L \text { 或者 } s \text { 属于 } M\} \\
+\hline L \text { 和 } M \text { 的连接 } & L M:=\{s t \mid s \text { 属于 } L \text { 且 } t \text { 属于 } M\} \\
+\hline L \text { 的 Kleene 闭包 } & L^*:=\cup_{i=0}^{\infty} L^i \\
+\hline L \text { 的正闭包 } & L^{+}:=\cup_{i=1}^{\infty} L^i \\
+\hline
+\end{array}
+$$
+
+\end{definition}
+
+
+
+\begin{remark}
+    $L^*\left(L^{+}\right)$允许我们构造无穷集合
+\end{remark}
+
+\begin{example}
+    假设$L=\{A, B, \ldots, Z, a, b, \ldots, z\} , D=\{0,1, \ldots, 9\}$. 那么
+    \begin{itemize}
+        \item $L \cup D$ = 所有的大小写字母和所有的一位数码构成的集合.
+        \item $|L D|=52\times 10=520$.
+        \item $L^4$ = 所有长度为4的由字母构成的语言的集合.
+        \item $L^*$=所有字母构成的字符串(包含空串)构成的集合. 
+        \item $D^+$ = 所有数字构成的字符串(不包含空串)构成的集合.
+        \item $L(L \cup D)^*$ = 以字母开头, 跟上0个或者若干个字母或者数字的字符串构成的集合. (也就是类似于id). 
+    \end{itemize}
+\end{example}
+
+\subsection{正则表达式} 注意区分语法和语义. 例如正则表达式中, 每个正则表达式 $r$ 对应一个正则语言 $L(r)$. 正则表达式是语法, 正则语言是语义. 
+
+\begin{definition}[正则表达式]
+    给定字母表 $\Sigma, \Sigma$ 上的正则表达式由且仅由以下规则定义:
+\begin{enumerate}
+    \item $\epsilon$ 是正则表达式;
+    \item $\forall a \in \Sigma, a$ 是正则表达式;
+    \item 如果 $r$ 是正则表达式, 则 $(r)$ 是正则表达式;
+    \item 如果 $r$ 与 $s$ 是正则表达式, 则 $\red{r \mid s, r s, r^*}$ 也是正则表达式.
+\end{enumerate}
+运算优先级: ()$\blue{\succ} * \blue{\succ}$ 连接 $\blue{\succ} |$
+\end{definition}
+
+例如
+$$
+(a)\left|\left((b)^*(c)\right) \equiv a\right| b^* c.
+$$
+
+每个正则表达式 $r$ 对应一个正则语言 $L(r)$, 这代表了它的语义. 
+
+\begin{definition}[正则表达式对应的正则语言]
+$$
+\begin{aligned}
+L(\epsilon)&=\{\epsilon\} \\
+L(a)&=\{a\}, \forall a \in \Sigma \\
+L((r))&=L(r) \\
+L(r \mid s)&=L(r) \cup L(s) \quad L(r s)=L(r) L(s) \quad L\left(r^*\right)=(L(r))^*
+\end{aligned}
+$$
+\end{definition}
+
+\begin{example}
+    如果$\Sigma=\{a, b\}$, $L(a \mid b)=\{a, b\}$. 那么
+    \begin{itemize}
+        \item $L\left(a^*\right)=\{\epsilon, a, aa, aaa, \cdots, \}$.
+        \item $L\left((a \mid b)^*\right)$=由$a$和$b$构成的任意长度的字符串(包括空串). 
+        \item $ L\left(a \mid a^* b\right)=\{a, b, a b, a a b,  aaab, \cdots\} $. 
+    \end{itemize}
+\end{example}
+
+实际生活中, 我们的正则表达式的列表如下: 
+
+\begin{tabular}{|c|c|c|}
+    \hline 表达式 & 匹配 & 例子 \\
+    \hline $c$ & 单个非运算符字符 $c$ & $ a  $ \\
+    \hline$\backslash c$ & 字符 $c$ 的字面值 & $\backslash *$ \\
+    \hline$" s$ & 串 $s$ 的字面值 & $" ** "$ \\
+    \hline . & 除换行符以外的任何字符(看环境, ANTLR4中可以匹配换行符) & $a.*b$ \\
+    \hline$\hat{ }$ & 一行的开始 & $\hat{ }abc$ \\
+    \hline$\$$ & 行的结尾 & $a b c \$$ \\
+    \hline$[s]$ & 字符串 $s$ 中的任何一个字符 & {$[\mathrm{abc}]$} \\
+    \hline$[\hat{~}{s}]$ & 不在串 $s$ 中的任何一个字符 & {$\hat{~}[a b c]$} \\
+    \hline$r^*$ & 和 $r$ 匹配的零个或多个串连接成的串 & $a *$ \\
+    \hline$r+$ & 和 $r$ 匹配的一个或多个串连接成的串 & $a+$ \\
+    \hline$r ?$ & 零个或一个 $r$ & $a$ ? \\
+    \hline$r\{m, n\}$ & 最少 $m$ 个, 最多 $n$ 个 $r$ 的重复出现 & $a\{1,5\}$ \\
+    \hline$r_1 r_2$ & $r_1$ 后加上 $r_2$ & $a b$ \\
+    \hline$r_1 \mid r_2$ & $r_1$ 或 $r_2$ & $a \mid b$ \\
+    \hline$(r)$ & 与 $r$ 相同 & $(a \mid b)$ \\
+    \hline$r_1 / r_2$ & 后面跟有 $r_2$ 时的 $r_1$ & $abc / 123$ \\
+    \hline
+    \end{tabular}
+
+    有一些简单记录方法(在Vim中)
+    \begin{itemize}
+        \item $\backslash w$表示所有大小写字母, 数字, 以及下划线
+        \item $\backslash W$表示\red{除去}所有大小写字母, 数字, 以及下划线
+        \item $\backslash d$表示所有数码 
+        \item $\backslash D$表示\red{除去}所有数码 
+    \end{itemize}
+
+    \begin{example}
+        $$
+\left(0 \mid\left(1\left(01^* 0\right)^* 1\right)\right)^*
+$$
+表示的二进制的3的倍数. 可以从\url{regex.com}中观察一些例子. 
+    \end{example}
+
+    接下来介绍自动机. 
+
+    \begin{definition}[NFA]
+        非确定性有穷自动机 $\mathcal{A}$ 是一个五元组 $\mathcal{A}=\left(\Sigma, S, s_0, \delta, F\right)$ :
+        \begin{enumerate}
+            \item 字母表 $\Sigma(\epsilon \notin \Sigma)$;
+            \item 有穷的状态集合 $S$;
+            \item (唯一)的初始状态 $s_0 \in S$;
+            \item 状态转移函数 $\delta$.$$
+            \delta: S \times(\Sigma \cup\{\epsilon\}) \rightarrow 2^S
+            $$
+            \item 接受状态集合 $F \subseteq S$
+        \end{enumerate}
+
+    \end{definition}
+
+    \begin{remark}
+        \begin{enumerate}
+            \item 非确定性指的是其``出路''可能不唯一. 此外, 可以接受空串然后进行转移(称为$\epsilon$转移). 
+            \item 所有没有对应出边的字符默认指向“空状态” $\emptyset$. 此状态无论接受什么字符都到自身. 一旦进入将无法出去.
+        \end{enumerate}
+    \end{remark}
+
+    下面来看NFA的语义. (非确定性) 有穷自动机是一类极其简单的计算装置, 它可以识别 (接受/拒绝) $\Sigma$ 上的字符串. 
+
+    \begin{definition}[接受(Accept)]
+        (非确定性) 有穷自动机 $\mathcal{A}$ 接受字符串 $x$, 当且仅当存在一条从开始状态 $s_0$ 到某个接受状态 $f \in F$ 、标号为 $x$ 的路径.
+    \end{definition}
+
+    因此, $\mathcal{A}$ 定义了一种语言 $L(\mathcal{A})$ : 它能接受的所有字符串构成的集合.
+
+    关于自动机 $\mathcal{A}$ 的两个基本问题:
+    \begin{enumerate}
+        \item Membership 问题: 给定字符串 $x, x \in L(\mathcal{A})$ ?
+        \item $L(\mathcal{A})$ 究竟是什么?
+    \end{enumerate}
+
+    \begin{definition}[DFA]
+        确定性有穷自动机 $\mathcal{A}$ 是一个五元组 $\mathcal{A}=\left(\Sigma, S, s_0, \delta, F\right)$ :
+        \begin{itemize}
+            \item 字母表 $\Sigma(\epsilon \notin \Sigma)$
+            \item 有穷的状态集合 $S$
+            \item 唯一的初始状态 $s_0 \in S$
+            \item 状态转移函数 $\delta$ 
+            $$
+            \delta: S \times \Sigma \rightarrow S
+            $$
+            \item 接受状态集合 $F \subseteq S$
+        \end{itemize} 
+        
+    \end{definition}
+
+    上述约定(所有没有对应出边的字符默认指向一个 “死状态”)同样适用于这里. 
+
+    NFA 简洁易于理解, 便于描述语言 $L(\mathcal{A})$ DFA 易于判断 $x \in L(\mathcal{A})$, 适合产生词法分析器. 下面我们来走$\mathrm{RE} \Longrightarrow \mathrm{NFA} \Longrightarrow \mathrm{DFA} \Longrightarrow$ 词法分析器的流程. 
+
+    \subsubsection{正则表达式到NFA}
+
+    要求$L(N(r))=L(r)$. 可以使用Tompson构造法. 使用四种基础的归纳. 
+        
+    $N(r)$ 的性质以及 Thompson 构造法复杂度分析
+\begin{enumerate}
+    \item  $N(r)$ 的开始状态与接受状态均唯一。
+    \item  开始状态没有人边, 接受状态没有出边。
+    \item  $N(r)$ 的状态数 $|S| \leq 2 \times|r|$ 。
+    \item  每个状态最多有两个 $\epsilon$ - 入边与两个 $\epsilon$-出边。
+    \item  $\forall a \in \Sigma$, 每个状态最多有一个 $a$-人边与一个 $a$-出边。
+    $(|r|: r$ 中运算符与运算分量的总和)
+\end{enumerate}
+
+\subsubsection{从NFA到DFA的转换} 主要思想: 使用DFA模拟NFA. 
+
+
+
+\end{document}
