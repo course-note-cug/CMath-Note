@@ -1,0 +1,74 @@
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\input{../include.tex}
+\input{../ncmd.tex}
+\begin{document}
+
+\section{线性变换的运算}
+
+设 $V$ 是 $P$ 上的线性空间, $\End V$ 是 $V$ 中所有线性变换的集合. 那么, 有
+
+\paragraph{1. 加法} 设$\huaa, \huab \in \End V$, 定义$\huaa, \huab$的和为
+\[
+    (\huaa + \huab)\alpha:=\huaa \alpha+\huab \alpha
+\]
+可以证明$\huaa+\huab \in \End V$.  
+
+\begin{proof}
+    实际上, 对于加法
+    \begin{align*}
+        (\huaa + \huab) (\alpha+\beta) &\varsub{\text{使用定义}}{1.5cm} \huaa (\alpha+\beta)+\huab(\alpha+\beta) \\ 
+                                       &= \huaa \alpha + \huaa \beta + \huab \alpha + \huab \beta \\
+                                       &= (\huaa + \huab )\alpha+(\huaa + \huab)\beta
+    \end{align*}
+    
+    对于数乘
+    \begin{align*}
+        (\huaa + \huab) (k\alpha)&=\huaa (k\alpha)+\huab(k\alpha) \\ 
+                                 &= k\huaa\alpha+k\huaa\alpha \\  
+                                 &= k(\huaa+\huab)\alpha
+    \end{align*}
+这就证明了定理.     
+\end{proof}
+
+\paragraph{2. 数乘} 
+
+
+
+
+\section{不变子空间} 
+
+\subsection{基本的定义}
+
+\begin{definition}[不变子空间]
+    设$V$是$P$上的线性空间, 且$\huaa \in \End V$, $W$是$V$的子空间. 如果任意$\alpha\in V$, 都有$\huaa \alpha\in W$, 则称$W$是$\huaa$的\nwd{不变子空间}. 简称\zkj A. 
+\end{definition}
+
+此时$\huaa$可以看做$W$的线性变换, 因为不会跑到$W$外面去. 把它称作$\huaa$在$W$上的\nwd{限制}. 记作$\huaa |_W$. 并且$\huaa |_W=\huaa (\alpha)\in \End W$
+
+\subsection{不变子空间的性质}
+
+\paragraph{1. 对交与和的封闭性}  $\huaa$-子空间的交与和仍然是\zkj A. 
+
+\paragraph{2. 和基底} 设$W=L(\alpha_1,\alpha_2, \cdots, \alpha_s)$, 则$W$是\zkj A $\iff \huaa \alpha_1\in W,1\leq i\leq n$.
+
+\paragraph{3. 维数定理} 若$\dim V< \infty, \huaa\in \End V$, 则
+\[
+    \dim V = \dim \ker \huaa + R(\huaa).
+\]
+\begin{proof}
+    在$\ker \huaa$中取基底$\alpha_1, \alpha_2, \cdots, \alpha_r$, 然后扩充为$V$的基底$\alpha_1, \alpha_2, \cdots, \alpha_r,\beta_1,\beta_2,\cdots, \beta_s$. 于是, 任意一个$\alpha\in V$都有唯一的分解, 记作
+    \[
+        \alpha=\sum_{r=1}^{r}x_i\alpha_i+\sum_{j=1}^{s}y_j\beta_j
+    \]
+    对左右两边同时施以线性变换$\huaa$, 就得到$\huaa\alpha=0+\sum_{j=1}^{s}y_j\huaa\beta_j$. 因而$\huaa (V)=L(\huaa\beta_1, \huaa\beta_2,\cdots, \huaa\beta_s).$ 
+
+    接下来考虑两个空间的交. 如果$\sum_{j=1}^{s}k_j\huaa\beta_j=0$, 那么一定有$\huaa\left(\sum_{j=1}^{s}k_j\beta_j\right)=0$. 故
+    \[
+        \sum_{j=1}^{s}k_j\beta_j\in \ker \huaa \cup L(\beta_1, \cdots, \beta_n)=\set{0}.
+    \]
+\end{proof}
+
+
+
+\end{document}

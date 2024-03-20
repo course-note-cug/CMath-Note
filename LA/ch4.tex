@@ -1,0 +1,216 @@
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\input{../include.tex}
+\input{../ncmd.tex}
+\begin{document}
+
+\section{子空间}
+
+\subsection{子空间的更多性质}
+
+\paragraph{1. 基的扩充} 设$W$是线性空间$V$的子空间, 则$W$的基底$\alpha_1, \alpha_2,\cdots, \alpha_r$可以扩充为$V$的基底$\alpha_1, \alpha_2,\cdots, \alpha_r,\alpha_{r+1},\cdots, \alpha_n$. 
+这是因为在$V$中取一组基$\vecgrp\beta n$, 根据替换定理, 有$\vecgrp\alpha r,\beta_{j_{r+1}},\cdots, \beta_{j_n}$与$\vecgrp \beta n$等价并且线性无关. 
+
+\paragraph{2. 子空间的交与和} 如果$V_1, V_2, V_3$都是$V$的子空间, 那么对于交运算有
+\begin{itemize}
+    \item 交换律: $V_1\cap V_2 = V_2 \cap V_1$;
+    \item 结合律: $V_1 \cap (V_2 \cap V_3)=(V_1\cap V_2)\cap V_3$;
+    \item 封闭性: $V_1\cap V_2\cap \cdots \cup V_s =\bigcap_{i=1}^s V_i$也是$V$的子空间
+\end{itemize}
+对于和运算有
+\begin{itemize}
+    \item 交换律: $V_1+V_2=V_2+V_1$;
+    \item 结合律: $V_1 + (V_2 + V_3)=(V_1 + V_2)+ V_3$;
+    \item 封闭性: $V_1+V_2+ \cdots + V_s =\sum_{i=1}^s V_i$也是$V$的子空间
+\end{itemize}
+
+\paragraph{3. 子空间的等价条件} 设$V_1, V_2$都是$V$的子空间, 那么下面三个条件是等价的:
+\begin{itemize}
+    \item $V_1\subset V_2$;
+    \item $V_1+V_2=V_2$;
+    \item $V_1\cup V_2=V_1$.
+\end{itemize}
+
+\paragraph{4. 子空间之间的关系} 设$V_1, V_2$都是$V$的子空间, 那么
+\begin{itemize}
+    \item 如果$W\subset V_1, W\subset V_2$, 那么$W \subset V_1 \cap V_2$;
+    \item 如果$W\supset V_1,W\supset V_2$, 那么$W\supset V_1+V_2$. 
+\end{itemize}
+
+\subsection{维数定理}
+
+\begin{theorem}
+    设$V_1,V_2$都是$V$的子空间, 那么有
+    \[
+    \dim(V_{1}\cap V_{2})+\dim(V_{1}+V_{2})=\dim V_{1}+\dim V_{2}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    假设$\dim V_1=s,\dim V_2=t, \dim (V_1\cup V_2)=r$. 先在$V_1 \cap V_2$中取基底$\vecgrp\alpha r$. 然后把它扩充为$V_1$的基底$\vecgrp \alpha r \beta{r+1},\cdots, \beta$. 然后对$\vecgrp\alpha r$又扩充为$V_2$的基底$\vecgrp \alpha r \gamma_{r+1},\cdots, \gamma_t$. 
+
+    因为$\alpha\in V_1+V_2$, 那么有$\beta\in V_1,\gamma\in V_2$, 使得$\alpha=\beta+\gamma$. 由于$\beta,\gamma$可以被上面的两个扩充的基底表示, 自然, $\alpha$可以被$\vecgrp \alpha r, \beta_{r+1},\cdots, \beta_{t},\gamma_{r+1},\cdots, \gamma_t$表示, 也就是
+    \[
+        V_1+V_2=L(\alpha_1,\cdots, \alpha_r, \beta_{r+1},\cdots, \beta_s,\gamma_{r+1},\gamma_t).
+    \]
+
+    设有$x_1, \cdots, x_r, y_{r+1}, \cdots, y_s, z_{r+1},\cdots,z_t\in P$使得
+    \[
+        \sum_{i=1}^{r}x_i\alpha_i + \sum_{j=r+1}^{s} y_j\beta_j + \sum_{k=r+1}^{t}z_k\gamma_k=0
+    \]
+    因此
+    \[
+       \sum_{j=r+1}^{s} y_j\beta_j =- \sum_{i=1}^{r}x_i\alpha_i-  \sum_{k=r+1}^{t}z_k\gamma_k
+    \]
+    由于等式左侧是$V_1$中的元素, 右侧是$V_1\cap V_2$的元素减去$V_2$中的元素, 所以我们断定,  $\sum_{j=r+1}^{s} y_j\beta_j$一定属于$V_1\cap V_2$. 又因为$V_1\cap V_2$的基为$\alpha_1,\cdots, \alpha_r$, 于是一定有
+    \[
+        \sum_{j=r+1}^{s}y_j\beta_j=\sum_{i=1}^{r}x_i'\alpha_i.
+    \]
+    由于$\alpha_1,\cdots, \alpha_r,\beta_{r+1},\cdots, \beta_s$线性无关, 直到
+    \[
+        y_{r+1}=\cdots=y_s=-x_1'=\cdots=-x_r'=0.
+    \]
+    于是
+    \[
+        \sum_{i=1}^{r}x_i\alpha_i+\sum_{k=r+1}^{t}z_k\gamma_k=0.
+    \]
+    因此$\alpha_1,\cdots,\alpha_r,\beta_{r+1}\cdots,\beta_s,\gamma_{r+1},\cdots,\gamma_t$线性无关且为$V_1+V_2$的基. 于是
+    \[
+        \dim (V_1+V_2)=\dim V_1+\dim V_2-\dim(V_1\cap V_2).
+    \]
+\end{proof}
+
+\begin{corollary}
+    如果$\dim V_1+\dim V_2>\dim V$, 那么$V_1\cup V_2 \neq \set{0}$.
+\end{corollary}
+
+\subsection{直和} 
+
+\begin{theorem}[直和的等价定义]
+    设$V_{1},V_{2}$都是$V$的子空间, 则下列条件等价:
+    \begin{enumerate}
+        \item $V_{1}\cap V_{2}=\{0\}$;
+        \item $\dim(V_{1}+V_{2})=\dim V_{1}+\dim V_{2}$;
+        \item $\forall\alpha\in V_{1}+V_{2}$, $\alpha_{1}\in V_{1},\alpha_{2}\in V_{2}$,$\alpha$的分解式唯一. 
+        \item $\beta\in V_1,\gamma\in V_2,\alpha$若$\beta+\gamma=0,$那么$\beta=\gamma=0$.
+    \end{enumerate}
+\end{theorem}
+
+若$V_{1},V_{2}$满足上述五条的任何一条, 则称$V_{1}+V_{2}$是$V_{1}+V_{2}$的直和, 通常记作$V_{1}\oplus V_{2}$.
+
+\begin{proof}
+    $(1)\iff (2)$根据上述定理可知. 
+
+    $(1)\implies (3)$ 设$\alpha=\beta+\gamma=\beta_1+\gamma_1,\beta,\beta_1\in V_1,\gamma,\gamma_1\in V_2$. 两边相减就有
+    \[
+        \beta-\beta_1=\gamma-\gamma_1\in V_1\cap V_2=\set 0.
+    \]
+    由此说明$\beta=\beta_1,\gamma=\gamma_1$, 分解唯一. 
+
+    $(3)\implies (4)$ $0=\beta+\gamma,\beta\in V_1, \gamma\in V_2$, 又因为$0=0+0,0\in V_1,0\in V_2$. 由于分解的唯一性知$\beta=\gamma=0$.
+
+    $(4)\implies (1)$ 设$\beta=V_1\cap V_2$, 因此$-\beta\in V_1\cup V_2$, 而$0=\beta+(-\beta), \beta\in V_1, -\beta\in V_2$, 于是$\beta=-\beta=0$, 因此$V_1\cup V_2=\set 0$. 
+
+
+
+\end{proof}
+
+\begin{definition}[直和]
+    设 $V_1, V_2, \ldots, V_s$ 都是线性空间 $V$ 的子空间. 又 $W=V_1+V_2+\cdots+V_s$. 如果 $\alpha \in W$ 的分解
+$$
+\alpha=\alpha_1+\alpha_2+\cdots+\alpha_s, \alpha_i \in V_i, 1 \leq i \leq s
+$$
+
+是唯一的, 则称 $W$ 是 $V_1, V_2 \ldots, V_s$ 的直和. 记为
+$$
+W=V_1 \oplus V_2 \oplus \cdots \oplus V_s
+$$
+\end{definition}
+
+\begin{theorem}
+     设 $V_1, V_2, \ldots, V_s$ 为线性空间 $V$ 的子空间. 又 $W=$ $V_1+V_2+\cdots+V_s$ 则下面四个条件等价.
+     \begin{enumerate}
+         \item 1) $W=V_1 \dot{+} V_2 \dot{+} \cdots \dot{+} V_s$.
+         \item $\alpha_i \in V_i, 1 \leq i \leq s$, 且 $\sum_{i=1}^s \alpha_i=0$. 则 $\alpha_i=0,1 \leq i \leq s$.
+         \item $V_j \cap \sum_{i \neq j} V_j=(0), 1 \leq i \leq s$.
+         \item  $\operatorname{dim} W=\sum_{i=1}^s \operatorname{dim} V_i$.
+     \end{enumerate}
+\end{theorem}
+
+\section{商空间}
+
+\begin{definition}[商空间]
+设 $V$ 是数域 $P$ 上的线性空间. $W$是 $V$ 的子空间.设 $\alpha, \beta \in V$, 且 $\alpha-\beta \in W$; 则称 $\alpha, \beta$ 模 $W$ 同余, 记为
+$$
+\alpha \equiv \beta(\bmod W) .
+$$
+$$
+\bar{\alpha}=\{\beta\}, \beta \equiv \alpha(\bmod W)\}
+$$
+
+称为 $\alpha$ 模 $W$ 的 同余类. 类中的任一向量称为此类的代表.
+\end{definition}
+
+\begin{example}[多项式同余]
+    对于多项式的同余, 
+    设 $V={P}[x], g(x) \neq 0$. 令 $W=\langle g(x)\rangle=\{h(x) \in$ ${P}[x]|g(x)| h(x)\}$ 模 $V$ 的子空间. 自然 $\alpha, \beta \in V, \alpha \equiv \beta(\bmod g(x))$当且仅当 $\alpha \equiv \beta\left(\bmod W\right)$, 且 $\{\beta \mid \beta \equiv \alpha(\bmod g(x))\}=\{\beta \mid \beta \equiv$ $\left.\left.\alpha(\bmod W)\right)\right\}$
+\end{example}
+
+\begin{example}[空间坐标的同余]
+    在空间中取定标架 $\{O ; \alpha, \beta, \gamma\}$. 于是 $X O Y$ 平面 $\pi$可看成 $\mathbf{R}^{3 \times 1}$ 中子空间 $W=\left\{\left(\begin{array}{l}x \\ y \\ 0\end{array}\right)\right\}$. 则
+$$
+\left(\begin{array}{l}
+a \\
+b \\
+c
+\end{array}\right) \equiv\left(\begin{array}{l}
+a_1 \\
+b_1 \\
+c_1
+\end{array}\right)(\bmod W)
+$$
+
+当且仅当 $c=c_1$. 因而 $\alpha=\left(\begin{array}{l}a \\ b \\ c\end{array}\right)$ 的模 $W$ 的同余类 $\bar{\alpha}$ 的图形是通过 $\left(\begin{array}{l}0 \\ 0 \\ c\end{array}\right)$ 平行 $\pi$ 的平面 $\pi_1$.
+\end{example}
+
+我们构造这样的商空间, 主要是用来进行更好地对研究对象进行分类. 例如, 我们可以把相同余数的多项式分为一类, 亦可以将相同的高度的坐标分为一类. 实际上, 同余也是一个等价关系. 
+
+\begin{enumerate}
+
+    \item (自反性). $\alpha \equiv \alpha(\bmod W)$
+    \item (对称性). 若 $\alpha \equiv \beta(\bmod W)$, 则 $\beta \equiv \alpha(\bmod W)$.
+    \item (传递性). 若 $\alpha \equiv \beta(\bmod W), \beta \equiv \gamma(\bmod W)$, 则$\alpha \equiv \gamma(\bmod W)$.
+\end{enumerate}
+
+实际上, 我们还会发现, 我们的两个同余类或者相等, 或者不相交.
+
+\begin{itemize}
+    \item [4.] $\alpha, \beta \in V . \bar{\alpha}=\bar{\beta}$ 当且仅当 $\bar{\alpha} \cap \bar{\beta} \neq \emptyset$ 当且仅当 $\alpha \equiv$ $\beta(\bmod W)$.
+\end{itemize}
+
+我们接下来说明商空间也是线性空间. 
+
+\begin{theorem}
+设 $W$ 是 $V$ 的子空间. 又 $\alpha_1, \beta_1, \alpha_2, \beta_2 \in V, k \in \mathbf{P}$.且 $\alpha_i \equiv \beta_i(\bmod W), i=1,2$. 则
+$$
+\begin{aligned}
+\alpha_1+\alpha_2 & \equiv \beta_1+\beta_2(\bmod W) . \\
+k \alpha_1 & \equiv k \beta_1(\bmod W) .
+\end{aligned}
+$$
+    
+\end{theorem}
+
+\begin{theorem}
+ 设 $V$ 是数域 $\mathbf{P}$ 上的线性爷间. W是 1 的一个子空间. 以 $V / W$ 表示 $V$ 中元素模 $W$ 的同余类的集合. 在: $V / W$ 中定义加法和纯量乘法如下:
+$$
+\begin{aligned}
+& \bar{\alpha}+\bar{\beta}=\overline{\alpha+\beta}, \forall \bar{\alpha}, \bar{\beta} \in V / W, \\
+& k \cdot \bar{\alpha}=\overline{k \alpha}, \forall \bar{\alpha} \in V / W, k \in \mathbf{P} .
+\end{aligned}
+$$
+
+则 $V / W$ 构成数域 $\mathbf{P}$ 上的线性空间，称为 $V$ 对 $W$ 的商空间.
+\end{theorem}
+
+\end{document}
