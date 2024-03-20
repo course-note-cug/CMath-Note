@@ -184,11 +184,30 @@ $$
         \end{enumerate}
     \end{remark}
 
+    \incfigw{automata-eg}
+
     下面来看NFA的语义. (非确定性) 有穷自动机是一类极其简单的计算装置, 它可以识别 (接受/拒绝) $\Sigma$ 上的字符串. 
 
     \begin{definition}[接受(Accept)]
         (非确定性) 有穷自动机 $\mathcal{A}$ 接受字符串 $x$, 当且仅当存在一条从开始状态 $s_0$ 到某个接受状态 $f \in F$ 、标号为 $x$ 的路径.
     \end{definition}
+
+    \begin{example}考虑下面的自动机: 
+
+        \incfig{auto-another}
+
+        对于上面的一个状态图, $L(\mathcal{A})=L\left(\left(a a^* \mid b b^*\right)\right)$. 
+    \end{example}
+
+    \begin{example}
+        考虑下面的自动机: 
+
+        \incfig{aufofig13}
+
+        实际上$L(\mathcal{A})=\{$ 包含偶数个 1 或偶数个 0 的 01 串 $\}$. 
+
+    \end{example}
+    
 
     因此, $\mathcal{A}$ 定义了一种语言 $L(\mathcal{A})$ : 它能接受的所有字符串构成的集合.
 
@@ -220,6 +239,8 @@ $$
     \subsubsection{正则表达式到NFA}
 
     要求$L(N(r))=L(r)$. 可以使用Tompson构造法. 使用四种基础的归纳. 
+
+    \incfigw{tompson}
         
     $N(r)$ 的性质以及 Thompson 构造法复杂度分析
 \begin{enumerate}
