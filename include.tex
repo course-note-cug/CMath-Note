@@ -58,6 +58,7 @@
 \newtheorem{definition}{定义}[section]
 \newtheorem{theorem}{定理}[section]
 \newtheorem{proposition}[theorem]{命题}
+\newtheorem{prop}[theorem]{性质}
 \newtheorem{corollary}[theorem]{推论}
 
 \newenvironment{remark}{%
@@ -170,4 +171,7 @@
 \newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
 \newcommand{\mn}[1]{\marginnote{{#1}}}
 \renewcommand{\algorithmcfname}{算法}
+\usepackage[abspath]{currfile}
 
+\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/#1}\end{center}}
+\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/#1}\end{center}}

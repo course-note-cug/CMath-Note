@@ -1,0 +1,169 @@
+%!TEX TS-program = xelatex
+
+\documentclass{ctexart}
+\input{../include.tex}
+\input{../ncmd.tex}
+
+\begin{document}
+
+\section{上取整和下取整} 
+
+\subsection{基本定义} 
+
+\begin{definition}[上取整和下取整]
+    $\forall x \in \mathbb{R}$, 定义下取整函数和上取整函数
+    \begin{align*}
+    \lfloor x\rfloor:= \text{最大的} \leqslant x \text{的整数}\\
+    \lceil x\rceil := \text{最小的} \geqslant x\text{ 的整数}
+    \end{align*}
+    分别称他们为``上取整函数''和``下取整函数 ''.
+    
+\end{definition}
+
+\begin{example}绘制出下取整函数的图像
+    \incfig{floor}
+   上取整函数的图像也是同理.  
+\end{example}
+
+\begin{prop}
+    取整函数有如下的三个性质: 
+
+    \begin{enumerate}
+        \item $\lfloor x\rfloor=x \iff$ $x$是正数 $\iff $ $\lceil x\rceil=x$.
+        \item (放缩) $x-1<\lfloor x\rfloor \leqslant x \leqslant\lceil x\rceil<x+1$.
+        \item (对称)$\lfloor-x\rfloor=-\lceil x\rceil, \quad F x\rceil=-\lfloor x\rfloor$.
+    \end{enumerate}
+    
+\end{prop}
+
+\begin{prop}
+    实际上, 上下取整函数是对一类不等式的缩写
+
+    $$
+\lfloor x\rfloor=n\left\{\begin{array}{lll}
+    \iff & x-n \leqslant x & \text {(固定}x\text{,考察 } n \text { 的范围) } \\
+\iff & n \leqslant x \leqslant n+1 & \text { (固定}n\text{, 考察 } x \text { 的范围 })
+\end{array}\right.
+$$
+
+$$
+\lceil x\rceil=n \begin{cases}\iff & x \leqslant n \leqslant x+1 \\ \iff & n-1<x \leqslant n .\end{cases}
+$$
+
+    
+\end{prop}
+
+\begin{corollary}
+    若$n \in \mathbb{Z},\lfloor x+n\rfloor=\lfloor x\rfloor+n$.
+    
+\end{corollary}
+
+\begin{remark}
+    实际上, 这一个性质经常用于将整数(也许是配凑出来的)移入或者移出取整记号中. 
+\end{remark}
+
+为了更加彰显不等式的地位, 特别有下面的一个不等式.
+
+\begin{prop}[上下取整的不等式]
+
+$$ 
+\begin{gathered}
+x<n \Leftrightarrow\lfloor x\rfloor<n ; \quad n<x \Leftrightarrow n<\lceil x\rceil . \\
+x \leqslant n \Leftrightarrow\lceil x\rceil \leqslant n ; \quad n \leqslant x \Leftrightarrow n \leqslant\lfloor x\rfloor .
+\end{gathered}
+$$ 
+
+\end{prop}
+
+这是一个重要的式子. 可以通过分类讨论的方法证明之. 
+
+\begin{definition}[分数部分] 定义一个数的分数部分为$x-\lfloor x\rfloor$. 如果与集合的记号不相冲突的话, 可以记作$\set{x}$. 
+    
+\end{definition}
+
+\begin{example}
+    $\lfloor x+y\rfloor$是否永远等于$\lfloor x\rfloor+\lfloor y\rfloor$?
+    实际上不是这样的. 将$x,y$写作$x=\lfloor x\rfloor+\{x\}, \quad y=\lfloor y\rfloor+\{y\}$, 那么
+\[
+    \lfloor x+y\rfloor=\lfloor x\rfloor+\lfloor y\rfloor+\lfloor\{x\}+\{y\}\rfloor
+\]
+    我们发现当且仅当$\{x\}+\{y\}<1$ 时, $\lfloor x+y\rfloor=\lfloor x\rfloor+\lfloor y\rfloor$. 否则由于$0 \leqslant\{x\}+\{y\}<2$, 其为$\lfloor x\rfloor+\lfloor y\rfloor+1$. 
+\end{example}
+
+\subsection{上取整, 下取整的复合} 我们首先考察一些基本例子得到的结果. 
+
+\begin{example}
+    $\lceil\lfloor x\rfloor\rceil=\lfloor x\rfloor ;\lfloor\lceil x\rceil\rfloor=\lceil x\rceil$. 直接将两者复合得到的结果是平凡的. 
+    
+\end{example}
+
+\begin{example}
+    证明或推翻: $\lfloor\sqrt{\lfloor x\rfloor}\rfloor=\lfloor\sqrt{x}\rfloor$.
+
+首先尝试举反例, 但是$\pi, e, \phi, 1,2 \cdots$都是正确的, 于是考虑证明. 
+
+我们的目标为想办法除去$\sqrt{ }$下的$\lfloor\rfloor$. 假设$m:=\lfloor\sqrt{\lfloor x\rfloor}\rfloor$, 解掉最外层的底可以得到
+$$
+m \leqslant \sqrt{\lfloor x\rfloor}<m+1
+$$
+
+$$
+\begin{aligned}
+& \Rightarrow m^2 \leqslant\lfloor x\rfloor<(m+1)^2 \\
+& \Rightarrow m^2 \leqslant x<(m+1)^2 . \Longrightarrow m \leqslant \sqrt{x}<(m+1)^2 \\
+& \Rightarrow m \leqslant\lfloor\sqrt{x}\rfloor<(m+1)^2 .
+\end{aligned}
+$$
+    
+\end{example}
+
+考虑泛化上述的例子. 
+
+\begin{theorem}
+    令$f(x)$为一个连续, 单调递增的函数, 满足
+    \[
+        f(x) \text{是整数} \implies x\text{是整数}. 
+    \]
+
+    那么有
+    $$
+\lfloor f(x)\rfloor=\lfloor f(\lfloor x\rfloor)\rfloor,\lceil f(x)\rceil=\lceil f(\lceil x \rceil)\rceil .
+$$
+只要$f(x), f(\lfloor x\rfloor), f(\lceil x\rceil)$有定义. 
+\end{theorem}
+
+\begin{proof}
+    $1^\circ$ 如果$x$是整数, 那么显然成立. 
+
+    $2^\circ$ 若$x>\lfloor x\rfloor$, 由于$f$单调递增, 那么$f(x)>f(\lfloor x\rfloor)$. 然后两端同时取下取整符号, 由于下取整记号不减, 那么$\lfloor f(x)\rfloor \geqslant\lfloor f(\lfloor x\rfloor)\rfloor$. 我们接下来分类讨论, 以确定大于号的情形不成立. 
+    \begin{itemize}
+        \item 如果$\lfloor f(x)\rfloor =\lfloor f(\lfloor x\rfloor)\rfloor$, 那么这就是我们想要的. 
+        \item 如果$\lfloor f(x)\rfloor>\lfloor f(\lfloor x\rfloor)\rfloor$, 那么由于$f$是一个连续的函数, 一定存在$y$, 使得$\lfloor x\rfloor \leqslant y<x$, 并且$f(y)=\lfloor f(\lfloor x\rfloor)\rfloor$. 根据$f$的性质, $y$一定也是整数. 但是$\lfloor x\rfloor$与$x$之间不存在另一个整数, 矛盾! 所以我们的假设不成立.  
+    \end{itemize}
+\end{proof}
+
+\begin{corollary}
+    $$
+\left\lfloor\frac{x+m}{n}\right\rfloor=\left\lfloor\frac{\lfloor x\rfloor+m}{n}\right\rfloor,\left\lceil\frac{x+m}{n}\right\rceil=\left\lceil\frac{\lceil x\rceil+m}{n}\right\rceil .
+$$
+    
+\end{corollary}
+
+比如, $$
+\lfloor\lfloor\lfloor x / 10\rfloor / 10\rfloor / 10\rfloor=\lfloor x / 1000\rfloor .
+$$
+
+\subsection{区间计数问题} 
+
+如果我们用如下的简写记后面的区间:
+$$
+\begin{cases}
+    [\alpha..\beta] & \alpha \leqslant x \leqslant \beta\\
+    (\alpha..\beta]& \alpha<x \leqslant \beta \\
+    [\alpha,\beta) & \alpha \leq x<\beta\\
+    (\alpha,\beta)& \alpha<x<\beta
+\end{cases}$$
+
+我们的问题是这个集合里面包含了多少个整数. 
+
+\end{document}
