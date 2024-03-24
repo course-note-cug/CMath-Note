@@ -5,10 +5,22 @@
 \begin{document}
 \section{基础概念复习}
 
-我们在这里重新回顾$\epsilon-\delta$语言, 但是用一种稍微不一样的方式.
+我们在这里重新回顾 $\epsilon-\delta$ 语言, 但是用一种稍微不一样的方式.
 
-对于一个集合而言, 含有点 $x \in \mathbb{R}$ 的开区间, 我们称它为 $x$ 的邻域; 而开区间 $( x-\delta, x+\delta )$ 叫做点 $x$ 的 $\delta$ 邻域.
-假如点 $p \in \mathbb{R}$ 的任何邻域都包含 $X \subset \mathbb{R}$ 的一个无穷子集, 就称点 $p \in \mathbb{R}$为集合 $X$ 的极限点.
+对于一个集合而言, 含有点 $x \in \mathbb{R}$ 的开区间, 我们称它为 $x$ 的\nwd{邻域}; 而开区间 $( x-\delta, x+\delta )$ 叫做点 $x$ 的 $\delta$ 邻域. 特别的, 我们把$( x-\delta, x+\delta )\backslash \{x\}$称为\nwd{去心邻域}. 
+假如点 $p \in \mathbb{R}$ 的任何邻域都包含 $X \subset \mathbb{R}$ 的一个无穷子集, 就称点 $p \in \mathbb{R}$为集合 $X$ 的\nwd{极限点}. 
+
+如果对于点 $A$ 的任何邻域, 存在点 $a$ 在集合 $E$ 中的去心邻域,使得它在映射 $f: E \rightarrow \mathbb{R}$ 下的像含于 $A$ 的给定的这个邻域中, 就说数 $A$ 是函数 $f: E \rightarrow \mathbb{R}$ 当 $x$ 沿集合 $E$ 趋于点 $a$ 时的极限. 
+
+用符号语言表示, 就是
+
+\[
+\left(\lim _{E \ni x \rightarrow a} f(x)=A\right):=\forall V_{\mathbb{R}}(A) \exists \stackrel{\circ}{U}_E(a)\left(f\left(\stackrel{\circ}{U}_E(a)\right) \subset V_{\mathbb{R}}(A)\right)
+\]
+
+实际上, 只要定义了邻域如何刻画, 就可以定义映射的极限的概念. 
+
+
 
 
 

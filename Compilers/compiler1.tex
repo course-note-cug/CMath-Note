@@ -252,8 +252,185 @@ $$
     $(|r|: r$ 中运算符与运算分量的总和)
 \end{enumerate}
 
-\subsubsection{从NFA到DFA的转换} 主要思想: 使用DFA模拟NFA. 
+\subsubsection{从NFA到DFA的转换} 主要思想: 使用DFA模拟NFA -- 子集构造法
+
+假设我们想要把下图的NFA(用正则语言表示就是$L(\mathcal{A})=L\left((a \mid b)^* a b b\right)$)转换为DFA, 我们可以
+\incfigw{1-nfa-conv}
+
+\begin{itemize}
+    \item 找到NFA的初始状态. 也就是从起始点开始, 仅通过$\epsilon$转移可以到达的所有的状态的集合. 如0, 1, 2, 4, 7号.  
+    \item 从这个当前的``等价状态集合''每个元素出发, 每次消耗字母表中的一个相同字符, 每一个状态往前走一步, 看一看到达哪些状态. 然后进行$\epsilon$转移. 然后把等价的状态集合合并. 
+    \item 直到不会再出现新的状态了. 
+\end{itemize}
+
+上图经过转换的等价的DFA是
+
+\incfigw{equ-dfa}
+
+用表格表示就是
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline NFA 状态 & DFA 状态 & $a$ & $b$ \\
+        \hline$\{0,1,2,4,7\}$ & $A$ & $B$ & $C$ \\
+        \hline$\{1,2,3,4,6,7,8\}$ & B & $B$ & $D$ \\
+        \hline$\{1,2,4,5,6,7\}$ & $C$ & $B$ & $C$ \\
+        \hline$\{1,2,4,5,6,7,9\}$ & $D$ & $B$ & $E$ \\
+        \hline$\{1,2,4,5,6,7,10\}$ & $E$ & $B$ & $C$ \\
+        \hline
+    \end{tabular}
+\end{center}
+
+回顾NFA的接受是存在一条路径可以接受, 那么根据状态的等价性, 等价的状态都是可以接受的. 因此状态$E$是接受状态. 
 
 
+将刚刚的内容形式化: 
+
+\begin{definition}[$\epsilon$闭包]
+    从状态 $s$ 开始, 只通过 $\epsilon$-转移可达的状态集合
+$$
+\epsilon \text {-closure }(s)=\left\{t \in S_N \mid s \xrightarrow{\epsilon^*} t\right\}
+$$
+
+并且我们可以构建一个状态集合的$\epsilon$闭包, 就是看每一个元素的$\epsilon$闭包之并. 也就是
+
+$\epsilon$-closure $({T})=\bigcup_{s \in T} \epsilon$-closure $(s)$
+\end{definition}
+
+\begin{definition}[move描述]
+    那么当前在的状态往下读入一个字符, 比如$a$, 定义做一次move, 定义为
+
+    $$\operatorname{move}(T, a)=\bigcup_{s \in T} \delta(s, a)$$ 
+\end{definition}
+
+那么子集构造法对于一个NFA转移为DFA的原理就是假设有NFA和DFA, 分别叫做$N$和$D$, 
+$$\begin{array}{r}N:\left(\Sigma_N, S_N, n_0, \delta_N, F_N\right) \\ D:\left(\Sigma_D, S_D, d_0, \delta_D, F_D\right)\end{array}$$
+我们构造的$D$满足
+\begin{enumerate}
+    \item 字母表: $\Sigma_D=\Sigma_N$
+    \item 状态集合: $S_D \subseteq 2^{S_N} \quad\left(\forall s_D \in S_D: s_D \subseteq S_N\right)$
+    \item 初始状态: $d_0=\epsilon$-closure $\left(n_0\right)$
+    \item 转移函数: $\forall a \in \Sigma_D: \delta_D\left(s_D, a\right)=\epsilon$-closure $\left(\operatorname{move}\left(s_D, a\right)\right)$
+    \item 接受状态集: $F_{\mathcal{D}}=\left\{s_D \in S_{\mathcal{D}} \mid \exists f \in F_N . f \in s_D\right\}$
+\end{enumerate}
+
+下面分析构造复杂度. 假设$\left|S_N\right|=n$, 构造出来的DFA的状态数不会超过$2^n$. 这从状态集合的定义可以立即得出. 也就是$\left|S_D\right|=\Theta\left(2^n\right)$. 实际上, 遗憾的事情是, 构造出的下界也是$2^n$: 存在一个用例, 它恰好生成一个$2^n$个状态的DFA. 也就是 $\left|S_D\right|=O\left(2^n\right) \cap \Omega\left(2^n\right)$. 实际上, 可以证明, 对于任何算法, 最坏情况下, $\left|S_D\right|=\Omega\left(2^n\right)$. 这说明这个复杂度是问题本身导致的, 而不是取决于发明算法人的聪明程度. 
+
+下面给出这个用例: ``长度为 $m \geq n$ 个字符的 $a, b$ 串, 且倒数第 $n$ 个字符是 $a$''. 其中$n$是给定的整数. 这用正则语言写作$L_n=(a \mid b)^* a(a \mid b)^{n-1}$. 用NFA表示就是如下图. 
+
+\incfigw{2nalways}
+
+其对应的DFA是
+
+\incfigw{nfa2ndfa}
+
+下面回顾闭包的概念. 我们通常会说一个``$f$-closure $(T)$'', 这表示我们在初始的集合$T$上对于每一个元素重复作用函数$f$, 并且不断地把新得到的元素放到$T$中. 直到继续应用$f$之后没有新的元素加入集合为止. 换句话说, 也就是构造一系列的序列, $T \Longrightarrow f(T) \Longrightarrow f(f(T)) \Longrightarrow f(f(f(T))) \Longrightarrow \ldots$, 直到找到 $x$ 使得 $f(x)=x$ ( $x$ 称为 $f$ 的不动点)的时候结束. 
+
+\subsubsection{DFA最小化} 比如语言$L(\mathcal{A})=L\left((a \mid b)^* a b b\right)$, 下图的左边和右边同样识别了我们的语言, 但是左边的更简洁. 我们希望让形如右图的DFA简化为左图的. 这个过程叫做DFA的最小化. 
+
+\incfigw{minim}
+
+其核心思想是``等价的状态可以合并''. 但是定义等价状态绝非易事. 首先的尝试是如果状态$s$和$t$等价, 那么
+
+$$s \sim t \Longleftrightarrow \forall a \in \Sigma .\left(\left(s \xrightarrow{a} s^{\prime}\right) \wedge\left(t \xrightarrow{a} t^{\prime}\right)\right) \Longrightarrow\left(s^{\prime}=t^{\prime}\right)$$
+
+但是这个定义行不通. 我们考察上图右侧的例子. 可以发现$A\sim C\sim E$. (通过a都可以到达状态B, 通过b都可以到达C) 但是他们显然不等价! 因为$A, C$是非结束状态, $E$是结束状态. 我们把不等价的状态认做了等价的状态. 
+
+下面的例子展示了我们这样的定义同样可以把等价的状态认做不等价的状态. 如下图
+
+\incfigw{def-wrong}
+
+例如$a \nsim b$, 通过相同的字符到达的状态都不是同一个状态. 但是这两个状态是等价的. 如下图所示. 
+
+\incfigw{def-wf}
+
+这个定义需要错的地方在于: 经过同一个字符, 我们应当允许到达不同的状态, 但是到达的这个不同的状态要等价. 也就是原来的定义太``短视''了. 它只考虑了一步的情况, 忽略了很多步最后等价的情况. 因而, 只要取一个反就好了. 
+
+\begin{definition}
+    DFA中的两个状态不等价, 定义如下: 
+    $$s \nsim t \Longleftrightarrow \exists a \in \Sigma .\left(s \xrightarrow{a} s^{\prime}\right) \wedge\left(t \xrightarrow{a} t^{\prime}\right) \wedge\left(s^{\prime} \nsim t^{\prime}\right)$$
+
+    也就是可以像这样定义两个状态的等价: 
+
+    $$s \sim t \Longleftrightarrow \forall a \in \Sigma .\left(\left(s \xrightarrow{a} s^{\prime}\right) \wedge\left(t \xrightarrow{a} t^{\prime}\right)\right) \Longrightarrow\left(s^{\prime} \sim t^{\prime}\right)$$
+\end{definition}
+
+也就是存在一个字符$a$. 可以``区分''两个状态, 使他们在相同的字符的驱使下到达了不同的状态, 也就是$s'$和$t'$不等价. 这样的定义就要求我们, 不断合并等价的状态, 直到无法合并为止. 但是, 这是一个递归定义, 从哪里开始呢? 
+
+首先, 所有接受状态都是等价的吗? 如下图的自动机, $A$可以接受的是a, $B$可以接受的是ab, 他们显然不等价. 因为如果我们可以把他俩合并的话, 整个自动机就剩下2个状态了, 自然不可能接受长度为2的字符串了. 
+
+\incfigw{equacc}
+
+我们的基础情况就出现问题了. 既然正面很难入手, 考虑问题的反面. 我们来划分状态, 而非合并. 首先假设所有状态都是等价的, 然后根据状态不等价的定义进行``分裂''. 这样, 我们首先知道所有的接受状态和非接受状态肯定不等价, 于是我们现在的划分是$\Pi=\{F, S \backslash F\}$. 这也就是我们递归的基础. 然后, 根据不等价的定义$s \nsim t \Longleftrightarrow \exists a \in \Sigma .\left(s \xrightarrow{a} s^{\prime}\right) \wedge\left(t \xrightarrow{a} t^{\prime}\right) \wedge\left(s^{\prime} \nsim t^{\prime}\right)$继续分裂. 
+
+用下图的例子, 我们首先将A, B, C, D归为一类, E分为一类. 接下来对于每一类, 寻找一类里面是不是存在``这个类里面的元素受相同的字符的驱使, 随后却到达不同的状态''的情况. 如果是这样, 我们就做分裂. 然后继续这样做. 下图展示了第一次操作. 
+
+\incfigw{minimal}
+
+最后的迭代过程就是
+
+$$
+\begin{aligned}
+& \Pi_0=\{\{A, B, C, D\},\{E\}\} \\
+& \Pi_1=\{\{A, B, C\},\{D\},\{E\}\} \\
+& \Pi_2=\{\{A, C\},\{B\},\{D\},\{E\}\} \\
+& \Pi_3=\Pi_2=\Pi_{\text {final }}
+\end{aligned}
+$$
+
+实际上这就是寻找闭包的过程. 因此原来最少可以有4个状态, 将等价的状态合并即可. 我们在合并的时候, 会不会让它成了一个NFA? 简而言之, 实际上是不会的. 如果有的话, 说明分裂不彻底, 还可以再分裂. 
+
+初始状态、接受状态是哪些? 原先的初始状态就是初始状态, 原来的结束状态就是结束状态.
+
+\begin{remark}
+    \begin{enumerate}
+        \item 注意考虑把``死状态''单独分为一类. 
+        \item 这是DFA最小化算法. 不适用于 NFA 最小化; NFA 最小化问题是 PSPACE-complete 的(复杂度很高).
+    \end{enumerate}
+\end{remark}
+
+补充资料: 如何分析 DFA 最小化算法的复杂度? 为什么 DFA 最小化算法是正确的? 最小化 DFA 是唯一的吗?
+
+
+\begin{definition}[可区分的 (Distinguishable); 等价的 (Equivalent)]
+如果存在某个能区分状态 $s$ 与 $t$ 的字符串, 则称 $s$ 与 $t$ 是可区分的; 否则, 称 $s$ 与 $t$ 是等价的.
+    
+\end{definition}
+
+\begin{definition}[字符串$x$区分了$s$和$t$]
+    如果分别从 $s$ 与 $t$ 出发, 沿着标号为 $x$ 的路径到达的两个状态中只有一个是接受状态, 则称 $x$ 区分了状态 $s$ 与 $t$ .
+\end{definition}
+
+然后我们得到了最小的DFA就可以写词法分析器了. 
+
+\subsubsection{构造词法分析器} 记得我们匹配的原则: 最前优先匹配: $a b b$ (比如 关键字), 以及最长优先匹配: $a a b b b$. 比如我们要构造下图的词法分析器, 就要保留各个 NFA 的接受状态信息(识别出来了个什么), 并采用最前优先匹配(两个接受状态合并的时候, 接受状态信息要是靠前的那一个).
+
+\incfigw{principle}
+
+另外要注意, 需要消除 “死状态”, 避免词法分析器徒劳消耗输入流. 这就要保证$\forall a \in \Sigma \cdot \delta(\emptyset, a)=\emptyset$. 
+
+做了这样的准备, 我们就可以模拟运行该 DFA, 直到无法继续为止 (输人结束或状态无转移). 假设此时状态为 $s$.
+
+\begin{enumerate}
+    \item 若 $s$ 为接受状态, 则识别成功;
+    \item 否则, 回溯 (包括状态与输人流) 至最近一次经过的接受状态, 识别成功;
+    \item 若没有经过任何接受状态, 则报错 (忽略第一个字符), 这个字符程序不被允许. 
+\end{enumerate}
+
+\begin{example}
+    对于下图的DFA: 
+
+    \incfigw{eg-dfa}
+
+    \begin{itemize}
+        \item $x=a$, 输入结束; 接受; 识别出 $a$
+        \item $x=a b b a$ 状态无转移; 回溯成功; 识别出 $a b b$; 
+        \item $x=a a a a$ 输入结束; 回溯成功; 识别出 $a$
+        \item $x=c a b b$ 状态无转移; 回溯失败; 报错 $c$
+    \end{itemize}
+
+\end{example}
+
+如果希望对于DFA最小化, 需要做一些小改动. 初始划分需要考虑不同的词法单元. 一开始我们只是分为了接受状态, 拒绝状态, (以及死状态); 初始划分需要考虑不同的词法单元. 也就是上述例子中一开始我们应该这样分组: $\Pi_0=\{\{0137,7\},\{247\},\{8,58\},\{68\},\{\emptyset\}\}$. 
 
 \end{document}
