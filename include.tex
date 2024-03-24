@@ -163,6 +163,24 @@
   \end{tikzpicture}\par\medskip%
 }
 
+
+\newcommand{\lecture}[6]{
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf #1
+		\hfill #6} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill 第 #2 节: #3  \hfill} }
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Lecturer: #4 \hfill Scribes: #5} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   
+   \vspace*{4mm}
+}
+
 \usepackage{marginnote}
 \renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
 \usepackage{setspace}
@@ -175,3 +193,5 @@
 
 \newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/#1}\end{center}}
 \newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/#1}\end{center}}
+
+
