@@ -434,6 +434,117 @@ $$
 
 \end{example}
 
-如果希望对于DFA最小化, 需要做一些小改动. 初始划分需要考虑不同的词法单元. 一开始我们只是分为了接受状态, 拒绝状态, (以及死状态); 初始划分需要考虑不同的词法单元. 也就是上述例子中一开始我们应该这样分组: $\Pi_0=\{\{0137,7\},\{247\},\{8,58\},\{68\},\{\emptyset\}\}$. 
+如果希望对于DFA最小化, 需要做一些小改动. 初始划分需要考虑不同的词法单元. 一开始我们只是分为了接受状态, 拒绝状态, (以及死状态); 初始划分需要考虑不同的词法单元. 也就是上述例子中一开始我们应该这样分组: $\Pi_0=\{\{0137,7\},\{247\},\{8,58\},\{68\},\{\emptyset\}\}$.
+
+\section{拓展阅读: Kleene算法} 
+
+Kleene算法主要做的是给一个DFA转换为NFA. 其使用的是迭代的算法. 也就是, 一步一步地构造NFA. 在其中的某一步, 假设有$M=\left(Q, \Sigma, \delta, q_0, F\right)$, 这时候状态为$Q=\left\{q_0, \ldots, q_n\right\}$. 那么算法会计算把状态机从$q_i$转移到$q_j$, 而不经过编号高于$k$的节点的字符串的集合. (但是起始节点和终止节点可以高于$k$). 计算的每一步都可以用正则表达式表达, 当算法对$k=-1, 0, 1, ..., n$计算后, 就可以转换为正则表达式. 具体就是$R_{01}^n|\ldots| R_{0 f}^n$表示了对应的NFA. 
+
+\begin{enumerate}
+    \item 初始状态, 对于$k=-1$, 有
+$$
+\begin{aligned}
+&R_{i j}^{-1}=a_1|\ldots| a_m \quad \text { where }i\neq j, q_j \in \delta\left(q_i, a_1\right), \ldots, q_j \in \delta\left(q_i, a_m\right)\\
+&R_{i i}^{-1}=a_1|\ldots| a_m \mid \varepsilon \quad \text { where } q_i \in \delta\left(q_i, a_1\right), \ldots, q_i \in \delta\left(q_i, a_m\right)
+\end{aligned}
+$$
+也就是说$R_{ij}$会提到所有的字符, 在相等的时候, 我们也会提到空字符.
+
+
+\item  然后每一个接下来的一步, 都会由
+    $$
+R_{i j}^k=R_{i k}^{k-1}\left(R_{k k}^{k-1}\right)^{\star} R_{k j}^{k-1} \mid R_{i j}^{k-1}
+$$
+给出. 
+也就是: 当状态 $k$ 被移除时, 描述从状态 $i > k$ 到状态 $j > k$ 的路径所标记的单词的正则表达式 $R^{k-1}_{ij}$ 被重写为 $R^k_{ij}$,以便考虑通过被“消除”的状态 $k$ 的可能性.
+\end{enumerate}
+
+\begin{example}
+例如将下面的转换为NFA: 
+
+\incfig{nfacinv}
+
+第-1步(初始状态):
+
+$$
+\begin{aligned}
+R_{00}^{-1} & =a \mid \varepsilon \\
+R_{01}^{-1} & =b \\
+R_{02}^{-1} & =\varnothing \\
+R_{10}^{-1} & =\varnothing \\
+R_{11}^{-1} & =b \mid \varepsilon \\
+R_{12}^{-1} & =a \\
+R_{20}^{-1} & =\varnothing \\
+R_{21}^{-1} & =a \mid b \\
+R_{22}^{-1} & =\varepsilon
+\end{aligned}
+$$
+
+第0步: 
+
+$$
+\begin{aligned}
+& R_{00}^0=R_{00}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{00}^{-1}\left|R_{00}^{-1}=(a \mid \varepsilon)(a \mid \varepsilon)^{\star}(a \mid \varepsilon)\right| a \mid \varepsilon=a^* \\
+& R_{01}^0=R_{00}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{01}^{-1}\left|R_{01}^{-1}=(a \mid \varepsilon)(a \mid \varepsilon)^{\star} b \quad\right| b \quad=a^{\star} b \\
+& R_{02}^0=R_{00}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{02}^{-1}\left|R_{02}^{-1}=(a \mid \varepsilon)(a \mid \varepsilon)^* \varnothing \quad\right| \varnothing \quad=\varnothing \\
+& R_{10}^0=R_{10}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{00}^{-1}\left|R_{10}^{-1}=\varnothing \quad(a \mid \varepsilon)^*(a \mid \varepsilon)\right| \varnothing \quad=\varnothing \\
+& R_{11}^0 \quad=R_{10}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{01}^{-1}\left|R_{11}^{-1}=\varnothing \quad(a \mid \varepsilon)^{\star} b \quad\right| b|\varepsilon=b| \varepsilon \\
+& R_{12}^0=R_{10}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{02}^{-1}\left|R_{12}^{-1}=\varnothing \quad(a \mid \varepsilon)^* \varnothing \quad\right| a \quad=a \\
+& R_{20}^0=R_{20}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{00}^{-1}\left|R_{20}^{-1}=\varnothing \quad(a \mid \varepsilon)^*(a \mid \varepsilon)\right| \varnothing \quad=\varnothing \\
+& R_{21}^0=R_{20}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{01}^{-1}\left|R_{21}^{-1}=\varnothing \quad(a \mid \varepsilon)^{\star} b \quad\right| a|b=a| b \\
+& R_{22}^0=R_{20}^{-1}\left(R_{00}^{-1}\right)^{\star} R_{02}^{-1}\left|R_{22}^{-1}=\varnothing \quad(a \mid \varepsilon)^* \varnothing \quad\right| \varepsilon \quad=\varepsilon \\
+&
+\end{aligned}
+$$
+第1步:
+
+$$
+\begin{aligned}
+& R_{00}^1=R_{01}^0\left(R_{11}^0\right)^* R_{10}^0\left|R_{00}^0=a^* b \quad(b \mid \varepsilon)^* \varnothing \quad\right| a^* \quad=a^* \\
+& R_{01}^1=R_{01}^0\left(R_{11}^0\right)^{\star} R_{11}^0\left|R_{01}^0=a^* b \quad(b \mid \varepsilon)^*(b \mid \varepsilon)\right| a^* b \quad=a^* b^* b \\
+& R_{02}^1=R_{01}^0\left(R_{11}^0\right)^* R_{12}^0\left|R_{02}^0 \quad=a^* b \quad(b \mid \varepsilon)^* a \quad\right| \varnothing \quad=a^* b^* b a \\
+& R_{10}^1=R_{11}^0\left(R_{11}^0\right)^{\star} R_{10}^0\left|R_{10}^0=(b \mid \varepsilon)(b \mid \varepsilon)^* \varnothing \quad\right| \varnothing \quad=\varnothing \\
+& R_{11}^1=R_{11}^0\left(R_{11}^0\right)^* R_{11}^0\left|R_{11}^0=(b \mid \varepsilon)(b \mid \varepsilon)^*(b \mid \varepsilon)\right| b \mid \varepsilon=b^* \\
+& R_{12}^1=R_{11}^0\left(R_{11}^0\right)^{\star} R_{12}^0\left|R_{12}^0=(b \mid \varepsilon)(b \mid \varepsilon)^{\star} a \quad\right| a=b^{\star} a \\
+& R_{20}^1=R_{21}^0\left(R_{11}^0\right)^* R_{10}^0\left|R_{20}^0=(a \mid b)(b \mid \varepsilon)^* \varnothing \quad\right| \varnothing \quad=\varnothing \\
+& R_{21}^1=R_{21}^0\left(R_{11}^0\right)^* R_{11}^0\left|R_{21}^0=(a \mid b)(b \mid \varepsilon)^*(b \mid \varepsilon)\right| a \mid b=(a \mid b) b^* \\
+& R_{22}^1=R_{21}^0\left(R_{11}^0\right)^{\star} R_{12}^0\left|R_{22}^0=(a \mid b)(b \mid \varepsilon)^* a \quad\right| \varepsilon \quad=(a \mid b) b^* a \mid \varepsilon \\
+&
+\end{aligned}
+$$
+
+第2步:
+
+$$
+\begin{aligned}
+& R_{00}^2=R_{02}^1\left(R_{22}^1\right)^{\star} R_{20}^1\left|R_{00}^1 \quad=a^* b^* b a \quad\left((a \mid b) b^* a \mid \varepsilon\right)^{\star} \varnothing \quad \quad\right| a^* \quad=a^* \\
+& R_{01}^2=R_{02}^1\left(R_{22}^1\right)^{\star} R_{21}^1\left|R_{01}^1 \quad=a^* b^* b a \quad\left((a \mid b) b^{\star} a \mid \varepsilon\right)^{\star}(a \mid b) b^{\star} \quad\right| a^{\star} b^{\star} b \quad=a^* b(a(a \mid b) \mid b)^{\star} \\
+& R_{02}^2=R_{02}^1\left(R_{22}^1\right)^{\star} R_{22}^1\left|R_{02}^1 \quad=a^{\star} b^{\star} b a \quad\left((a \mid b) b^{\star} a \mid \varepsilon\right)^{\star}\left((a \mid b) b^{\star} a \mid \varepsilon\right)\right| a^{\star} b^{\star} b a \quad=a^* b^{\star} b\left(a(a \mid b) b^{\star}\right)^{\star} a \\
+& R_{10}^2=R_{12}^1\left(R_{22}^1\right)^{\star} R_{20}^1\left|R_{10}^1=b^{\star} a \quad\left((a \mid b) b^{\star} a \mid \varepsilon\right)^{\star} \varnothing \quad \quad\right| \varnothing \\
+& R_{11}^2=R_{12}^1\left(R_{22}^1\right)^{\star} R_{21}^1 \mid R_{11}^1 \quad=b^{\star} a \quad\left((a \mid b) b^{\star} a \mid \varepsilon\right)^{\star}(a \mid b) b^{\star} \quad=(a(a \mid b) \mid b)^* \\
+& R_{12}^2=R_{12}^1\left(R_{22}^1\right)^{\star} R_{22}^1\left|R_{12}^1 \quad=b^{\star} a \quad\left((a \mid b) b^{\star} a \mid \varepsilon\right)^{\star}\left((a \mid b) b^{\star} a \mid \varepsilon\right)\right| b^{\star} a \quad=(a(a \mid b) \mid b)^{\star} a \\
+& R_{20}^2=R_{22}^1\left(R_{22}^1\right)^{\star} R_{20}^1 \mid R_{20}^1=\left((a \mid b) b^{\star} a \mid \varepsilon\right)\left((a \mid b) b^{\star} a \mid \varepsilon\right)^{\star} \varnothing \quad \quad \varnothing \quad \varnothing \\
+& R_{21}^2=R_{22}^1\left(R_{22}^1\right)^{\star} R_{21}^1\left|R_{21}^1=\left((a \mid b) b^* a \mid \varepsilon\right)\left((a \mid b) b^* a \mid \varepsilon\right)^{\star}(a \mid b) b^* \quad\right|(a \mid b) b^* \quad=(a \mid b)(a(a \mid b) \mid b)^* \\
+& R_{22}^2=R_{22}^1\left(R_{22}^1\right)^{\star} R_{22}^1\left|R_{22}^1=\left((a \mid b) b^{\star} a \mid \varepsilon\right)\left((a \mid b) b^{\star} a \mid \varepsilon\right)^{\star}\left((a \mid b) b^{\star} a \mid \varepsilon\right)\right|(a \mid b) b^{\star} a \mid \varepsilon=\left((a \mid b) b^{\star} a\right)^{\star} \\
+&
+\end{aligned}
+$$
+
+
+
+    
+\end{example}
+
+
+\section{设计模式: Visitors 和 Listener}
+
+(1) Listener/Observer模式 我们要感知某事件, 并在事件发生时通知依赖对象做出相应的动作. 
+在ANTLR4中可以通过继承Enterxxx或者Exitxxx代表了进入某个节点以及离开了某个节点. 在BaseListener可以查看可以重写哪些方法.  
+
+
+(2) 需要对一个包含若干类型的元素的数据结构进行遍历. 例如List<Element>, 对于不同类型的Element,需要执行不同的操作. 这时候可以定义一个accept接口, 然后对于每一个类型者单独定制他们自己的accept操作, 这样依赖在外部代码遍历的时候可以直接调用accept方法. 
 
 \end{document}
+
+
+

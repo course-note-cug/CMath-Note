@@ -8,6 +8,10 @@
 
 \section{上取整和下取整} 
 
+实际上, 上取整和下取整实际上英语是对应着房子的``天花板''和``地板''. 
+
+\incfig{fl-illus}
+
 \subsection{基本定义} 
 
 \begin{definition}[上取整和下取整]
@@ -160,10 +164,280 @@ $$
 \begin{cases}
     [\alpha..\beta] & \alpha \leqslant x \leqslant \beta\\
     (\alpha..\beta]& \alpha<x \leqslant \beta \\
-    [\alpha,\beta) & \alpha \leq x<\beta\\
-    (\alpha,\beta)& \alpha<x<\beta
+    [\alpha..\beta) & \alpha \leq x<\beta\\
+    (\alpha..\beta)& \alpha<x<\beta
 \end{cases}$$
 
-我们的问题是这个集合里面包含了多少个整数. 
+我们的问题是这个集合里面包含了多少个整数.($\alpha,\beta$不一定是整数). 
+
+首先, 简化考虑的问题情形. 如果$\alpha,\beta$均为整数, 那么数量就是
+\[
+    \beta-\alpha+\text{``[''的个数}-1
+\]
+
+然后, 考虑转换, 因为
+$$
+\begin{aligned}
+& \alpha \leqslant n<\beta \quad \Leftrightarrow\lceil\alpha\rceil \leqslant n<\lceil\beta\rceil \\
+& \alpha<n \leqslant \beta \quad \Leftrightarrow\lfloor\alpha\rfloor<n \leqslant[\beta\rfloor
+\end{aligned}
+$$
+所以余下二者仅需要补充上``$+1$''或者$``-1''$. 也就是
+$$
+\begin{array}{ll}
+{[\alpha .. \beta]} & \lfloor\beta\rfloor-\lceil \alpha\rceil+1 \\
+(\alpha . . \beta) & \lceil\beta \rceil-\lfloor\alpha\rfloor-1 .
+\end{array}
+$$
+\begin{remark}
+    \begin{enumerate}
+        \item 我们习惯使用左闭右开的括号序列, 因为其具有可加性.
+        \item 上述记号在关于求和取整时非常有用, 因为可以迅速的把这些技术的内容收缩下来. 
+    \end{enumerate}
+    
+\end{remark}
+
+\begin{example} 抽奖游戏. 在$[1,1000]$中选一整数. 记抽出数为$n$. 若$\lfloor\sqrt[3]{n}\rfloor \backslash n$(记号$a \backslash b$表示$a$是$b$的正因子), 那么他就赢取了5元. 否则, 他就输了1元. 请求出它玩这个游戏得到的期望. 
+
+
+        \begin{align*}
+            W&= \sum_{n=1}^{1000}[\text{抽到$n$会让我们赢}]\\
+             &= \sum_{1 \leqslant n \leqslant 1000}[\lfloor\sqrt[3]{n}\rfloor \backslash n] \varsub{k:=\sqrt[3]{n}}{1.0cm} \sum_{k, n}[k=\lfloor\sqrt[3]{n}\rfloor][k \backslash n][1 \leqslant n \leqslant 1000] \\
+             &\varsub{k \backslash n \text { 变形为 }n=km}{2.3cm}\sum_{k, m, n}\left[(k)^3 \leqslant n<(k+1)^3\right][n=k m][1 \leqslant n \leqslant 1000]\\
+             &\varsub{\text{换掉}n:=km}{1.5cm} \sum_{k, m}\left[k^3 \leqslant k m<(k+1)^3\right][1 \leqslant k m \leqslant 1000]\\
+             &\varsub{m=n/k=n/\lfloor\sqrt[3]n\rfloor}{2.5cm} 1+\sum_{k, m}\left[k^3 \leqslant k m<(k+1)^3\right][1 \leqslant k<10]\\
+             &= 1+\sum_{1\leq k\leq 10}^{}(\lceil k^2+3 k+3 + \frac1k\rceil -\left\lceil k^2\right\rceil)\\
+            &= 1+\sum_{1 \leqslant k<10}(3 k+4)=172
+        \end{align*}
+        
+        拓展问题: 在$[1..n]$中呢?  记$K$为最大的满足$K^3\leq n$的数字. 也就是我们先求出较为整体的部分. 
+
+        \begin{align*}
+            W&=\sum_{1 \leqslant k<K}(3 k+4)+\sum_m\left[K^3 \leqslant K_m<N\right]
+             &= =\frac{3}{2} K^2+\frac{5}{2} K-4+\underbrace{\sum_m\left[m \in\left[K^2, N / K\right]\right]}_{\left\lfloor\frac{N}{K}\right\rfloor-K^2+1}
+        \end{align*}
+
+        然后可以着手求零碎的部分. 较为零碎的部分并没有很好的封闭表达式, 因此我们只能够讨论它的渐进特性. 这个特性会在后续展开. 
+        
+\end{example}
+
+\begin{example}
+    对于$\alpha \in \mathbb{R}$, $\alpha$的谱是一个多重集, 定义做
+    $$
+\operatorname{spec}(\alpha):=\{\lfloor\alpha\rfloor,\lfloor 2 \alpha\rfloor, \cdots\}
+$$
+
+我们证明两个事实: 
+
+第一, $\alpha \neq \beta \Rightarrow \operatorname{Spec}(\alpha) \neq \operatorname{Spec}(\beta)$. 
+
+证明说: 不妨设$\alpha<\beta$. 我们发现$\exists m$, s.t. $m(\beta-\alpha) \geqslant 1$.(可以取 $\left\lceil\frac{1}{\beta-\alpha}\right\rceil$ ). 由此$m \beta-m \alpha \geqslant 1, \quad m \beta \geqslant 1+m \alpha \Rightarrow\lfloor m \beta\rfloor>\lfloor m \alpha\rfloor$. 因而$\text{Spec}(\beta)$中$\leqslant\lfloor m \alpha\rfloor$
+的元素小于$m$个. 而$\operatorname{Spec}(\alpha)$中至少有$m$个$\leqslant\lfloor m \alpha\rfloor$个元素. 这就表示这两个不同的谱序列永远不可能相等.  
+
+第二, $\operatorname{Spec}(\sqrt{2}) \cup \operatorname{Spec}(2+\sqrt{2})={\mathbb{N}}, \quad \operatorname{Spec}(\sqrt{2}) \cap \operatorname{Spec}(2+\sqrt{2})=\varnothing$. 
+
+证明说: 考虑有多少个$\leq n$个元素在$\operatorname{spec}(\sqrt{2})$里面, 有多少个$\leqslant n$的元素在$\operatorname{Spec}(2+\sqrt{2})$里面. 定义$N(\alpha, n)$ 表示 $\operatorname{Spec}(\alpha)$ 中 $\leqslant n$ 的之元素个数.
+$$
+\begin{aligned}
+N(\alpha, n) & =\sum_{k>0}[\lfloor k \alpha\rfloor \leqslant n] \\
+& =\sum_{k>0}[\lfloor k \alpha\rfloor<n+1] \\
+& =\sum_{k>0}[k \alpha<n+1]=\sum_k\left[0<k<\frac{n+1}{\alpha}\right] \\
+& =\left\lceil\frac{n+1}{\alpha}\right\rceil-1 .
+\end{aligned}
+$$
+
+然后求 $N(\sqrt{2}, n)+N(2+\sqrt{2}, n) \stackrel{?}{=} n$
+
+$$
+\begin{aligned}
+& \left\lceil\frac{n+1}{\sqrt{2}}\right\rceil-1+\left\lceil\frac{n+1}{2+\sqrt{2}}\right\rceil-1=n \\
+& \Leftrightarrow\left\lfloor\frac{n+1}{\sqrt{2}}\right\rfloor+\left\lfloor\frac{n+1}{2+\sqrt{2}}\right\rfloor=n \quad&(\lfloor x\rfloor-\lfloor x\rfloor=[x \text { is not int }]) \\
+& \Leftrightarrow \underbrace{\frac{n+1}{\sqrt{2}}+\frac{n+1}{2+\sqrt{2}}}_{n+1}-(\underbrace{\left\{\frac{n+1}{\sqrt{2}}\right\}+\left\{\frac{n+1}{2+\sqrt{2}}\right\}}_{1\text{, 因为两个不是整数的加起来等于整数一定进位了}})=n \\
+&
+\end{aligned}
+$$
+
+这样的结论可推广到 $\frac{1}{\alpha}+\frac{1}{\beta}=1 \Leftrightarrow \operatorname{Spec}( \alpha)  \cup \operatorname{Spec} (\beta)= \mathbb{N}$.
+
+\end{example}
+
+
+\section{二元运算: 模(mod)运算}
+
+\subsection{模} 我们已经知道了$n／m$的商为$\lfloor n / m\rfloor$, 我们下面定义$n／m$的余数. 
+
+\begin{definition}
+$n \bmod m$ 为 $n / m$ 的余数. 即     
+$$
+n \bmod m:=n-m\left\lfloor\frac{n}{m}\right\rfloor, \forall n, m \in \mathbb{R} ., m \neq 0 .
+$$
+特别地, 定义$n \bmod 0=n($ 方使起见 $)$. 
+
+\end{definition}
+
+\begin{example}
+    $$
+\begin{aligned}
+& 5 \bmod 3=2 \\
+& 5 \bmod (-3)=5-(-3)\left\lfloor\frac{5}{-3}\right\rfloor=5-3 \times 2=-1 \\
+& -5 \bmod 3=-5-3\left\lfloor\frac{-5}{3}\right\rfloor=1 \\
+& -5 \bmod (-3)=-5-(-3) \times\left\lfloor\frac{-5}{-3}\right\rfloor=-2 . \\
+&
+\end{aligned}
+$$
+
+可见, 对 $x \bmod y$ 而言，若 $y>0 ， 0 \leqslant x \bmod y<y$; 
+
+$y<0, \quad 0 \geqslant x \bmod y>y .$. 
+\end{example}
+
+\begin{example}
+    $$
+x=\lfloor x\rfloor+\{x\}=\lfloor x\rfloor+x \bmod 1 .
+$$
+    
+\end{example}
+
+同样可以使用上取整定义``不足近似量''.
+
+\begin{definition}
+    $$
+n \text { mumble }:=m\left\lfloor\frac{n}{m}\right\rceil-n ., \forall n, m \in \mathbb{R}, m \neq 0 \text {. }
+$$
+    
+\end{definition}
+
+
+\begin{example}
+    $$
+\begin{aligned}
+5 \text { mumble } 3=3\left[\frac{5}{3}\right\rceil-5 & =1 . \\
+5 \text { mumble }(-3)=-3\left\lceil\frac{5}{-3}\right\rceil-5 & =-2 \\
+-5 \text { mumble } 3 & =2 \\
+-5 \text { mumble }-3 \quad & =-1 .
+\end{aligned}
+$$
+    
+\end{example}
+
+我们首先注意一个性质: 
+
+\begin{prop}
+    $$
+c(x \bmod y)=c x \bmod c y
+$$
+    
+\end{prop}
+
+\begin{proof}
+    首先验证一般情况: 
+    $$
+\begin{aligned}
+c(x \bmod y)=c\left(x-y\left\lfloor\frac{x}{y}\right\rfloor\right) & =c x-c y\left\lfloor\frac{x}{y}\right\rfloor \\
+& =c x-c y\left\lfloor\frac{c x}{c y}\right\rfloor \\
+& =c x \bmod c y .
+\end{aligned}
+$$
+
+然后对于0的情况, 有
+$$
+c(x \bmod 0)=c x \bmod 0=c x
+$$
+也成立, 所以上面的性质成立. 
+\end{proof}
+
+\begin{example}
+    我们希望尽可能平均地将$n$个物品分为$m$份. 如$37=8+8+8+8+5=8+8+7+7+7$. 
+
+    \incfigw{distr}
+
+    可以考虑横着放
+    \begin{itemize}
+        \item 若 $n \not\backslash m$ ，“长的行”将会容纳 $\left\lceil\frac{n}{m}\right\rceil$ 个物品. $(n \bmod m)$
+        \item 若 $n \not\backslash m$ ，“短的行”将会容纳 $\left\lfloor\frac{n}{m}\right\rfloor$ 个物品. $(n \operatorname{mumble} m)$
+    \end{itemize}
+    并且两种行最多仅仅相差1. 
+
+    我们考虑另一种方法. 要把$n$个物品“尽可能平均”分为$m$个组时(干脆使用$f(n,m)$表示之),  我们有如下的情况: 
+    \begin{enumerate}
+        \item 把 $\lceil n / m\rceil$ 个物品放到当前组中
+        \item 递归执行$f(n-\lceil n / m\rceil, m-1)$. 
+    \end{enumerate}
+
+    比如$m=314, n=6$, 那么有下表格的过程: 
+
+    \begin{center}
+        \begin{tabular}{|ccc|}
+\hline$n$ & $m$ & $\lceil n / m\rceil$ \\
+314 & 6 & 53 \\
+261 & 5 & 53 \\
+208 & 4 & 52 \\
+156 & 3 & 52 \\
+104 & 2 & 52 \\
+52 & 1 & 52 \\
+\hline
+\end{tabular}
+    \end{center}
+
+
+    我们来说明这个算法的正确性. 假设$n=\underbrace{q}_{\lfloor n/m \rfloor} m+\underbrace{r}_{n\bmod m}$. 那么
+    \begin{enumerate}
+        \item 若 $r=0$, 放 $\lceil n / m\rceil=q, f(n-q, n-1)$仍为 $r=0$ 的情形. 
+        \item 考 $r>0, f(n-(q+1), n-1)$, 使下一次调用 $r$ 减少 1 .
+    \end{enumerate}
+
+    这样一来, 最后一定会到达$r=0$的情形. 
+
+    接下来我们考虑第$k$组有多少物品. 答案是$\left\{\begin{array}{l}\lceil n / m\rceil, 1<k \leqslant n \bmod m \\ \lfloor n / m\rfloor, n \geqslant k > n \bmod m\end{array}\right.$
+
+    稍加改写, 有
+    $$
+\begin{aligned}
+&=q+[k \leqslant r]=q+\left\lceil\frac{r-k+1}{m}\right\rceil \\
+&=\left\lceil\frac{r-k+1}{m}\right\rceil+q=\left\lceil\frac{\left.m q+r-k+1\right.}{m}\right\rceil \\
+&=\left\lceil\frac{n-k+1}{m}\right\rceil .
+\end{aligned}
+$$
+
+\end{example}
+
+根据上述的例子, 我们就得到了一个恒等式: 
+
+$$
+n=\left\lceil\frac{n}{m}\right\rceil+\left\lceil\frac{n-1}{m}\right\rceil+\cdots+\left\lceil\frac{n-m+1}{m}\right\rceil .
+$$
+
+同时我们可以证明下面的命题: 
+
+\begin{prop}
+
+    $$
+\begin{aligned}
+& n=\underbrace{\left\lfloor\frac{n}{m}\right\rfloor+\left\lfloor\frac{n+1}{m}\right\rfloor+\cdots+\left\lfloor\frac{n+m}{m}\right\rfloor}_{m \text { 项 }} \\
+& n=\overbrace{\left\lceil\frac{n}{m}\right\rceil+\left\lceil\frac{n-1}{m}\right\rceil+\cdots+\left\lceil\frac{n-m+1}{m}\right\rceil} \\
+&
+\end{aligned}
+$$
+    
+\end{prop}
+
+要证明这两个对称的形式, 只要注意到$n=\lceil n / 2\rceil+\lfloor n / 2\rfloor$即可.
+
+将$n$代换为$mx$可以得到如下推论: 
+
+\begin{corollary}
+    $$
+\lfloor m x\rfloor=\lfloor x\rfloor+\left\lfloor x+\frac{1}{m}\right\rfloor+\cdots+\left\lfloor x+\frac{m-1}{m}\right\rfloor
+$$
+    
+\end{corollary}
+
+\begin{proof}
+    \begin{align*}
+        \lfloor m x\rfloor&=\left\lfloor\frac{\lfloor m x\rfloor}{m}\right\rfloor+\left\lfloor\frac{\lfloor m x\rfloor+1}{m}\right\rfloor+\cdots+\left\lfloor\frac{\lfloor m x\rfloor+m-1}{m}\right\rfloor \\
+                          &\varsub{\text{去掉下取整}}{1.5cm} \lfloor x\rfloor+\left\lfloor x+\frac{1}{m}\right\rfloor+\cdots+\left\lfloor x+\frac{m-1}{m}\right\rfloor
+    \end{align*}
+    
+\end{proof}
 
 \end{document}
