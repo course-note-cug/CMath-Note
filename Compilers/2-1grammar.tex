@@ -1,0 +1,328 @@
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\input{../include.tex}
+\input{../ncmd.tex}
+
+\begin{document}
+
+\section{上下文无关文法}
+
+\subsection{回顾. 上下文无关文法语法}
+
+我们上节课学习了如何在ANTLR中书写语法, 我们借助下面的例子为每一个部分起一个名字. 
+
+\begin{example}
+    \begin{equation*}
+        \eqnmarkbox[blue]{head}{\texttt{functionDecl}} : \eqnmarkbox[red]{body}{\texttt{type ID '(' formalParameters? ')' block}};  
+\end{equation*}
+
+\annotate[yshift=0.5em]{}{head}{头部(head)}
+\annotate[yshift=0.5em]{}{body}{身体(body)}
+
+每一行称为产生式. 意思是把左边的头部替换为右边的身体. 每一个的头部都是一个非终结符, 因为它还可以被替换为右边的内容. 右边的身体有可能是非终结符, 也可能是终结符(如ID, `('等), 也有可能是空串$\epsilon$. 这样的文法我们叫做上下文无关文法 我们给出其定义
+\end{example}
+
+\begin{definition}[\newword{上下文无关文法}{context-free grammar, CFG}]
+    上下文无关文法 $G$ 是一个四元组 $G=(T, N, S, P)$ :
+    \begin{itemize}
+        \item  $T$ 是\newword{终结符号}{Terminal} 集合, 对应于词法分析器产生的词法单元
+        \item $N$ 是\newword{非终结符号} {Non-terminal} 集合
+        \item $S$ 是\newword{开始}{Start} 符号 $(S \in N$ 且唯一)
+        \item $P$ 是\newword{产生式}{Production} 集合
+    \end{itemize}
+    $$
+A \in N \longrightarrow \alpha \in(T \cup N)^*
+$$
+\begin{itemize}
+    \item \newword{头部/左部} {Head} $A$ : \red{单个}非终结符; 
+    \item \newword{体部/右部}{Body}  $\alpha$ : 终结符与非终结符构成的串, 也可以是空串 $\epsilon$
+\end{itemize}
+\end{definition}
+
+$S$是开始符号, 所有的程序都从开始符号展开得到. 
+
+\begin{example}
+    考虑
+    \begin{equation*}
+        E \rightarrow 
+        \eqnmarkbox[blue]{plus}{E+E}
+        |
+        \eqnmarkbox[green]{mul}{E * E}
+        |
+        \eqnmarkbox[blue]{bra}{(E)}
+        |
+        \eqnmarkbox[red]{neg}{-E}
+        |
+        \eqnmarkbox[blue]{idt}{\text { id }}
+    \end{equation*}
+    \annotate[yshift=0.5em]{}{plus}{相加}
+    \annotate[yshift=0.5em]{}{mul}{相乘}
+    \annotate[yshift=0.5em]{}{bra}{加括号}
+    \annotate[yshift=0.5em]{}{neg}{变为负号}
+    \annotate[yshift=1.0em]{}{idt}{最小单位}
+
+    实际上他们是下面的简写(用右递归的形式写出): 
+
+    \begin{equation*}
+        \begin{aligned}
+        & E \rightarrow T E^{\prime} \\
+        & E^{\prime} \rightarrow+T E^{\prime} \mid \epsilon \\
+        & T \rightarrow F T^{\prime} \\
+        & T^{\prime} \rightarrow * F T^{\prime} \mid \epsilon \\
+        & F \rightarrow(E) \mid \text { id }
+        \end{aligned}
+    \end{equation*}
+
+    另外一个上下文无关文法是
+
+    \begin{equation*}
+        \begin{aligned}
+        & S \rightarrow a S a \\
+        & S \rightarrow b S b \\
+        & S \rightarrow a \\
+        & S \rightarrow b \\
+        & S \rightarrow \epsilon
+        \end{aligned}
+    \end{equation*}
+    
+\end{example}
+
+但是在ANTLR中可以用类似正则表达式的方法(``?'', ``+'')来实现. 实际上这也是可以的, 因为我们有扩展的BNF范式(EBNF), 可以证明, 这两种情况是等价的. 这种形式只是一种简写. 比如, 带有``?''的可以拆解为两条规则, 同样可以按照如下的方法去除``*''. 
+
+\incfigw{starc}
+
+上下文无关文法强调左端一定是一个终结符. 否则就变成了上下文相关文法. 这就意味着我们还要根据之前的内容进行决策可以产生哪一条.  如下产生式, 
+
+\begin{equation*}
+    \begin{aligned}
+    S & \rightarrow a B C \\
+    S & \rightarrow a S B C \\
+    C B & \rightarrow C Z \\
+    C Z & \rightarrow W Z \\
+    W Z & \rightarrow W C \\
+    W C & \rightarrow B C \\
+    a B & \rightarrow a b \\
+    b B & \rightarrow b b \\
+    b C & \rightarrow b c \\
+    c C & \rightarrow c c
+    \end{aligned}
+\end{equation*}
+
+$aB$和$CB$两种情况对于$B$的处置是不一样的. 这就使得一个非终结符展开成什么样子取决于它的上下文. 
+
+\subsection{上下文无关文法的语义}
+
+
+类似于正则表达式, 上下文无关文法 $G$ 定义了一个语言 $L(G)$. 这个语言的``串''是按照规则把左边替换做右边(推导)实现的. 每一步推导需要\red{选择替换哪个非终结符号}, 以及\red{使用哪个产生式}. 例如上面的表达式可以经过如下推导为$-(id+id)$.
+
+$$
+E \Longrightarrow-E \Longrightarrow-(E) \Longrightarrow-(E+E) \Longrightarrow-(\red{\mathbf{i d}}+E) \Longrightarrow-(\mathbf{i d}+\mathbf{i d})
+$$
+
+为了方便起见, 引入一些记号: 
+
+\begin{itemize}
+    \item $E \Longrightarrow-E$ : 经过一步推导得出
+    \item $E \stackrel{+}{\Rightarrow} (\mathbf{i d}+E):$ 经过一步或多步推导得出
+    \item $E \stackrel{*}{\Rightarrow}-(\mathbf{i d}+E)$ : 经过零步或多步推导得出
+\end{itemize}
+
+同样可以从最右边的符号开始推导, 如下. 
+
+$E \Longrightarrow-E \Longrightarrow-(E) \Longrightarrow|-(E+E)| \Longrightarrow-(E+\blue{\mathbf{i d}}) \Longrightarrow-(\mathbf{i d}+\mathbf{i d})$
+
+如果我们在推导的每一步中都选择最左边的非终结符, 称为\newword{最左推导}{Leftmost derivation}, 如果在推导的每一步中都选择最右边边的非终结符,\newword{最右推导}{Rightmost derivation}. 
+
+我们的推导只有在推导到全是终结符的时候才认为结束. 如果可以由开始符号推导为字符串$\alpha$(可能含有非终结符), 我们就说$\alpha$是文法$G$的一个句型. 
+
+\begin{definition}[\newword{句型}{Sentential Form}]
+    如果 $S \stackrel{*}{\Rightarrow} \alpha$, 且 $\alpha \in(T \cup N)^*$, 则称 $\alpha$ 是文法 $G$ 的一个句型
+\end{definition}
+
+如果我们每个都推到头了, 我们称为句子. 
+
+\begin{definition}[\newword{句子}{Sentence}]
+    如果 $S \stackrel{*}{\Rightarrow} w$, 且 $w \in T^*$, 则称 $w$ 是文法 $G$ 的一个句子. 
+\end{definition}
+
+有了句子, 就可以定义文法的语言. 即所有句子的集合. 
+
+\begin{definition}[文法$G$生成的语言$L(G)$]
+    文法 $G$ 的语言 $L(G)$ 是它能推导出的所有句子构成的集合
+$$
+L(G)=\{w \mid S \stackrel{*}{\Rightarrow} w\}
+$$
+\end{definition}
+
+关于文法$G$的两个基本问题: 
+
+\begin{enumerate}
+    \item Membership 问题: 给定字符串 $x \in T^*, x \in L(G)$ ?
+    \item $L(G)$ 究竟是什么?
+\end{enumerate}
+
+对于Membership问题, 就是用来构建语法分析器的: 为输人的词法单元流寻找推导、构建语法分析树, 或者报错. 对于$L(G)$是什么, 这是程序设计语言设计者需要考虑的问题. 
+
+\begin{example}
+    $$\begin{aligned} & S \rightarrow S S \\ & S \rightarrow(S) \\ & S \rightarrow \epsilon\end{aligned}$$
+    表达的语言$L(G)=\{\text{所有匹配的括号}\}$. 
+
+    $$
+\begin{aligned}
+&S \rightarrow a S b\\
+&S \rightarrow \epsilon
+\end{aligned}
+$$
+表达的语言$L(G)=\{aaaa\dots abbb\dots b\}$, 并且$a$的数量和$b$的数量相等.  
+
+
+\end{example}
+
+\begin{example}
+    1)希望产生字母表 $\Sigma=\{a, b\}$ 上的所有回文串 (Palindrome) 构成的语言. 我们如何设计语言? 
+
+    考虑递归地求解问题. 考虑基础情况和推导的情况. 
+
+    $$\begin{aligned} & S \rightarrow a S a \\ & S \rightarrow b S b \\ & S \rightarrow a \\ & S \rightarrow b \\ & S \rightarrow \epsilon\end{aligned}$$
+
+    2) 我们希望产生形如$\left\{b^n a^m b^{2 n} \mid n \geq 0, m \geq 0\right\}$的语言, 应该如何构造?
+
+    实际上就是上面的翻版. $b$的关系只要产生形如$S\to bSbb$; 而$a$的关系可以这样处理: 
+
+    $$\begin{aligned} & S \rightarrow {b S b b} \mid A \\ & A \rightarrow a A \mid \epsilon\end{aligned}$$
+
+    3) 产生形如$\left\{x \in\{a, b\}^* \mid x\right.$ 中 $a, b$ 个数相同 $\}$的语言. 
+
+    尝试1. $V \rightarrow a V b|b V a| \epsilon$, 错误: 只生成前面一半$a,b$相同, 后面一半$a,b$相同的. $aabbba$并不能被生成. 
+
+    尝试2. $V \rightarrow a V b|b V a|VV| \epsilon$. 
+
+     
+    尝试3. $V \rightarrow a V b V|b V a V| \epsilon$
+
+    正确性说明: 每一次将串分为4部分, 第四部分肯定能找出一个字符串分割出来的部分和2, 3部分的$a,b$个数相同. (可以用$a=+1, b=-1$的折线图解释). 
+
+    4) 产生形如$\left\{x \in\{a, b\}^* \mid x\right.$ 中 $a, b$ 个数不同 $\}$的语言. 答案为
+
+    $$
+\begin{aligned}
+S & \rightarrow T \mid U \\
+T & \rightarrow V a T \mid V a V \\
+U & \rightarrow V b U \mid V b V \\
+V & \rightarrow a V b V|b V a V| \epsilon
+\end{aligned}
+$$
+
+\end{example}
+
+为什么不使用优雅、强大的正则表达式描述程序设计语言的语法? 因为正则表达式的表达能力严格弱于上下文无关文法. 
+
+实际上, 上面的上下文有关文法描述的语言是$L=\{a^nb^nc^n\}$, 而这是难以被上下文无关文法表达的. 
+
+\subsection{语言的表达能力简介}
+
+我们来证明正则表达式的表达能力严格弱于上下文无关文法. 首先, 任意一个RE, 都可以被CFG表示; 并且存在一个CFG的文法, 它无法被RE表示. 
+
+首先, 每个正则表达式 $r$ 对应的语言 $L(r)$ 都可以使用上下文无关文法来描述. 对于一个RE, 可以写出对应的NFA, 这样就可以写出它的CFG. 
+
+\incfig{conv}
+
+此外, 若 $\delta\left(A_i, \epsilon\right)=A_j$, 则添加 $A_i \rightarrow A_j$. 这说明RE不强于CFG. 
+
+另外, 我们发现语言
+$$
+L=\left\{a^n b^n \mid n \geq 0\right\}
+$$
+无法使用正则表达式来描述.
+
+\begin{theorem}
+    $L=\left\{a^n b^n \mid n \geq 0\right\}$ 无法使用正则表达式描述. 
+\end{theorem}
+
+\begin{proof}
+    考虑反证法: 假设存在一个正则表达式 $r: L(r)=L=\left\{a^n b^n \mid n \geq 0\right\}$, 则存在有限状态自动机 $D(r): L(D(r))=L$; 设其状态数为 $k \geq 1$. 在假想的自动机上面输入$a^m(m \geq k)$, 这个自动机经历了$m+1$个状态. 这表明经过的状态中有两个是同一个状态. 
+
+    取这个相同状态$s_i$经过的最早一次和最后一次, 有下图上侧的数量关系. 
+    
+    \incfigw{pmp}
+
+    现在输入$a^ib^i$, 那么一定到达了一个接收状态. 如上图下侧所示. 如果输入了$a^{i+j}b^i$, 这个自动机也会接受这个状态, 矛盾! 
+\end{proof}
+
+这表明DFA会被大输入``撑爆''. 即, 经过足够大的输入, DFA总是会回到某个先前经历过的状态, 这就意味着我无论在这样的状态上面绕多少圈, 再让它抵达终点也是可行的. 这就是著名的定理: Pumping Lemma. Pumping的意思是Repeat. 
+
+\begin{theorem}
+    If $L$ is a regular language, then there exists a number $p \geq 1$ (pumping length) such that any string $s$ in $L$ of length $\geq p$ can be divided into three pieces, $s=x y z$, satisfying the following conditions:
+\begin{enumerate}
+    \item $|y| \geq 1$ 
+    \item $|x y| \leq p$
+    \item $\forall i \geq 0: x y^i z \in L$ 
+\end{enumerate}
+
+\end{theorem}
+
+\begin{example}
+    $D=\left\{1^{n^2} \mid n \geq 0\right\}$ is not regular.
+
+    考虑 $s=1^{p^2}\in D, $ ( $p$ is the pumping length), 满足$|s| \geq p$. 于是$s=x y z\in D$. 但是, $x y^2 z \notin D$. 因为$p^2<\left|x y^2 z\right|=|x y z|+|y| \leq p^2+p<p^2+2 p+1=(p+1)^2$. 因此$x y^2 z$介于完全平方数之间, 故一定不属于$D$中. 
+\end{example}
+
+那么, 上下文无关语言的表达能力在哪里? 实际上, 只要我们的字符串足够的长, 前后一定能够经过两个一样的非终结符. 这就是上下文无关语言的Pumping Lemma. 有了这两个相同的非终结符, 就可以进行构造了. 
+
+
+\section{递归下降的$LL(1)$语法分析器} 我们接下来试图构造语法分析树. 例如下图所示. 如果构建成功, 在给出树的时候顺便给出了推导; 如果不成功, 那么就报错. 
+
+\incfigw{tree}
+
+有两种方法: 自顶向下 vs. 自底向上. 现在只考虑无二义性的文法. 这意味着, 每个句子对应唯一的一棵语法分析树. 接下来我们要做的事情是构造一个\textbf{自顶向下的, 递归下降的, 基于预测分析表的, 使用与$LL(1)$文法的}$LL(1)$语法分析器. 
+
+\subsubsection{自顶向下构建语法分析树} 根节点是文法的起始符号 $S$, 叶节点是词法单元流 $w \$$, 仅包含终结符号与特殊的文件结束符 $\$$ (EOF).
+        
+\incfig{ll}
+
+既然要Fiona每个中间节点表示对某个非终结符应用某个产生式进行推导, 重点在于\red{选择哪个非终结符, 以及选择哪个产生式}. 
+
+对于$L\red L(1)$算法, 在推导的每一步, 总是选择\red{最左边的非终结符进行展开}(也就是最左推导, 第二个$L$的意思). 第一个$L$的意思是从左向右读入词法单元. 
+
+\subsubsection{递归下降的} 为每个非终结符写一个递归函数, 内部按需调用其它非终结符对应的递归函数, 下降一层. 
+
+\newcommand\tbing{~~~~}
+{
+    \begin{align*}
+        &\texttt{void } A()\{ \\
+            &\tbing \texttt{for ($i=1$ to $k$)}\{ \\
+            & \tbing \eqnmarkbox[blue]{chose}{\texttt{选择一个$A$的产生式, $A\to X_1X_2\cdots X_k.$}}\\
+            &\tbing \tbing \texttt{if $X_i$ 是一个非终结符号} \\
+            &\tbing \tbing \tbing \eqnmarkbox[blue]{rec}{\texttt{调用过程$X_i$();}}\\
+            & \tbing \tbing \eqnmarkbox[red]{mat}{\texttt{else if $X_i$等于当前输入的符号$a$}}\\
+            & \tbing \tbing \tbing \texttt{读入下一个输入符号;}\\
+            & \tbing\tbing \texttt{else /*出现了不期望的词法单元, 错误. */}\\
+            & \tbing\tbing \}\\
+            & \}
+    \end{align*}
+    \annotate[yshift=0.5em]{}{chose}{先不必纠结如何选取, 这是$LL(0)$的核心. }
+    \annotate[yshift=0.5em]{}{mat}{成功匹配了一个词法单元 }
+    \annotate[xshift=6.5em,yshift=0.3em]{}{rec}{递归下降调用其他非终结符对应的函数, 为输入流递归地匹配. }
+}
+
+
+\incfigw{expand}
+
+\begin{example}
+    考虑如下表达式
+    $$
+\begin{aligned}
+& S \rightarrow F \\
+& S \rightarrow(S+F) \\
+& F \rightarrow a
+\end{aligned}
+$$
+以及    $w=((a+a)+a)$. 
+
+匹配过程为
+
+\incfig{rd}
+
+\end{example}
+
+\end{document}

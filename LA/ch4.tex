@@ -69,6 +69,36 @@
     
 \end{proof}
 
+\begin{example}
+    \begin{enumerate}
+        \item 行向量空间$[x_1, x_2, \cdots, x_n]$和列向量空间$[x_1, x_2, \cdots, x_n]'$. 
+        \item $P$上的一元多项式$P[x]$对多项式和多项式的加法, 多项式和数的乘法封闭. 构成$P$上的线性空间. 
+        \item 设$V$是所有收敛实数序列的集合 $V=\left\{\alpha=\left(a_1, a_2, \cdots, a_n, \cdots\right):  \underset{n \rightarrow \infty}\lim a_n \text { 存在 }\right\}$, 则对数列的加法, 数列与实数的乘法封闭. 也就是$V$构成$\R$上的线性空间. 
+    \end{enumerate}
+    
+\end{example}
+
+我们在给出一个定义之后, 自然要考察其初步的性质, 与它关联的结构, 以及结构与结构之间有何种联系. 下面我们来看这个结构和它满足某种条件的子集有什么联系. 我们称为子空间. 
+
+设$W$是$\mathbb P$上的线性空间的子集, 如果对于任意$\alpha, \beta, $都有$\alpha+\beta \in W$($W$对加法封闭), 以及$\forall k \in \mathbb{P}, \alpha \in W$, 有$k {\alpha} \in W$($W$对纯量乘法封闭), 我们把这样的子集称为$W$的子空间. 
+
+\begin{definition}
+    设 $W$ 且数域 $\mathbb{P} $ 上线性空间 $V$的非空子集, 如果对于$V$的加法, 纯量乘法$W$也构成一个线性空间, 则称$W$是$V$的子空间. 简称子空间. 
+\end{definition}
+
+下面来考察初步的性质. 
+
+\begin{prop}
+    若$W$是线性空间$V$上的非空子集, 下列的三个命题等价
+    \begin{enumerate}
+        \item $W$是$V$的子空间;
+        \item $W$对$V$的加法, 数乘封闭; 
+        \item $\forall k, l \in \mathbb{P}, \alpha, \beta \in W,  k \alpha+l \beta \in W$.
+    \end{enumerate}
+\end{prop}
+
+
+
 
 
 \section{子空间}
@@ -123,8 +153,9 @@
 
     设有$x_1, \cdots, x_r, y_{r+1}, \cdots, y_s, z_{r+1},\cdots,z_t\in P$使得
     \[
-        \sum_{i=1}^{r}x_i\alpha_i + \sum_{j=r+1}^{s} y_j\beta_j + \sum_{k=r+1}^{t}z_k\gamma_k=0
+        {\sum_{i=1}^{r}x_i\alpha_i} + \sum_{j=r+1}^{s} y_j\beta_j + \sum_{k=r+1}^{t}z_k\gamma_k=0
     \]
+    
     因此
     \[
        \sum_{j=r+1}^{s} y_j\beta_j =- \sum_{i=1}^{r}x_i\alpha_i-  \sum_{k=r+1}^{t}z_k\gamma_k
