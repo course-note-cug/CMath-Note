@@ -11,3 +11,11 @@
 *.ilg
 *.ind
 *.xdv
+*.cut
+*.css
+*.txt
+*.lwarpmkconf
+*.ist
+*.xdy
+*.conf
+*html.tex
