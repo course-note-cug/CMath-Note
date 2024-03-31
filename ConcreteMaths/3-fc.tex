@@ -6,7 +6,9 @@
 
 \begin{document}
 
+
 \section{上取整和下取整} 
+\label{sec:intro}
 
 实际上, 上取整和下取整实际上英语是对应着房子的``天花板''和``地板''. 
 
@@ -261,7 +263,9 @@ $$
 
 \end{example}
 
+\newpage
 
+\label{sec:mod}
 \section{二元运算: 模(mod)运算}
 
 \subsection{模} 我们已经知道了$n／m$的商为$\lfloor n / m\rfloor$, 我们下面定义$n／m$的余数. 
@@ -286,7 +290,7 @@ $$
 \end{aligned}
 $$
 
-可见, 对 $x \bmod y$ 而言，若 $y>0 ， 0 \leqslant x \bmod y<y$; 
+可见, 对 $x \bmod y$ 而言, 若 $y>0 ,  0 \leqslant x \bmod y<y$; 
 
 $y<0, \quad 0 \geqslant x \bmod y>y .$. 
 \end{example}
@@ -353,8 +357,8 @@ $$
 
     可以考虑横着放
     \begin{itemize}
-        \item 若 $n \not\backslash m$ ，“长的行”将会容纳 $\left\lceil\frac{n}{m}\right\rceil$ 个物品. $(n \bmod m)$
-        \item 若 $n \not\backslash m$ ，“短的行”将会容纳 $\left\lfloor\frac{n}{m}\right\rfloor$ 个物品. $(n \operatorname{mumble} m)$
+        \item 若 $n \not\backslash m$ , “长的行”将会容纳 $\left\lceil\frac{n}{m}\right\rceil$ 个物品. $(n \bmod m)$
+        \item 若 $n \not\backslash m$ , “短的行”将会容纳 $\left\lfloor\frac{n}{m}\right\rfloor$ 个物品. $(n \operatorname{mumble} m)$
     \end{itemize}
     并且两种行最多仅仅相差1. 
 
@@ -439,5 +443,144 @@ $$
     \end{align*}
     
 \end{proof}
+
+\subsection{关于求和的递归式}
+
+接下来看一些关于求和的递归式. 
+
+\begin{example}
+    有如下的递推关系: 
+    $$
+\begin{aligned}
+& K_0=1 \\
+& K_{n+1}=1+\min \left(2 K_{\lfloor n / 2\rfloor}, 3 K_{\lfloor n / 3\rfloor}\right) .
+\end{aligned}
+$$
+求证$K_n \geqslant n, \forall n \geqslant 0$. 
+\end{example}
+
+\begin{proof}
+    使用归纳法. 
+    \begin{itemize}
+        \item $n=0$, 成立.
+        \item 假设这个性质对$0,1, \cdots n$成立, 要推是否对$n+1$成立. 由于$K_{n+1}=1+\min \left(2 K_{\lfloor n / 2\rfloor}, 3 K_{\lfloor n / 3\rfloor}\right)$, 以及归纳假设可知: $2 K_{\lfloor n/ 2\rfloor} \geqslant 2\lfloor n / 2\rfloor, 3 K_{\lfloor n / 3\rfloor} \geqslant 3\lfloor n / 3\rfloor$. 根据大小关系分类讨论: 
+        \begin{itemize}
+            \item 如果 $2\left\lfloor\frac{n}{2}\right\rfloor=n$ 成 $3\left\lfloor\frac{n}{3}\right\rfloor=n$ , 命题得证. 
+            \item 如果 $K_{\lfloor n / 2\rfloor}<\frac{n}{2}$ 或 $K_{\lfloor n / 3\rfloor}<n / 3$, 那么以 $K_{\lfloor n / 2\rfloor}<\frac{n}{2}$ 为例, 就可以得到$K_{\left\lfloor n^{\prime} / 2\right\rfloor} \leqslant\left\lfloor\frac{n^{\prime}}{2}\right\rfloor \quad, \quad K_{\left\lfloor\left\lfloor n^{\prime} / 2\right\rfloor / 2\right\rfloor} \leqslant\left\lfloor\frac{n^{\prime}}{4}\right\rfloor$. 这就可以推出$K_0 \leqslant 0$. 但 $K_0=1$ , 矛盾！$K_{\left\lfloor n^{\prime} / 3\right\rfloor} \leqslant\left\lfloor\frac{n^{\prime}}{3}\right\rfloor$ 同理, 此情况不成立!
+        \end{itemize}
+    \end{itemize}
+\end{proof}
+
+\begin{example}
+为$\sum_{k=1}^n\lceil\lg k\rceil$ 寻找封闭形式. 
+
+实际上, 本式子是从选择排序的运行时间引申的. 记 $m=\lfloor\lg n\rfloor$, 
+
+$$\begin{aligned} \sum_{k=1}^n\lceil\lg k\rceil & =\sum_{k=1}^{2^m}\lceil\lg k\rceil=j[j=\lceil\lg k\rceil]\left[1 \leqslant k \leqslant 2^m\right] \\ & =\sum_{j, k} j\left[2^{j-1}<k \leqslant 2^j\right][1 \leqslant j \leqslant m] \\ & =\sum_{j=1}^m\left(2^j-2^{j-1}\right) j=2^m(m-1)+1 .\end{aligned}$$
+
+然后再加上 $\lfloor\lg n\rfloor \ldots n$ 的内容, 共有 $(n-m) \cdot(m+1)$项. 故封闭形式为$2^m(m-1)+1+(n-m)(m+1)$.
+
+\end{example}
+
+\begin{example}[Josephus问题]
+    求解递归式
+    $$
+\begin{aligned}
+& J(1)=1 \\
+& J(n)=2 J\left(\left\lfloor\frac{n}{2}\right\rfloor\right)-(-1)^n, n>1 .
+\end{aligned}
+$$
+的推广: 每隔 $m$ 个人杀死一个. 
+
+我们采取一个新思路, 每一个人经过的时候, 赋予它一个新的编号, 在下面的例子中, 展示的是每隔3个人杀死一个: 
+
+\incfigw{josp}
+
+这样一来, 第 $k$ 个被移除的人拥有号码 $3 k$. 我们按照是不是他们的本身的号码进行分类讨论. 
+
+\begin{itemize}
+    \item $N>n$ , 说明轮过一轮了, 若 $(N=n+2 k+1$ 或 $N=n+2 k+2)$, 那么前一个数分别是 $(3 k+1$ 或 $3 k+2)$, 其中 $k=\left\lfloor\frac{N-n-1}{2}\right\rfloor$. 
+\end{itemize}
+
+因此寻找最后一个人的代码就可以用如下的伪代码实现: 
+
+$$
+\begin{aligned}
+& N \leftarrow 3 n \\
+& \text { while } N>n, \quad N \leftarrow 3\left\lfloor\frac{N-n-1}{2}\right\rfloor+(N-n-2 k) \\
+& J_3(n) \leftarrow N . \quad=\left[\frac{N-n-1}{2}\right\rfloor+N-n \\
+&
+\end{aligned}
+$$
+
+下面做变量代换, 从$3n$到$1$反向编号, 就有
+
+$$
+\begin{aligned}
+D & +3 n+1-\left(\left\lfloor\frac{(3 n+1-D)-n-1}{2}\right\rfloor+(3 n+1-D)-n\right) \\
+& =n+D-\left\lfloor\frac{2 n-D}{2}\right\rfloor=D-\left\lfloor\frac{-D}{2}\right\rfloor=D+\left\lceil\frac{D}{2}\right\rceil=\left\lceil\frac{3}{2} D\right\rceil .
+\end{aligned}
+$$
+    
+\end{example}
+
+我们以一段对于数学归纳法的讨论结束这一小节. 
+
+\begin{quote}
+    In trying to devise a proof by the Mathematical induction, you may fail for two opposite reasons. You may fail because you try to prove too much, Your $P(n)$ is too heavy a burden; Yet you may also fail because you prove too little, Your $P(n)$ is too weak to support. In general, you have to balance the statement of your theorem so that the support is just enough for the burden. 
+    
+    \hfill --- G. Polya
+\end{quote}
+
+\newpage
+\section{关于底和顶的和式}
+
+\subsection{取整: 使用新变量替代} 
+在\cref{sec:mod}中, 我们令 $m:=\lfloor\sqrt{k}\rfloor$ , 然后 施用\cref{sec:intro}中得到的$m \leqslant \sqrt{k}<m+1$不等式, 最后使用了计数这个区间里面有多少个整数的方法. 
+
+另一种方法: 使用 $\sum_j[1 \leqslant j \leqslant x]$ 代替 $\lfloor x\rfloor .(x>0)$. 假若 $n=a^2$, 那么
+
+$$\begin{aligned} \sum_{0 \leqslant k<n}\lfloor\sqrt{k}\rfloor & =\sum_{j, k}[1 \leqslant j \leqslant \sqrt{k}]\left[0 \leqslant k \leqslant a^2\right] \\ & =\sum_{1 \leqslant j<a} \sum_k\left[j^2 \leqslant k<a^2\right] \\ & =\sum_{1 \leqslant j<a}\left(a^2-j^2\right)=a^3-\frac{1}{3} a\left(a+\frac{1}{2}\right)(a+1)\end{aligned}$$
+
+\subsection{等差数列的例子} 我们希望求
+$$
+\sum_{0 \leq k<m}\left\lfloor\frac{n k+x}{m}\right\rfloor, m>0, n \in \mathbb{Z} .
+$$
+的封闭形式. 
+
+实际上各种情况下, 我们首先要做的事情是观察特例. 
+\begin{itemize}
+    \item 当$n=1$ 的时候, $\quad x:=\frac{x}{m}$ , 得 $$\left\lfloor\frac{x}{m}\right\rfloor+\left\lfloor\frac{1+x}{m}\right\rfloor+\cdots+\left\lfloor\frac{m-1+x}{m}\right\rfloor=\lfloor x\rfloor.$$
+    \item 当$m=2$的时候, 
+    $$
+    \sum_{0 \leqslant k<m}\left\lfloor\frac{n k+x}{m}\right\rfloor=\left\lfloor\frac{x}{2}\right\rfloor+\left\lfloor\frac{n+x}{2}\right\rfloor
+    $$
+    分类讨论: 
+\begin{enumerate}
+    \item $n$ 是偶数: $\left\lfloor\frac{x}{2}\right\rfloor+\left\lfloor\frac{x}{2}\right\rfloor+\frac{n}{2}=2\left\lfloor\frac{x}{2}\right\rfloor+\frac{n}{2}$.
+    \item $n$ 是奇数: $\left\lfloor\frac{x}{2}\right\rfloor+\left\lfloor\frac{x+1}{2}\right\rfloor+\frac{n-1}{2}=\lfloor x\rfloor+\frac{n-1}{2}$.
+\end{enumerate}
+\item 若令 $m=3$ , $$\sum_{0 \leqslant k<m}\left\lfloor\frac{n k+x}{m}\right\rfloor=\left\lfloor\frac{x}{3}\right\rfloor+\left\lfloor\frac{x+n}{3}\right\rfloor+\left\lfloor\frac{x+2 n}{3}\right\rfloor$$ 分类讨论: 
+\begin{enumerate}
+    \item $n \bmod 3=0: \frac{n}{3}, \frac{2 n}{3} \in \mathbb{Z}$. 和为$$
+    \left\lfloor\frac{x}{3}\right\rfloor+\left(\left\lfloor\frac{x}{3}\right\rfloor+\frac{n}{3}\right)+\left(\left\lfloor\frac{x}{3}\right\rfloor+\frac{2 n}{3}\right)=3\left\lfloor\frac{x}{3}\right\rfloor+n
+    $$
+    \item $n \bmod 3=1, \frac{n-1}{3}, \frac{2(n-1)}{3} \in \mathbb{Z}$. 和为$$\left\lfloor\frac{x}{3}\right\rfloor+\left(\left\lfloor\frac{x+1}{3}\right\rfloor+\frac{n-1}{3}\right)+\left(\left\lfloor\frac{x+2}{3}\right\rfloor+\frac{2 n-2}{3}\right)=\lfloor x\rfloor+n-1$$
+    \item $n \bmod 3=2, \frac{n-2}{3}, \frac{2(n-2)}{3}, \frac{2 n-1}{3} \in \mathbb{Z}$, $$\left\lfloor\frac{x}{3}\right\rfloor+\left(\left\lfloor\frac{x+2}{3}\right\rfloor+\frac{n-2}{3}\right)+\left(\left\lfloor\frac{x+1}{3}\right\rfloor+\frac{2 n-1}{3}\right)=\lfloor x\rfloor+n-1.$$
+\end{enumerate}
+\item 若令 $m=4, \sum_{0 \leq k<m}\left\lfloor\frac{n k+x}{m}\right\rfloor=\left\lfloor\frac{x}{4}\right\rfloor+\left\lfloor\frac{x+n}{4}\right\rfloor+\left\lfloor\frac{x+2 n}{4}\right\rfloor+\left\lfloor\frac{x+3 n}{4}\right\rfloor$. 那就分为4类. 
+\item \begin{enumerate}
+    \item $n \bmod 4=0$的情况: $$\left\lfloor\frac{x}{4}\right\rfloor+\left(\left\lfloor\frac{x}{4}\right\rfloor+\frac{n}{4}\right)+\left(\left\lfloor\frac{x}{4}\right\rfloor+\frac{2 n}{4}\right)+\left(\left\lfloor\frac{x}{4}\right\rfloor+\frac{3 n}{4}\right)=4\left\lfloor\frac{x}{4}\right\rfloor+\frac{3 n}{2}.$$
+    \item $n \bmod 4=1$, $$\begin{aligned}\left\lfloor\frac{x}{4}\right\rfloor+\left(\left\lfloor\frac{x+1}{4}\right\rfloor+\frac{n-1}{4}\right)+\left(\left\lfloor\frac{x+2}{4}\right\rfloor+\frac{2 n-2}{4}\right) & +\left(\left\lfloor\frac{x+3}{4}\right\rfloor+\frac{3 n-3}{4}\right) \\ & =\lfloor x\rfloor+\frac{3 n}{2}-\frac{3}{2}\end{aligned}.$$
+    \item $n \bmod 4=2$, $$\begin{aligned} & \left\lfloor\frac{x}{4}\right\rfloor+\left(\left\lfloor\frac{x+2}{4}\right\rfloor+\frac{n-2}{4}\right)+\left(\left\lfloor\frac{x}{4}\right\rfloor+\frac{2 n}{4}\right)+\left(\left\lfloor\frac{x+2}{4}\right\rfloor+\frac{3 n-2}{4}\right) \\ = & 2\left(\left\lfloor\frac{x}{4}\right\rfloor+\left\lfloor\frac{x+2}{4}\right\rfloor\right)+\frac{3 n}{2}-1=2\left\lfloor\frac{x}{2}\right\rfloor+\frac{3 n}{2}-1 .\end{aligned}$$
+    \item $n \bmod 4=3$, $$\left\lfloor\frac{x}{4}\right\rfloor+\left(\left\lfloor\frac{x+1}{4}\right\rfloor+\frac{3 n-1}{4}\right)+\left(\left\lfloor\frac{x+2}{4}\right\rfloor+\frac{2 n-2}{4}\right)+\left(\left\lfloor\frac{x+3}{4}\right\rfloor+\frac{n-3}{4}\right)=\lfloor x \rfloor+\frac{3 n}{2}-\frac{3}{2}.$$
+\end{enumerate}
+\end{itemize}
+
+总结为表格, 就有
+
+
+
+
 
 \end{document}
