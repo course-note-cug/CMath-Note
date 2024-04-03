@@ -76,8 +76,10 @@
 \usepackage{mathrsfs}  
 \usepackage{xcolor}
 \usepackage{wrapfig}
-\usepackage{algorithm2e}
-\RestyleAlgo{ruled}
+% \usepackage{algorithm2e}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+% \RestyleAlgo{ruled}
 
 \usepackage{pstricks-add}
 \usepackage{epsfig}
@@ -245,7 +247,7 @@
 \newcommand{\Par}[1]{\vspace{10pt}\noindent\textbf{\refstepcounter{paranum}\theparanum. }\textbf{#1}~~}
 \newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
 \newcommand{\mn}[1]{\marginnote{{#1}}}
-\renewcommand{\algorithmcfname}{算法}
+% \renewcommand{\algorithmcfname}{算法}
 \usepackage[abspath]{currfile}
 
 \newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\currfilename/#1}\end{center}}

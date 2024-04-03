@@ -2,9 +2,11 @@
 \documentclass{ctexart}
 \input{../include.tex}
 \input{../ncmd.tex}
+\newcommand\first{\text{First}}
+\newcommand\follow{\text{Follow}}
 
 \begin{document}
-
+\lecture{编译原理(南京大学软件学院)}{5$\sim$6}{上下文无关文法, $LL(1)$语法分析算法}{魏恒峰}{张桄玮}{Spring 2024}
 \section{上下文无关文法}
 
 \subsection{回顾. 上下文无关文法语法}
@@ -270,7 +272,11 @@ $$
 那么, 上下文无关语言的表达能力在哪里? 实际上, 只要我们的字符串足够的长, 前后一定能够经过两个一样的非终结符. 这就是上下文无关语言的Pumping Lemma. 有了这两个相同的非终结符, 就可以进行构造了. 
 
 
-\section{递归下降的$LL(1)$语法分析器} 我们接下来试图构造语法分析树. 例如下图所示. 如果构建成功, 在给出树的时候顺便给出了推导; 如果不成功, 那么就报错. 
+\section{递归下降的$LL(1)$语法分析器} 
+
+\subsection{简介}
+
+我们接下来试图构造语法分析树. 例如下图所示. 如果构建成功, 在给出树的时候顺便给出了推导; 如果不成功, 那么就报错. 
 
 \incfigw{tree}
 
@@ -324,5 +330,252 @@ $$
 \incfig{rd}
 
 \end{example}
+
+\subsection{基于预测分析表的} 对于上面的例子, 同样是展开非终结符 $S$, 为什么前两次选择了 $S \rightarrow(S+F)$, 而第三次选择了 $S \rightarrow F$ ? 这就是预测分析表要做的事情. 
+
+如上例, 第一个选择第二条规则, 是因为只有这一个会得到和输入匹配的字符串. 和上面的不同, 这时候我们可以选择$S$, 将来有机会变为$a$. 根本原因是:   因为它们面对的当前词法单元不同. 
+
+假设我们有一张表, 指明了每个非终结符在面对不同的润法单元或文件结束符时,该选择哪个产生式 (按编号进行索引) 或者报错 (空单元格). 如下表: 
+
+\begin{center}
+    \begin{tabular}{|c||c|c|c|c|c|}
+        \hline & ( & ) & $a$ & + & $\$$ \\
+        \hline \hline$S$ & 2 & & 1 & & \\
+        \hline$F$ & & & 3 & & \\
+        \hline
+        \end{tabular}
+\end{center}
+
+这张表叫做\newword{预测分析表}{prediction table}. 
+
+\begin{definition}[$LL(1)$文法]
+    如果文法 $G$ 的预测分析表是无冲突的(每个单元格里只有一个产生式 (编号)), 则 $G$ 是 $LL(1)$ 文法. 
+\end{definition}
+
+对于这样的内容, 我们可以对于当前选择的非终结符, 仅根据输人中当前的词法单元 $(L L(1))$ 即可确定需要使用哪条产生式. 
+
+\begin{example}
+    对于下面的文法, 其不是$LL(1)$文法
+$$
+\begin{aligned}
+& S \rightarrow a b C \mid a b C \\
+& C \rightarrow c \mid d
+\end{aligned}
+$$
+因为只看当前的词法单元, 都不行. 至少要往后看2个, 因此是$LL(3)$文法. 
+
+有一些文法无论$k$有多大, 它都不可能是$LL(k)$文法. 比如我们以前见到的\texttt{'if' expr 'then' stat}语句. 要分析他们, 需要往前面看任意多个词法单元. 下次会介绍如何处理这个.  
+\end{example}
+
+那么这样一来就可以写写递归下降的算法了. 如上面的例子为例, 就有这样的代码: 
+
+\begin{algorithm}[H]
+    % \caption{}
+    % \label{alg:S}
+    \begin{algorithmic}[1]
+      \Procedure{match}{$t$}  \Comment{$t$ 是预期的词法单元}
+        \If{token = $t$}   \Comment{token 是输入中当前的词法单元}
+          \State token $\gets \Call{\purple{next-token}}{\null}$
+        \Else
+          \State \Call{error}{token, $t$}
+        \EndIf
+      \EndProcedure
+    \end{algorithmic}
+    \end{algorithm}
+
+\begin{algorithm}[H]
+    % \caption{}
+    % \label{alg:S}
+    \begin{algorithmic}[1]
+      \Procedure{\blue{$F$}}{\null}
+        \If{\red{token = `a'}}
+          \State \Call{match}{`a'}
+        \Else
+          \State \Call{\teal{error}}{token, \set{`a'}}
+        \EndIf
+      \EndProcedure
+    \end{algorithmic}
+    \end{algorithm}
+
+    以及
+
+    \begin{algorithm}[H]
+        % \caption{}
+        % \label{alg:S}
+        \begin{algorithmic}[1]
+          \Procedure{\blue{$S$}}{\null}
+            \If{\red{token = `('}}
+              \State \Call{match}{`('}
+              \State \Call{$S$}{\null}
+              \State \Call{match}{`+'}
+              \State \Call{$F$}{\null}
+              \State \Call{match}{`)'}
+            \ElsIf{\red{token = `a'}}
+              \State \Call{$F$}{\null}
+            \Else
+              \State \Call{\teal{error}}{token, \set{`(', `a'}} \Comment{好处是可以把期望的内容报错出来}
+            \EndIf
+          \EndProcedure
+        \end{algorithmic}
+        \end{algorithm}
+
+下面介绍如何构造这个预测分析表. 先看下面的例子. 
+
+\incfig{lleg}
+
+区分\texttt{int x = y;}和\texttt{f(int x)}在读到\texttt{int}和读到\texttt{f}的时候选择不同的东西展开的区别在于它可否通过后续的展开出现对应的期望的词法单元. 也就是在他们\red{所有可能的展开中最左端的终结符中}(这样的集合叫做$\text{First}$集合)\red{有没有我们想要的单元.} 
+
+继续往下读, 读到\texttt{decl}中的\texttt{optional\_init}规则的时候, \texttt{int x\red{=}y}选择了\texttt{'=' ID}这条规则, 而\texttt{f(int x\red{)}}中选择了$\epsilon$规则. 这是这个算法的核心. 当然是因为当前我们遇到的字符(红色标记)不同. 后者看到的是右括号, 如果我选择空的话, 后面的右括号就是我要匹配的那一个--这和当前输入匹配. 这就说明, 我们要考察\texttt{arg}后面有可能出现那些终结符. 这个\red{可能出现的集合会被称为Follow集合.}
+
+总结一下,  
+$\operatorname{First}(\alpha)$ 是可从 $\alpha$ 推导得到的句型的首终结符号的集合, 
+
+\begin{definition}[First集合]
+    对于任意的 (产生式的右部) $\alpha \in(N \cup T)^*$ :
+$$
+\operatorname{First}(\alpha)=\{t \in T \cup\{\epsilon\} \mid \alpha \stackrel{*}{\Rightarrow} \red{t} \beta \vee \alpha \stackrel{*}{\Rightarrow} \epsilon\} .
+$$
+\end{definition}
+
+考虑非终结符 $A$ 的所有产生式 $A \rightarrow \alpha_1, A \rightarrow \alpha_2, \ldots, A \rightarrow \alpha_m$,如果它们对应的 $\operatorname{First}\left(\alpha_i\right)$ 集合互不相交,则只需查看当前输人词法单元, 即可确定选择哪个产生式 (或报错). 
+
+Follow $(A)$ 是可能在某些句型中紧跟在 $A$ 右边的终结符的集合. 
+
+\begin{definition}[Follow($A$)集合]
+    对于任意的 (产生式的左部) 非终结符 $A \in N$ :
+$$
+\operatorname{Follow}(A)=\{t \in T \cup\{S\} \mid \exists s . S \stackrel{*}{\Rightarrow} s \triangleq \beta A \eqnmarkbox[blue]{todo}{\red{t}} \gamma\} .
+$$
+\annotate[]{}{todo}{要收集的紧跟在$A$后面的终结符}
+\end{definition}
+
+Follow的含义是: 考虑产生式 $A \rightarrow \alpha$,如果从 $\alpha$ 可能推导出空串 $(\alpha \stackrel{*}{\Rightarrow} c)$,
+则只有当当前词法单元 $t \in \operatorname{Follow}(A)$, 才可以选择该产生式.
+
+另一个直观解释, 就是当前假设有一个预测分析表, 我们期望往这个非终结符$A$所在的那一行进行规则填写. 也就是碰到了某一个终结符之后就应该选某条规则. 假设现在我们有3个终结符$t_1, t_2, t_3$. 那么对于$A \rightarrow \alpha \stackrel*\Rightarrow \epsilon$这一个特殊的产生式, 问题在于$t_1, t_2, t_3$这里面满足哪一个特殊的条件才可以让我选这条产生式? 这个条件就是$t\in\text{Follow}(A)$. 如下图所示. 
+
+\incfigw{follow}
+
+接下来就比较简单了. 先算每个符号$X$的$\text{First}(X)$集合: 
+
+\begin{algorithm}[H]
+    % \caption{}
+    % \label{alg:S}
+    \begin{algorithmic}[1]
+      \Procedure{\purple{first}}{$X$}
+        \If{\red{$X \in T$}}  \Comment{\blue{规则1: $X$是终结符}}
+          \State $\first(X) = X$
+        \EndIf
+
+
+        \For{\red{$X \to Y_{1} Y_{2} \dots Y_{k}$}} \Comment{\blue{规则2: $X$是非终结符}}
+          \State $\first(X) \gets \first(X) \cup \set{\first(Y_{1}) \;\teal{\setminus\; \set{\epsilon}}}$
+          \For{$i \gets 2 \;\text{\bf to } k$}
+              \If{$\epsilon \in L(Y_{1} \dots Y_{i-1})$}
+                \State $\first(X) \gets \first(X) \cup \set{\first(Y_{i}) \;\teal{\setminus\; \set{\epsilon}}}$
+              \EndIf
+          \EndFor
+
+          \If{\red{$\epsilon \in L(Y_{1} \dots Y_{k})$}} \Comment{\blue{规则3: $X$ 可推导出空串}}
+            \State $\first(X) \gets \first(X) \cup \set{\epsilon}$
+          \EndIf
+        \EndFor
+      \EndProcedure
+    \end{algorithmic}
+    \end{algorithm}
+    
+    不断应用上面的规则, 直到每个 $\first(X)$ 都不再变化. 再计算每个符号串 $\alpha$ 的 $\operatorname{FIRST}(\alpha)$ 集合. 对于$\alpha=X \beta$
+
+    $$
+    \operatorname{FIRST}(\alpha)= \begin{cases}\operatorname{FIRST}(X) & \epsilon \notin L(X) \\ (\operatorname{First}(X) \backslash\{\epsilon\}) \cup \operatorname{FIRSt}(\beta) & \epsilon \in L(X)\end{cases}
+    $$
+
+    最后注意: 如果 $\epsilon \in L(\alpha)$, 则 $\epsilon \in \operatorname{FIRST}(\alpha)$
+
+    \begin{example}
+        求如下的文法的First集合和Follow集合. 
+        $$
+\begin{aligned}
+& X \rightarrow Y \\
+& X \rightarrow a \\
+& Y \rightarrow \epsilon \\
+& Y \rightarrow c \\
+& Z \rightarrow d \\
+& Z \rightarrow X Y Z
+\end{aligned}
+$$
+
+首先看$\first(Y)=\set{c, \epsilon}$, (能写$\epsilon$是因为没有其他的了). 于是对于$\first(X)=\set{a, c, \epsilon}$. $F(Z)=\set{d,a,c, ??}$, $\first(XYZ)=\set{a,c,d, ??}$ 再次应用, 发现他们都可以得到一个不动点. 问题在于, $\epsilon$在不在里面. 由于$Z\to \epsilon \epsilon Z, Z\to d$, 因此$Z$不能变为$\epsilon$. 我们的迭代就结束了. 
+    \end{example}
+
+    接下来看Follow集合. 
+
+    \begin{algorithm}[H]
+        % \caption{}
+        % \label{alg:S}
+        \begin{algorithmic}[1]
+          \Procedure{\purple{follow}}{$X$}
+
+            \For{\red{$X$ 是开始符号}}  \Comment{\blue{规则1: $X$ 是开始符号}}
+              \State $\follow(X) \gets \follow(X) \cup \set{\$}$
+            \EndFor
+
+
+            \For{\red{$A \to \alpha X$}} \Comment{\blue{规则2: $X$ 是某产生式右部的最后一个符号}}
+              \State $\follow(X) \gets \follow(X) \cup \follow(A)$
+            \EndFor
+        
+
+
+            \For{\red{$A \to \alpha X \beta$}} \Comment{\blue{规则3: $X$ 是某产生式右部中间的一个符号}}
+              \State $\follow(X) \gets \follow(X) \cup (\first(\beta) \setminus \set{\epsilon})$
+              \If{\red{$\epsilon \in \first(\beta)$}}
+                \State $\follow(X) \gets \follow(X) \cup \follow(A)$
+              \EndIf
+            \EndFor
+          \EndProcedure
+        \end{algorithmic}
+        \end{algorithm}
+        不断应用上面的规则, 直到每个 $\operatorname{FOLLOW}(X)$ 都不再变化. 
+
+        \begin{example}
+            接上例. 首先知道$\follow(X)=\set{\$,...}$, 由于$\follow(Y)\backslash\set{\epsilon}\subset \follow(X)$, $\follow(X)=\set{\$,c, ...}$. 由于$\first(YZ)=\set{a,c,d}$, 因此$\follow(X)=\set{\$,c,a,d}$.
+
+            然后$\follow(Y)=\set{\$, c, a, d, ...}$, 由于$\first(Z)=\set{a,c,d}$, 因为没有$\epsilon$, 所以结束了.$\follow(Y)=\set{\$, c, a, d}$. 
+            
+            最后计算$\follow(Z)\subset \follow(Z)$, 我们要不断迭代直到它不再变化为止. 如果我们从空集开始构造, 迭代一次就不变化了, 说明是空集. 这表明从起始符号展开根本不会到达$Z$. 
+        \end{example}
+
+        然后基于FIRST 与 FOLLOW 集合计算给定文法 $G$ 的预测分析表. 对应每条产生式 $A \rightarrow \alpha$ 与终结符 $t$, 如果
+        $$
+\begin{gathered}
+t \in \operatorname{FIRST}(\alpha) \\
+\alpha \stackrel{*}{\Rightarrow} \epsilon \wedge t \in \operatorname{FOLLOW}(A)
+\end{gathered}
+$$
+则在表格 $[A, t]$ 中填人 $A \rightarrow \alpha$ (编号)
+
+上述的分析我们都是用充分性来做的. 换句话说就是当下的选择未必正确, 但此刻 “你别无选择”. 
+
+\begin{example}
+    接上例, 填表的结果是
+
+    \begin{center}
+        \begin{tabular}{|c||c|c|c|c|}
+            \hline & $a$ & $c$ & $d$ & $\$$ \\
+            \hline \hline$X$ & 1,2 & 1 & 1 & 1 \\
+            \hline$Y$ & 3 & 3,4 & 3 & 3 \\
+            \hline$Z$ & 6 & 6 & 5,6 & \\
+            \hline
+            \end{tabular}
+    \end{center}
+\end{example}
+
+总结一下, $LL(1)$指的是: 
+\begin{itemize}
+    \item $L$ : 从左向右 (left-to-right) 扫描输入
+    \item $L$ : 构建最左 (leftmost) 推导
+    \item 1: 只需向前看一个输人符号便可确定使用哪条产生式
+\end{itemize}
 
 \end{document}
