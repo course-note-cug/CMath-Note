@@ -1,0 +1,18 @@
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\input{../include.tex}
+\input{../ncmd.tex}
+
+
+\begin{document}
+
+\section{Adaptive $LL(*)$语法分析算法}
+
+由于很多语法$LL(1)$中无法表示, 例如左递归文法($E\to E+E | E \times E | \text{id}$), 以及有左公因子的文法($S\to ab | ac$).
+这样的内容构建的预测分析表一定会有冲突. 
+
+所以这次来介绍可以处理更复杂的内容的算法. 这是ANTLR4中的算法. 
+
+\subsection{处理左递归和优先级} ANTLR如何处理优先级问题? 考虑最简单的例子, 
+
+\end{document}
