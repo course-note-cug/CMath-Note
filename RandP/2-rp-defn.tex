@@ -1,0 +1,52 @@
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\input{../include.tex}
+\input{../ncmd.tex}
+
+\begin{document}
+
+\section{随机过程的基本概念}
+
+概率论中学习一个随机变量, 而随机过程研究通常随时间变化的一簇随机变量, 也就是$\set{X(t), t\in T}$. 
+
+\begin{definition}[随机过程]
+    随机过程是概率空间 $(\Omega, \mathscr F, P)$ 上的一族随机变量 $\{X(t), t \in T\}$, 其中 $T$ 称为指标集或参数集. 
+\end{definition}
+
+两种看待随机过程的观点: 
+\begin{itemize}
+    \item ``状态''的集合: 如果$X(t)$表示在$t$时刻的状态, 所有可能的状态的集合记作$S$. 按照$S$的性质, 可以分为连续和离散状态空间. 
+    \item ``二元函数'': 可以看做$T\times \Omega$的二元函数. 
+\begin{itemize}
+    \item 固定样本点$w\in \Omega,$ $X(t,w)$就是在$T$上的一个函数(样本路径). 
+    \item 固定时刻: 得到$X(t)=X(t,w)$是概率空间上面的一个随机变量. 
+\end{itemize}
+\end{itemize}
+
+下面考虑刻画随机过程. 既然随机过程是一簇随机变量的集合, 我们如何刻画它? 自然我们知道每一个$t \in T, X(t)$
+的分布函数, 也就是$F(t,x)=\set{X(t)\leq x}$, 以及他们在{\bf{任意}}$2$个, 3个, $...$, $n$个时间点的联合分布.  一般, 对任意有限个 $t_1, t_2, \cdots, t_n \in T$, 我们还需定义随机过程的 $n$ 维分布为
+\[
+    F_{t_1,t_2, \cdots, t_n}\left(x_1, x_2, \cdots, x_n\right)=P\left\{X\left(t_1\right) \leqslant x_1, X\left(t_2\right) \leqslant x_2, \cdots, X\left(t_n\right) \leqslant x_n\right\}
+\]
+
+因此, 我们可以用随机过程的所有一维分布, 二维分布, ..., $n$维分布来刻画一个随机过程. 也就是
+\[
+    \set{F_{t_1,t_2, ... , t_n}(x_1,x_2, ..., x_n), t_1, t_2, ..., t_n,t_n \in T, n\geq 1}
+\]
+我们一般叫做随机过程的\newenword{有限维分布簇}. 
+
+此外, 观察到有限维分布簇满足一些特性: 
+\begin{enumerate}
+    \item {\bf{对称性}} 对 $1,2, \cdots, n$ 的任一排列 $j_1, j_2, \cdots, j_n$, 有
+        \[
+            \begin{aligned}
+F_{t_1, t_{j_2} \cdots u_{j_n}}\left(x_{j_1}, x_{j_2}, \cdots, x_{j_n}\right) & =P\left\{X\left(t_{j_1}\right) \leqslant x_{j_1}, X\left(t_{j_2}\right) \leqslant x_{j_2}, \cdots, X\left(t_{j_n}\right) \leqslant x_{j_n}\right\} \\
+& =P\left\{X\left(t_1\right) \leqslant x_1, X\left(t_2\right) \leqslant x_2, \cdots, X\left(t_n\right) \leqslant x_n\right\} \\
+& =F_{i_1, t_2, \cdots, t_n}\left(x_1, x_2, \cdots, x_n\right)
+\end{aligned}
+        \]
+
+
+\end{enumerate}
+
+\end{document}
