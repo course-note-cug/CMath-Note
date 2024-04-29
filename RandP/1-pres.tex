@@ -5,6 +5,8 @@
 
 \begin{document}
 
+\lecture{概率论}{1}{概率空间简介}{尹⼀通}{张桄玮}{Spring 2024}
+
 \section{概率空间}
 
 \subsection{定义的由来}
@@ -20,7 +22,7 @@
 这就使得我们把一次试验中\blue{所有可能出现的结果(possible outcomes)}的集合放在一起考虑. 构成\newword{样本空间}{sample space}, 一般用$\Omega$表示. 对于样本空间的每一个元素$\omega\in \Omega$, 称为\newword{样本}{sample}(或\newword{基本事件}{elementary event}). 下文所讨论的\newword{事件}{event}一般认为是$\Omega$的一个子集. 
 
 \begin{example}
-    下图展示了投掷两枚筛子的所有可能结果. 如果我们认为事件$A:=$ 第一枚是6, 第二枚是1, 可以看到这是样本空间的一个子集. 事件$B$和$C$表示什么? 我们为什么会认为``一小格''代表的概率是$1/36$?
+    下图展示了投掷两枚骰子的所有可能结果. 如果我们认为事件$A:=$ 第一枚是6, 第二枚是1, 可以看到这是样本空间的一个子集. 事件$B$和$C$表示什么? 我们为什么会认为``一小格''代表的概率是$1/36$?
 
     \incfigw{event}
 \end{example}
@@ -31,7 +33,7 @@
     \item $\sum_{\omega \in \Omega} p(\omega)=1$. 我们希望所有的事件发生的概率加起来等于1. 
 \end{itemize}
 
-有了这样对基本元素的映射, 我们就可以定义一个事件$A \subseteq \Omega$的概率, 定义作$\operatorname{Pr}(A):=\sum_{\omega \in A} p(\omega)$, 称为\newword{事件的概率}{Probability of event}. 这也引出下一个问题: 到底什么样的集合我们才可以把它称为\red{事件构成的集合}?
+有了这样对基本元素的映射, 我们就可以定义一个事件$A \subseteq \Omega$的概率, 定义作$\operatorname{Pr}(A):=\sum_{\omega \in A} p(\omega)$, 称为\newword{事件的概率}{Probability of event}. 这也引出下一个问题: 到底什么样的集合簇, 才可以被称为\red{事件构成的集合}?
 
 对于一个有限(或者可数)的样本空间$\Omega$而言, 我们可以写出样本空间上所有可能的事件: $2^\Omega$. 但是, 这个要求能不能放松些? 通过我们以前的知识, 我们发现: 
 \begin{itemize}
@@ -40,20 +42,20 @@
     \item 如果有可数多个集合$A_1, A_2, \ldots$在事件集合里面, 那么$\bigcup_i A_i$ 和 $\bigcap_i A_i$也要在事件的集合里面. 这是为了我们方便地做并集和交集运算. 
 \end{itemize} 
 
-可以看到, 我们这里定义这样的规则, 完全是基于我们希望我们定义出来的这操作在集合的交、并、补下面对事件集合\red{封闭}. 也就是事件集合中拿出任意可数多个元素进行集合的运算, 得到的结果一定还在这定义的事件集合里面. 这样我们定义的概率映射$p$才有意义. 
+可以看到, 我们这里定义这样的规则(2), (3), 完全是基于我们希望我们定义出来的这簇集合的元素在交、并、补这些运算下面\red{封闭}. 也就是事件集合中拿出任意可数多个元素进行上述集合的运算, 得到的结果一定还在这定义的事件集合里面. 这样我们定义的概率映射$p$才有意义. 
 
 于是经过上述探讨, 得到下面的概率空间的定义: 
 
 \begin{definition}
-    设 $\Omega$ 是一个样本空间(或任意一个集合), $\mathcal{F}$ 是 $\Omega$ 的某些子集组成的集合族. 如果满足:
+    设 $\Omega$ 是一个样本空间(或任意一个集合), $\Sigma$ 是 $\Omega$ 的某些子集组成的集合族. 如果满足:
 
-(1) $\Omega \in \mathcal{F}$;
+(1) $\Omega \in \Sigma$;
 
-(2) 若 $A \in \mathcal{F}$ ，则 $A^{c}=\Omega \backslash A \in \mathcal{F}$;
+(2) 若 $A \in \Sigma$ ，则 $A^{c}=\Omega \backslash A \in \Sigma$;
 
-(3) 若 $A_{n} \in \mathcal{F}, n=1,2, \cdots$, 则 $\bigcup_{n=1}^{\infty} A_{n} \in \mathcal{F}$;\mn{这里没有定义交集的原因是, 交集可以通过并集取反得到. 这定义是一个最精简的版本. }
+(3) 若 $A_{n} \in \Sigma, n=1,2, \cdots$, 则 $\bigcup_{n=1}^{\infty} A_{n} \in \Sigma$;\mn{这里没有定义交集的原因是, 交集可以通过并集取反得到. 这定义是一个最精简的版本. }
 
-则称 $\mathcal{F}$ 为 \newword{$\sigma$ 代数}{$\sigma$-algebra}. $(\Omega, \mathcal{F})$ 称为\newword{可测空间}{measurable space}, $\mathcal{F}$ 中的元素称为\newword{事件}{events}.
+则称 $\Sigma$ 为 \newword{$\sigma$ 代数}{$\sigma$-algebra}. $(\Omega, \Sigma)$ 称为\newword{可测空间}{measurable space}, $\Sigma$ 中的元素称为\newword{事件}{events}.
 \end{definition}
 
 \begin{example}
@@ -82,7 +84,7 @@ $$
 \end{example}
 
 \begin{definition}
-    设 $(\Omega, \mathcal{F})$ 是可测空间, $\Pr$是一个从事件$\Sigma$的集合到实数集合的映射($\Pr:\Sigma\to [0,1]$), 满足
+    设 $(\Omega, \Sigma)$ 是可测空间, $\Pr$是一个从事件$\Sigma$的集合到实数集合的映射($\Pr:\Sigma\to [0,1]$), 满足
 
 (1) (归一化) $\Pr(\Omega)=1$;
 
@@ -93,7 +95,457 @@ $$
 \Pr\left(\bigcup_{i=1}^{\infty} A_{i}\right)=\sum_{i=1}^{\infty} \Pr\left(A_{i}\right)
 $$
 
-则称 $\Pr$ 是 $(\Omega, \mathcal{F})$ 上的\newword{概率测度}{probability measure}, 三元组$(\Omega, \mathcal{F}, P)$ 称为概率空间, $\mathcal{F}$ 中的元素称为事件, $P(A)$ 称为事件 $A$ 的概率.
+则称 $\Pr$ 是 $(\Omega, \Sigma)$ 上的\newword{概率测度}{probability measure}, 三元组$(\Omega, \Sigma, P)$ 称为概率空间, $\Sigma$ 中的元素称为事件, $P(A)$ 称为事件 $A$ 的概率.
 \end{definition}
+
+一经建立上述的公理体系(定义), 我们任何常见的对于概率的想象都可以被验证. 
+
+\begin{example}
+    下面的内容是我们在中学``不假思索''就用的. 我们现在诉诸公理, 证明他们.
+
+    \begin{itemize}
+        \item $\operatorname{Pr}\left(A^c\right)=1-\operatorname{Pr}(A)$. \fadetext{这是因为考虑$A$和它的补$A^c$没有交集, 且组成了全空间, 根据$\Pr(\Omega)=1$以及$\sigma$-可加性可知. }
+        \item $\operatorname{Pr}(\varnothing)=0$. 考虑反证法说明: 因为$\operatorname{Pr}(A)>0 \Longrightarrow A \neq \varnothing$ 这样的方法被称为\newword{概率方法}{the probabilistic method}
+        \item $\operatorname{Pr}(A \backslash B)=\operatorname{Pr}(A)-\operatorname{Pr}(A \cap B)$ \fadetext{可以借鉴问题1的思路.}
+        \item $A \subseteq B \Longrightarrow \operatorname{Pr}(A) \leq \operatorname{Pr}(B)$. \fadetext{直观来看, 由于$\Pr$的值域是$[0,1]$, 点越多, 概率至少不应该变小. }
+        \item $\operatorname{Pr}(A \cup B)=\operatorname{Pr}(A)+\operatorname{Pr}(B)-\operatorname{Pr}(A \cap B). $\fadetext{这是容斥原理的一个简单的形式.}
+    \end{itemize}
+\end{example}
+
+\subsection{几个重要的不等式} 下面我们介绍几个重要的不等式和一些重要的思想.  
+
+\subsubsection{\newword{并的上界}{union bound}}  
+
+\begin{proposition}
+    对于事件$A_1, A_2, \cdots, A_n$, 
+    $$
+\operatorname{Pr}\left(\bigcup_{i=1}^n A_i\right) \leq \sum_{i=1}^n \operatorname{Pr}\left(A_i\right)
+$$
+\end{proposition}
+
+这可以通过上述例子中$\Pr(A\cup B)=\Pr(A)+\Pr(B)-\Pr(A\cap B)$得到证明, 并且可以知道等号取得的条件是$A_i$两两没有交集. 
+
+\subsubsection{\newword{容斥原理}{principle of inclusion-exclusion, PIE}} 继续推广$\operatorname{Pr}(A \cup B)=\operatorname{Pr}(A)+\operatorname{Pr}(B)-\operatorname{Pr}(A \cap B)$, 当有三个集合的时候, 要算它们的并集就可以转换为它们的交集. 我们接下来先说明一般的容斥原理. 
+
+若$S$是一个集合, 记$|S|$表示集合$S$中元素的个数, 对于两个集合而言, 有$|A \cup B|=|A|+|B|-|A \cap B|.$ 如果是三个集合, 可以写作
+$$
+\begin{aligned}
+|A \cup B \cup C| =& |A|+|B|+|C| \\
+-&|A \cap B|-|A \cap C|-|B \cap C| \\
++&|A \cap B \cap C| 
+\end{aligned}
+$$
+其特点如下: 
+\begin{enumerate}
+    \item 这是一个把求集合并集化为交集之组合的变换. 
+    \item 如果我们把参与并集那些集合(如$A,B,C$)当做一个大集合$K$, 其会生成$K$的所有子集, 这每个子集的元素(也是集合)交起来, 便得到了构成等式右端的基本组件.
+    \item 如果这个子集的大小为奇数, 前面的符号为正; 反之就是负. 
+
+\end{enumerate}
+
+根据我们上面的观察, 实际上我们就可以得到一般的容斥原理: 
+
+\begin{theorem}[容斥原理]
+    假设是$A_1, A_2, ... , A_n$是$n$个集合, 那么有
+    $$
+\begin{aligned}
+\left|\bigcup_{i=1}^n A_i\right| & =\sum_{i=1}^n \left|A_i\right|-\sum_{i<j} \left|A_i \cap A_j\right|+\sum_{i<j<k} \left|A_i \cap A_j \cap A_k\right|-\cdots \\
+& =\sum_{\substack{s \subseteq\{1,2, \ldots, n\} \\
+S \neq \varnothing}}(-1)^{|S|-1} \left|\bigcap_{i \in S} A_i\right|
+\end{aligned}
+$$
+\end{theorem}
+
+我们来证明这个定理. 最无脑(但不一定总是可以这样做)的方法当然是可以使用数学归纳法了. 但是我们今天换一种方法. 
+
+\begin{proof}
+    \motivation{我们的目标是计数的时候每个元素都被算过, 且只被算过了一次. }假设$A_1, ..., A_n \subset X$, 对于每一个$A_i$, 我们定义一个指示函数. 这个指示函数写作 
+    $$
+    f_{i}(x):=\begin{cases}
+1 & x\in A_{i}\\
+0 & x\notin A_{i}
+\end{cases}
+$$
+我们考虑
+$$
+F(x)=\prod_{1 \leq i \leq n}\left(1-f_i(x)\right) .
+$$
+这个函数是集合$\cup_{1 \leq i \leq n} A_i$的补的指示函数. 也就是说, $F(x)=1 \iff x$ 不在任何一个$A_i$ 集合中. 于是, 
+$$
+\sum_{x \in X} F(x)=\left|X \backslash \cup_{1 \leq i \leq n} A_i\right| .
+$$
+现在我们用另一种视角看$F(x)$. 通过把对应的指示函数展开, 可以得到$2^n$个元素, 就是
+$$
+F(x)=\prod_{1 \leq i \leq n}\left(1-f_i(x)\right)=\sum_{I \subset[n]}(-1)^{|I|} \prod_{i \in I} f_i(x) .
+$$
+实际上, $\prod_{i \in I} f_i(x)$就是$\cap_{i \in I} A_i$的特征函数, 因此得到
+$$
+\sum_{x \in X} F(x)=\sum_{I \subset[n]}(-1)^{|I|} \sum_{x \in X} \prod_{i \in I} f_i(x)=\sum_{I \subset[n]}(-1)^{|I|}\left|\cap_{i \in I} A_i\right|
+$$
+这样一来, 我们就得到了对应的大小信息
+$$\left|X \backslash \cup_{1 \leq i \leq n} A_i\right|=|X|-\left|\cup_{1 \leq i \leq n} A_i\right|=\sum_{I \subset[n]}(-1)^{|I|}\left|\cap_{i \in I} A_i\right|$$
+
+于是我们就证明了这个定理. 
+
+\end{proof}
+
+实际上, 事件只是特殊的集合, 而概率函数($\Pr$)和个数函数($|\cdot|$)有类似的性质, 因此固然有
+
+对于事件$A_1, A_2, \cdots, A_n \in \Sigma$, 有
+$$\begin{aligned} \operatorname{Pr}\left(\bigcup_{i=1}^n A_i\right) & =\sum_{i=1}^n \operatorname{Pr}\left(A_i\right)-\sum_{i<j} \operatorname{Pr}\left(A_i \cap A_j\right)+\sum_{i<j<k} \operatorname{Pr}\left(A_i \cap A_j \cap A_k\right)-\cdots \\ & =\sum_{\substack{S \subseteq 11,2, \ldots, n\} \\ S \neq \varnothing}}(-1)^{|S|-1} \operatorname{Pr}\left(\bigcap_{i \in S} A_i\right)\end{aligned}$$
+
+\begin{example}[错排问题]
+    取数列$a=[1,2,3, ..., n]$, 将它随机打乱. 请问$a_i \neq i$的情况有多少?
+
+    \motivation{对计数任务做合理的划分. 有时候从反面考虑会有些帮助. } 我们考虑计算``存在$a_i=i$的情况的个数''. 定义$A_i$表示$a_i=i$的可能性. 并且我们发现  $\operatorname{Pr}\left(\bigcap_{i \in S} A_i\right)=\frac{(n-|S|) !}{n !}$ \motivation{这个式子比较好算, 我们的任务成功了一大半.} 然后应用容斥原理的表达: 
+$$\operatorname{Pr}\left(\bigcup_{i=1}^n A_i\right)=\sum_{k=1}^n \sum_{S \in\left(\begin{array}{c}\{1,2, \ldots, n\} \\ k\end{array}\right)}(-1)^{k-1} \operatorname{Pr}\left(\bigcap_{i \in S} A_i\right)=\sum_{k=1}^n\left(\begin{array}{l}n \\ k\end{array}\right)(-1)^{k-1} \frac{(n-k) !}{n !}$$
+
+
+由于我们的问题是回答的反面, 自然用1减, 得到
+$$
+\operatorname{Pr}\left(\bigcap_{i=1}^n A_i^c\right)=1-\operatorname{Pr}\left(\bigcup_{i=1}^n A_i\right)=1+\sum_{k=1}^n \frac{(-1)^k}{k !}=\sum_{k=0}^n \frac{(-1)^k}{k !}
+$$
+当$n$很大的时候, 它接近$1/e$. 
+    
+\end{example}
+
+\subsection{概率测度的连续性}
+
+就像我们在$\R$, $\R^2$上面定义了距离的度量, 然后由此导出了邻域的定义. 一旦定义了邻域, 就可以定义映射极限的概念.
+
+\begin{theorem}[概率测度是连续的]
+    如果$A_1 \subseteq A_2 \subseteq A_3 \subseteq \ldots$是一系列事件, 我们定义这一簇集合的极限为$A$, 表示
+    \[
+        A:=\bigcup_{i=1}^\infty A_i = \lim_{i\to  \infty}A_i.
+    \]
+    那么有$\operatorname{Pr}(A)=\lim _{i \rightarrow \infty} \operatorname{Pr}\left(A_i\right)$
+    
+\end{theorem}
+
+这条定理说明了: 只要搞明白这一簇集合最终的极限是什么, 我们就能够得到与之对应的$\Pr(A)$是多少. 不必再去考虑每一个集合$A_i$单独做映射得到$\Pr(A_i)$并求极限. 
+
+\begin{proof}
+    \motivation{关键是使用不相交集合的可加性. } 如果我们把最终的极限$A$写作若干个不交和$A=A_1 \uplus\left(A_2 \backslash A_1\right) \uplus\left(A_3 \backslash A_2\right) \uplus \ldots$, 那么
+
+    $$
+\begin{aligned}
+\operatorname{Pr}(A) & =\operatorname{Pr}\left(A_1\right)+\sum_{i=1}^{\infty} \operatorname{Pr}\left(A_{i+1} \backslash A_i\right) \\
+& =\operatorname{Pr}\left(A_1\right)+\lim _{n \rightarrow \infty} \sum_{i=1}^{n-1}\left[\operatorname{Pr}\left(A_{i+1}\right)-\operatorname{Pr}\left(A_i\right)\right] \\
+& =\lim _{n \rightarrow \infty} \operatorname{Pr}\left(A_n\right)
+\end{aligned}
+$$
+\end{proof}
+
+
+同样的, 如果我们有不断变小的一系列集合, 也有同样的定理, 即: 如果$B$是事件集合$B_1,B_2, ...$, 满足$B_1 \supseteq B_2 \supseteq B_3 \supseteq \ldots$的集合的极限(定义作$B=\bigcap_{i=1}^{\infty} B_i=\lim _{i \rightarrow \infty} B_i$), 那么有$\operatorname{Pr}(B)=\lim _{i \rightarrow \infty} \operatorname{Pr}\left(B_i\right)$. 实际上我们可以考虑上述各个事件的补, 也就是考虑$B_1^c \subseteq B_2^c \subseteq B_3^c \subseteq \ldots$ -- 就转化到了上述定理的内容了. 
+
+
+有了上述的铺垫, 我们可以看一看\newword{零事件}{null event}. 
+
+\begin{definition}[零事件]
+    如果一个事件$A\in \Sigma$, 满足$\Pr(A)=0$, 那么就称它为零事件.
+\end{definition}
+
+注意零事件和不可能事件的区别. 零事件不一定是不可能事件. 即: 概率为0不一定不会发生.
+
+与之对应, 概率为1也不一定会发生. 像概率为1事件我们叫做几乎必然事件.
+\begin{definition}[\newword{几乎必然}{almost surely, a.s.}]
+如果一个事件$A\in \Sigma$, 满足$\Pr(A)=1$, 那么就称它为几乎必然事件.
+\end{definition}
+
+\section{条件概率} 考虑``在事件$B$发生的条件下, $A$发生的概率是$p$''. 在中学学过条件概率公式
+$$p=\frac{|A \cap B|}{|B|}=\frac{|A \cap B| /|\Omega|}{|B| /|\Omega|}=\frac{\operatorname{Pr}(A \cap B)}{\operatorname{Pr}(B)}$$
+这是因为考虑直观的意义, 可以把$A\cup B$和$B$在全空间的意义下分别表示. 
+
+\incfig{venn}
+
+用集合的术语来说, 这就相当于在原有的集合上面做了一个限制. 我们现在为它下一个定义, 看一看概率空间的基础上, 如何定义条件概率.
+
+\subsection{基本定义}
+
+\begin{definition}
+    如果$A$是一个事件, $B$是一个$\Pr(B)>0$的事件, 那么$A$在$B$发生的条件下发生的\newword{条件概率}{conditional probability}被定义作
+$$\operatorname{Pr}(A \mid B):=\frac{\operatorname{Pr}(A \cap B)}{\operatorname{Pr}(B)}$$
+\end{definition}
+这样的定义是合理的. 只要我们
+\begin{itemize}
+    \item 把样本空间看做$B$; 
+    \item $\Sigma^B := \{ A \cap B : A \in \Sigma \}$满足$\sigma$-代数的条件;
+    \item $\Pr(\cdot|B)$满足概率的公理. 
+\end{itemize}
+那么, 由$(B,\Sigma^B, \Pr)$也构成一个概率空间. 
+
+\begin{example}
+    假设你有一个以概率为$p$出现正面(H)的硬币, 但是不知道$p$是多少. 你应该如何用这个硬币生成均匀的硬币投掷?
+
+    答案: 只要我们不断地投掷, 当连续两次投掷结果是HT的情况下, 就等效地认为扔出了正面; 连续两次投掷出现TH, 就认为扔出了反面. 
+
+    这是因为
+
+$$
+\operatorname{Pr}(\mathrm{HT} \mid\{\mathrm{HT}, \mathrm{TH}\})=\operatorname{Pr}(\mathrm{TH} \mid\{\mathrm{HT}, \mathrm{TH}\})=\frac{p(1-p)}{2 p(1-p)}=\frac{1}{2}
+$$
+\end{example}
+
+\begin{example}
+    已知两个孩子, 至少一个是女孩. 那么两个孩子都是女孩的概率是多少?(假设男孩和女孩出现等概率).
+
+    假设在空间有$\Omega=\{\mathrm{BB}, \mathrm{BG}, \mathrm{GB}, \mathrm{GG}\}$, 每种情况发生的可能性相同. 那么
+$$
+\begin{aligned}
+\operatorname{Pr}(\{\mathrm{GG}\} \mid\{\mathrm{BG}, \mathrm{GB}, \mathrm{GG}\}) & =\frac{\operatorname{Pr}(\{\mathrm{GG}\})}{\operatorname{Pr}(\{\mathrm{BG}, \mathrm{GB}, \mathrm{GG}\})} \\
+& =\frac{1 / 4}{3 / 4}=\frac{1}{3}
+\end{aligned}
+$$
+
+
+
+\end{example}
+
+\subsection{条件概率的性质}
+
+\subsubsection{链式法则} \newword{链式法则}{Chain rule}描述了我们为什么像计数的时候应用乘法原理那样对``分步决策的''两个概率乘起来. 其表述如下: 
+
+\begin{theorem}[链式法则]
+    假设$A_1, A_2, ..., A_n$有正概率, 那么
+    \[
+        \Pr \left( A_1 \cap A_2 \cap A_3 \cap ... \cap A_n \right)
+        =
+        \Pr(A_1) \Pr(A_2|A_1)\Pr(A_3|A_1\cap A_2)\cdots\Pr(A_n|A_1\cap A_2\cap \cdots \cap A_{n-1})
+    \]
+    也就是
+$$
+\operatorname{Pr}\left(\bigcap_{i=1}^n A_i\right)=\prod_{i=1}^n \operatorname{Pr}\left(A_i \mid \bigcap_{j<i} A_j\right)
+$$
+\end{theorem}
+
+\begin{proof}
+    \motivation{首先回到定义上面去. }可以使用裂项的方法证明. 
+    $$
+\operatorname{Pr}\left(\bigcap_{i=1}^n A_i\right)=\frac{\operatorname{Pr}\left(\bigcap_{i=1}^n A_i\right)}{\operatorname{Pr}\left(\bigcap_{i=1}^{n-1} A_i\right)} \cdot \frac{\operatorname{Pr}\left(\bigcap_{i=1}^{n-1} A_i\right)}{\operatorname{Pr}\left(\bigcap_{i=1}^{n-2} A_i\right)} \cdots \frac{\operatorname{Pr}\left(A_1 \cap A_2\right)}{\operatorname{Pr}\left(A_1\right)} \cdot \operatorname{Pr}\left(A_1\right)
+$$
+\end{proof}
+
+\begin{example}
+    把$n$个球一个一个地随机扔进$m$个盒子里面, 请问每个球都扔进了一个空盒子的概率是多少?
+
+    答案: 考虑分步进行. 很容易求``对于编号$j$的球($j<i$)都扔进了一个空桶的情况下, 编号$i$的球扔进了一个空桶的概率''为$1-\frac{i-1}{m}$. 那么根据上述的定理: 
+
+概率就是
+$$
+\prod_{i=1}^n\left(1-\frac{i-1}{m}\right)
+$$
+
+\end{example}
+
+\subsection{全概率公式} 全概率公式说的事情是对于一个复杂的样本空间, 与其在其上面一整个上面求概率, 不如先把样本空间做一个划分, 在划分的小片上面计算概率, 然后把它们加起来. 
+
+\begin{theorem}[全概率公式]
+    令事件$B_1, B_2, ... , B_n$是$\Omega$的一个分割, 其中对任何的$i$, 都有
+    $\operatorname{Pr}\left(B_i\right)>0$
+    那么, 
+    $$\operatorname{Pr}(A)=\sum_{i=1}^n \operatorname{Pr}\left(A \cap B_i\right)=\sum_{i=1}^n \operatorname{Pr}\left(A \mid B_i\right) \operatorname{Pr}\left(B_i\right)$$
+
+\end{theorem}
+
+\begin{proof}
+    由于$A \cap B_1, A \cap B_2, \ldots, A \cap B_n$是互不相交的, 且$A=\bigcup_{i=1}^n\left(A \cap B_i\right)$. 这就表明$\operatorname{Pr}(A)=\sum_{i=1}^n \operatorname{Pr}\left(A \cap B_i\right)$. 
+
+    这同样表明了$\operatorname{Pr}\left(A \cap B_i\right)=\operatorname{Pr}\left(A \mid B_i\right) \operatorname{Pr}\left(B_i\right)$.
+\end{proof}
+
+\begin{example}[三门问题]
+
+    假设你参加一个游戏节目, 有三扇门.  其中一扇门后面有大奖, 另外两扇门后面是什么都没有.  你选择了一扇门(比如第一个门), 主持人知道每扇门后面是什么. 
+然后,他打开了另外一扇门(比如第三个门), 里面是什么都没有. 然后他问你:``你要换成第二号门吗?'' 你应该换门吗?
+
+答案: 应该换. 定义事件$A$为我们最后得到了大奖; $B$为一开始我们选了含有车的那个门. 那么
+\[
+    \operatorname{Pr}(A)= \begin{cases}\operatorname{Pr}(B)=1 / 3 & \text { 不换门 } \\ \operatorname{Pr}(A \mid B) \operatorname{Pr}(B)+\operatorname{Pr}\left(A \mid B^c\right) \operatorname{Pr}\left(B^c\right) =0+1\times 2/3=2/3& \text { 换门 }\end{cases}
+\]
+\end{example}
+
+\begin{example}[赌徒破产问题]
+    一赌徒扔一枚均匀硬币. 如果他得到正面, 会得到1元; 如果得到反面, 就会输掉1元. 他从$k$元开始游戏. 在他有的总钱数超过$k$的时候(赢了)或者小于0的时候(破产, 输了)停止游戏. 问他最后赢的概率是多少. 
+
+    答案: 定义事件$A:=$赌徒破产输了; $B:=$第一次掷硬币的时候得到了正面.
+
+    以及让$\Pr_k$表示赌徒以$k$元开始游戏. 由于输掉一元之后可以重新看做以$k-1$元开始, 有如下的递归式: 
+    $$
+\operatorname{Pr}_k(A)=\frac{1}{2} \operatorname{Pr}_k(A \mid B)+\frac{1}{2} \operatorname{Pr}_k\left(A \mid B^c\right)=\frac{1}{2} \operatorname{Pr}_{k+1}(A)+\frac{1}{2} \operatorname{Pr}_{k-1}(A)
+$$
+解这个递归式, 就有
+$$
+\operatorname{Pr}_k(A)= \begin{cases}\frac{1}{2}\left(\operatorname{Pr}_{k+1}(A)+\operatorname{Pr}_{k-1}(A)\right)=1-\frac{k}{n} & \text { if } 0<k<n \\ 1 & \text { if } k=0 \\ 0 & \text { if } k=n\end{cases}
+$$
+也就是赌徒最后一定会破产. 
+\end{example}
+
+下面来看全概率公式的一重要变形. 我们会成它为Bayes定理. 这项定理可以帮助把条件概率的条件``反过来''. 有时候也会称它为``逆概率公式''. 
+
+\begin{theorem}[\newword{Bayes定理}{Bayes Theorem}]
+    对于事件$A,B$满足$\Pr(A), \Pr(B)>0$, 有
+    $$
+\operatorname{Pr}(B \mid A)=\frac{\operatorname{Pr}(B) \operatorname{Pr}(A \mid B)}{\operatorname{Pr}(A)}
+$$
+如果$B_1,B_2, ..., B_n$是$\Omega$的一个划分, $\forall i,\Pr(B_i)>0, \Pr(A)>0$, 那么
+$$
+\operatorname{Pr}\left(B_i \mid A\right)=\frac{\operatorname{Pr}\left(B_i\right) \operatorname{Pr}\left(A \mid B_i\right)}{\operatorname{Pr}(A)}=\frac{\operatorname{Pr}\left(B_i\right) \operatorname{Pr}\left(A \mid B_i\right)}{\operatorname{Pr}\left(A \mid B_1\right) \operatorname{Pr}\left(B_1\right)+\cdots+\operatorname{Pr}\left(A \mid B_n\right) \operatorname{Pr}\left(B_n\right)}
+$$
+\end{theorem}
+
+这定律可以用全概率公式和链式法则想办法把$A,B$互换顺序就可以推出. 
+
+\begin{example}[假阳性问题]
+    一个函件的疾病以0.001的概率发生. 但是有5\%的测验误差. 也就是说, 有病的人
+    $\begin{cases}
+\text{测出有病(+)}95 \% \\
+\text{测出没病(-)}5 \%
+\end{cases}$
+, 没病的人$
+\begin{cases}
+\text{测出没病(-)}95 \% \\
+\text{测出有病(+)}5 \%
+\end{cases}$.
+
+现在问, 如果一个人测出有病的条件下, 他得病的概率是多少?
+
+答案: 
+$$
+\begin{aligned}
+    \operatorname{Pr}(\text { 有病 } \mid+) & =\frac{\operatorname{Pr}(\text { 有病 }) \operatorname{Pr}(+\mid \text { 有病 })}{\operatorname{Pr}(+)}=\frac{\operatorname{Pr}(\text { 有病 }) \operatorname{Pr}(+\mid \text { 有病 })}{\operatorname{Pr}(+\mid \text { 有病 }) \operatorname{Pr}(\text { 有病 })+\operatorname{Pr}(+\mid \neg \text{有病}) \operatorname{Pr}(\neg \text{有病})} \\
+& =\frac{0.001 \times 95 \%}{95 \% \times 0.001+5 \% \times 0.999} \approx 1.87 \%
+\end{aligned}
+$$
+\end{example}
+
+实际上, 在不同的条件下, 我们看到的内容会很不一样. Simonson发现了这样的一个``悖论'':
+\begin{example}[Simonson悖论]
+    如下是两个药品的临床试验数据: 
+    
+    \begin{center}
+       \begin{tabular}{c|c|c|c|c|} 
+& \multicolumn{2}{|c|}{ 女 } & \multicolumn{2}{c|}{ 男 } \\
+\cline { 2 - 5 } & 药品 I & 药品 II & 药品 I & 药品 II \\
+\hline 成功 & 200 & 10 & 19 & 1000 \\
+\hline 失败 & 1800 & 190 & 1 & 1000 \\
+\hline
+\end{tabular} 
+    \end{center}
+    请问哪一个药品更有效?
+    \begin{enumerate}
+        \item 药品I更有效, 因为总体来看I的成功率高于II.
+        \item 药品II更有效, 对于女性和男性分别而言, II的成功率都要大于I.
+    \end{enumerate}
+
+    用概率的语言来讲, 就是对于事件$A, B$以及$\Omega$的一个划分$C_1, C_2, ..., C_n$, 有可能出现:
+    \begin{itemize}
+        \item 每一个$C_i$, $B$的发生对$A$有积极影响, 即$$
+\operatorname{Pr}\left(A \mid B \cap C_i\right)>\operatorname{Pr}\left(A \mid B^c \cap C_i\right), \forall i
+$$
+\item 但是, 总体来看, $B$的发生对$A$的发生有消极影响. 即$$
+\operatorname{Pr}(A \mid B)<\operatorname{Pr}\left(A \mid B^c\right)
+$$
+    \end{itemize}
+
+一个例子是, 总体来看, 下图表示了学习时长越长, 成绩越低; 但是一门课一门课来看, 总体学习时长越长, 分数越高. 
+
+\incfigw{apart-whole}
+
+\end{example}
+
+\section{事件的独立性}
+
+\subsection{基本定义}
+
+有时候, 有些事件的发生会影响另一个事件发生的概率. 也就是从$\Pr(A)$变为$\Pr(A|B)$. 如果我们发现$\Pr(A|B)=\Pr(A)$, 我们就可以称这两个事件独立. 
+但是, 这样的定义可能会不能处理$\Pr(B)=0$的情形, 于是更换一个更加方便的定义:
+
+\begin{definition}[两个事件的独立性]
+    如果两个事件满足
+    $$
+\operatorname{Pr}(A \cap B)=\operatorname{Pr}(A) \operatorname{Pr}(B)
+$$
+我们就称两个事件\newword{独立}{independent}. 
+    
+\end{definition}
+
+关于独立, 有如下的几个常用的性质. 
+
+$1^\circ$ 如果$\Pr(B)>0, \operatorname{Pr}(A \mid B)=\operatorname{Pr}(A) \Longleftrightarrow \operatorname{Pr}(A \cap B)=\operatorname{Pr}(A) \operatorname{Pr}(B)$;
+
+$2^\circ$ $\operatorname{Pr}(A \cap B)=\operatorname{Pr}(A) \operatorname{Pr}(B) \Longleftrightarrow \operatorname{Pr}\left(A \cap B^c\right)=\operatorname{Pr}(A) \operatorname{Pr}\left(B^c\right)$
+
+受刚才定义的启发, 我们定义一簇事件$\left\{A_i \mid i \in I\right\}$互相独立的条件. 
+
+\begin{definition}
+    一簇事件$I=\left\{A_i \mid i \in I\right\}$成为(相互)独立的, 当且仅当对于任何$I$的有限子集$J\subset I$, 满足
+    $$\operatorname{Pr}\left(\bigcap_{i \in J} A_i\right)=\prod_{i \in J} \operatorname{Pr}\left(A_i\right).$$
+\end{definition}
+
+如果我们想要说一个事件和其他的一簇事件独立, 则有如下的定义. 
+
+% Retrived from https://cse.buffalo.edu/~hungngo/classes/2011/Spring-694/lectures/lm.pdf
+\begin{definition}
+    事件$A$与另一簇事件$\{ B_1, B_2, ..., B_k \}$互相独立, 当且仅当对任意的下标集合$S\subset \{1,2,3, ..., k\}$满足
+    \[
+        \Pr \left( B \mid \bigcap_{i\in S} B_i  \right) = \Pr(B).
+    \]
+\end{definition}
+
+按独立性的定义来判定, 有时候我们与生俱来的直觉可能会起到反作用. 例如, 如下的几种可能的情况都是可能的: 
+\begin{enumerate}
+    \item $A_1, A_2, \ldots, A_n$相互独立, $B_1, B_2, \ldots, B_n$也相互独立. 但是$\forall 1\leq i\leq n, A_i$和$B_i$不相互独立.
+    \item $\forall 1\leq i\leq n, A_i$和$B_i$相互独立; 但是$\forall 1\leq i<j\leq n,$ $A_i$和$A_j$, $B_i$和$B_j$都不互相独立.  
+\end{enumerate}
+
+但是我们可以试图把这些事件的依赖关系画成图. 有连边的两个顶点说明他们有某种相关性. 比如我们有事件$B_1, B_2, ..., B_n$, 如果构造一个\mn{QUEST: 无向图还是有向图?}有向图$D=(\{ 1,2,3, ..., n \}, E)$
+如果$B_i$与所有$(i,j)\notin E$的$B_j$这一簇事件($\{ B_j: (i,j)\notin E_ \}$)独立, 我们就称这个图为依赖关系的依赖图. 
+对于互相独立的一组事件, 它的依赖图就是孤零零的一些点, 并没有连边. 
+
+依赖关系图并不是唯一的. 我们可以构造出不同的依赖图. 
+
+与互相独立相对, 我们也可以定义一簇事件中两两独立. 
+
+\begin{definition}[\newword{两两独立}{pairwise independent}]
+    对于一簇事件$\left\{A_i \mid i \in I\right\}$, 我们称它为两两独立, 当且仅当对于不同的下标$i,j\in I$, 有
+    $$\operatorname{Pr}\left(A_i \cap A_j\right)=\operatorname{Pr}\left(A_i\right) \operatorname{Pr}\left(A_j\right)$$
+    
+\end{definition}
+
+实际上, 互相独立是一个很强的定义. 即: 互相独立的一簇事件一定是两两独立的; 但是两两独立的事件不一定是互相独立的. 
+
+最后我们来定义条件概率意义下的独立. 
+
+\begin{definition}[条件独立]
+    两个事件$A, B$在$C$事件下独立($\Pr(C)>0$), 意味着
+    $$\operatorname{Pr}(A \cap B \mid C)=\operatorname{Pr}(A \mid C) \operatorname{Pr}(B \mid C)$$
+\end{definition}
+
+这同样也没有偏离我们对独立的刻画:如果$\operatorname{Pr}(B \cap C)>0$, 那么$ \operatorname{Pr}(A \cap B \mid C)=\operatorname{Pr}(A \mid C) \operatorname{Pr}(B \mid C) \Longleftrightarrow \operatorname{Pr}(A \mid B \cap C)=\operatorname{Pr}(A \mid C)$ 
+
+\subsection{由Cartesian product生成的概率空间}
+
+在离散数学中学习过两个集合的Cartesian product: 如果有两个集合$A, B$, 那么定义$A \times B = \{ (i,j): i \in A, j \in B \}.$
+通常会从两次或者多次独立实验序列中构造一个概率空间. 例如考虑离散的概率空间$\left(\Omega_1, p_1\right),\left(\Omega_2, p_2\right), \ldots,\left(\Omega_n, p_n\right)$, 那么这个大的概率空间$(\Omega, p)$可以这样构造:
+\begin{itemize}
+    \item 样本空间$\Omega=\Omega_1 \times \Omega_2 \times \cdots \times \Omega_n$
+    \item $\forall \omega=\left(\omega_1, \ldots, \omega_n\right) \in \Omega$, 对应的$p(\omega)=p_1\left(\omega_1\right) \cdots p_n\left(\omega_n\right)$. 
+\end{itemize}
+
+对于一般的概率空间$\left(\Omega_1, \Sigma_1, \operatorname{Pr}_1\right), \ldots,\left(\Omega_n, \Sigma_n, \operatorname{Pr}_n\right)$, 在这些概率空间上面做Cartesian product, 需要满足: 
+\begin{itemize}
+    \item $\Sigma$是(唯一)最小的包含$\Sigma_1 \times \cdots \times \Sigma_n$的$\sigma$-代数;
+    \item $\Pr$ 扩展为$\forall A=\left(A_1, \ldots, A_n\right) \in \Sigma_1 \times \cdots \times \Sigma_n, \operatorname{Pr}(A)=\operatorname{Pr}\left(A_1\right) \cdots \operatorname{Pr}\left(A_n\right)$. 
+\end{itemize}
+
+
+\section*{注记}
+
+容斥原理的证明来自\url{https://math.mit.edu/~fox/MAT307-lecture04.pdf}, 像这样使用多项式的性质证明组合结构的内容会在《组合数学》课程上面频繁用到. 蒋炎岩老师也曾经面向中学生提到过容斥原理. 详见视频\url{https://www.bilibili.com/video/BV1G3411h7f5}.
+
+一个事件和另一簇事件的独立性采用的定义来自\url{https://cse.buffalo.edu/~hungngo/classes/2011/Spring-694/lectures/lm.pdf}. 这份定义随后说明了依赖图, 并且由它导出了一个比较有趣的定理. 但是上面的定义和Slides定义不太一致. 我也不知道应该用哪个更妥当一点. 
+
+本节需要特别注意的是: 概率空间以及上面的不等式; 条件概率及其的性质; 事件的独立性的定义. 还要尤其体会在解决问题的时候用到的递归思想. 
 
 \end{document}
