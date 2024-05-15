@@ -37,12 +37,12 @@
 
 对于一个有限(或者可数)的样本空间$\Omega$而言, 我们可以写出样本空间上所有可能的事件: $2^\Omega$. 但是, 这个要求能不能放松些? 通过我们以前的知识, 我们发现: 
 \begin{itemize}
-    \item $\emptyset$和$\Omega$一定要在事件的集合里面. 它们是基础. 
+    \item $\emptyset$和$\Omega$一定要在事件的集合里面. 它们是最基础的事件. 
     \item 如果$A$在事件的集合中, 其补集$A^c$也要在. 不然我们就没有办法很方便地对一个事件取反. 
     \item 如果有可数多个集合$A_1, A_2, \ldots$在事件集合里面, 那么$\bigcup_i A_i$ 和 $\bigcap_i A_i$也要在事件的集合里面. 这是为了我们方便地做并集和交集运算. 
 \end{itemize} 
 
-可以看到, 我们这里定义这样的规则(2), (3), 完全是基于我们希望我们定义出来的这簇集合的元素在交、并、补这些运算下面\red{封闭}. 也就是事件集合中拿出任意可数多个元素进行上述集合的运算, 得到的结果一定还在这定义的事件集合里面. 这样我们定义的概率映射$p$才有意义. 
+可以看到, 我们这里定义这样的规则(2), (3), 完全是因为我们希望定义出来的这簇集合的元素在交、并、补这些运算下面\red{封闭}. 也就是事件集合中拿出任意可数多个元素进行集合上的运算, 得到的结果一定还在这定义的事件集合里面. 从而我们定义的概率映射$p$才有意义. 
 
 于是经过上述探讨, 得到下面的概率空间的定义: 
 
@@ -51,7 +51,7 @@
 
 (1) $\Omega \in \Sigma$;
 
-(2) 若 $A \in \Sigma$ ，则 $A^{c}=\Omega \backslash A \in \Sigma$;
+(2) 若 $A \in \Sigma$ ，则 $A^{c}:=\Omega \backslash A \in \Sigma$;
 
 (3) 若 $A_{n} \in \Sigma, n=1,2, \cdots$, 则 $\bigcup_{n=1}^{\infty} A_{n} \in \Sigma$;\mn{这里没有定义交集的原因是, 交集可以通过并集取反得到. 这定义是一个最精简的版本. }
 
@@ -95,17 +95,17 @@ $$
 \Pr\left(\bigcup_{i=1}^{\infty} A_{i}\right)=\sum_{i=1}^{\infty} \Pr\left(A_{i}\right)
 $$
 
-则称 $\Pr$ 是 $(\Omega, \Sigma)$ 上的\newword{概率测度}{probability measure}, 三元组$(\Omega, \Sigma, P)$ 称为概率空间, $\Sigma$ 中的元素称为事件, $P(A)$ 称为事件 $A$ 的概率.
+则称 $\Pr$ 是 $(\Omega, \Sigma)$ 上的\newword{概率测度}{probability measure}\mn{测度其实是映射的意思. 这个特别的概率映射是不是就像测了测这事件的概率``有多大''?}, 三元组$(\Omega, \Sigma, P)$ 称为概率空间, $\Sigma$ 中的元素称为事件, $P(A)$ 称为事件 $A$ 的概率.
 \end{definition}
 
-一经建立上述的公理体系(定义), 我们任何常见的对于概率的想象都可以被验证. 
+一经建立上述的公理体系(定义), 即可严格验证我们以往的某些想法.  
 
 \begin{example}
     下面的内容是我们在中学``不假思索''就用的. 我们现在诉诸公理, 证明他们.
 
     \begin{itemize}
         \item $\operatorname{Pr}\left(A^c\right)=1-\operatorname{Pr}(A)$. \fadetext{这是因为考虑$A$和它的补$A^c$没有交集, 且组成了全空间, 根据$\Pr(\Omega)=1$以及$\sigma$-可加性可知. }
-        \item $\operatorname{Pr}(\varnothing)=0$. 考虑反证法说明: 因为$\operatorname{Pr}(A)>0 \Longrightarrow A \neq \varnothing$ 这样的方法被称为\newword{概率方法}{the probabilistic method}
+        \item $\operatorname{Pr}(\varnothing)=0$. 考虑反证法说明: 因为$\operatorname{Pr}(A)>0 \Longrightarrow A \neq \varnothing$ 这样的方法被称为\newword{概率方法}{the probabilistic method} %TODO: 怎么样算概率方法?
         \item $\operatorname{Pr}(A \backslash B)=\operatorname{Pr}(A)-\operatorname{Pr}(A \cap B)$ \fadetext{可以借鉴问题1的思路.}
         \item $A \subseteq B \Longrightarrow \operatorname{Pr}(A) \leq \operatorname{Pr}(B)$. \fadetext{直观来看, 由于$\Pr$的值域是$[0,1]$, 点越多, 概率至少不应该变小. }
         \item $\operatorname{Pr}(A \cup B)=\operatorname{Pr}(A)+\operatorname{Pr}(B)-\operatorname{Pr}(A \cap B). $\fadetext{这是容斥原理的一个简单的形式.}
@@ -130,14 +130,14 @@ $$
 若$S$是一个集合, 记$|S|$表示集合$S$中元素的个数, 对于两个集合而言, 有$|A \cup B|=|A|+|B|-|A \cap B|.$ 如果是三个集合, 可以写作
 $$
 \begin{aligned}
-|A \cup B \cup C| =& |A|+|B|+|C| \\
--&|A \cap B|-|A \cap C|-|B \cap C| \\
-+&|A \cap B \cap C| 
+|A \cup B \cup C| =& |A|\red{+}|B|\red{+}|C| \\
+\blue{-}&|A \cap B\blue{-}|A \cap C|\blue{-}|B \cap C| \\
+\red{+}&|A \cap B \cap C| 
 \end{aligned}
 $$
 其特点如下: 
 \begin{enumerate}
-    \item 这是一个把求集合并集化为交集之组合的变换. 
+    \item 这是一个``化并为交''的变换. 
     \item 如果我们把参与并集那些集合(如$A,B,C$)当做一个大集合$K$, 其会生成$K$的所有子集, 这每个子集的元素(也是集合)交起来, 便得到了构成等式右端的基本组件.
     \item 如果这个子集的大小为奇数, 前面的符号为正; 反之就是负. 
 
