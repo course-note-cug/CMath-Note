@@ -105,7 +105,7 @@ $$
 
     \begin{itemize}
         \item $\operatorname{Pr}\left(A^c\right)=1-\operatorname{Pr}(A)$. \fadetext{这是因为考虑$A$和它的补$A^c$没有交集, 且组成了全空间, 根据$\Pr(\Omega)=1$以及$\sigma$-可加性可知. }
-        \item $\operatorname{Pr}(\varnothing)=0$. 考虑反证法说明: 因为$\operatorname{Pr}(A)>0 \Longrightarrow A \neq \varnothing$ 这样的方法被称为\newword{概率方法}{the probabilistic method} %TODO: 怎么样算概率方法?
+        \item $\operatorname{Pr}(\varnothing)=0$. 考虑反证法说明: 因为$\operatorname{Pr}(A)>0 \Longrightarrow A \neq \varnothing$. 像这样, 要证明某个组合结构满足某些性质, 我们可以构造一个概率空间, 并说明在这里面\blue{随机}选取一个元素\red{都}有正的概率. 这样的论证过程可以被称为\newword{概率方法}{the probabilistic method}
         \item $\operatorname{Pr}(A \backslash B)=\operatorname{Pr}(A)-\operatorname{Pr}(A \cap B)$ \fadetext{可以借鉴问题1的思路.}
         \item $A \subseteq B \Longrightarrow \operatorname{Pr}(A) \leq \operatorname{Pr}(B)$. \fadetext{直观来看, 由于$\Pr$的值域是$[0,1]$, 点越多, 概率至少不应该变小. }
         \item $\operatorname{Pr}(A \cup B)=\operatorname{Pr}(A)+\operatorname{Pr}(B)-\operatorname{Pr}(A \cap B). $\fadetext{这是容斥原理的一个简单的形式.}

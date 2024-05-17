@@ -71,6 +71,7 @@
 \usepackage[english]{babel}
 \usepackage{framed}
 \usepackage[dvipsnames]{xcolor}
+\usepackage[skins,breakable]{tcolorbox}
 \usepackage{awesomebox}
 \usepackage{mathrsfs}  
 \usepackage{xcolor}
@@ -170,7 +171,21 @@
 }
 
 
+\newtcolorbox{asidebox}{
+  colback=gray!10,
+  colframe=gray!60,
+  fonttitle=\bfseries,
+  title={Aside},
+  breakable=true
+}
 
+\newtcolorbox{webaside}{
+  colback=cyan!10,
+  colframe=cyan!60,
+  fonttitle=\bfseries,
+  title={Web Demonstrate Aside},
+  breakable=true
+}
 
 \usepackage{enumitem}
 
@@ -187,7 +202,27 @@
 }
 
 \usepackage{environ}
-
+\usepackage[tikz]{bclogo}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\NewEnviron{takeaway}
+  {\par\medskip\noindent
+  \begin{tikzpicture}
+    \node[inner sep=0pt] (box) {\parbox[t]{.99\textwidth}{%
+      \begin{minipage}{.3\textwidth}
+      \centering\tikz[scale=5]\node[scale=3,rotate=30]{\bclampe};
+      \end{minipage}%
+      \begin{minipage}{.65\textwidth}
+      \textbf{Takeaway Message}\par\smallskip
+      \BODY
+      \end{minipage}\hfill}%
+    };
+    \draw[red!75!black,line width=3pt] 
+      ( $ (box.north east) + (-5pt,3pt) $ ) -- ( $ (box.north east) + (0,3pt) $ ) -- ( $ (box.south east) + (0,-3pt) $ ) -- + (-5pt,0);
+    \draw[red!75!black,line width=3pt] 
+      ( $ (box.north west) + (5pt,3pt) $ ) -- ( $ (box.north west) + (0,3pt) $ ) -- ( $ (box.south west) + (0,-3pt) $ ) -- + (5pt,0);
+  \end{tikzpicture}\par\medskip%
+}
 
 
 \newcommand{\lecture}[6]{
@@ -217,7 +252,7 @@
 % \renewcommand{\algorithmcfname}{算法}
 \usepackage[abspath]{currfile}
 
-\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\jobname/#1}\end{center}}
-\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\currfilename/#1}\end{center}}
+\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\currfilename/#1}\end{center}}
 
 

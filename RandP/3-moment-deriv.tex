@@ -1,0 +1,32 @@
+%!TEX TS-program = xelatex
+\documentclass{ctexart}
+\usepackage{cancel}
+\input{../include.tex}
+\input{../ncmd.tex}
+
+\begin{document}
+
+\section{与期望相关的不等式}
+
+当我们求出一个随机变量期望之后, 自然想知道进行一次实验, 随机变量的取值在均值附近的概率是多少. 为了解决这个问题, 首先介绍Markov不等式. 
+
+\begin{theorem}[Markov不等式]
+    令$X$是一个非负的随机变量, 那么对于任意的$a>0$, 有
+$$
+\operatorname{Pr}(X \geq a) \leq \frac{\mathbb{E}[X]}{a}
+$$
+
+\end{theorem}
+
+\begin{proof}
+    令指示变量$I:=I(X\geq a)$, 由于$X\geq 0, a>0$, 有
+    $$
+I=I(X \geq a) \leq\left\lfloor\frac{X}{a}\right\rfloor \leq \frac{X}{a}
+$$
+因此, 
+$$
+\operatorname{Pr}(X \geq a)=\mathbb{E}[I] \leq \mathbb{E}\left[\frac{X}{a}\right]=\frac{\mathbb{E}[X]}{a}
+$$
+\end{proof}
+    
+\end{document}
