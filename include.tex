@@ -13,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{geometry}
+\usepackage{mathrsfs}
 
 \usepackage{float}
 \usepackage{amsthm}
@@ -65,30 +66,8 @@
 \newcommand{\creflastgroupconjunction}{~和~}
 \newcommand{\crefrangeconjunction}{~至~}
 
-
-% \usepackage{mathabx}
-
-\usepackage[english]{babel}
-\usepackage{framed}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{awesomebox}
-\usepackage{mathrsfs}  
-\usepackage{xcolor}
-\usepackage{wrapfig}
-% \usepackage{algorithm2e}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
-% \RestyleAlgo{ruled}
-
-\usepackage{pstricks-add}
-\usepackage{epsfig}
-\usepackage{pst-grad} % For gradients
-\usepackage{pst-plot} % For axes
-\usepackage[space]{grffile} % For spaces in paths
-\usepackage{etoolbox} % For spaces in paths
-\makeatletter % For spaces in paths
-\patchcmd\Gread@eps{\@inputcheck#1 }{\@inputcheck"#1"\relax}{}{}
-\makeatother
 
 % Make SS at the beginning of a section
 
@@ -183,9 +162,11 @@
     top=1in,
     headheight=12pt,
     headsep=25pt,
-    footskip=30pt
+    footskip=30pt, 
+    margin=1in,
+    rmargin=2.5in
 }
-
+\setlength{\marginparwidth}{2in}
 \usepackage{environ}
 
 
@@ -207,6 +188,12 @@
    \vspace*{4mm}
 }
 
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  font=small}
+% \setlength{\marginparwidth}{100pt}
+
 \usepackage{marginnote}
 \renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
 \usepackage{setspace}
@@ -219,5 +206,6 @@
 
 \newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\jobname/#1}\end{center}}
 \newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\jobname/#1}\end{center}}
-
+\newcommand{\incfigside}[3]{\marginpar{\includegraphics[width=\marginparwidth]{figs/\jobname/#1}
+  \captionof{figure}{#2}\label{fig:#3}}}
 

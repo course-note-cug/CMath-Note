@@ -216,5 +216,28 @@ X_{n+1}=\sum_{j=1}^{X_{n}}\xi_{j}^{(n)}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $\ensuremath{\begin{aligned}\mathbb{E}[X] & =\underbrace{\mathbb{E}[X\mid X\geq a]}_{X\geq a\text{是可能的}}\cdot\operatorname{Pr}(X\geq a)+\underbrace{\mathbb{E}[X\mid X<a]}_{X\text{是非负的}}\cdot\operatorname{Pr}(X<a)\\
+ & \geq a\cdot\operatorname{Pr}(X\geq a)+0\cdot\operatorname{Pr}(X<a)\quad=a\cdot\operatorname{Pr}(X\geq a)\\
+\Longrightarrow & \operatorname{Pr}(X\geq a)\leq\frac{\mathbb{E}[X]}{a}
+\end{aligned}
+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\ensuremath{\begin{aligned}|\mu-m| & =|\mathbb{E}[X]-m|=|\mathbb{E}[X-m]|\\
+ & \leq\mathbb{E}[|X-m|]  & (\text{Jensen不等式})\\
+ & \leq\mathbb{E}[|X-\mu|] & (\text{中位数}m\text{最小化}\E[X-m])\\
+ & =\mathbb{E}\left[\sqrt{(X-\mu)^{2}}\right]\leq\sqrt{\mathbb{E}\left[(X-\mu)^{2}\right]}=\sigma & (\text{Jensen不等式})
+\end{aligned}
+}$
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

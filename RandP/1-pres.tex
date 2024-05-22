@@ -156,34 +156,36 @@ S \neq \varnothing}}(-1)^{|S|-1} \left|\bigcap_{i \in S} A_i\right|
 $$
 \end{theorem}
 
-我们来证明这个定理. 最无脑(但不一定总是可以这样做)的方法当然是可以使用数学归纳法了. 但是我们今天换一种方法. 
+我们来证明这个定理. 有一种方法是可以使用数学归纳法(但不一定总是可以这样做). 但是我们今天换一种方法. 
 
 \begin{proof}
-    \motivation{我们的目标是计数的时候每个元素都被算过, 且只被算过了一次. }假设$A_1, ..., A_n \subset X$, 对于每一个$A_i$, 我们定义一个指示函数. 这个指示函数写作 
+    \motivation{我们的目标是计数的时候每个元素都被算过, 且只被算过了一次. }若把$A_1, ..., A_n$看做一个大集合$X$, 对于每一个$A_i$, 我们定义一个指示函数, 表示$x$是否在集合$A_i$中. 这个指示函数写作 
     $$
     f_{i}(x):=\begin{cases}
 1 & x\in A_{i}\\
 0 & x\notin A_{i}
 \end{cases}
 $$
-我们考虑
+实际上对于任意的一个集合, 都可以定义像这样元素是否在集合中的指示函数. 
+
+从反面考虑. 定义集合$\cup_{1 \leq i \leq n} A_i$的补的指示函数. 
 $$
 F(x)=\prod_{1 \leq i \leq n}\left(1-f_i(x)\right) .
 $$
-这个函数是集合$\cup_{1 \leq i \leq n} A_i$的补的指示函数. 也就是说, $F(x)=1 \iff x$ 不在任何一个$A_i$ 集合中. 于是, 
+也就是说, $F(x)=1$ 就意味着 $x$ 不在任何一个$A_i$ 集合中. 于是, 
 $$
 \sum_{x \in X} F(x)=\left|X \backslash \cup_{1 \leq i \leq n} A_i\right| .
 $$
 现在我们用另一种视角看$F(x)$. 通过把对应的指示函数展开, 可以得到$2^n$个元素, 就是
 $$
-F(x)=\prod_{1 \leq i \leq n}\left(1-f_i(x)\right)=\sum_{I \subset[n]}(-1)^{|I|} \prod_{i \in I} f_i(x) .
+F(x)=\prod_{1 \leq i \leq n}\left(1-f_i(x)\right)=\sum_{I \subset\{1,2,3,\cdots, n\}}(-1)^{|I|} \prod_{i \in I} f_i(x) .
 $$
 实际上, $\prod_{i \in I} f_i(x)$就是$\cap_{i \in I} A_i$的特征函数, 因此得到
 $$
-\sum_{x \in X} F(x)=\sum_{I \subset[n]}(-1)^{|I|} \sum_{x \in X} \prod_{i \in I} f_i(x)=\sum_{I \subset[n]}(-1)^{|I|}\left|\cap_{i \in I} A_i\right|
+\sum_{x \in X} F(x)=\sum_{I \subset\{1,2,3,\cdots, n\}}(-1)^{|I|} \sum_{x \in X} \prod_{i \in I} f_i(x)=\sum_{I \subset\{1,2,3,\cdots, n\}}(-1)^{|I|}\left|\cap_{i \in I} A_i\right|
 $$
 这样一来, 我们就得到了对应的大小信息
-$$\left|X \backslash \cup_{1 \leq i \leq n} A_i\right|=|X|-\left|\cup_{1 \leq i \leq n} A_i\right|=\sum_{I \subset[n]}(-1)^{|I|}\left|\cap_{i \in I} A_i\right|$$
+$$\left|X \backslash \cup_{1 \leq i \leq n} A_i\right|=|X|-\left|\cup_{1 \leq i \leq n} A_i\right|=\sum_{I \subset\{1,2,3,\cdots, n\}}(-1)^{|I|}\left|\cap_{i \in I} A_i\right|$$
 
 于是我们就证明了这个定理. 
 

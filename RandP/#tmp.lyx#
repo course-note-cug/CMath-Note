@@ -216,5 +216,71 @@ X_{n+1}=\sum_{j=1}^{X_{n}}\xi_{j}^{(n)}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $\ensuremath{\begin{aligned}\mathbb{E}[X] & =\underbrace{\mathbb{E}[X\mid X\geq a]}_{X\geq a\text{是可能的}}\cdot\operatorname{Pr}(X\geq a)+\underbrace{\mathbb{E}[X\mid X<a]}_{X\text{是非负的}}\cdot\operatorname{Pr}(X<a)\\
+ & \geq a\cdot\operatorname{Pr}(X\geq a)+0\cdot\operatorname{Pr}(X<a)\quad=a\cdot\operatorname{Pr}(X\geq a)\\
+\Longrightarrow & \operatorname{Pr}(X\geq a)\leq\frac{\mathbb{E}[X]}{a}
+\end{aligned}
+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\ensuremath{\begin{aligned}|\mu-m| & =|\mathbb{E}[X]-m|=|\mathbb{E}[X-m]|\\
+ & \leq\mathbb{E}[|X-m|] & (\text{Jensen不等式})\\
+ & \leq\mathbb{E}[|X-\mu|] & (\text{中位数}m\text{最小化}\E[X-m])\\
+ & =\mathbb{E}\left[\sqrt{(X-\mu)^{2}}\right]\leq\sqrt{\mathbb{E}\left[(X-\mu)^{2}\right]}=\sigma & (\text{Jensen不等式})
+\end{aligned}
+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\ensuremath{\operatorname{Pr}\left(\mathscr{A}^{k}\left(x,r_{1},\ldots,r_{k}\right)=0\right)} & =\operatorname{Pr}(X=0)\\
+ & \leq\operatorname{Pr}(|X-\mathbb{E}[X]|\geq\mathbb{E}[X])\\
+ & \leq\frac{\operatorname{Var}[X]}{\mathbb{E}[X]^{2}}\\
+ & (\text{期望的线性性}\ensuremath{\mathbb{E}[X]=\sum_{i=1}^{k}\mathbb{E}\left[X_{i}\right]\geq\epsilon k}\\
+ & \text{两两独立\ensuremath{\operatorname{Var}[X]=\sum_{i=1}^{k}\operatorname{Var}\left[X_{i}\right]\leq\sum_{i=1}^{k}\mathbb{E}\left[X_{i}^{2}\right]=\sum_{i=1}^{k}\mathbb{E}\left[X_{i}\right]=\mathbb{E}[X]})}\\
+ & \leq\frac{1}{\epsilon k}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}= & \mathbb{E}[|f(X)-f(x)|||X-x\mid\leq\delta]\cdot\operatorname{Pr}(|X-x|\leq\delta)\\
+ & +\mathbb{E}[|f(X)-f(x)|।|X-x|>\delta]\cdot\operatorname{Pr}(|X-x|>\delta)\\
+\leq & \mathbb{E}[\epsilon/2]+|1-0|\cdot\operatorname{Pr}(|X-x|>\delta)\\
+\leq & \frac{\epsilon}{2}+\frac{x(1-x)}{n\delta^{2}} & (\text{Chebyshev不等式})\\
+\leq & \frac{\epsilon}{2}+\frac{1}{4n\delta^{2}}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{X}(t)=\mathbb{E}[e^{X}]=\sum_{k=0}^{\infty}\frac{t^{k}\mathbb{E}[X^{k}]}{k!}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
