@@ -1,0 +1,12 @@
+% 定义一个新的计数器
+\newcounter{judgement}[subsubsection]
+
+% 定义一个名为 judgement 的环境
+\newenvironment{exc}
+  {
+    \par\addvspace{-\parskip}
+    \refstepcounter{judgement}
+    \fbox{\thejudgement}
+  }
+  {\par\addvspace{-\parskip} \ignorespacesafterend}
+

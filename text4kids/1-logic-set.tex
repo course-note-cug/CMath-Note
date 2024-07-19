@@ -1,0 +1,390 @@
+\documentclass{ctexart}
+\input{../include.tex}
+\input{../ncmd.tex}
+\input{prob.tex}
+
+\begin{document}
+
+本系列文本主要阐明一些基础的数学概念. 由于其基础性, 放在课件上面未免也太难阅读了. 于是统一放在这里. 请大家按需索取. 
+
+如何得到的文本: 打开卓里奇《数学分析》第一章, 把文本照抄, 例子改为初高中例子. 我们也鼓励有志向报考数学和(或)计算机专业的同学首先预习大学数学(计算机科学)的内容.
+
+\section{逻辑符号}
+
+在中学的时候, 我们学习了二次方程. 我们会说如果$x^2-3x+2=0$, 等价于$x=1$或$x=2$. 数学中有相当多类似的表达. 为了表达清楚起见, 最好把它们用专门的符号代指. 
+
+我们使用如下的记号: 
+
+\begin{itemize}
+    \item $\lnot$: 否定词非(not)
+    \item $\land$: 与(and)
+    \item $\lor$: 或(or)
+    \item $\implies$: 蕴含(implies)
+    \item $\iff$: 等价(if and only if, iff)
+\end{itemize}
+
+\begin{chk}
+
+    除了``非''以外, 其他的上述都是二元运算符. 在C语言里面, 对于两个布尔变量而言, 应该如何表达对应的逻辑?
+
+\end{chk}
+
+为了节约括号, 我们规定逻辑符号的优先级如$\lnot, \land, \lor, \implies, \iff$. 也就是说语句``$\lnot$ 我计算很好 $\land$ 他喜欢计算''
+表示的是``($\lnot$我计算很好)$\land$(他喜欢计算) ''. 
+
+
+\subsection{蕴含记号} $A\implies B $表示从$A$中可以推出$B$. 我们也常说做``$A$蕴含$B$'', ``$B$是$A$的必要特征(必要条件)'', ``$A$是$B$的充分特征(充分条件)''. 特别注意, 如果$A\implies B$的情况下, 如果前提条件为假, 那么$A \implies B$为真. 这可以大致理解为: 前提为假的情况下, 我无论如何做都没有说谎, 故我说的话是真的.  
+
+对于$A \iff B$, 可以理解为$(A\implies B) \land (B\implies A)$. 也就是$A$既是$B$的充分条件, 也是必要条件. 简称充要条件. 通常还会用``当且仅当'', ``等价''描述他们. 
+
+
+
+\subsection{记号的相互作用}
+
+我们列举几个常见的表述. 请大家找一些生活中的例子把$A$和$B$换掉填进去, 感受一下这些陈述为什么是对的:
+
+\begin{itemize}
+    \item $\neg(A \wedge B) \Leftrightarrow \neg A \vee \neg B$;
+    \item $\neg(A \vee B) \Leftrightarrow \neg A \wedge \neg B$;
+    \item $(A \Rightarrow B) \Leftrightarrow(\neg B \Rightarrow \neg A)$;
+    \item $(A \Rightarrow B) \Leftrightarrow \neg A \vee B$;
+    \item $\neg(A \Rightarrow B) \Leftrightarrow A \wedge \neg B$
+\end{itemize}
+
+\subsection{数学证明} 一般而言, 证明的形式如同$A \implies B$. 其中$A$是前提, $B$是结论. 要证明这个命题, 就是建立一连串蕴含关系: 
+\[
+    A\implies C_1 \implies C_2 \implies ... \implies C_n \implies B
+\]
+其中每一个蕴含关系要么是公理, 要么是已经被证明的命题. 
+
+证明的时候, 采用经典的推导法则: 如果$A$成立, 而且有$A\implies B$, 那么$B$也成立. 
+
+此外, 我们还是用排中律. 即无论命题$A$的具体内容是什么, $A \lor \lnot A$总是成立的. 我们还认为$\lnot (\lnot A)=A$. 
+
+\subsection{某些特殊的记号} 我们约定, 可以用专门的符号``:=''(根据定义等于)表示某件事情就是这样定义的. 其中冒号的位置位于被定义的对象的一侧. 例如
+\[
+    x:=2
+\]
+表示$x$根据定义等于2. 同样, 对于已有定义的表达式, 可以用此记号引入一个缩写. 例如
+\[
+    x_1+x_2+x_3=:f(x_1,x_2,x_3)
+\]
+
+需要注意的是, 我们这里做了一个关于记号的表面的说明, 根本没有讨论数理逻辑中有效性, 完备性等深刻的内容. 因为我们所掌握的, 总是比这时能够总结成的一般理论多一些. 
+
+\section{集合及基本运算} 从19世纪末20世纪初开始, 集合论成为了最通用的数学语言. 在数学的一种定义中, 甚至提到``数学是研究集合上的各种结构(关系)的科学.''
+
+首先来看朴素集合论. 朴素集合论的前提有三个: 
+
+\begin{itemize}
+    \item 集合由有区别的对象组成;
+    \item 集合由其组成对象唯一确定; 
+    \item 任何性质都确定一个具有该性质的集合.
+\end{itemize}
+
+如果$x$是一个对象, $P$是一种性质, $P(x)$表示$x$具有性质$P$, 那么用$\{ x:P(x) \}$表示具有性质$P$的整整一类的对象. \mn{有时候也写作$\{ x | P(x) \}$.}
+组成集合的对象称为集合的元素. 
+
+由元素$x_1, x_2, ..., x_n$组成的集合可以写作$\{ x_1, x_2, ..., x_n \}$, 为了方便书写, 可以在不引起误会的场合用$a$代表单元素集合$\{ a \}$. \mn{高中范围内不要用这个记号 -- 到处都是误会!}
+
+\subsection{包含关系} 通常习惯为, 用大写的拉丁字母表示集合, 对应的小写拉丁字母表示集合中的元素. 
+
+我们说``$x$是$X$的元素'', 或``集合$X$有一个元素$x$'', 用符号记为
+\[
+x \in X ( \text{或} X \ni x)
+\]
+其否定记作$x \notin X$.
+
+在考虑集合相关的问题时, 会经常使用``任意''和``存在''两个逻辑符号. 
+\begin{itemize}
+    \item $\forall$: 任何, 对于任何的...(全称量词)
+    \item $\exists$: 存在, 可以找到... (特称量词)
+\end{itemize}
+
+$\forall x((x \in A) \Leftrightarrow(x \in B))$ 表示, 对于任何对象 $x$, 关系 $x \in A$ 与 $x \in B$是等价的. 这是因为一个集合完全由其元素所定义, 可以简单记作$A=B$. 
+
+如果集合 $A$ 的任何元素都是集合 $B$ 的元素, 我们就采用记号 $A \subset B$ 或 $B \supset A$, 读作 “集合 $A$ 是集合 $B$ 的子集”, 或者 “ $A$ 包含于 $B$ ”, 或者 “ $B$ 包含 (含有) $A$ ”. 使用符号表达就是
+$$
+(A \subset B):=\forall x((x \in A) \Rightarrow(x \in B))
+$$
+
+如果 $A \subset B$ 且 $A \neq B$, 我们就说, 包含关系 $A \subset B$ 是严格的, 或者 $A$ 是 $B$ 的真子集.
+
+给出上述的定义, 可以得出结论
+$$
+(A=B) \Leftrightarrow(A \subset B) \wedge(B \subset A) \text {. }
+$$
+如果 $M$ 是一个集合, 则任何一个性质 $P$ 都在 $M$ 中分离出一个子集
+$$
+\{x \in M : P(x)\},
+$$
+
+其元素 $M$ 具有这个性质.
+例如, 显然
+$$
+M=\{x \in M : x \in M\} .
+$$
+
+另外, 如果取集合 $M$ 中任何元素都不具有的一个性质作为 $P$, 例如 $P(x):=(x \neq x)$,我们就得到集合
+$$
+\varnothing:=\{x \in M : x \neq x\},
+$$
+称为集合 $M$ 的空子集.
+
+\subsection{最简单的集合运算} 下面考察最简单的集合运算.
+
+a) 集合 $A$ 与 $B$ 的并集是指集合
+$$
+A \cup B:=\{x \in M :(x \in A) \vee(x \in B)\},
+$$
+
+它由全部至少属于集合 $A, B$ 之一的元素组成 .
+
+b) 集合 $A$ 与 $B$ 的交集是指集合
+$$
+A \cap B:=\{x \in M :(x \in A) \wedge(x \in B)\},
+$$
+
+它由全部同时属于集合 $A$ 和 $B$ 的元素组成.
+
+c) 集合 $A$ 与 $B$ 的差集是指集合
+$$
+A \backslash B:=\{x \in M :(x \in A) \wedge(x \notin B)\},
+$$
+
+它由全部属于 $A$ 但不属于 $B$ 的元素组成.
+集合 $M$ 与其子集 $A$ 的差集通常称为 $A$ 在 $M$ 中的补集,记为 $C_M A$ 或 $\overline{A}$, 后者用于从上下文显然知道在哪一个集合中求 $A$ 的补集的情况.
+
+d) 集合的直积 (笛卡儿积). 对于任何两个集合 $A, B$, 还以组成一个新的集合 -- $\{A, B\}=\{B, A\}$, 其元素是且仅是集合 $A$ 和 $B$. 这个集合在 $A \neq B$ 时由两个元素组成, 而在 $A=B$ 时由一个元素组成.
+
+上述新集合称为集合 $A, B$ 的无序偶, 以区别于序偶 $(A, B)$, 序偶的元素 $A, B$ 能够区别 $\{A, B\}$ 中的第一个元素和第二个元素. 按照定义,序偶等式
+$$
+(A, B)=(C, D)
+$$
+表示 $A=C$ 且 $B=D$. 特别地, 如果 $A \neq B$, 则 $(A, B) \neq(B, A)$.
+现在设 $X, Y$ 是任意集合. 集合
+$$
+X \times Y:=\{(x, y) : (x \in X) \wedge(y \in Y)\}
+$$
+称为集合 $X, Y$ (按这样的顺序!) 的直积或笛卡儿积, 它是由第一项属于 $X$ 而第二项属于 $Y$ 的全部序偶 $(x, y)$ 组成的.\mn{这类似于pair, 在第一个位置和第二个位置是不一样的}
+
+从直积的定义和关于序偶的上述说明可以看出, 一般而言, $X \times Y \neq Y \times X$.等式仅当 $X=Y$ 时才成立, 这时 $X \times X$ 简写为 $X^2$.
+
+
+\section{函数} 
+
+\subsection{映射的概念} 映射是十分基础的概念, 在日常生活中到处都有体现.  
+
+设 $X$ 与 $Y$ 是某两个集合.
+
+如果集合 $X$ 的每一个元素 $x$ 都按照某规律 $f$ 与集合 $Y$ 的元素 $y$ 相对应, 我们就说有一个函数, 它定义于 $X$ 并取值于 $Y$.
+
+这时, 集合 $X$ 称为函数的定义域, 其元素 $x$ 称为函数的变元或自变量, 而与自变量 $x$ 的具体值 $x_0 \in X$ 相对应的元素 $y_0 \in Y$ 称为元素 $x_0$ 上的或自变量 $x=x_0$时的函数值, 并表示为 $f\left(x_0\right)$. 当自变量 $x \in X$ 变化时, 一般而言, 值 $y=f(x) \in Y$随 $x$ 的值而变化. 因此, 量 $y=f(x)$ 经常称为因变量.
+
+函数在集合 $X$ 各元素上的全部函数值的集合
+$$
+f(X):=\{y \in Y : \exists x((x \in X) \wedge(y=f(x)))\}
+$$
+称为函数的值集或值域.
+
+通常使用以下记号来表示函数 (映射):
+$$
+f: X \rightarrow Y, \quad X \xrightarrow{f} Y .
+$$
+
+当函数的定义域和值域从上下文看很明显时, 也用记号 $x \mapsto f(x)$ 或 $y=f(x)$来表示函数, 更常见的则是只用一个字母 $f$ 来表示函数.
+
+如果两个函数 $f_1, f_2$ 具有相同的定义域 $X$, 并且在每个元素 $x \in X$ 上的值 $f_1(x), f_2(x)$ 相同, 就认为这两个函数相同或相等, 记作 $f_1=f_2$.
+
+如果 $A \subset X$, 而 $f: X \rightarrow Y$ 是某函数, 就用 $f \mid A$ 或 $\left.f\right|_A$ 来表示在集合 $A$.上与 $f$ 相等的函数 $\varphi: A \rightarrow Y$. 更确切地, 如果 $x \in A$, 则 $\left.f\right|_A(x):=\varphi(x)$. 函数 $\left.f\right|_A$ 称为函数 $f$ 在集合 $A$ 上的收缩或限制, 而相对于函数 $\varphi=\left.f\right|_A: A \rightarrow Y$ 来说, 函数 $f: X \rightarrow Y$ 称为函数 $\varphi$ 在集合 $X$ 上的扩展或延拓.
+
+我们看到, 有时必须研究在某集合 $X$ 的子集 $A$ 上定义的函数 $\varphi: A \rightarrow Y$, 并且函数 $\varphi$ 的值域 $\varphi(A)$ 也可能是 $Y$ 的一个与之不等的子集. 因此, 有时使用术语 “函数的出发域” 来表示包含函数定义域在内的任何一个集合 $X$, 而包含函数值域在内的任何一个集合 $Y$ 则称为 “函数的到达域”.
+
+于是, 为了给出一个函数 (映射), 就要指出它的三要素 $(X, f, Y)$ :
+\begin{itemize}
+    \item  $X$ 是被映射的集合或函数的定义域,
+    \item $Y$ 是映射所到达的集合或函数的到达域,
+    \item $f$ 是让每一个元素 $x \in X$ 与确定元素 $y \in Y$ 相对应的规律.
+\end{itemize}
+
+我们看到, 这里的 $X$ 与 $Y$ 并不对称, 这表明映射的方向恰恰是从 $X$ 到 $Y$.
+
+\subsection{映射的分类}
+
+当函数 $f: X \rightarrow Y$ 称为映射时, 它在元素 $x \in X$ 上的值$f(x) \in Y$ 通常称为元素 $x$ 的像.
+对于映射 $f: X \rightarrow Y$, 集合 $Y$ 中作为集合 $A \subset X$ 中各元素的像的集合
+$$
+f(A):=\{y \in Y : \exists x((x \in A) \wedge(y=f(x)))\}
+$$
+称为集合 $A$ 的像,而集合 $X$ 中以集合 $B \subset Y$ 中各元素为像的元素的集合
+$$
+f^{-1}(B):=\{x \in X : f(x) \in B\}
+$$
+称为集合 $B$ 的原像.
+
+映射 $f: X \rightarrow Y$ 分为以下几类:
+\begin{itemize}
+    \item 满射, 这时 $f(X)=Y$;
+    \item 单射 (或称为嵌入), 这时对于集合 $X$ 的任何元素 $x_1, x_2$ 有
+$$
+\left(f\left(x_1\right)=f\left(x_2\right)\right) \Rightarrow\left(x_1=x_2\right),
+$$
+\item 双射 (或称为一一映射), 这时它既是满射又是单射.
+\end{itemize}
+
+如果映射 $f: X \rightarrow Y$ 是双射, 即如果它给出集合 $X$ 与 $Y$ 的元素之间的一一对应关系, 自然就存在一个映射
+$$
+f^{-1}: Y \rightarrow X,
+$$
+
+其定义方法如下: 如果 $f(x)=y$, 则 $f^{-1}(y)=x$, 即与元素 $y \in Y$ 相对应的是在映射 $f$ 下以 $y$ 为像的元素 $x \in X$. 因为 $f$ 是满射, 所以这样的元素 $x \in X$ 存在, 又因为 $f$ 是单射, 所以该元素是唯一的. 因此, 映射 $f^{-1}$ 的定义是良好的. 这个映射称为原映射 $f$ 的逆映射.
+
+从逆映射的构造方式可以看出, $f^{-1}: Y \rightarrow X$ 本身也是双射, 并且它的逆映射 $\left(f^{-1}\right)^{-1}: X \rightarrow Y$ 就是 $f: X \rightarrow Y$.
+
+因此, 两个映射具有逆映射关系的性质是相互的: 如果 $f^{-1}$ 是 $f$ 的逆映射, 则 $f$ 同样也是 $f^{-1}$ 的逆映射.
+
+我们指出, 尽管集合 $B \subset Y$ 的原像 $f^{-1}(B)$ 与反函数 $f^{-1}$ 共用同样的符号, 但是应该注意, 集合的原像对于任何映射 $f: X \rightarrow Y$ 都有定义, 即使它不是双射, 从而没有逆映射, 原像的定义仍然成立.
+
+\subsection{映射的复合, 互逆映射} 映射的复合运算, 一方面是生成新函数的丰富源泉, 另一方面是把复杂函数分解为简单函数的一种方法. 
+
+如果在映射 $f: X \rightarrow Y$ 和 $g: Y \rightarrow Z$中, 一个映射 (这里是 $g$ ) 定义于另一个映射 $(f)$ 的值域, 就可以构造一个新的映射
+$$
+g \circ f: X \rightarrow Z,
+$$
+
+它在集合 $X$ 的元素上的值由公式
+$$
+(g \circ f)(x):=g(f(x))
+$$
+给出. 这样构造出来的映射 $g \circ f$ 称为映射 $f$ 与 $g$ (按这种顺序!) 的复合映射.
+
+鉴于复合运算有时需要连续进行若干次, 指出该运算满足结合律是有益的, 即
+$$
+h \circ(g \circ f)=(h \circ g) \circ f .
+$$
+这是因为
+\[
+    (h \circ(g \circ f))(x)=h((g \circ f)(x))=h(g(f(x)))=(h \circ g)(f(x))=((h \circ g) \circ f)(x).
+\]
+
+我们还指出, 即使两种复合 $g \circ f$ 与 $f \circ g$ 都有定义, 它们一般也不相等:
+$$
+g \circ f \neq f \circ g .
+$$
+
+比如, 取二元素集合 $\{a, b\}$ 和映射 $f:\{a, b\} \rightarrow a, g:\{a, b\} \rightarrow b$, 则显然有 $g \circ f:\{a, b\} \rightarrow b$, 同时 $f \circ g:\{a, b\} \rightarrow a$.
+
+使集合 $X$ 的每个元素与自身相对应的映射 $f: X \rightarrow X$, 即映射 $x \stackrel{f}{\longrightarrow} x$, 记作 $e_X$ 并称为集合 $X$ 的恒等映射.
+
+实际上我们看到, 映射 $f: X \rightarrow Y, g: Y \rightarrow X$ 当且仅当 $g \circ f=e_X, f \circ g=e_Y$ 时才是互逆的双射. 
+
+\subsection{作为关系的函数. 函数的图像} 本节最前面对函数概念的描述是一种反映其本质的相当动态的描述, 但从现代标准来看, 还不能称之为定义, 因为它使用了一个与函数等价的概念 --- 对应.为了让读者有所了解, 我们在这里指出用集合论语言给出函数定义的方法. (有趣的是, 我们现在就要介绍的关系的概念, 在莱布尼茨的著作中也出现在函数的概念之前.)
+
+\subsubsection{关系} 
+
+序偶 $(x, y)$ 的任何集合称为关系 $\mathcal{R}$. 组成 $\mathcal{R}$ 的所有序偶的第一个元素的集合 $X$ 称为关系 $\mathcal{R}$ 的定义域,而第二个元素的集合 $Y$ 称为关系 $\mathcal{R}$ 的值域.
+
+因此, 可以把关系 $\mathcal{R}$ 解释为直积 $X \times Y$ 的子集 $\mathcal{R}$. 如果 $X \subset X^{\prime}$ 且 $Y \subset Y^{\prime}$,则显然 $\mathcal{R} \subset X \times Y \subset X^{\prime} \times Y^{\prime}$, 所以同一个关系可以作为不同集合的子集给出.
+
+包含某关系的定义域的集合, 称为这个关系的出发域. 包含某关系的值域的集合, 称为这个关系的到达域.
+常常把 $(x, y) \in \mathcal{R}$ 写为 $x \mathcal{R} y$, 并说 $x$ 与 $y$ 之间的关系为 $\mathcal{R}$.
+如果 $\mathcal{R} \subset X^2$, 就说在 $X$ 上给定了关系 $\mathcal{R}$.
+
+\begin{example}
+    设 $X$ 是平面上的直线的集合. 如果直线 $b \in X$ 平行于直线 $a \in X$, 我们就认为这两条直线之间的关系为 $\mathcal{R}$, 记为 $a \mathcal{R} b$. 显然, 这就从 $X^2$ 中划分出满足 $a \mathcal{R} b$ 的序偶 $(a, b)$ 的集合 $\mathcal{R}$. 从几何课程可知, 直线之间的平行关系具有下列性质:
+
+\begin{itemize}
+    \item $a \mathcal{R} a$ (自反性);
+    \item $a \mathcal{R} b \Rightarrow b \mathcal{R} a$ (对称性);
+    \item $(a \mathcal{R} b) \wedge(b \mathcal{R} c) \Rightarrow a \mathcal{R} c$ (传递性).
+\end{itemize}
+
+任何具有上述三个性质的关系 $\mathcal{R}$, 即任何自反的(1)对称的和传递的关系 $\mathcal{R}$,通常称为等价关系. 等价关系由专用符号 $\sim$ 表示, 它这时代替表示关系的字母 $\mathcal{R}$.于是, 对于等价关系, 我们把 $a \mathcal{R} b$ 写为 $a \sim b$, 并说 $a$ 与 $b$ 等价.
+    
+\end{example}
+
+\begin{example}
+    设 $M$ 是某集合, $X=\mathcal{P}(M)$ 是其一切子集的全体. 对于集合 $X=\mathcal{P}(M)$的任意两个元素 $a$ 和 $b$, 即集合 $M$ 的任意两个子集 $a$ 和 $b$, 下列三种可能之一总是成立的: $a$ 包含于 $b ; b$ 包含于 $a ; a$ 不是 $b$ 的子集, $b$ 也不是 $a$ 的子集.
+作为 $X^2$ 中的关系 $\mathcal{R}$, 我们来考虑 $X$ 的子集之间的包含关系, 即按照定义令
+$$
+a \mathcal{R} b:=(a \subset b) \text {. }
+$$
+
+这个关系显然具有下列性质:
+$$
+\begin{aligned}
+& a \mathcal{R} a \text { (自反性); } \\
+& (a \mathcal{R} b) \wedge(b \mathcal{R} c) \Rightarrow a \mathcal{R} c \text { (传递性); } \\
+& (a \mathcal{R} b) \wedge(b \mathcal{R} a) \Rightarrow a=b \text { (反对称性). }
+\end{aligned}
+$$
+
+如果某集合 $X$ 的任意两个元素之间的关系具有上述三个性质, 则该关系称为集合 $X$ 上的偏序关系. 对于偏序关系, 经常把 $a \mathcal{R} b$ 写为 $a \preccurlyeq b$, 并说 $b$ 在 $a$ 之后.
+如果除了偏序关系定义中的三个性质, 还成立条件
+$$
+\forall a \forall b((a \mathcal{R} b) \vee(b \mathcal{R} a)),
+$$
+
+即集合 $X$ 的任何两个元素都是可比的, 则关系 $\mathcal{R}$ 称为序关系, 而定义了序关系的集合 $X$ 称为线性序集.
+
+这个术语的来源与数轴的直观形态有关, 因为数轴上任何一对实数之间的关系都具有 $a \leqslant b$ 的形式.
+    
+\end{example}
+
+\subsubsection{函数与函数的图像} 满足
+$$
+\left(x \mathcal{R} y_1\right) \wedge\left(x \mathcal{R} y_2\right) \Rightarrow\left(y_1=y_2\right)
+$$
+的关系 $\mathcal{R}$ 称为函数关系.
+函数关系称为函数.
+
+特别地, 设 $X$ 与 $Y$ 是两个集合 (不一定不同), $\mathcal{R} \subset X \times Y$ 是定义在 $X$.上的关系, 即 $X$ 的元素 $x$ 与 $Y$ 的元素 $y$ 之间的关系. 如果对于任何 $x \in X$, 都存在唯一的元素 $y \in Y$, 使得 $y$ 与 $x$ 满足以上关系, 即 $x \mathcal{R} y$, 则关系 $\mathcal{R}$ 是函数关系.
+这样的函数关系 $\mathcal{R} \subset X \times Y$ 也是 $X$ 到 $Y$ 上的映射, 或 $X$ 到 $Y$ 上的函数.
+我们常用符号 $f$ 来表示函数. 设 $f$ 是函数, 我们将像前面那样用记号 $y=f(x)$或 $x \stackrel{f}{\longmapsto} y$ 来代替 $x f y$, 并把 $y=f(x)$ 称为函数 $f$ 在元素 $x$ 上的值, 或元素 $x$ 在映射 $f$ 下的像.
+
+我们在最初描述函数的概念时曾经说, 元素 $x \in X$ 按照 “规律” $f$ 与元素 $y \in Y$相对应. 我们看到, 这样的对应就是, 对于每一个元素 $x \in X$, 均可指出唯一的元素 $y \in Y$, 使得 $x f y$, 即 $(x, y) \in f \subset X \times Y$.
+
+对于按照最初描述来理解的函数 $f: X \rightarrow Y$, 由一切形如 $(x, f(x))$ 的元素组成的集合 $\Gamma$ 称为该函数的图像, 它是直积 $X \times Y$ 的子集. 于是,
+$$
+\Gamma:=\{(x, y) \in X \times Y \mid y=f(x)\} .
+$$
+
+在关于函数概念的新描述下,我们用子集 $f \subset X \times Y$ 的形式给出函数, 这时函数与它的图像当然已经没有区别.
+
+\section{例子} 
+
+\subsection{集合及其运算} 常见的数集的符号: 
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{数集} & \textbf{符号} & \textbf{描述} \\
+    \hline
+    自然数(Natrual number) & $\mathbb{N}$ & 包括所有正整数\{0, 1, 2, 3, ...\} \\
+    \hline
+    整数(Integer, 德语Zahlen) & $\mathbb{Z}$ & 包括所有正整数、负整数和0 \\
+    \hline
+    有理数(Quotient) & $\mathbb{Q}$ & 包括所有可以表示为两个整数比例的数 \\
+    \hline
+    实数(Rational) & $\mathbb{R}$ & 包括所有的有理数和无理数 \\
+    \hline
+    复数(Complex) & $\mathbb{C}$ & 包括所有形式为 \(a + bi\) 的数，其中 \(a\) 和 \(b\) 是实数 \\
+    \hline
+    \end{tabular}
+
+\begin{exc}
+    判断: 很小的实数可以构成集合; 集合$\{1,2,3\}$与集合$\{(1,2,3)\}$是同一个集合; 
+\end{exc}
+
+\begin{exc}
+    填入符号$\in$或者$\notin$: $\sqrt{2-\sqrt{3}}+\sqrt{2+\sqrt{3}} $\underline{\quad}$ \{x : x=a+\sqrt{6} b, a \in \mathbb{Q},  b \in \mathbb{Q}\}$
+\end{exc}
+
+\begin{exc}
+    设  $S=\{x \mid x=m+\sqrt{2} n, m, n \in \mathbb{Z}\}$
+
+(1)若  $a \in \mathbb{Z}$ , 则  $a$  是否是集合  $S$  的元素?
+
+(2)对于  $S$  中任意两个元素  $x_{1} , x_{2} , 则  x_{1}+x_{2} , x_{1} \cdot x_{2}$  是否属于  $S$  ?
+\end{exc}
+
+\end{document}

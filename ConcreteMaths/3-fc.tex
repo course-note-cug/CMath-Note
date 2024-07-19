@@ -4,8 +4,12 @@
 \input{../include.tex}
 \input{../ncmd.tex}
 
-\begin{document}
+\title{第三章~~上取整和下取整}
+\author{具体数学阅读笔记}
 
+
+\begin{document}
+\maketitle
 
 \section{上取整和下取整} 
 \label{sec:intro}
@@ -579,8 +583,72 @@ $$
 
 总结为表格, 就有
 
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $m$ & $n \mod m = 0$ & $n \mod m = 1$ & $n \mod m = 2$ & $n \mod m = 3$ \\
+        \hline
+        1 & $\lfloor x \rfloor$ & & & \\
+        \hline
+        2 & $2\left(\lfloor \frac{x}{2} \rfloor\right) + \frac{n}{2}$ & $\lfloor x \rfloor + n - \frac{1}{2}$ & & \\
+        \hline
+        3 & $3\lfloor \frac{x}{3} \rfloor + n$ & $\lfloor x \rfloor + n - 1$ & $\lfloor x \rfloor + n - 1$ & \\
+        \hline
+        4 & $4\left(\lfloor \frac{x}{4} \rfloor\right) + \frac{3n}{2}$ & $\lfloor x \rfloor + \frac{3n}{2} - \frac{3}{2}$ & $\lfloor x \rfloor + \frac{3n}{2} - \frac{1}{2}$ & $\lfloor x \rfloor + \frac{3n}{2} - \frac{3}{2}$ \\
+        \hline
+        \end{tabular}
+\end{center}
+
+观察到其通式类似于$a\left\lfloor\frac{x}{a}\right\rfloor+b n+c$. 考虑一般的情形, 改写为
+
+$$\left\lfloor\frac{x+k n}{m}\right\rfloor=\left\lfloor\frac{x+k n \bmod m}{m}\right\rfloor+\underbrace{\frac{k n}{m}-\frac{k n \bmod m}{m}}_{\text {整数}}$$
+
+就有
 
 
+$$
+\begin{array}{cccc}
+&\left\lfloor\frac{x}{m}\right\rfloor&+\frac{0}{m}&-\frac{0\text { mod m }}{m} \\
+&+\left\lfloor\frac{x+n \bmod m}{m}\right\rfloor&+\frac{n}{m}&-\frac{n \bmod m}{m} \\
+&+\left\lfloor\frac{x+2 n \bmod m}{m}\right\rfloor&+\frac{2 n}{m}&-\frac{2 n \bmod m}{m} \\
+&&\vdots& \\
+&+\left\lfloor\frac{x+(m-1) n \bmod m}{m}\right\rfloor&+\frac{(m-1) n}{m}&-\frac{(m-1) n \bmod m}{m}
+\end{array}
+$$
+    
+第二列就是$\frac{1}{2}\left(0+\frac{(m-1) n}{m}\right) m=\frac{(m-1) n}{2}$. 对于第一列, 考察序列$0 \bmod m, n \bmod m, \cdots,(m-1) n \bmod m$.
 
+\begin{itemize}
+    \item 如$m=12, n=5, \quad\{0,5,10,3,8,1,6,11,4,9,2,7\}$;
+    \item $m=12, n=8, \quad\{0,8,4,0,8,4,0,8,4,0,8,4\}$.
+\end{itemize}
+
+实际上, 循环节 = gcd($m,n$). 这样一来, 先提出循环节: 设$d:=\operatorname{gcd}(m, n)$.
+
+$$
+\begin{aligned}
+& d\left(\left\lfloor\frac{x}{m}\right\rfloor+\left\lfloor\frac{\alpha+d}{m}\right\rfloor+\cdots+\left\lfloor\frac{x+m-d}{m}\right\rfloor\right) . \\
+= & d\left(\left\lfloor\frac{x / d}{m / d}\right\rfloor+\left\lfloor\frac{x / d+1}{m / d}\right\rfloor+\cdots+\left\lfloor\frac{x / d+m / d-1}{m / d}\right\rfloor\right. \\
+= & d\left\lfloor\frac{x}{d}\right\rfloor
+\end{aligned}
+$$
+
+对于第三列, 由于已经可以提出重复的组, 其就变成了
+
+$$
+d\left(\frac{1}{2}\left(0+\frac{m-d}{m}\right) \cdot \frac{m}{d}\right)=\frac{m-d}{2} \text {. }
+$$
+
+综上, $$
+\sum_{0 \leq k<m}\left\lfloor\frac{n k+x}{m}\right\rfloor=d\left\lfloor\frac{x}{d}\right\rfloor+\frac{m-1}{2} n+\frac{d-m}{2} .
+$$, 而且有其对称的形式
+$$
+\begin{aligned}
+\sum_{0 \leq k<m}\left\lfloor\frac{n k+x}{m}\right\rfloor & =d\left\lfloor\frac{x}{d}\right\rfloor+\frac{m-1}{2} n+\frac{d-m}{2} \\
+& =d\left\lfloor\frac{x}{d}\right\rfloor+\frac{(m-1)(n-1)}{2}+\frac{m-1}{2}+\frac{d-m}{2} \\
+& =d\left\lfloor\frac{x}{d}\right\rfloor+\frac{(m-1)(n-1)}{2}+\frac{d-1}{2} \\
+& =\sum_{0 \leq k<n}\left\lfloor\frac{m k+x}{n}\right\rfloor
+\end{aligned}
+$$
 
 \end{document}

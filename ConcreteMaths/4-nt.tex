@@ -1,0 +1,40 @@
+\documentclass{ctexart}
+\input{../include.tex}
+\input{../ncmd.tex}
+\newcommand{\bzc}{\not\backslash}
+\newcommand{\zc}{\backslash}
+\begin{document}
+
+\section{整除性}
+
+\begin{definition}
+    我们称 $m$ 整除 $n$ (或 $n$ 可以被 $m$ 整除)，当且仅当$m>0$ ，并且 $\frac{n}{m}$ 是一个整数。可记作 $m \backslash n$. 即
+$$
+m \backslash n \Leftrightarrow(m>0) \wedge(\exists k \in \mathbb{Z}, n=m k) .
+$$
+
+如果 $m$ 不整除 $n$ ，记作 $m \bzc n$ 。
+
+\end{definition}
+
+\begin{definition}[最大公约数]
+    两个整数$m, n$的最大公约数是最大的可以整除$m$和$n$的那个数. 即
+
+    $$
+\operatorname{gcd}(m, n)=\max \{k: k \backslash m \text { 且 } k \backslash n\} .
+$$
+\end{definition}
+
+比如$\operatorname{gcd}(12,18)=6$ ，那么可以进行分数进行化简, 即$\frac{12}{18}=\frac{12 / 6}{18/6}=\frac{2}{3}$.
+
+\begin{remark}
+    若 $n>0$ ，那么 $\operatorname{gcd}(0, n)=n$ ，因为任何一个整数都整除 0 。
+\end{remark}
+
+\begin{definition}[最小公倍数]
+    两个整数 $m,n$ 的最小公倍数是最小的可以被$m,n$整除的那个数. 即
+    $$
+\operatorname{lcm}(m, n)=\min \{k>0 ; m \backslash k \wedge n \backslash k\}
+$$
+\end{definition}
+\end{document}
