@@ -7,6 +7,8 @@
 
 \section{整除性}
 
+\subsection{整除记号}
+
 \begin{definition}
     我们称 $m$ 整除 $n$ (或 $n$ 可以被 $m$ 整除)，当且仅当$m>0$ ，并且 $\frac{n}{m}$ 是一个整数。可记作 $m \backslash n$. 即
 $$
@@ -28,7 +30,7 @@ $$
 比如$\operatorname{gcd}(12,18)=6$ ，那么可以进行分数进行化简, 即$\frac{12}{18}=\frac{12 / 6}{18/6}=\frac{2}{3}$.
 
 \begin{remark}
-    若 $n>0$ ，那么 $\operatorname{gcd}(0, n)=n$ ，因为任何一个整数都整除 0 。
+    若 $n>0$ ，那么 $\operatorname{gcd}(0, n)=n$ ，因为任何一个整数都整除 0 .
 \end{remark}
 
 \begin{definition}[最小公倍数]
@@ -37,4 +39,161 @@ $$
 \operatorname{lcm}(m, n)=\min \{k>0 ; m \backslash k \wedge n \backslash k\}
 $$
 \end{definition}
+
+\subsection{求最大公约数的算法}
+
+算法描述: $\gcd(m,n)$是
+\begin{itemize}
+    \item 若$m=0$成立, 那么$\gcd(m,n)=n$.
+    \item 否则, $\gcd(m,n)=\gcd(n \bmod m, m)$.
+\end{itemize}
+
+这个递归式是有效的, 因为从公因式的角度来讲, 任何一个$m$和$n$的公因式都一定是$m$和$n \bmod m$(即$n-\left\lfloor\frac{n}{m}\right\rfloor m$) 的公因式. 下面只要考虑求出来的这个公因数一定是最大的即可. 
+
+可以构造一个方程, 来辅助说明这为什么是对的: 考虑找到$m', n'$, 满足$m'm+n'n=\gcd(m,n)$, 其中, $m', n'$由下面的内容给出: 
+\begin{itemize}
+    \item 如果$m=0$, 那么置$m' \leftarrow 0, n' \leftarrow 1$. 
+    \item 否则, 置$r\leftarrow n \bmod m$, 并使用$r, m$代替$m, n$(这是在倒着做上面的递归算法). 这时候我们需要知道他们前面的系数是什么. 因此需要找到$r,m$前面的系数, 记作$\overline{r}, \overline{m}$, 满足$\overline{r}r+\overline{m}m=\gcd(r,m)$.
+        \begin{itemize}
+            \item 由于$r=n-\left\lfloor\frac{n}{m}\right\rfloor m$, 并且$\operatorname{gcd}(r, m)=\operatorname{gcd}(m, n)$, 代入得$$\bar{r}\left(n-\left\lfloor\frac{n}{m}\right\rfloor m\right)+\bar{m} m=\operatorname{gcd}(m, n).$$
+            \item 重写上述项, 收集$m, n$项, 就有了$$\underbrace{\left(\bar{m}-\left\lfloor\frac{n}{m}\right\rfloor \bar{r}\right)}_{m^{\prime}} m+\underset{n^{\prime}}{\bar{r}} n=\operatorname{gcd}(m, n).$$
+            \item 因此我们可以将$m' \leftarrow \bar{m}-\left\lfloor\frac{n}{m}\right\rfloor \bar{r}$, $n' \leftarrow \overline{r}$.
+        \end{itemize}
+\end{itemize}
+
+对于上述的过程, 给出一个例子, 如在求$\gcd(12, 18)$的时候表示出6: 
+\[
+\begin{aligned}
+6 & =0.0+1 \cdot 6 \\
+& =(1-0) \cdot 6+0.12 \\
+& =(-1) \cdot 12+1 \cdot 18
+\end{aligned}
+\]
+
+接下来解释为什么是最大的: 假设上述算法得到$\gcd(m,n)=d$, 以及$m^{\prime} m+n^{\prime} n=d$, 但是存在一个$d'>d$, 满足$d\zc m \land d\zc n$. 
+由于任何$m, n$的公因子都要整除$m'm+n'n$, 它也要整除$d$, 因此它一定要小于$d$. 这就达到了矛盾. 
+
+下面介绍几个常用的性质. 
+
+\begin{prop}
+    $k \backslash m \wedge k \backslash n \Leftrightarrow k \backslash \operatorname{gcd}(m, n)$.
+\end{prop}
+
+\begin{proof}
+    若 $k \backslash m, k \backslash n, k \backslash\left(m^{\prime} m+n^{\prime} n\right) \Rightarrow k \backslash \operatorname{gcd}(m, n)$.
+\end{proof}
+
+\begin{prop}[gcd与公因子的关系] 每一个公因子是他们最大公因数的因子
+    
+\end{prop}
+
+\subsection{对因子的求和及其常见变形}
+
+\begin{prop}[因子的对偶性]
+
+    $$
+\sum_{m \backslash n} a_m=\sum_{m \backslash n} a_{n / m} \quad, n>0, n \in \mathbb{Z} .
+$$
+    
+\end{prop}
+    
+\begin{prop}[求和记号的交换]
+    $$
+\sum_{m \backslash n} \sum_{k \backslash m} a_{k, m}=\sum_{k \backslash n} \sum_{l \backslash(m / k)} a_{k, k l}
+$$
+\end{prop}
+
+\begin{proof}
+    这是因为可以将求和记号的整除用Iverson括号来表达. 即
+    $$
+\sum_{m \mid n} a_m=\sum_k a_m[n=m k]
+$$
+从而, 如果把等式的左手边记作LHS, 右手边记作RHS, 有
+$$
+\begin{aligned}
+& \text { LHS }=\sum_{j, l} \sum_{k, m>0} a_{k, m}[n=j m][m=k l]=\sum_j \sum_{k, l>0} a_{k, k l}[n=j k l] \\
+& \text { RHS }=\sum_{j, m} \sum_{k, l>0} a_{k, k l}[n=j k]\left[\frac{n}{k}=m l\right]=\sum_m \sum_{k, l>0} a_{k, k l}[n=m l k]
+\end{aligned}
+$$
+从而等式的左手边等于等式的右手边. 
+\end{proof}
+
+这同样可以使用直观的方式: 把要求的和式写成三角形, 然后从两个不同的方面进行描述即可. 
+
+\section{质数}
+
+下文中, 若无特殊说明, 总是用$p$代表一个质数. 
+
+\subsection{基本的定义}
+
+\begin{definition}[质数] 如果一个数$p$有且仅有两个正因数, 也就是1和$p$, 我们称它为质数. 
+    特别地, 1不是质数. 
+\end{definition}
+
+\begin{definition}[合数] 有大于2个正因子的数叫做合数. 特别地, 1不是合数. 
+\end{definition}
+
+实际上, 大于2的数之间, 一个数要么是质数, 要么是合数. 但不可能同时是两者. 
+
+实际上, 质数是构成自然数的骨架. 我们给出如下的定理: 
+
+\begin{theorem}[唯一分解定理] 任何一个数$n$都可以分解为若干个质数的乘积. 
+    $$
+n=p_1 \cdots p_m=\prod_{k=1}^m p_k, \quad p_1 \leqslant \cdots \leqslant p_m .
+$$
+其中, $p_1, p_2, \cdots, p_m$都是质数. 并且这个分解式唯一. 
+    
+\end{theorem}
+
+\begin{proof}
+    [存在性] 使用数学归纳法. 
+
+    [唯一性] 考虑反证法. 假设同一个数存在两个不同的分解方法
+    $$
+\begin{aligned}
+    n & =p_1 \cdots p_m & p_1\leq p_2\leq ...\leq p_m\\
+      & =q_1 \cdots q_{k} & q_1 \leq q_2 \leq  ... \leq  q_k
+\end{aligned}
+$$
+以及$p_i, q_i$都是质数. 
+
+
+\motivation{$p_1=q_1$} 假设$p_1<q_1$, 根据他们都是质数, 故$\gcd(p_1, q_1)=1.$ 根据Euclid算法, 存在$a, b$, 使得
+$$
+a p_1 q_2 \cdots q_k+b q_1 q_i \cdots q_k=q_2 \cdots q_k .
+$$
+$$
+\text { 现在 } p_1\left|a p_1 q_2 \cdots q_k, p_1\right| b q_1 q_2 \cdots q_k, \Rightarrow p_1 \mid q_2 \cdots q_k
+$$
+而这就意味着$\frac{q_2 \cdots q_k}{p_1} \in \mathbb{Z}$ ， 且 $q_2 \cdots q_k$ 有一分解使 $q_1$ 出现.
+但是$q_2 ... q_n < n$, 根据归纳法, 其必有唯一分解. 矛盾! 
+因此, $p_1=q_1$. 此时可以在等两端同时除以$p_1, q_1$. 重复刚才的过程, 可以证明$p_2=q_2$等. 
+
+\end{proof}
+
+\begin{remark}
+    此式子有时候也可以记作
+    $$
+n=\prod_p p^{n_p}, \quad n_p \geqslant 0 .
+$$
+其中$n_p \geq 0$, $n_p$是质数$p$出现的次数. 
+\end{remark}
+
+由此我们便可以得到整数类似于``坐标''的表示. 只不过这里的维数是无穷维的. 
+
+例如, 下面方框里面的就可以认为是整数的``坐标''. 
+
+\begin{align*}
+12 & =2^{\text{\fbox{2}}}\times3^{\text{\fbox{1}}}\times5^{\text{\fbox{0}}}\times7^{\text{\fbox{0}}}\times\cdots\\
+18 & =2^{\text{\fbox{1}}}\times3^{\text{\fbox{2}}}\times5^{\text{\fbox{0}}}\times7^{\text{\fbox{0}}}\times\cdots
+\end{align*}
+
+从而, 12和18的坐标可以记作
+$$
+12=\langle 2,1,0,0\rangle, 18=\langle 1,2,0,0, \cdots\rangle
+$$
+
+在这个坐标系下, 对于一个数的坐标形式, 即$\left\langle n_2, n_3, n_5, n_7, \cdots\right\rangle$, 我们发现
+$$\begin{aligned} & k=m n &\Leftrightarrow& k_p=m_p+n_p, &\forall p . \\ & m \backslash n & \Leftrightarrow& m_p\leq n_p\quad, &\forall p \\ & k=\operatorname{gcd}(m, n) &\Leftrightarrow& k_p=\min \left(m_p, n_p\right), &\forall p \\ & k=\operatorname{lcm}(m, n) &\Leftrightarrow& k_p=\max \left(m_p, n_p\right), &\forall p .\end{aligned}$$
+
 \end{document}
