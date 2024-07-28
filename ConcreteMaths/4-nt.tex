@@ -10,12 +10,12 @@
 \subsection{整除记号}
 
 \begin{definition}
-    我们称 $m$ 整除 $n$ (或 $n$ 可以被 $m$ 整除)，当且仅当$m>0$ ，并且 $\frac{n}{m}$ 是一个整数。可记作 $m \backslash n$. 即
+    我们称 $m$ 整除 $n$ (或 $n$ 可以被 $m$ 整除), 当且仅当$m>0$ , 并且 $\frac{n}{m}$ 是一个整数. 可记作 $m \backslash n$. 即
 $$
 m \backslash n \Leftrightarrow(m>0) \wedge(\exists k \in \mathbb{Z}, n=m k) .
 $$
 
-如果 $m$ 不整除 $n$ ，记作 $m \bzc n$ 。
+如果 $m$ 不整除 $n$ , 记作 $m \bzc n$ . 
 
 \end{definition}
 
@@ -27,10 +27,10 @@ $$
 $$
 \end{definition}
 
-比如$\operatorname{gcd}(12,18)=6$ ，那么可以进行分数进行化简, 即$\frac{12}{18}=\frac{12 / 6}{18/6}=\frac{2}{3}$.
+比如$\operatorname{gcd}(12,18)=6$ , 那么可以进行分数进行化简, 即$\frac{12}{18}=\frac{12 / 6}{18/6}=\frac{2}{3}$.
 
 \begin{remark}
-    若 $n>0$ ，那么 $\operatorname{gcd}(0, n)=n$ ，因为任何一个整数都整除 0 .
+    若 $n>0$ , 那么 $\operatorname{gcd}(0, n)=n$ , 因为任何一个整数都整除 0 .
 \end{remark}
 
 \begin{definition}[最小公倍数]
@@ -165,7 +165,7 @@ $$
 $$
 \text { 现在 } p_1\left|a p_1 q_2 \cdots q_k, p_1\right| b q_1 q_2 \cdots q_k, \Rightarrow p_1 \mid q_2 \cdots q_k
 $$
-而这就意味着$\frac{q_2 \cdots q_k}{p_1} \in \mathbb{Z}$ ， 且 $q_2 \cdots q_k$ 有一分解使 $q_1$ 出现.
+而这就意味着$\frac{q_2 \cdots q_k}{p_1} \in \mathbb{Z}$ ,  且 $q_2 \cdots q_k$ 有一分解使 $q_1$ 出现.
 但是$q_2 ... q_n < n$, 根据归纳法, 其必有唯一分解. 矛盾! 
 因此, $p_1=q_1$. 此时可以在等两端同时除以$p_1, q_1$. 重复刚才的过程, 可以证明$p_2=q_2$等. 
 
@@ -195,5 +195,273 @@ $$
 
 在这个坐标系下, 对于一个数的坐标形式, 即$\left\langle n_2, n_3, n_5, n_7, \cdots\right\rangle$, 我们发现
 $$\begin{aligned} & k=m n &\Leftrightarrow& k_p=m_p+n_p, &\forall p . \\ & m \backslash n & \Leftrightarrow& m_p\leq n_p\quad, &\forall p \\ & k=\operatorname{gcd}(m, n) &\Leftrightarrow& k_p=\min \left(m_p, n_p\right), &\forall p \\ & k=\operatorname{lcm}(m, n) &\Leftrightarrow& k_p=\max \left(m_p, n_p\right), &\forall p .\end{aligned}$$
+
+接下来看几个质数的性质. 
+
+\begin{prop}
+    质数有无穷多个. 
+\end{prop}
+
+\begin{proof}
+    假设有有限个个数的指数$p_1, p_2, ..., p_k$, 总可以构造$p_1p_2...p_k+1$为一新的指数, 且无限的重复下去. 
+\end{proof}
+
+\begin{prop}
+    第$n$个指数大约是$n\ln n$. 
+    
+\end{prop}
+这性质在这里无法证明. 需要的知识太多了. 但是我们可以用它来做复杂度的小估计. 
+
+
+\subsection{质数筛法}
+
+\subsubsection{Eratosthenes筛}
+
+这种筛法采用如下的两步找到$2\sim x$的质数:
+\begin{enumerate}
+    \item 写下$[2..x]$的所有质数, 手指向2. 
+    \item 如果指向的元素没有被叉掉, 把它作为质数.
+        \begin{itemize}
+            \item 将手指向的那个数的所有倍数叉掉
+            \item 手指移动到下一格, 如果移出了范围, 结束, 否则回到2.
+        \end{itemize}
+\end{enumerate}
+
+\incfigw{est}
+
+\subsection{Euler筛}
+
+我们发现上述的Esatosthenes筛会把一个数重复筛掉多次. 如果我们让每个数都用其最小的质因数筛去, 就可以提升效率. 由于要用最小的质因数, 合数也要参与到筛的过程中. 
+
+要达到这种效果, 更好的办法是内层循环枚举在用第几个质数而非对这个质数乘几倍. 我们可以采用如下的办法:
+\begin{enumerate}
+    \item 首先列出$[2..n]$的所有数
+    \item 把第一个数从列表里面拿出来, 创建一个新列表, 列表里面的内容是列表里面所有数(包括第一个)乘上刚刚拿出来的第一个数.
+    \item 把新列表里面出现的数从原列表移除
+    \item 输出列表里面的第一个数(是一个质数)并把它移除; 重复$2\sim 4$直到列表耗尽.
+\end{enumerate}
+
+例如, 从列表 2 3 4 5 ... 30 开始. 然后新的列表是 4 6 8 10 ... 60. 减去前一个列表得到 2 3 5 7 9 ... 29. 现在 2 是质数, 然后对列表 3 5 7 9 ... 29 重复该过程. 下一步, 新的列表是 9 15 21 27 ... 87, 减去前一个列表得到 3 5 7 11 13 ... 29, 现在 2 和 3 是质数, 然后对列表 5 7 11 13 ... 29 重复该过程. 同样地, 对质数 5 和 7 进行处理, 并且由于 $7 \times 7 > 30$, 该过程停止, 剩下的列表是 11 13 17 19 23 29, 因此小于 30 的完整质数列表是 2 3 5 7 11 13 17 19 23 29. 
+
+但是这并不方便我们程序的书写. 与其把新列表创建出来之后删除其中的元素, 不如像刚刚那样划线. 我们给出如下的算法:
+
+\begin{lstlisting}
+vector<int> primes; 
+bool is_prime[NR_PRIMES];
+for(i=2..n){
+    if(!is_prime[i]) primes.push_back(i);
+    for(int p:primes){
+        if(p*i>n) break;
+        is_prime[p*i] = 1;
+        if(i%p==0) break; // 再大就不是最小质因数了.
+    }
+}
+\end{lstlisting}
+
+
+例如前15个数的筛去过程如下:
+
+\incfigw{euler}
+
+\section{互素}
+
+\subsection{基本定义} 
+
+\begin{definition} 对于$m, n\in \Z$, 如果$\gcd(m,n)=1$, 则称$m, n$互素. 有时候记为$m \perp n$
+.    
+即$$m \perp n \Leftrightarrow m, n \in \mathbb{Z} \wedge \operatorname{gcd}(m, n)=1.$$
+\end{definition}
+
+而且根据以往的经验, 对于两个整数, 总是可以将不是互素的数转换为互素的数, 通过$$\frac{m}{\operatorname{gcd}(m, n)} \perp \frac{n}{\operatorname{gcd}(m, n)}$$.
+
+实际上, $$\begin{aligned} m \perp n & \Leftrightarrow \min \left(m_p, n_p\right)=0, \forall p \\ & \Leftrightarrow m_p n_p=0 \quad, \forall p\end{aligned}$$
+
+下面来看互素的数的性质. 
+
+\begin{prop} 若$k \perp m$ 且 $k \perp n$, 则$k \perp mn$. 
+    
+\end{prop}
+
+\begin{proof}
+    这是因为$\forall p, k_p m_p=0, \quad k_p n_p=0, k_p\left(m_p+n_p\right)=0$.
+\end{proof}
+
+\subsection{Stern-Brocot树} 下面介绍一种方法, 可以构造出所有的分数$m/n$. 并且可以通过这个构造表明有理数$\mathbb Q$是可数的, 与实数$\R$有本质不同.  
+
+\begin{enumerate}
+    \item 以$\left(\frac{0}{1}, \frac{1}{0}\right)$开始, 然后一直重复一下操作:
+        \begin{itemize}
+            \item 在两个分数$\frac{m}{n} $与$ \frac{m^{\prime}}{n^{\prime}}$之间插入中间数$\frac{m+m^{\prime}}{n+n^{\prime}}$. 
+        \end{itemize}
+\end{enumerate}
+
+\begin{example}
+    $$
+    \begin{aligned}(1) & \frac{0}{1},\text{\fbox{\ensuremath{\frac{1}{1}}}},\frac{1}{0}\\
+(2) & \frac{0}{1},\text{\fbox{\ensuremath{\frac{1}{2}}}},\frac{1}{1},\text{\fbox{\ensuremath{\frac{2}{1}}}},\frac{1}{0}\\
+(3) & \frac{0}{1},\text{\fbox{\ensuremath{\frac{1}{3}}}},\frac{1}{2},\text{\fbox{\ensuremath{\frac{2}{3}}}},\frac{1}{1},\text{\fbox{\ensuremath{\frac{3}{2}}}},\frac{2}{1},\text{\fbox{\ensuremath{\frac{3}{1}}}},\frac{1}{0}.
+\end{aligned}
+    $$
+    这可以用树状的结构表示: 
+    \incfig{sbtree}
+\end{example}
+
+\begin{theorem} Stern-Brocot树构造了所有的既约分数. 而且每个数都仅仅出现了一次. 
+    
+\end{theorem}
+
+\begin{proof}
+    [每个数仅仅出现了一次] 假设$m/n$和$m'/n'$是构造过程中出现的两个相同的分数. 那么有如下的式子成立: 
+    $$m^{\prime} n-m n^{\prime}=1. $$
+    使用归纳法, 
+    \begin{itemize}
+        \item 初始的时候, 有$1 \cdot 1-0 \cdot 0=1$. 
+        \item 当插入$\left(m+m^{\prime}\right) /\left(n+n^{\prime}\right)$, 就变为$$\begin{aligned} & \left(m+m^{\prime}\right) n-m\left(n+n^{\prime}\right)=1 \\ & m^{\prime}\left(n+n^{\prime}\right)-\left(n+m^{\prime}\right) n=1\end{aligned}$$, 化简后得到上面的式子. 因而此性质成立. 并且可以验证, 顺序关系$\frac{m}{n}<\frac{m+m^{\prime}}{n+n^{\prime}}<\frac{m^{\prime}}{n^{\prime}}$总是成立. 进而不可能在两个不同的地方得到相同的数. 
+    \end{itemize}
+
+    [没有数被漏掉] 假设$(a/b)$是一个不存在的数. 而且我们说$$\frac{m}{n}=\frac{0}{1}<\underbrace{\left(\frac{a}{b}\right)}_{\text {不存在 }}<\frac{1}{0}=\frac{m^{\prime}}{n}.$$
+    在构造的某一阶段, 若$\frac{m}{n}<\left(\frac{a}{b}\right)<\frac{m^{\prime}}{n^{\prime}}$, 有三种情况:
+    \begin{enumerate}
+        \item $\frac{m+m^{\prime}}{n+n^{\prime}}=\frac{a}{b}$,说明这数存在, 矛盾! 
+        \item $\frac{m+m^{\prime}}{n+n^{\prime}}<\frac{a}{b}$, 可以置$m \leftarrow m+m^{\prime}, n \leftarrow n+n^{\prime}$.
+        \item $\frac{m+m^{\prime}}{n+n^{\prime}}>\frac{a}{b}$, 可以置$m^{\prime} \leftarrow m+m^{\prime}, n^{\prime} \leftarrow n+n^{\prime}$.
+    \end{enumerate}
+此过程必定有限, 因为$$\frac{a}{b}-\frac{m}{n}>0 \land \frac{m^{\prime}}{n^{\prime}}-\frac{a}{b}>0, $$这就意味着$a n-b m \geqslant 1, \quad b m^{\prime}-a n^{\prime} \geqslant 1$. 因此$\left(m^{\prime}+n^{\prime}\right)(a n-b m)+(m+n)\left(b m^{\prime}-a n^{\prime}\right) \geqslant m^{\prime}+n^{\prime}+m+n$. 我们必定在$a+b$步内结束这个算法. 
+\end{proof}
+
+\subsection{由Stern-Brocot树构成的级数} 我们用$\mathcal F_N$表示分母比$N$小的$0\sim 1$之间的既约有理数. 比如,$$\mathcal F_6=\frac{0}{1}, \frac{1}{6}, \frac{1}{5}, \frac{1}{4}, \frac{1}{3}, \frac{2}{5}, \frac{1}{2}, \frac{3}{5}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \frac{5}{6}, \frac{1}{1}$$
+
+如何生成这一串数列? 实际上, 只要从$\frac{0}{1}, \frac{1}{0}$开始, 按照Stern-Brocot树那样插入, 只要分母不是很大, 就一直可以插入. 多亏了它是不重不漏的.
+
+实际上, 这一系列数列还给了我们一些观察: 
+
+\begin{enumerate}
+    \item 可以由$\mathcal F_{N-1}$生成$\mathcal F_N$. 只要在两个数之间按照上面构造法在每两个数中间插入对应的数即可.
+    \item 若$N$是质数, 有$N-1$个数会出现; 否则, 新出现的数小于$N-1$个. 
+    \item $\mathcal F_N$给出了定理``扩展Euclid算法''的另一个证明: 因为我们可以让$\frac{b}{a}$为$\mathcal F_N$在$\frac{m}{n}$之前的那个数, 进而得到$m a-n b=1$. 例如, $3 a-7 b=1, \quad \exists a=5, b=2$满足, 并且在$\mathcal F_7$中$2/5$在$3/7$之前恰好1位. 
+\end{enumerate}
+
+\subsection{Stern-Brocot树作为有理数的表示} Stern-Brocot树可以作为有理数的表示. 例如, 我们用$L$表示当前节点向左走,  $R$表示当前节点向右走. 特别地, 1由空串表示. 
+
+\begin{example}
+    例如, 5/7可以用LRRL表示. 
+    \incfig{Q-repr}
+    
+\end{example}
+
+\subsubsection{给出L和R表示的序列, 求对应的有理数}
+
+由此我们便可以问: 给一个L和R的序列, 与之对应的有理数是什么?
+
+首先定义
+$$
+f(S):=\text { 有理分数对应于 } L 5 R \text { 的序列 } S
+$$
+如$f(L R R L)=\frac{5}{7}$.
+由于分子和分母仅仅是前后两个的分子和分母的线性组合, 因此可以用$2 \times  2$的矩阵表达. 
+
+从而定义$$M(S)=\left(\begin{array}{ll}n & n^{\prime} \\ m & m^{\prime}\end{array}\right).$$那么
+
+\[
+    \begin{aligned} & M(SL)=\left(\begin{array}{cc}
+n & n+n^{\prime}\\
+m & m+m^{\prime}
+\end{array}\right)=\left(\begin{array}{ll}
+n & n^{\prime}\\
+m & m^{\prime}
+\end{array}\right)\left(\begin{array}{ll}
+1 & 1\\
+0 & 1
+\end{array}\right)=M(s)\underbrace{\left(\begin{array}{ll}
+1 & 1\\
+0 & 1
+\end{array}\right)}_{L}\\
+ & M(SR)=\left(\begin{array}{ll}
+n+n^{\prime} & n^{\prime}\\
+m+m^{\prime} & m^{\prime}
+\end{array}\right)=\left(\begin{array}{ll}
+n & n^{\prime}\\
+m & m^{\prime}
+\end{array}\right)\left(\begin{array}{ll}
+1 & 0\\
+1 & 1
+\end{array}\right)=M(s)\underbrace{\left(\begin{array}{ll}
+1 & 0\\
+1 & 1
+\end{array}\right)}_{R}
+\end{aligned}
+\]
+
+特别地, $M(I)=\left(\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right)$. 
+所以, 只要做矩阵乘法, 就可以得到这一序列代表的有理数. 如
+$$
+M(LRRL)=LRRL=\begin{pmatrix}1 & 1\\
+    0 & 1
+    \end{pmatrix}\begin{pmatrix}1 & 0\\
+    1 & 1
+    \end{pmatrix}\begin{pmatrix}1 & 0\\
+    1 & 1
+    \end{pmatrix}\begin{pmatrix}1 & 1\\
+    0 & 1
+    \end{pmatrix}=\begin{pmatrix}3 & 4\\
+    2 & 3
+    \end{pmatrix}
+$$
+
+我们最终的结果就是$f(s)=f\left(\left(\begin{array}{ll}n & n^{\prime} \\ m & m^{\prime}\end{array}\right)\right)=\frac{m+m \prime}{n+n^{\prime}}$.. 
+
+\subsubsection{给出有理数, 求其对应的L, R序列} 由于有理数的构造与$2 \times  2$的矩阵乘法有对应, 根据大小关系干脆在Stern-Brocot树上面``二分查找''.  
+
+$$
+\begin{aligned}
+& S:=1 \\
+& \text { while } \frac{m}{n} \neq f(s) \text { : } \\
+& \quad \text { if } \frac{m}{n}<f(S) \text { then (output} (L);S\leftarrow SL)  \\
+& \quad \text { else }(\operatorname{output}(R): S \leftarrow S R) \text {. } \\
+&
+\end{aligned}
+$$
+
+下面给出另一种证明方法, 我们可以改变$m, n$的值, 而不是修改$S$: 
+
+
+\begin{proof}
+    注意到
+    $$f(RS)=f\left(\begin{pmatrix}1 & 0\\
+        1 & 1
+        \end{pmatrix}\begin{pmatrix}n & n'\\
+        m & m'
+        \end{pmatrix}\right)=f\left(\begin{pmatrix}n & n'\\
+        m+n & m'+n'
+        \end{pmatrix}\right)=f(S)+1
+    $$
+因而, 如果在$m/n, m>n$上二分搜索的时候, 会首先输出$R$. 
+同样的性质也对$L$有效, 即
+$$
+\begin{array}{lll}
+\frac{m}{n}=f(R S) & \Leftrightarrow \frac{m-n}{n}=f(S), & m>n . \\
+\frac{m}{n}=f(L S) & \Leftrightarrow \frac{m}{n-m}=f(S) & m<n .
+\end{array}
+$$
+\end{proof}
+
+与之对应的算法是: 
+
+\begin{align*}
+    \text{while }m<n:\\
+    \quad \text{if } m<n & \text{then } \text{ output}(L), n\leftarrow n-m  \\
+    \quad & \text{else} \text{ output}(R), m\leftarrow m-n
+\end{align*}
+
+例如, $m / n=\frac{5}{7}$, 就有
+\[
+    \begin{array}{lllllllcc}
+m=5 &  & 5 &  & 3 &  & 1 &  & 1\\
+n=7 &  & 2 &  & 2 &  & 2 &  & 1\\
+ & L &  & R &  & R &  & R
+\end{array}
+\]
+
+对于无理数而言, 这算法虽不能终止, 但可以用一个无穷序列来刻画. 
 
 \end{document}
