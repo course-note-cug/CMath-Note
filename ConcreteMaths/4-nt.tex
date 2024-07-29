@@ -464,4 +464,341 @@ n=7 &  & 2 &  & 2 &  & 2 &  & 1\\
 
 对于无理数而言, 这算法虽不能终止, 但可以用一个无穷序列来刻画. 
 
+\section{模运算. 同余关系}
+
+\subsection{同余记号} 借助$a \bmod b$, 我们这次采用一个更加紧凑的符号来特别表示模某个数余数相同的那一类数: 
+
+\begin{definition}我们记$a \bmod m = b \bmod m$ 为
+    \[
+        a \equiv b (\bmod m).
+    \]
+    读作: ``在模$m$的意义下, $a$与$b$同余(具有相同的余数)''. 
+    
+\end{definition}
+
+在熟知上下文(即$m$的值)的时候, 可以省略后面的$\bmod m$. 
+
+这个符号和刚刚的使用$\bmod$的没有太大表意上的差别, 但是这记号的简洁性确启发了我们探索很多很有趣的性质. 下面我们来看这新的符号和原来的符号的联系. 
+
+\begin{prop}
+    \[
+        a \equiv b (\bmod m) \iff \text{$a-b$是$m$的倍数}.
+    \]
+    
+\end{prop}
+
+这样一来, 我们便像操作等式一样操作因数和倍数. 我们继续给出几个比较明显的性质:
+
+\begin{prop}
+    在模$m$的意义下, 有
+    $$
+\begin{aligned}
+& a \equiv b \wedge c \equiv d \quad \Rightarrow \quad a+c \equiv b+d \\
+& a \equiv b \wedge  c \equiv d \quad \Rightarrow \quad a-c \equiv b-d \text {. } \\
+&
+\end{aligned}
+$$
+    
+\end{prop}
+
+\begin{prop}
+    在模$m$的意义下, 有
+    $$
+a \equiv b \wedge  c \equiv d \quad \Rightarrow \quad a c \equiv b d
+$$
+\end{prop}
+\begin{proof}
+    可以做拆分. 注意到$a c-b d=(a-b) c+b(c-d)$, 是模数的倍数. 
+\end{proof}
+
+我们发现模运算具有结合律, 我们可以把$k$个$a$相乘记作$a^k$. 根据上面的结论, 我们就知道对于$a, b \in \mathbb{Z}, n \geqslant 0$, 有$a \equiv b \quad \Rightarrow \quad a^n \equiv b^n$. 
+
+但是在这样的体系下, 除法是空缺的. 比如$3 \cdot 2 \equiv 5 \cdot 2(\bmod 4)$, 但是不能把两端的2约去得到$3  \equiv 5$. 但是我们说明, 如果在某些条件下, 我们是可以把等号两边约去的 -- 只要被约去的数和模数互素. 
+
+\begin{prop}
+    若$a, b, d, m \in \mathbb{Z}, d \perp m$, 有$$a d \equiv b d \Leftrightarrow a \equiv b(\bmod m).$$
+    
+\end{prop}
+
+\begin{proof}
+    使用扩展Euclid算法, 可以找到$d', m'$, 使得
+$$d^{\prime} d+m^{\prime} m=1.$$
+此时, 若$a d \equiv b d$, 可以给两边乘上$d'$, 得到$$a d d^{\prime}=b d^{\prime} d.$$ 根据定义, 由于$d'd\equiv 1$, 有$ad'd\equiv a, bd'd\equiv b$, 从而得证.
+\end{proof}
+
+除了在等式两边除, 由于同余还有一个新的参数 -- 模谁的意义下同余, 实际上还可以对这一参数变动.
+
+\begin{prop}
+    $$
+a d \equiv b d(\text {mod } m d) \Leftrightarrow a=b(\text {mod } m), d \neq 0
+$$
+    
+\end{prop}
+
+\begin{proof}
+    首先回忆$\bmod$具有分配率: $(a \bmod m)d=ad \bmod md$. 
+
+    然后考虑
+    $$
+    \begin{aligned}
+& a \bmod m=b \bmod m \\
+& \Leftrightarrow(a \bmod m) d=(b \bmod m) d \\
+& \Leftrightarrow ad \bmod md = bd \bmod md \Leftrightarrow ad \equiv bd (\bmod md) \\
+&
+\end{aligned}
+$$
+\end{proof}
+
+结合上面的两个性质, 可以知道
+\begin{corollary}
+    对于$a, b, m, d \in Z$, 有
+    $$
+\begin{aligned}
+& a d \equiv b d(\bmod m) \\
+& \Leftrightarrow a\equiv b\left(\bmod \frac{m}{\operatorname{gcd}(d, m)}\right) . \\
+&
+\end{aligned}
+$$
+
+\end{corollary}
+这可以将除法那条性质中的右侧换为$\gcd(d,m)$即可. 
+
+
+\subsection{模数的改变. 解同余方程组} 假若我们知道了$a \equiv b(\bmod 100)$, 那么一定有$a\equiv b(\bmod 10)$. 这就让我们想到
+$$
+a\equiv b(\bmod m d) \Rightarrow a\equiv b(\bmod m), d \in \mathbb{Z}
+$$
+
+这是因为$md$的任意倍数都是$m$的倍数. 
+
+我们不妨将这个过程反过来. 若
+$$
+\begin{aligned}
+& a=b(\bmod m) \\
+& a=b(\text { mod } n)
+\end{aligned}
+$$
+则一定有$a \equiv b(\operatorname{mod} \operatorname{lcm}(m, n)), m, n>0$.
+
+从数的唯一分解定理可以得到这个结论. 
+
+假设我们希望找到一个数$x$, 使得其满足
+$$\begin{cases}x \equiv a_1 & \bmod m_1 \\ x \equiv a_2 & \bmod m_2 \\ x \equiv a_n & \vdots \bmod m_n\end{cases}.$$
+
+实际上, 我们可以故技重施, 先考虑简化版, 也就是只有两个方程的情况.
+
+$$
+\begin{aligned}
+x \equiv a_1 \mod m_1 \\
+x\equiv a_2 \mod m_2
+\end{aligned}
+$$
+
+把这个方程转化成普通的等号形式, $a_1+t_1m_1=a_2+t_2m_2$, 可转化到解不定方程的时候的问题. 现在, 有$\underbrace{t_1m_1}_{xa}+\underbrace{(t_2(-m_2))}_{yb}=\underbrace{a_2-a_1}_c$. 
+
+运用扩展Euclid算法, 就可得到这个$t_1$的一个特殊解答. 我们不妨记录作为$t_{11}$.
+
+由于特解转化为通解需要的是$t_1=t_{11} +k \underbrace{(-m_2)}_b/\gcd(\underbrace{m_1}_a,\underbrace{-m_2}_b)$. 
+
+带入原式, 有$x=a_1+t_1m_1=a_1+(t_{11}+k \underbrace{(-m_2)}_b/\gcd(\underbrace{m_1}_a,\underbrace{-m_2}_b))\times m_1$.
+
+于是整理得到: 
+$$
+x=a_1+t_{11}m_1-k\operatorname{lcm}(m_1, m_2).
+$$
+
+于是我们就可以下结论, 可以把两个方程合并为一个形如$x\equiv a_{12} \mod \operatorname{lcm}(a_1, a_2)$. 只需要经过一些循环使得方程合并为一个即可. 
+
+\section{独立剩余系} 
+
+\subsection{基本定义} 剩余系指的是给一系列互素的数, 将每一个数表示为分别模它们得到的结果的序列. 也就是说
+对 $\forall i, j, \quad 1 \leqslant j<k<r, \quad m_j \perp m_k$, $$\operatorname{Res}(x):=\left(x \bmod m_1, x \bmod m_2, \cdots, x \bmod m_r\right).$$
+
+这可以让我们知道关于$x$的性质.  
+
+\begin{example}
+    考虑下面的$x\in [0..14]$.  对于质数3, 5; 以及他们的乘积(15). 我们可以在行与行之间寻找规律:
+    \begin{center}
+    \begin{tabular}{ccc}
+        $x \bmod 3$ & $x \bmod 5$& $x \bmod 15$ \\
+0 & 0 & 0 \\
+1 & 1 & 1 \\
+2 & 2 & 2 \\
+0 & 3 & 3 \\
+1 & 4 & 4 \\
+2 & 0 & 5 \\
+0 & 1 & 6 \\
+1 & 2 & 7 \\
+2 & 3 & 8 \\
+0 & 4 & 9 \\
+1 & 0 & 10 \\
+2 & 1 & 11 \\
+0 & 2 & 12\\
+1 & 3 & 13\\
+2 & 4 & 14
+\end{tabular}
+\end{center}
+\end{example}
+
+上例子中在15以内的任意一对$(x \bmod 3, x \bmod 5)$都是不同的. 可以看做每个数在3上和5上的``分量''. 我们甚至可以对分量做加减, 乘法. 如: $7=(1,2), \quad 13=(1,3)$, 那么$7 \times  13 = (1 \times  1, (2 \times 3) \bmod 5) = (1,1)=1 (\bmod 15)$. 
+
+
+从而, 便可以在某些情况下使用剩余系来表示整数. 首先来看大小为2的剩余系(也是最简单的情况). 假设
+$$\begin{aligned} & (1,0)=a \\ & (0,1)=b\end{aligned}$$
+那就可以推出我们要表示的数满足$(x, y)=(a x+b y) \bmod 15$. 
+
+对于上述的例子, 可以查上例表得到$a=10, b=6$. 但是一般情况呢?
+
+重新组织问题的表述: 对于$m \perp n$, 如何找到满足
+\begin{align*}
+    a\bmod m = 1\\
+    a \bmod n = 0\\
+    b \bmod m = 0\\
+    b \bmod n = 1
+\end{align*}
+的$a,b $?
+
+还是使用Euclid算法, 我们可以找到$m', n'$使得$m^{\prime} m+n^{\prime} n=1$. 取$a=m^{\prime} m, \quad b=n^{\prime} n$即可. 
+
+\begin{example} 有多少个$x$满足$x^2\equiv 1(\bmod m)$? 我们认为$x$与$x'$是相等的, 当且仅当$x\equiv x' (\bmod m)$.
+    
+
+解答: 由于整数可以表示为若干个素数之积, 因此只要在分解式上归纳即可. 
+
+假设$m$是某个素数$p$的$k$次方, 即$p^k$, 则可以重写为$$
+(x-1)(x+1) \equiv 0 \quad\left(\bmod p^k\right) .
+$$
+\begin{enumerate}
+    \item 如果$p>2$, $$p^k \backslash(x-1)(x+1) \Leftrightarrow\left(p^k \backslash(x-1)\right) \vee\left(p^k \backslash(x+1)\right), $$有两个解.
+    \item $p=2$, 若$2^k \backslash(x-1)(x+1)$, 有
+        \begin{enumerate}
+            \item 要么$x-1$, 要么$x+1$可以被2整除, 但是不能被4整除; 另一个被$2^{k-1}$整除. ($k\geq 3$的时候后4个解, $\pm 1, 2^{k-1}\pm 1$).
+                (例如: $p^k=8$, 解为1, 3, 5, 7; 以及每一个正奇数的平方可以表示为$8n+1$的形式)
+        \end{enumerate}
+\end{enumerate}
+
+根据唯一分解定理, $x^2 \equiv 1(\bmod m) \Leftrightarrow x^2 \equiv 1\left(\bmod p^{m p}\right)$, $\forall p, m_p>0$. 且 $\prod_{p=1}^n m_p=m$. 由于每一个质数独立于其他的质数, 除了$p=2$的情况, 他们可以互相组合. 
+
+因而总共有$2^r$个解, 如果不存在$m_i=2$的情形. 
+
+反而, 若包含$m_i=2$的情形, 共有$2^{r+[8 \backslash m]+[4 \backslash m]-[2 \backslash m]}$个解(从上面的分析推出). 
+
+例如$12=3 \times 2^2$, 有$x^2 \equiv 1(\bmod 12) \Rightarrow x=1,5,7,11$; $15=3 \times 5$, 有$x^2 \equiv 1 \quad(\bmod 15) \Rightarrow x=1,4,11,14$.
+\end{example}
+
+\section{幂次方的同余式} 在第三章中, 我们希望证明:
+\begin{prop}
+$$
+0 \bmod m, n \bmod m, 2 n \bmod m,(m-1) n \bmod m
+$$
+仅仅由$d$份$0, d, 2 d, \cdots, m-d$ 这 $\frac{m}{d} $个数构成. 其中$d=\operatorname{gcd}(m, n)$. 
+    
+\end{prop}
+
+\begin{example}
+    $m=12 ， n=8$ ，那 $d=4$ ，数列为 $0,8,4,0,8,4,0,8,4$.
+    
+\end{example}
+
+
+\begin{proof}
+    \motivation{会得到$d$份前$m/d$个值} 这是因为
+    $$
+j n=m n(\bmod m) \Leftrightarrow j \frac{n}{d}=m \frac{n}{d}\left(\bmod \frac{m}{d}\right)
+$$
+因此我们得到了当$0\leq k<m/d$时这$d$个元素. 
+
+\motivation{这$m/d$个元素恰好就是$\{0, d, 2 d, \cdots, m-d\}$} 令$m=m^{\prime} d, \quad n=n^{\prime} d$, 根据分配率, $k n \bmod m=d\left(k n^{\prime} \bmod m^{\prime}\right)$. 所以在$0\leq k<m'$的时候恰好会出现$d$次$$0 \bmod m^{\prime}, n^{\prime} \bmod m^{\prime}, 2 n^{\prime} \bmod m^{\prime}, \cdots,\left(m^{\prime}-1\right) \bmod m^{\prime}.$$
+
+由于$d=\gcd(m,n)$, 故$m^{\prime} \perp n^{\prime}$. 所以只需要证上述的$m'$个值为$\{ 0,1, ..., m-1 \}$. 由于这$m'$个数是互相不一样的, 且$m' \perp n'$, 那么
+$$j n^{\prime} \equiv k x^{\prime}\left(\bmod m^{\prime}\right) \Leftrightarrow j \equiv k\left(\bmod m^{\prime}\right)$$. 并且根据鸽笼原理, 这$m$个数一定会填满$0, 1, ..., m-1$. 
+
+
+\end{proof}
+
+\begin{prop}[Fermat小定理] 若 $n \perp p$, 则$n^{p-1} \equiv 1(\bmod p)$.
+    
+\end{prop}
+
+\begin{proof}
+    记$p$是一个质数. 由于有$p-1$个数$n \bmod p, 2 n \bmod p, \cdots$,$(p-1) n \bmod p$是$1,2, ..., p-1$的某个排列, 因而把它们乘在一起有
+    $$
+\begin{aligned}
+n(2 n) \cdots((p-1) n) & \equiv(n \bmod p)(2 n \bmod p) \cdots((p-1) \bmod p) \\
+& \equiv(p-1)! \\
+& (\bmod p)
+\end{aligned}
+$$
+而这意味着$(p-1)!n^{p-1} \equiv(p-1)!(\bmod p)$. 约去$(p-1)!$, 因为$(p-1)\bzc p$, 得到$n^{p-1}\equiv 1(\bmod p)$.
+\end{proof}
+
+\begin{example}Fermat曾怀疑$2^{2^n}+1$生成一系列素数. 但是$2^{32}+1$不是素数. 原因是, 置上述的定理的$n=3$, 得到$3^{2^{32}} \equiv 1\left(\bmod 2^{32}+1\right)$. 如果$2^{32}+1$是质数的话. 但是, $3^{2^{32}}=3029026160\left(\bmod 2^{32}+1\right)$. 所以它不是质数. 
+    
+\end{example}
+
+\begin{prop}
+    对于$n>1$的数, $$
+(n-1)!\equiv-1(\bmod n) \Leftrightarrow n \text { 是质数 }
+$$
+    
+\end{prop}
+
+\begin{proof}
+    $\Leftarrow$: 若$n>1$, $n$不是质数, 会有一个质因子$p$出现在$(n-1)!$的因子中, 从而$(n-1)!\not\equiv -1$. 
+
+    $\Rightarrow$: \motivation{考虑将一个数与它的逆配对} 回顾, 若$n \perp p$, 则存在$n'$, 满足$n^{\prime} n \equiv 1(\bmod p)$. 由于$n$的任何两个逆元必须同余, 即$n n^{\prime} \equiv n n^{\prime \prime} \Rightarrow n^{\prime} \equiv n^{\prime}$. 如果我们都可以把它们成功配对, 那么$(p-1)!$应该同余于-1. 
+
+    若$p=5, 4! =24(\bmod 5)$. 我们列出之后发现, 有些数自己是自己的逆元! 
+    $$
+\underbrace{1^{-1}=1}_{\text {自己是自己的逆 }} \quad 2^{-1}=3 \quad 3^{-1}=2 \quad 4^{-1}=4 \text {. }
+$$
+
+\motivation{决定谁是自己的逆元}  若$x$是自己的逆, $x^2\equiv 1(\bmod p)$. 我们已经在上节证明如果$p>2$恰有2个根, $1$和$p-1$. 因此余下的可以配对, 得到$(p-1)!\equiv 1 \times  (p-1) \equiv -1$. 
+
+当$p=2$的时候, $(p-1)!\equiv -1$. 
+\end{proof}
+
+值得说明的是, 这个仅仅是有理论价值, 而不是很好实际计算. 
+
+\subsection{Euler的$\varphi$函数} 小于等于$n$的与$n$互质的数有多少个? 欧拉的$\varphi$函数给出了解答.
+
+\begin{definition}
+    定义 $\varphi(m):=\{0,1, \cdots, m-1\}$中与$m$互质的数的个数, 称为Euler$\varphi$函数. 
+    
+\end{definition}
+
+\begin{example}
+实际上, 
+
+\[
+    \begin{aligned} & \varphi(1)=1, \\ & \varphi(p)=p-1 & \text{$p$是质数}, \\ & \varphi(m)<m-1&\text{$m$是合数},\end{aligned}
+\]
+\end{example}
+
+引进了Euler函数, Euler发现Fermat小定理可以推广为为 $n^{\varphi(m)} \equiv 1(\bmod m)$. 对 $n \perp m$.
+
+下面考虑$\varphi (m)$的计算方法. 
+
+\begin{enumerate}
+    \item 如果$m$是某一质数$p$的$m$次方, 那么每隔$p$个就会划去一个. 即$n \perp p^k \Leftrightarrow p \bzc n$. 也就是说$\left\{0,1, \cdots, p^k {-1}\right\}$中$p$的倍数有$\left\{0, p, 2 p, \cdots, p^k-p\right\}$共计$p^{k-1}$个不与$p^m$互质的. 故$\varphi\left(p^k\right)=p^k-p^{k-1}$. 例如$\varphi\left(2^3\right)=4$. 这是因为可以表示为$\not{0}~1\not{2}~3\not{4}~5\not{6}~7$.
+    \item 如果$m>1$, 且$m=m_1 m_2\left(m_1 \perp m_2\right)$, 由上一节的剩余系的知识可以把$0\leq n<m$的数表示做唯一的对$\left(n \bmod m_1, n \bmod m_2\right)$. 即$$
+n \perp m \Leftrightarrow\left(n \bmod m_1\right) \perp m_1 \wedge\left(n \bmod m_2\right) \perp m_2
+$$
+那么这样的``互素''性质就可以被传递下去. 即计算$\varphi\left(m_1\right) \varphi\left(m_2\right)$. 由于$m_1, m_2$互素, 没有公共的因子, 因此使用乘法原理就可以得到最终答案.  例如, $\varphi(12)=\varphi(3)\varphi(4)=2 \times  2=4$. 
+\end{enumerate}
+
+上面的推导实际上蕴含了这一函数的特别好的性质: 积性. 
+
+\begin{definition}[积性函数]
+
+    一个函数$f(m)$称为积性函数, 如果$f(1)=1, $并且
+    \[
+        f(m_1m_2)=f(m_1)f(m_2), \text{只要}m_1\perp m_2.
+    \]
+\end{definition}
+
+
+
+
+
 \end{document}
