@@ -570,14 +570,14 @@ $$
 \begin{example}[下降幂]
 	如果我们求
 	$$
-		\Delta \underbrace{x(x-1) \cdots(x-m+1)}_{m \text { 项 }})
+		\Delta (\underbrace{x(x-1) \cdots(x-m+1)}_{m \text { 项 }})
 	$$
 	就会得到
 	$$
 		\begin{aligned}
 			 & \Delta(\underbrace{(x(x-1) \cdots(x-m+1))}_{m \text { 项 }} \\
 			 & =(x+1) x \cdots(x-m+2)-x(x-1) \cdots(x-m+1)                \\
-			 & =\underbrace{m(x-1) \cdots(x-m+2)}_{m-1 \text { 项 }}
+			 & =m\underbrace{(x-1) \cdots(x-m+2)}_{m-1 \text { 项 }}
 		\end{aligned}
 	$$
 	说明$\Delta$算子在上述的多项式上面作用有与求导算子在$x^m$次多项式有类似的效果.
@@ -741,7 +741,7 @@ $$
 	\end{aligned}
 $$
 
-对于 $\Delta c^x=c^{x+1}-c^x=(c-1) c^x$. 老 $c \neq 1$ , 那
+对于 $\Delta c^x=c^{x+1}-c^x=(c-1) c^x$. 若 $c \neq 1$ , 那
 \begin{proposition}
 	等比数列的求和
 	$$
@@ -754,7 +754,7 @@ $$
 $$
 	\begin{array}{|ll|}
 		\hline  f=\sum g       & \boxed{\Delta f}=g .                 \\
-		\hline x^{\frac{m}{m}} & m x^{\frac{m-1}{}}                   \\
+		\hline x^{\frac{m}{}} & m x^{\frac{m-1}{}}                   \\
 		2^x                    & 2^x                                  \\
 		c^x                    & (c-1) c^x                            \\
 		\hline c \cdot u       & c \cdot \Delta u                     \\
@@ -783,7 +783,7 @@ $$
 $$
 此时, 对两边同时取$\sum$, 有
 $$
-	\sum u \Delta v=u v-\sum(E \eta) \Delta u .
+	\sum u \Delta v=u v-\sum(E v) \Delta u .
 $$
 \begin{remark}
 	实际上, 这个还有另一种选择方式, 如
