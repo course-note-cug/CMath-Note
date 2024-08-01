@@ -39,7 +39,7 @@
 \begin{remark}
 	有时候$\sum_{a \leq i \leq b} f(i)$也写作$\sum_{i=a}^b f(i)$. 但是看到这样一来, 变量代换之后就得到了
 	$$
-		\sum_{i=1}^n a_i\varsub{k\text{代为}k+1}{1.2cm}\sum_{i=0}^{n-1} a_{i+1}
+		\sum_{i=1}^n a_i\varsub{i\text{代为}i+1}{1.2cm}\sum_{i=0}^{n-1} a_{i+1}
 	$$
 	更易于出错.
 
@@ -58,7 +58,7 @@
 			      \sum_{k \in k} c f(k)=c \sum_{k \in k} f(k);
 		      $$
 		\item 求和记号的拆分: $$
-			      \sum_{k \in K} f(k) g(k)=\sum_{k \in K} f(k)+\sum_{k \in K} g(k);
+			      \sum_{k \in K} f(k)+g(k)=\sum_{k \in K} f(k)+\sum_{k \in K} g(k);
 		      $$
 		\item 若$p(k)$应用于$K$中的每一个元素之后组成的集合依然是$K$的一个排列, 那么$$
 			      \sum_{k \in K} f(k)=\sum_{p(k) \in K} f(p(k)).
