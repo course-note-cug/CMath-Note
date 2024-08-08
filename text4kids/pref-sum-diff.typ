@@ -152,7 +152,7 @@ $$
 
 	\begin{itemize}
 		\item 常数项进出求和记号: $$
-			      \sum_{k \in k} c f(k)=c \sum_{k \in k} f(k);
+			      \sum_{k \in K} c f(k)=c \sum_{k \in K} f(k);
 		      $$
 		\item 求和记号的拆分: $$
 			      \sum_{k \in K} f(k)+ g(k)=\sum_{k \in K} f(k)+\sum_{k \in K} g(k);
@@ -370,12 +370,6 @@ $
 当前的问题: 区间修改, 单点查询. 
 - 把一个区间修改之后什么改变的少一些?
 
-$
-"原数组" quad &2 quad& [3 quad& 4 quad& 6] quad& 8 \
-"差分数组" quad & ~ quad& 1 quad& 1 quad&2 quad& 3\
-"+2的数组" quad& 2 quad& [5 quad& 6 quad& 8] quad& 8\
-"+2之后的差分数组" quad & ~ quad& 3 quad& 1 quad& 2 quad & 0
-$
 
 - 区间里面的后一个数比前一个数差的不会变
 

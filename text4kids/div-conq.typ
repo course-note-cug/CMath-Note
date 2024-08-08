@@ -211,7 +211,7 @@ int lower_bound(int *A, int x, int y, int v){
 - 当 $v$ 存在时返回它出现的最后一个位置的后面一个位置; 
 - 如果不存在, 返回这样一个下标 $i$ : 在此处插入 $v$ (原来的元素 $A[i], A[i+1], ...$ 全部往后移动一个位置) 后序列仍然有序。
 ```cpp
-int lower_bound(int *A, int x, int y, int v){
+int upper_bound(int *A, int x, int y, int v){
   while(x<y){
     m=x+(y-x)/2;
     if(A[m]<=v) x = m+1; // 更改这两行

@@ -797,8 +797,138 @@ $$
     \]
 \end{definition}
 
+\begin{example} $\varphi$是积性函数; $x^2 \equiv 1 (\bmod m)$的个数是积性的. $f(m)=m^d$是积性函数. 
+    
+\end{example}
 
+积性函数与唯一分解定理也联系密切. 某一函数具有积性意味着
+$$
+f(m)=\prod_p f\left(p^{m_p}\right), \text{若} m=\prod_p p^{m_p} \text {. }
+$$
+这样一来, 我们就得到了计算$\varphi$函数的方法:
 
+$$
+\varphi(m)=\prod_{p \backslash m}\left(p^{m_p}-p^{m_p-1}\right)=m \prod_{p \backslash m}\left(1-\frac{1}{p}\right) .
+$$
+
+比如, $\varphi(12)=(4-2)(3-1)=12\left(1-\frac{1}{2}\right)\left(1-\frac{1}{3}\right)$.
+
+\begin{prop}
+    $$
+\sum_{d \zc m} \varphi(d)=m .
+$$
+    
+\end{prop}
+
+不妨以12做例子. 考虑所有以12为分母的可能未化为最简的真分数, 即
+$$
+\frac{0}{12}, \frac{1}{12}, \frac{2}{12}, \frac{3}{12}, \frac{4}{12}, \frac{5}{12}, \frac{6}{12}, \frac{7}{12}, \frac{8}{12}, \frac{9}{12}, \frac{10}{12}, \frac{11}{12}
+$$
+将其化简, 就有
+$$
+\frac{0}{1}, \frac{1}{12}, \frac{1}{6}, \frac{1}{4}, \frac{1}{3}, \frac{5}{12}, \frac{1}{2}, \frac{7}{12}, \frac{2}{3}, \frac{3}{4}, \frac{5}{6}, \frac{11}{12}
+$$
+按照分母分组, 就有
+\fbox{\ensuremath{\frac{0}{1}}}\fbox{\ensuremath{\frac{1}{2}}}\fbox{\ensuremath{\frac{1}{3},\frac{2}{3}}}\fbox{\ensuremath{\frac{1}{4},}\ensuremath{\frac{3}{4}}}\fbox{\ensuremath{\frac{1}{6},\frac{5}{6}}}\fbox{\ensuremath{\frac{1}{12},\frac{5}{12},\frac{7}{12},\frac{11}{12}}}. 其中, 分母是
+$\varphi(d)$, 一组里面有几个就是$\varphi(d)$的值. 对于任意的数都是这样的. 这个性质是成立的. 
+
+我们看到, 可以将一个整数$m$分解为一个积性函数之和. 实际上, 分解前后, 这函数的积性保持不变. 
+
+\begin{prop}如果$g(m)$是一个积性函数, 且
+    $$
+g(m)=\sum_{d \backslash m} f(d) .
+$$
+说明$f$是积性函数. 
+\end{prop}
+
+\begin{proof}
+    对$m$施以归纳法. 首先看到, $f(1)=g(1)=1.$ 
+    \begin{itemize}
+        \item 当$m>1$, 假设$f\left(m_1 m_2\right)=f\left(m_1\right) f\left(m_2\right)$, 只要$m_1 \perp m_2, m_1 m_2<m$. 若$m=m_1 m_2, \quad m_1 \perp m_2$, 有
+            $$
+\begin{aligned}
+g\left(m_1 m_2\right) & =\sum_{d \zc m_1 m_2} f(d)=\sum_{d_1 \zc m_1} \sum_{d_2 \zc m_2} f\left(d_1 d_2\right) \\
+                      & \stackrel{IH}{=}\left(\sum_{d_1 \zc m_1} f\left(d_1\right) \sum_{d_2 \zc m_2} f\left(d_2\right)\right) -\underbrace{f\left(m_1\right) f\left(m_2\right)+f\left(m_1 m_2\right)}_{\text{当} m_1 m_2=m {\text {的时候 }}} \\
+& =g\left(m_1\right) g\left(m_2\right)-f\left(m_1\right) f\left(m_2\right)+f\left(m_1 m_2\right) .
+\end{aligned}
+$$
+由于$g\left(m_1 m_2\right)=g\left(m_1\right) g\left(m_2\right)$, 因此$f\left(m_1 m_2\right)=f\left(m_1\right) f\left(m_2\right)$. 
+
+    \end{itemize}
+\end{proof}
+
+实际上, 上述的逆命题也是对的. 这就让我们可以对积性函数表达为另一个积性函数之和. 
+
+\subsection{Mobius函数: $\mu(n)$}
+
+\begin{definition}[Mobius函数] $\mu(m)$ 定义做
+$$
+\sum_{d \backslash m} \mu(d)=[m=1], m \geqslant 1 .
+$$
+    
+\end{definition}
+
+实际上这是个递归式. 我们刚刚没有给出其的表达. 这个函数在源于用两个积性函数互相表示的时候做的尝试. 下面来看这个性质.
+
+\begin{prop}
+    $$
+g(m)=\sum_{d \backslash m} f(d) \quad \Leftrightarrow \quad f(m)=\sum_{d \backslash m} \mu(d) g\left(\frac{m}{d}\right) .
+$$
+    
+\end{prop}
+
+\begin{proof}
+    $\Leftarrow$: 
+    $$
+\begin{aligned}
+\sum_{d \mid m} \mu(d) g\left(\frac{m}{d}\right) & \varsub{\text{共轭因子}}{1.2cm} \sum_{d \backslash m} \mu\left(\frac{m}{d}\right) g(d) \\
+& =\sum_{d \backslash m} \mu\left(\frac{m}{d}\right) \sum_{k \backslash d} f(k) \\
+& =\sum_{k \backslash m} \sum_{d \backslash(\frac m{k})} \mu\left(\frac{m}{k d}\right) f(k) \\
+& =\sum_{k \backslash m} \sum_{d \backslash\left(\frac{m}{k}\right)} \mu(d) f(k) \\
+& =\sum_{k \backslash m}[m / k=1] f(k)=f(m)
+\end{aligned}
+$$
+$\Rightarrow$: 对两边乘以$\mu(m/d)$并求和: 
+
+$$
+\begin{aligned}
+\sum_{d \backslash m} g(d) \mu\left(\frac{m}{d}\right) & =\sum_{d \backslash m} \sum_{l \backslash d} f(l) \mu\left(\frac{m}{d}\right) \\
+& =\sum_{l \backslash m} \sum_{d \backslash l} f(l) \mu\left(\frac{m}{l d}\right) \\
+& =\sum_{l \backslash m} f(l) \sum_{d \backslash (\frac ml)} \mu(d) \\
+& =\sum_{l \backslash m} f(l)=[m=l]=f(m) .
+\end{aligned}
+$$
+
+\end{proof}
+
+下面考虑如何计算$\mu$. 根据上述性质, $\mu$
+应该是积性函数. 
+因而只要知道$\mu(p^k)$如何算即可. 
+
+如果$m=p^k$, 根据$\mu$的定义, $
+\mu(1)+\mu(p)+\mu\left(p^2\right)+\cdots+\mu\left(p^k\right)=0
+$, 对于任意$k>1$, $p^k$的因子为1, $p, ..., p^k$. 又因为$\mu$是积性函数, 所以$\mu(1)=1$. 这表明, $\mu(p)=-1,$对于任意的$k>1$, $\mu(p^k)=0$. 
+
+所以根据以上的推导, 我们得到计算$\mu$的方法: 
+
+\begin{prop}
+    $$
+\mu(m)=\prod_{p \backslash m} \mu\left(p^{m_p}\right)= \begin{cases}(-1)^r, & \text { 若 } m=p_1 p_2 \cdots p_r \\ 0, & \text { 若 } m \text { 可被某个 } p^2 \text { 整除. }\end{cases}
+$$
+    
+\end{prop}
+
+\begin{example}
+    使用刚刚的定理对于
+    $$
+\sum_{d \backslash n} \varphi(d)=n
+$$
+应用, 然后得到
+$$
+\varphi(m)=\sum_{d \backslash m} \mu(d) \frac{m}{d} .
+$$
+例如, $\varphi(12)=12-6-4+0+2+0=4$. 这与 $\varphi(m)=m\left(1-\frac{1}{p_1}\right) \cdots\left(1-\frac{1}{p_r}\right)$ 得到的结果相同.
+\end{example}
 
 
 \end{document}
