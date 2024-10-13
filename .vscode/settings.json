@@ -16,5 +16,6 @@
     "latex-workshop.latex.search.rootFiles.include":[
         "main.tex"
     ],
-    "explorer.excludeGitIgnore": true
+    "explorer.excludeGitIgnore": true,
+    "makefile.configureOnOpen": false
 }
