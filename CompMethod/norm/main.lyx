@@ -465,6 +465,10 @@ End
 
 \end_layout
 
+\begin_layout Title
+Lecture Note: 补充数学内容
+\end_layout
+
 \begin_layout Standard
 在《高等数学》的学习过程中, 引进的最主要的概念之一便是极限.
  例如, 在 
@@ -761,7 +765,7 @@ status open
  
 \end_layout
 
-\begin_layout Remark
+\begin_layout Remark*
 \begin_inset Formula $\ \ $
 \end_inset
 
@@ -947,8 +951,1351 @@ Cauchy不等式
 \end_layout
 
 \end_deeper
+\begin_layout Remark*
+距离不一定只
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+上有定义.
+ 实际上, 还可以在别的更加抽象的内容中定义.
+ 
+\end_layout
+
 \begin_layout Example
-序列空间
+连续函数空间
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+: 考虑闭区间
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上全体连续函数, 定义
+\begin_inset Formula 
+\[
+d(x,y):=\max_{a\leq t\leq b}|x(t)-y(t)|.
+\]
+
+\end_inset
+
+其中, 关于
+\begin_inset Formula $t$
+\end_inset
+
+的函数
+\begin_inset Formula $x(t),y(t)$
+\end_inset
+
+是
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上的两个任意的连续函数.
+ 我们说
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+是一个距离空间.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Proof
+(1)
+\begin_inset Formula $\sim$
+\end_inset
+
+(3)显然成立.
+ 对于(4)而言, 设
+\begin_inset Formula $x(t),y(t),z(t)$
+\end_inset
+
+是
+\begin_inset Formula $[a,b]$
+\end_inset
+
+的任意 3 个连续函数.
+ 我们要证明
+\begin_inset Formula $d(x,y)\leq d(x,z)+d(z,y)$
+\end_inset
+
+, 即证明
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\max_{a\leq t\leq b}|x(t)-y(t)|\leq\max_{a\leq t\leq b}|x(t)-z(t)|+\max_{a\leq t\leq b}|z(t)-y(t)|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+虽说可以抽象地写函数, 但是对于其性质, 还需要取一个具体的值才可继续计算.
+ 这是因为由于绝对值的不等式, 
+\begin_inset Formula $\forall t\in[a,b]$
+\end_inset
+
+, 有
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+|x(t)-y(t)| & \leq|x(t)-z(t)|+|z(t)-y(t)|\\
+ & \leq\max_{a\leq t\leq b}|x(t)-z(t)|+\max_{a\leq t\leq b}|z(t)-y(t)|\\
+ & =d(x,z)+d(z,y).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+由于
+\begin_inset Formula $t$
+\end_inset
+
+是我们任意取的, 所以(4)成立.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Example
+我们说
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上的全体连续函数
+\begin_inset Flex NewENWord
+status open
+
+\begin_layout Plain Layout
+赋予上述距离
+\end_layout
+
+\end_inset
+
+成为一个距离空间, 记为
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+还可以定义另一个距离
+\begin_inset Formula 
+\[
+d(x,y)=\int_{a}^{b}|x(t)-y(t)|\dd t.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+和上述情况类似, (在后面一节中)也可以验证这是一个距离空间.
+ 而且这是
+\begin_inset Flex NewENWord
+status open
+
+\begin_layout Plain Layout
+由内积产生的距离
+\end_layout
+
+\end_inset
+
+.
+ 在后面会详细说明.
+ 
+\end_layout
+
+\begin_layout Standard
+一个集合上面可以定义多个距离, 但是有的距离下空间完备; 有的距离下空间不完备.
+ 实际上, 有了完备性, 极限运算才能很好地进行.
+ 另外, 不同距离导出的收敛性不同, 这就需要我们仔细地选择距离.
+ 
+\end_layout
+
+\begin_layout Subsection
+距离空间的收敛性
+\end_layout
+
+\begin_layout Standard
+在定义了距离之后, 就可以在距离空间里面引入极限的概念.
+ 
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $(X,d)$
+\end_inset
+
+是一个距离空间, 
+\begin_inset Formula $\{x_{n}\}\subset X,x_{0}\in X,$
+\end_inset
+
+当
+\begin_inset Formula $n\to\infty$
+\end_inset
+
+的时候, 
+\begin_inset Formula $d(x_{n},x_{n})\to0.$
+\end_inset
+
+则称
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+以
+\begin_inset Formula $x_{0}$
+\end_inset
+
+为极限, 或者
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+收敛到
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+ 记作
+\begin_inset Formula $x_{n}\to x_{0}(n\to\infty)$
+\end_inset
+
+; 或者
+\begin_inset Formula $\lim_{n\to\infty}x_{n}=x_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Remark*
+实际上可以认为这是
+\begin_inset Formula $\epsilon-N$
+\end_inset
+
+的变形: 
+\begin_inset Formula 
+\[
+\forall\epsilon>0,\exists N,\text{当}n\geq N\text{时},\text{有}d(x_{n},x_{0})<\epsilon.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+和数列的极限一样, 有如下的性质.
+ 其证明和高等数学中的证明类似.
+ 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+在
+\begin_inset Formula $X$
+\end_inset
+
+中收敛, 则
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+的极限是唯一的;
+\end_layout
+
+\begin_layout Itemize
+若
+\begin_inset Formula $x_{0}$
+\end_inset
+
+是
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+的极限, 那么它的任何子列也收敛到
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+距离函数
+\begin_inset Formula $d$
+\end_inset
+
+另一个好处是它是一个连续函数.
+ 即
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula $d(x,y)$
+\end_inset
+
+是关于 
+\begin_inset Formula $x,y$
+\end_inset
+
+的二元连续函数.
+ 即当
+\begin_inset Formula $x_{n}\to x,y_{n}\to y(n\to\infty)$
+\end_inset
+
+的时候, 
+\begin_inset Formula $d(x_{n},y_{n})\to d(x,y)(n\to\infty)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+这是因为根据三角不等式, 有
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+d(x_{n},y_{n}) & \leq d(x_{n},x)+d(x,y)+d(y,y_{n})\\
+d(x_{n},y_{n})-d(x,y) & \leq d(x_{n},x)+d(y,y_{n})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+同理, 另一个角度有
+\begin_inset Formula 
+\begin{align*}
+d(x,y) & \leq d(x,x_{n})+d(x_{n},y_{n})+d(y_{n},y)\\
+d(x,y)-d(x_{n},y_{n}) & \leq d(x,x_{n})+d(y,y_{n})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+根据距离的对称性, 
+\begin_inset Formula $d(x,x_{n})=d(x_{n},x),$
+\end_inset
+
+有
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+|d(x_{n},y_{n})-d(x,y)|\leq d(x_{n},x)+d(y_{n},y)\to0(n\to\infty).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+完备的距离空间*
+\end_layout
+
+\begin_layout Standard
+这一节主要介绍完备的距离空间的产生条件.
+ 实际上, 我们大多数使用
+\begin_inset Formula $(X,d)$
+\end_inset
+
+都是完备的.
+ 
+\end_layout
+
+\begin_layout Standard
+注意到, 在全体有理数组成的距离空间中, Cauchy 列不一定收敛; 而全体实数组成的距离空间中, Cauchy 列一定收敛.
+ ``Cauchy 列一定收敛'' 这一事实, 反应了
+\begin_inset Flex NewENWord
+status open
+
+\begin_layout Plain Layout
+实数空间的完备性
+\end_layout
+
+\end_inset
+
+(没有坑洞).
+ 
+\end_layout
+
+\begin_layout Standard
+或者说, 一个点列
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+是否收敛, 除了和点列的自身的性质有关, 还和空间结构有很大的关系.
+ 在高等数学中, 学习过在
+\begin_inset Formula $\R$
+\end_inset
+
+中, 点列收敛的充要条件是这个点列是Cauchy列.
+ 类似实数空间, 在距离空间中也引入Cauchy列, 完备性的概念.
+ 
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $(X,d)$
+\end_inset
+
+是距离空间, 
+\begin_inset Formula $\{x_{n}\}_{n=1}^{\infty}\subset(X,d)$
+\end_inset
+
+.
+ 若对于
+\series bold
+任意的
+\series default
+
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, 存在正整数
+\begin_inset Formula $N$
+\end_inset
+
+, 当
+\begin_inset Formula $\red{m,n\geq N}$
+\end_inset
+
+时, 有
+\begin_inset Formula 
+\[
+d(\red{x_{n},x_{m}})<\epsilon,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+称
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+是一个Cauchy列.
+ 
+\end_layout
+
+\begin_layout Standard
+和学习实数相关的内容类似, 在距离空间中同样满足收敛的点列一定是Cauchy列.
+ 
+\end_layout
+
+\begin_layout Theorem
+收敛的点列一定是 Cauchy 列.
+ 
+\end_layout
+
+\begin_layout Proof
+设
+\begin_inset Formula $\lim_{n\to\infty}x_{n}=x_{0},$
+\end_inset
+
+则对于
+\begin_inset Formula $\forall\epsilon>0,\exists N$
+\end_inset
+
+, 当
+\begin_inset Formula $n,m>N$
+\end_inset
+
+的时候, 有
+\begin_inset Formula $d(x_{n},x_{0})<\epsilon/2;d(x_{m},x_{0})<\epsilon/2$
+\end_inset
+
+.
+ 根据距离的三角不等式:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+d(x_{n},x_{m})\leq d(x_{n},x_{0})+d(x_{m},x_{0})<\epsilon,(n,m>N).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+因此
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+是一个Cauchy列.
+ 
+\end_layout
+
+\begin_layout Standard
+具有``所有Cauchy列都收敛''这一性质的距离空间是十分重要的.
+ 这就是完备空间.
+ 
+\end_layout
+
+\begin_layout Example
+这个例子将展示
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+在距离
+\begin_inset Formula $d(x,y)=|x-y|$
+\end_inset
+
+的情况下是一个距离空间, 但是并不完备.
+ 例如, 以
+\begin_inset Formula $\pi$
+\end_inset
+
+为前
+\begin_inset Formula $n$
+\end_inset
+
+位数字组成的序列
+\begin_inset Formula $\{3,3.1,3.14,3.1415,...\}$
+\end_inset
+
+是一个Cauchy列, 但它并不会收敛到
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+中的某个元素(因为
+\begin_inset Formula $\pi$
+\end_inset
+
+不是有理数).
+ 
+\end_layout
+
+\begin_layout Example
+又如距离空间
+\begin_inset Formula $(\R\cap(0,1],d)$
+\end_inset
+
+中的序列
+\begin_inset Formula $\{1/n\}$
+\end_inset
+
+, 它是
+\begin_inset Formula $(0,1]$
+\end_inset
+
+中的Cauchy列, 但是并不收敛, 因为
+\begin_inset Formula $0\notin(0,1]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+后续计算方法中经常用到的空间, 比如
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+是完备的.
+ 下面给出说明.
+ 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+是完备的.
+ 要说明这件事情应该从下面三个方面入手: 假设
+\begin_inset Formula $\{x_{n}\}_{n=1}^{\infty}$
+\end_inset
+
+是
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+的
+\series bold
+任一
+\series default
+Cauchy列:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+找出
+\begin_inset Formula $x(t)(\{x_{n}\}$
+\end_inset
+
+的极限);
+\end_layout
+
+\begin_layout Itemize
+证明
+\begin_inset Formula $x(t)\in C[a,b]$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+证明
+\begin_inset Formula $x_{n}(t)\to x(t)(n\to\infty),$
+\end_inset
+
+距离的定义按照
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+的来.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+(1)由于
+\begin_inset Formula $\{x_{n}\}_{n=1}^{\infty}$
+\end_inset
+
+是
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+的
+\series bold
+任一
+\series default
+Cauchy列, 根据定义, 
+\begin_inset Formula $\forall\epsilon>0,\exists N,\text{s.t.}n,m\geq N$
+\end_inset
+
+的时候, 
+\begin_inset Formula $d(x_{n},x_{m})<\epsilon.$
+\end_inset
+
+ 即
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\max_{a\leq t\leq b}|x_{n}(t)-x_{m}(t)|\leq\epsilon.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+所以
+\begin_inset Formula $\forall t\in[a,b],|x_{n}(t)-x_{m}(t)|\leq\epsilon\ (n,m\geq N).$
+\end_inset
+
+从而
+\begin_inset Formula $\{x_{n}(t)\}$
+\end_inset
+
+是
+\begin_inset Formula $\R$
+\end_inset
+
+中的一个Cauchy数列.
+ 由于
+\begin_inset Formula $\R$
+\end_inset
+
+的完备性, 存在
+\begin_inset Formula $x(t),\text{s.t.}x_{n}(t)\to x(t)(n\to\infty)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+(2) 当
+\begin_inset Formula $n,m\geq N$
+\end_inset
+
+的时候, 
+\begin_inset Formula 
+\[
+|x_{n}(t)-x_{m}(t)|\leq\epsilon,\forall t\in[a,b]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+对于给定的
+\begin_inset Formula $t$
+\end_inset
+
+, 令
+\begin_inset Formula $m\to\infty,$
+\end_inset
+
+有
+\begin_inset Formula 
+\[
+|x_{n}(t)-x(t)|\leq\epsilon\ ,(n\geq N),\forall t\in[a,b],
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+表明
+\begin_inset Formula $x_{n}(t)$
+\end_inset
+
+一致收敛到
+\begin_inset Formula $x(t)$
+\end_inset
+
+ 
+\begin_inset Formula $\implies x(t)$
+\end_inset
+
+连续, 所以
+\begin_inset Formula $x(t)\in C[a,b].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(3) 当
+\begin_inset Formula $n\geq N$
+\end_inset
+
+的时候, 
+\begin_inset Formula 
+\begin{align*}
+ & |x_{n}(t)-x(t)|\leq\epsilon,\forall t\in[a,b]\\
+\implies & \max_{a\leq t\leq b}|x_{n}(t)-x(t)|\leq\epsilon
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+即
+\begin_inset Formula 
+\[
+d(x_{n},x)\leq\epsilon,(n\geq N)\implies\lim_{n\to\infty}x_{n}=x.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在以往的内容中学习了Newton迭代法以及压缩映射原理(Banach不动点原理).
+ 今天将其语言用距离空间中的说法改写.
+ 
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $(X,d)$
+\end_inset
+
+是完备的距离空间.
+ 
+\begin_inset Formula $T:X\to X$
+\end_inset
+
+.
+ 如果对于任意的
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+, 不等式
+\begin_inset Formula $d(Tx,Ty)\leq\theta d(x,y)$
+\end_inset
+
+成立(满足
+\begin_inset Formula $0<\theta<1$
+\end_inset
+
+), 那么存在唯一的
+\begin_inset Formula $\bar{x}\in X$
+\end_inset
+
+, 使得
+\begin_inset Formula $T\bar{x}=\bar{x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(1) 
+\begin_inset Formula $T$
+\end_inset
+
+是连续的(一致连续): 
+\begin_inset Formula $\forall\epsilon>0,$
+\end_inset
+
+取
+\begin_inset Formula $\delta=\epsilon>0$
+\end_inset
+
+, 当
+\begin_inset Formula $d(x,y)<\delta$
+\end_inset
+
+时, 
+\begin_inset Formula $d(Tx,Ty)\leq\theta d(x,y)<\theta\delta<\delta=\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+(2) 用迭代法求
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 任取
+\begin_inset Formula $x_{0}\in X,$
+\end_inset
+
+令
+\begin_inset Formula $x_{1}=Tx_{0},x_{2}=Tx_{1},...,x_{n+1}=Tx_{n}.$
+\end_inset
+
+ 试图估计误差, 我们发现
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+d(x_{1},x_{2}) & =d(Tx_{0},Tx_{1})\leq\theta d(x_{0},x_{1})=\theta d(x_{0},Tx_{0})\\
+d(x_{2},x_{3}) & =d(Tx_{1},Tx_{2})\leq\theta d(x_{1},x_{2})=\theta^{2}d(x_{0},Tx_{0})\\
+ & \cdots\\
+d(x_{n},x_{n+1}) & =\theta^{n}d(x_{0},Tx_{0}).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+从而对于任意的自然数
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+d(x_{n},x_{n+p}) & \leq d(x_{n},x_{n+1})+d(x_{n+1},x_{n+2})+\cdots+d(x_{n+p-1},x_{n+p})\\
+ & \leq\theta^{n}d(x_{0},Tx_{0})+\theta^{n+1}d(x_{0},Tx_{0})+\cdots+\theta^{n+p-1}d(x_{0},Tx_{0})\\
+ & \leq\frac{\theta^{n}}{1-\theta}d(x_{0},Tx_{0})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+由于
+\begin_inset Formula $0<\theta<1,$
+\end_inset
+
+所以
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+是Cauchy列.
+ 由于完备性, 所以存在
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+满足
+\begin_inset Formula $x_{n}\to\bar{x},(n\to\infty).$
+\end_inset
+
+ 又因为
+\begin_inset Formula $T$
+\end_inset
+
+连续, 才有
+\begin_inset Formula $\lim_{n\to\infty}Tx_{n}=T\lim_{n\to\infty}x_{n}=T\bar{x}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+(3) 唯一性: 倘若有另一个
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+使得
+\begin_inset Formula $T\bar{y}=\bar{y}$
+\end_inset
+
+, 那么
+\begin_inset Formula $d(\bar{x},\bar{y})=d(T\bar{x},T\bar{y})\leq\theta d(\bar{x},\bar{y})$
+\end_inset
+
+.
+ 根据
+\begin_inset Formula $0<\theta<1$
+\end_inset
+
+, 这表明
+\begin_inset Formula $d(\bar{x},\bar{y})=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+赋范空间
+\end_layout
+
+\begin_layout Standard
+被赋予Euclid距离的平面可以看做赋范空间的典型例子.
+ 在线性代数的课程中了解到的平面结构分为三方面: 
+\end_layout
+
+\begin_layout Itemize
+集合结构: 平面上的点集是有序的实数组.
+ 即
+\begin_inset Formula $x=(x_{1},x_{2})\in\R^{2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+代数结构: 平面上定义了加法和数乘; 且这个空间对加法, 数乘封闭.
+ 
+\end_layout
+
+\begin_layout Itemize
+拓扑结构: 对于
+\begin_inset Formula $x=(x_{1},x_{2}),y=(y_{1},y_{2})\in\R^{2}$
+\end_inset
+
+定义了距离
+\begin_inset Formula $d(x,y)=(|x_{1}-y_{1}|^{2}+|x_{2}-y_{2}|^{2})^{1/2}.$
+\end_inset
+
+并借此引进了``接近'', ``极限'', ``开集''的概念.
+ 
+\end_layout
+
+\begin_layout Standard
+截止第一小节(和高等数学的教程), 我们已经在集合上面赋予了距离, 定义了开集, 闭集, 给出了空间上的拓扑结构.
+ 
+\end_layout
+
+\begin_layout Standard
+这一小节我们在线性空间上引进元素的长度.
+ 
+\end_layout
+
+\begin_layout Standard
+回顾, 在
+\begin_inset Formula $\R^{2},\R^{n}$
+\end_inset
+
+空间中, 向量具有长度(模).
+ 但是对于更加一般的空间, 应该如何定义其长度? 我们希望从
+\begin_inset Formula $\R^{2},\R^{n}$
+\end_inset
+
+空间中向量构造出长度的基本性质, 抽象出``范数''的定义.
+ 
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $\R^{2}$
+\end_inset
+
+中, 点
+\begin_inset Formula $(x_{1,}x_{2})$
+\end_inset
+
+的长度记为
+\begin_inset Formula $||x||$
+\end_inset
+
+, 满足
+\begin_inset Formula $||x||=(x_{1}^{2}+x_{2}^{2})^{1/2}.$
+\end_inset
+
+ 即
+\begin_inset Formula $||x||=d(x,0).$
+\end_inset
+
+ 进一步, 在
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+空间中, 对于
+\begin_inset Formula ${\bf x}=(x_{1},x_{2},\cdots,x_{n})$
+\end_inset
+
+可以定义为
+\begin_inset Formula $||{\bf x}||=d({\bf x},{\bf 0})=(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2})^{1/2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+实际上, 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+中点
+\begin_inset Formula ${\bf x}$
+\end_inset
+
+到原点的距离
+\begin_inset Formula $d({\bf x},{\bf 0})$
+\end_inset
+
+通常称为向量的模, 或者叫元素的``长度''.
+ 而且我们知道模和距离的关系是
+\begin_inset Formula $d({\bf x,y)}=||{\bf x-y}||.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由此我们抽象出向量的模的基本应满足的基本性质.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+对于任意的
+\begin_inset Formula ${\bf x,y\in\R}^{n}$
+\end_inset
+
+, 向量的模函数应该满足:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||{\bf x}||=d({\bf x},0)\geq0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||{\bf x}||=d({\bf x},0)=0\iff{\bf x}={\bf 0}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||{\bf x+y}||=d({\bf x+y,0)}\leq d({\bf x,0})+d({\bf y,0})=||\text{{\bf x}}||+||{\bf y}||.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||\alpha{\bf x}||=d(\alpha{\bf x},{\bf 0})=|\alpha|d({\bf x,0)}=|\alpha|||{\bf x}||.$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+把上述的内容推广到一般的线性空间, 我们给出模(范数)的定义.
+\end_layout
+
+\begin_layout Subsection
+基本定义.
+ 极限
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $X$
+\end_inset
+
+是数域
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+的线性空间, 函数
+\begin_inset Formula $||\cdot||:X\to\R$
+\end_inset
+
+满足
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\forall{\bf x}\in X,||{\bf x}||\geq0$
+\end_inset
+
+(非负性)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||{\bf x}||=0\iff{\bf x}={\bf 0}.$
+\end_inset
+
+(正定性)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall{\bf x}\in X,\alpha\in\mathbb{K},||\alpha{\bf x}||=|\alpha|||{\bf x}||.$
+\end_inset
+
+(正齐次)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall{\bf x,y}\in X,||{\bf x+y}||\leq||\text{{\bf x}}||+||{\bf y}||.$
+\end_inset
+
+(三角不等式)
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+则称
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+是
+\begin_inset Formula $X$
+\end_inset
+
+上的一个范数.
+ 定义了范数的线性空间称为赋范线性空间(赋范空间); 记为
+\begin_inset Formula $(X,||\cdot||)$
+\end_inset
+
+或
+\begin_inset Formula $X$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+我们看到, 赋范空间只要定义了范数, 就可以自然地定义其距离: 
+\begin_inset Formula $d({\bf x,y}):=||{\bf x-y}||.$
+\end_inset
+
+ 可以使用距离的基本定义验证之.
+ 通常把
+\begin_inset Formula $(X,d)$
+\end_inset
+
+称为由范数诱导的距离空间.
+ 赋范空间一定是距离空间.
+ 之后如果没有特殊说明, 赋范空间的距离一般都是指由范数诱导的距离.
+ 
+\end_layout
+
+\begin_layout Standard
+另外, 赋范空间一旦有了距离, 就可以定义开集、闭集、收敛以及完备性等概念.
+ 
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+是赋范空间
+\begin_inset Formula $X$
+\end_inset
+
+中的点列, 
+\begin_inset Formula $x\in X$
+\end_inset
+
+.
+ 如果
+\begin_inset Formula $||x_{n}-x||\to0(n\to\infty)$
+\end_inset
+
+, 则称
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+按范数收敛到
+\begin_inset Formula $x$
+\end_inset
+
+, 记为
+\begin_inset Formula $\lim_{n\to\infty}x_{n}=x.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+有了距离和收敛性, 我们引进十分重要的概念: Banach空间.
+ 
+\end_layout
+
+\begin_layout Definition
+完备的赋范空间称为Banach空间.
+ 
+\end_layout
+
+\begin_layout Standard
+这表明, Banach 空间具有完备距离空间的所有性质, 是非常好的一种空间.
+ 
+\end_layout
+
+\begin_layout Subsection
+范数的连续性
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $(X,||\cdot||)$
+\end_inset
+
+是赋范空间, 则
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+对于任意
+\begin_inset Formula $x,y\in X,$
+\end_inset
+
+有
+\begin_inset Formula $|\ ||y||-||x||\ |\leq||y-x||.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+范数
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+是连续函数, 即
+\begin_inset Formula $x_{n}\to x(n\to\infty)\implies||x_{n}||\to||x||(n\to\infty)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+范数
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+对线性运算是连续的.
+ 即
+\begin_inset Formula 
+\begin{align*}
+x_{n}\to x,y_{n}\to y\implies & x_{n}+y_{n}\to x+y,(n\to\infty)\\
+\alpha_{n}\to\alpha,x_{n}\to x\implies & \alpha_{n}x_{n}\to\alpha x,(n\to\infty).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+(1) 由三角不等式, 
+\begin_inset Formula 
+\begin{align*}
+||y|| & \leq||y-x||+\blue{||x||}\\
+ & \leq||y-x||+\blue{||x-y||+||y||}\\
+ & =||y-x||+||y||
+\end{align*}
+
+\end_inset
+
+从而得证.
+\end_layout
+
+\begin_layout Proof
+(2) 根据(1), 
 \end_layout
 
 \end_body

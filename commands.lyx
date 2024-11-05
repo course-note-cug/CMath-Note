@@ -416,5 +416,13 @@ theorems-named
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ub}[2]{\underbrace{#1}_{#2}}
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

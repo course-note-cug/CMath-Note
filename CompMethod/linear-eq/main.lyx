@@ -1,0 +1,2670 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{mathrsfs}
+
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+
+
+
+\usepackage{cleveref}
+\crefname{equation}{式}{式}
+\crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\crefname{page}{页}{页}
+\crefname{chapter}{章}{章}
+\crefname{section}{节}{节}
+\crefname{appendix}{附录}{附录}
+\crefname{theorem}{定理}{定理}
+\crefname{lemma}{引理}{引理}
+\crefname{corollary}{推论}{推论}
+\crefname{proposition}{命题}{命题}
+\crefname{definition}{定义}{定义}
+\crefname{example}{例}{例}
+\crefname{algorithm}{算法}{算法}
+\crefname{listing}{列表}{列表}
+\crefname{line}{行}{行}
+
+\crefformat{chapter}{#2第#1章#3}
+\crefformat{section}{#2第#1节#3}
+\crefformat{subsection}{#2第#1节#3}
+\crefformat{subsubsection}{#2第#1节#3}
+
+\crefrangeformat{chapter}{#3第#1章#4至#5第#2章#6}
+\crefrangeformat{section}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsection}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsubsection}{#3第#1节#4至#5第#2节#6}
+
+\crefmultiformat{chapter}{#2第#1章#3}{和#2第#1章#3}{, #2第#1章#3}{和#2第#1章#3}
+\crefmultiformat{section}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsubsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+
+\crefrangemultiformat{chapter}{#3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}{, #3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}
+\crefrangemultiformat{section}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsubsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+
+\newcommand{\crefpairconjunction}{~和~}
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{~和~}
+\newcommand{\crefpairgroupconjunction}{~和~}
+\newcommand{\crefmiddlegroupconjunction}{, }
+\newcommand{\creflastgroupconjunction}{~和~}
+\newcommand{\crefrangeconjunction}{~至~}
+
+% LISTINGS
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Make SS at the beginning of a section
+
+\makeatletter
+%% See pp. 26f. of 'The LaTeX Companion,' 2nd. ed.
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+    {\csname the#1\endcsname\quad}%      default
+    {\csname #1@cntformat\endcsname}}%   individual control
+\newcommand{\section@cntformat}{\S\thesection\quad}
+\newcommand{\subsection@cntformat}{\S\thesubsection\quad}
+\makeatother % changes @ back to a special character
+
+\usepackage{titlesec}
+
+\CTEXsetup[format={\raggedright\large\bfseries}]{section}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection.}{0.5em}{}[.]
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\alph{subsubsection})}{0.5em}{}
+
+
+\usepackage{annotate-equations}
+
+
+
+\theoremstyle{definition}
+
+
+\usepackage{enumitem}
+
+\setlist{nosep}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt, 
+    margin=1in,
+    rmargin=2.5in
+}
+\setlength{\marginparwidth}{2in}
+\usepackage{environ}
+
+
+
+\newcommand{\lecture}[6]{
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf #1
+		\hfill #6} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill 第 #2 节: #3  \hfill} }
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Lecturer: #4 \hfill Scribes: #5} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   
+   \vspace*{4mm}
+}
+
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  font=small}
+% \setlength{\marginparwidth}{100pt}
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
+\usepackage{setspace}
+\newcounter{paranum}[section]
+\newcommand{\Par}[1]{\vspace{10pt}\noindent\textbf{\refstepcounter{paranum}\theparanum. }\textbf{#1}~~}
+\newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
+\newcommand{\mn}[1]{\marginnote{{#1}}}
+% \renewcommand{\algorithmcfname}{算法}
+\usepackage[abspath]{currfile}
+
+\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigside}[3]{\marginpar{\includegraphics[width=\marginparwidth]{figs/\jobname/#1}
+  \captionof{figure}{#2}\label{fig:#3}}}
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\stirling}[2]{\left\{{#1 \atop #2}\right\}}
+\newcommand{\binomt}[2]{\left(\left({#1 \atop #2}\right)\right)}
+\newcommand{\pf}[4]{#1_{#2}^{#3_{#4}}}
+\newcommand{\pl}[4]{#1_{#2}{#3^{#4}}}
+\newcommand{\ty}[3]{{#1} \equiv {#2} ~(\bmod {#3})}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\varsub}[2]{\stackrel{#1}{\stackrel{\rule{#2}{0.4pt}}{\rule{#2}{0.4pt}}}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\Ep}[1]{\mathbb E\left(#1\right)}
+
+\newcommand{\red}[1]{{{\color{red}#1}}}
+\newcommand{\teal}[1]{{{\color{teal}#1}}}
+\newcommand{\blue}[1]{{{\color{blue}#1}}}
+\newcommand{\purple}[1]{{{\color{purple}#1}}}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\like}{$\blacktriangleright$}
+\newcommand{\exrate}[1]{{[#1]~}}
+\newcommand{\newword}[2]{{\textbf{#1(#2)}\index{#1}}}
+\newcommand{\newenword}[1]{{\textbf{#1}\index{#1}}}
+\newcommand{\nwd}[1]{{\textbf{#1}\index{#1}}}
+
+\DeclareMathOperator{\End}{End}
+\newcommand{\huaa}{{\mathscr A}}
+\newcommand{\huab}{{\mathscr B}}
+\newcommand{\huac}{{\mathscr C}}
+\newcommand{\zkj}[1]{{$\mathscr{#1}$-子空间}}
+\newcommand{\vecgrp}[2]{{{#1}_1, {#1}_2,\cdots, {#1}_{#2}}}
+
+\newcommand{\fadetext}[1]{{{\color{gray} #1}}}
+
+\newcommand{\motivation}[1]{{{\blue{ #1}}}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:Code
+  LyxType               charstyle
+  LabelString           code
+  LatexType             command
+  LatexName             code
+  Font
+    Family              Sans
+    Color               Green
+  EndFont
+  Preamble
+    \newcommand*{\code}[1]{\texttt{#1}}
+  EndPreamble
+	ResetsFont true
+End
+
+InsetLayout Flex:NewENWord
+  LyxType               charstyle
+  LabelString           "nenwd"
+  LatexType             command
+  LatexName             newenword
+  Font
+    Family              Sans
+    Color               blue
+  EndFont
+  ResetsFont true
+End
+\end_local_layout
+\language chinese-simplified
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\set}[1]{\{#1\}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\stirling}[2]{\left\{  {#1\atop #2}\right\}  }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\binomt}[2]{\left(\left({#1\atop #2}\right)\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\varsub}[1]{\xlongarrow\{#1\}}
+{\underset{========}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\dd}{\mathrm{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ep}[1]{\mathbb{E}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\teal}[1]{{\color{blue}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\purple}[1]{{\color{purple}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Cov}{\mathop{\textrm{Cov}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\mathbb{E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\R}{\mathbb{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\F}{\mathbb{F}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\like}{\blacktriangleright}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\exrate}[1]{{[#1]~}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ub}[2]{\underbrace{#1}_{#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+线性方程组
+\begin_inset Formula $Ax=b$
+\end_inset
+
+的数值解法
+\end_layout
+
+\begin_layout Author
+《计算方法》课程笔记
+\end_layout
+
+\begin_layout Section
+引言
+\end_layout
+
+\begin_layout Standard
+大量实际的科学与工程问题常可归结为求解含有多个未知量
+\begin_inset Formula $x_{1},x_{2},...,x_{n}$
+\end_inset
+
+的线性代数方程组.
+ 即求
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\alpha_{11}x_{1}+\alpha_{12}x_{2}+...+\alpha_{1n}x_{n}=\beta_{1}\\
+\alpha_{21}x_{1}+\alpha_{22}x_{2}+...+\alpha_{2n}x_{n}=\beta_{2}\\
+\cdots\\
+\alpha_{n1}x_{1}+\alpha_{n2}x_{2}+...+\alpha_{nn}x_{n}=\beta_{2}
+\end{cases}
+\]
+
+\end_inset
+
+的值.
+ 写为矩阵形式就为
+\begin_inset Formula ${\bf Ax}={\bf b}$
+\end_inset
+
+.
+ 其中, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\bf A}=\begin{bmatrix}\alpha_{11} & \alpha_{12} & \cdots & \alpha_{1n}\\
+\alpha_{21} & \alpha_{22} & \cdots & \alpha_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+\alpha_{n1} & \alpha_{n2} & \alpha_{n3} & \alpha_{nn}
+\end{bmatrix},{\bf x}=\begin{bmatrix}x_{1}\\
+x_{2}\\
+\vdots\\
+x_{n}
+\end{bmatrix},{\bf b}=\begin{bmatrix}\beta_{1}\\
+\beta_{2}\\
+\vdots\\
+\beta_{n}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在线性代数中我们学到的是精确求解方法.
+ 下面来看几个方法: 
+\end_layout
+
+\begin_layout Subsection
+矩阵求逆
+\end_layout
+
+\begin_layout Subsubsection
+Gauss 消元法
+\end_layout
+
+\begin_layout Standard
+假设有
+\begin_inset Formula ${\bf Ax=b},$
+\end_inset
+
+只要在两端乘上对应的逆, 就可以由
+\begin_inset Formula ${\bf A}^{-1}{\bf Ax}={\bf A}^{-1}{\bf b}$
+\end_inset
+
+推出
+\begin_inset Formula ${\bf x=A}^{-1}{\bf b}.$
+\end_inset
+
+ 这个可以使用消元法求得方程组的解.
+ 例如
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+\begin{cases}
+x-y+2z=5 & (1)\\
+x+y+z=6 & (2)\\
+2x+3y+5z=23 & (3)
+\end{cases}
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+假设
+\begin_inset Formula $(x_{0},y_{0},z_{0})$
+\end_inset
+
+是它的解, 那么
+\end_layout
+
+\begin_layout Itemize
+任意交换 2 行, 解不变: 比如交换(1)和(2), 
+\begin_inset Formula $\begin{cases}
+\blue{x+y+z=6} & (1)\\
+\blue{x-y+2z=5} & (2)\\
+2x+3y+5z=23 & (3)
+\end{cases}$
+\end_inset
+
+的解也满足
+\begin_inset Formula $(x_{0},y_{0},z_{0})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+某一行乘上一个非 0 倍数, 解不变.
+ 如把第二行乘上 2, 
+\begin_inset Formula $\begin{cases}
+x-y+2z=5 & (1)\\
+\blue 2x+\blue 2y+\blue 2z=6 & (2)\\
+2x+3y+5z=23 & (3)
+\end{cases}$
+\end_inset
+
+的解也满足
+\begin_inset Formula $(x_{0},y_{0},z_{0})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+某一行乘上一个倍数加到另一行去, 解不变.
+ 如(2)乘上 2 加到(3)上去, 得到
+\begin_inset Formula $\begin{cases}
+x-y+2z=5 & (1)\\
+x+y+z=6 & (2)\\
+\blue{4x+5y+7z=35} & (3)
+\end{cases}$
+\end_inset
+
+的解也满足
+\begin_inset Formula $(x_{0},y_{0},z_{0})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+如果把系数
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+和常数项
+\begin_inset Formula ${\bf b}$
+\end_inset
+
+排列为矩阵的形式, 就可以由以下的方法解得方程组:
+\end_layout
+
+\begin_layout Itemize
+按照行从第一行到最后一行上对角线的位置迭代.
+ 第
+\begin_inset Formula $i$
+\end_inset
+
+次迭代的目的是把第
+\begin_inset Formula $i+1$
+\end_inset
+
+行
+\begin_inset Formula $i$
+\end_inset
+
+列到
+\begin_inset Formula $n$
+\end_inset
+
+行
+\begin_inset Formula $i$
+\end_inset
+
+列的数(包含两端)全都置为 0(红色部分).
+ 我们可以通过上述观察的第三条性质满足.
+ 
+\end_layout
+
+\begin_layout Itemize
+如果发现
+\begin_inset Formula $i$
+\end_inset
+
+行
+\begin_inset Formula $i$
+\end_inset
+
+列的数已经为 0, 试图找一个不为 0 的行与之交换.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+如果找不到这样的不为 0 的行, 说明方程组无解或有无穷多解(即
+\begin_inset Formula $0x=0$
+\end_inset
+
+或
+\begin_inset Formula $0x=b$
+\end_inset
+
+的情况).
+ 
+\end_layout
+
+\begin_layout Itemize
+如果找到了, 交换他们, 然后继续进行行的迭代.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+最后, 左侧矩阵一定会类似于上三角, 最后一行会形如
+\begin_inset Formula $ax=b$
+\end_inset
+
+(紫色).
+ 只需要应用第二条规则就可以解得一个变量.
+ 从而可以反推出方程的解.
+ 
+\end_layout
+
+\begin_layout Example
+来看一个具体的例子: 增广矩阵形如
+\begin_inset Formula 
+\[
+\begin{bmatrix}1 & -1 & 2 & \brokenvert & 5\\
+1 & 1 & 1 & \brokenvert & 6\\
+2 & 3 & 5 & \brokenvert & 23
+\end{bmatrix}
+\]
+
+\end_inset
+
+的方程组, 使用上述的消元法的过程:
+\end_layout
+
+\begin_layout Example
+消去过程的第一步, 目的是把第二行第一列到第三行第一列的所有元素消去:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{bmatrix}1 & -1 & 2 & \brokenvert & 5\\
+\red 1 & 1 & 1 & \brokenvert & 6\\
+\red 2 & 3 & 5 & \brokenvert & 23
+\end{bmatrix}\xrightarrow{\text{第二行}+=\text{第一行}\times(-1)}\begin{bmatrix}1 & -1 & 2 & \brokenvert & 5\\
+\blue 0 & \blue 2 & \blue{-1} & \brokenvert & \blue 1\\
+\red 2 & 3 & 5 & \brokenvert & 23
+\end{bmatrix}\xrightarrow{\text{第三行}+=\text{第一行}\times(-2)}\begin{bmatrix}1 & -1 & 2 & \brokenvert & 5\\
+\blue 0 & \blue 2 & \blue{-1} & \brokenvert & \blue 1\\
+\blue 0 & \blue 5 & \blue 1 & \brokenvert & \blue{13}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+消去过程的第二步, 目的是把第三行第二列到第三行第二列的所有元素消去:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{bmatrix}1 & -1 & 2 & \brokenvert & 5\\
+0 & 2 & -1 & \brokenvert & 1\\
+0 & \red 5 & 1 & \brokenvert & 13
+\end{bmatrix}\xrightarrow{\text{第三行}+=\text{第二行}\times(-\frac{5}{2})}\begin{bmatrix}1 & -1 & 2 & \brokenvert & 5\\
+0 & 2 & -1 & \brokenvert & 1\\
+0 & \blue 0 & \blue{7/2} & \brokenvert & \blue{21/2}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+我们得到了一个阶梯型.
+ 这时候只要使用第二条, 就有
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{bmatrix}1 & -1 & 2 & \brokenvert & 5\\
+0 & 2 & -1 & \brokenvert & 1\\
+0 & 0 & \purple{7/2} & \brokenvert & \purple{21/2}
+\end{bmatrix}\xrightarrow{\text{第三行}\times=(\frac{2}{7})}\begin{bmatrix}1 & -1 & 2 & \brokenvert & 5\\
+0 & 2 & -1 & \brokenvert & 1\\
+0 & 0 & 1 & \brokenvert & 3
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+接下来就是回带的过程.
+ 就像刚刚一样, 这次是从后往前.
+ 第一步的先把第三列头上的消干净:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{bmatrix}1 & -1 & \red 2 & \brokenvert & 5\\
+0 & 2 & \red{-1} & \brokenvert & 1\\
+0 & 0 & 1 & \brokenvert & 3
+\end{bmatrix}\xrightarrow{\text{第二行}+=\text{第三行}}\begin{bmatrix}1 & -1 & \red 2 & \brokenvert & 5\\
+0 & \purple 2 & 0 & \brokenvert & \purple 4\\
+0 & 0 & 1 & \brokenvert & 3
+\end{bmatrix}\xrightarrow[\text{第二行}/=2]{\text{第一行}+=\text{第三行}\times(-2)}\begin{bmatrix}1 & -1 & 0 & \brokenvert & -1\\
+0 & 1 & 0 & \brokenvert & 2\\
+0 & 0 & 1 & \brokenvert & 3
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+和刚刚一样的操作, 就有
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{bmatrix}1 & \red{-1} & 0 & \brokenvert & -1\\
+0 & 1 & 0 & \brokenvert & 2\\
+0 & 0 & 1 & \brokenvert & 3
+\end{bmatrix}\xrightarrow{\text{第一行}+=\text{第二行}}\begin{bmatrix}\purple 1 & 0 & 0 & \brokenvert & \purple 1\\
+0 & 1 & 0 & \brokenvert & 2\\
+0 & 0 & 1 & \brokenvert & 3
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+于是我们得到了
+\begin_inset Formula $x=1,y=2,z=3.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这就得到了方程的解.
+ 要想得到逆矩阵, 便可以在旁边放一个单位阵.
+ 我们知道三种初等的行变换就是可以被初等矩阵表示的.
+ 这样, 每一次行(列)变换乘在一起还是一个矩阵, 便是我们的逆矩阵.
+ 从而, 把
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+变为
+\begin_inset Formula ${\bf I}$
+\end_inset
+
+的过程中, 实际上是左乘一个逆矩阵; 对于旁边的单位阵而言, 我们就得到的
+\begin_inset Formula ${\bf A}^{-1}$
+\end_inset
+
+.
+ 即
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+[{\bf A}|{\bf I}]\xrightarrow[\text{单位阵}]{\text{经过初等行列变换化为}}[{\bf A}^{-1}{\bf A}|{\bf A}^{-1}{\bf I}]\to[{\bf I}|{\bf A}^{-1}].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Cramer 法则
+\end_layout
+
+\begin_layout Standard
+如果一个矩阵
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的行列式不为 0, 那么就可以使用 Cramer 法则.
+ 可以使用
+\begin_inset Formula $x_{i}=\frac{|{\bf A}_{i}|}{|{\bf A}|},i=1,2,...,n$
+\end_inset
+
+.
+ 其中, 
+\begin_inset Formula $|{\bf A}|$
+\end_inset
+
+是方程组对应系数矩阵对应的行列式; 
+\begin_inset Formula $|{\bf A}_{i}|$
+\end_inset
+
+是以右端变量向量
+\begin_inset Formula ${\bf b}$
+\end_inset
+
+替代
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的第
+\begin_inset Formula $i$
+\end_inset
+
+列所得矩阵的行列式.
+ 即
+\begin_inset Formula 
+\[
+x_{i}=\frac{\begin{vmatrix}a_{1,1} & \cdots & a_{1,i-1} & \red{b_{1}} & a_{1,i+1} & \cdots & a_{1,n}\\
+a_{2,1} & \cdots & a_{2,i-1} & \red{b_{2}} & a_{2,i+1} & \cdots & a_{2,n}\\
+\vdots & \cdots & \vdots & \red{\vdots} & \vdots & \cdots & \vdots\\
+a_{n,1} & \cdots & a_{n,i-1} & \red{b_{n}} & a_{n,i+1} & \cdots & a_{n.n}
+\end{vmatrix}}{\begin{vmatrix}a_{1,1} & a_{1,2} & \cdots & a_{1,n}\\
+a_{2,1} & a_{2,2} & \cdots & a_{2,n}\\
+\vdots & \vdots & \cdots & \vdots\\
+a_{n,1} & a_{n,2} & \cdots & a_{n,n}
+\end{vmatrix}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+但是, 计算一个
+\begin_inset Formula $n$
+\end_inset
+
+阶行列式需要做
+\begin_inset Formula $(n-1)(n!)$
+\end_inset
+
+次乘法, 运用Cramer法则求解上述方程所需乘除法的运算量大约为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+N=\underbrace{(n+1)}_{\begin{array}{c}
+\text{分子的}n\text{个}\\
+\text{和分母的}1\text{个}
+\end{array}}\times(n-1)n!+\underbrace{n}_{\text{求}x_{i}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+因此,当线性方程组的阶数
+\begin_inset Formula $n$
+\end_inset
+
+较高时, 计算量太大, 现实上不可行！ 因此, 快速高效地数值求解线性方程组是数值线性代数研究中的核心问题, 也是目前科学计算中的重大研究课题之一.
+ 
+\end_layout
+
+\begin_layout Subsection
+解线性方程组的两种方法
+\end_layout
+
+\begin_layout Subsubsection*
+直接法
+\end_layout
+
+\begin_layout Standard
+只包含有限次四则运算.
+ 在计算过程中都不发生舍入误差的假定下, 计算结果就是原方程组的精确解.
+ 包括 
+\end_layout
+
+\begin_layout Itemize
+Gauss 消元法
+\end_layout
+
+\begin_layout Itemize
+三角分解法
+\end_layout
+
+\begin_layout Remark*
+由于运算过程中舍入误差的存在, 实际上直接方法得到的解也是方程组的近似解.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+迭代法
+\end_layout
+
+\begin_layout Standard
+把方程组的解向量看作是某种极限过程的极限, 从一个初始向量出发, 按照一定的迭代格式, 构造出一个趋向于真解的无穷序列.
+ 如
+\end_layout
+
+\begin_layout Itemize
+Jacobi迭代法 
+\end_layout
+
+\begin_layout Itemize
+Gauss-Seidel迭代法 
+\end_layout
+
+\begin_layout Itemize
+超松弛(SOR)迭代法 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+列主元Gauss消元法
+\end_layout
+
+\begin_layout Standard
+在引言中已经知道Gauss 消元法的一般步骤.
+ 我们发现若方程组是“上/下三角方程组”, 可很容易求解.
+ 从而, 我们的解法就是分为如下两步走:
+\end_layout
+
+\begin_layout Itemize
+运用初等变换构造等价的上三角方程组
+\begin_inset Formula $Ux=y$
+\end_inset
+
+.
+ (消去) 
+\end_layout
+
+\begin_layout Itemize
+按照方程组的逆序求解上三角方程组.（回代） 
+\end_layout
+
+\begin_layout Standard
+通过三种初等变换
+\end_layout
+
+\begin_layout Itemize
+Interchanges 行对换：对调方程组的两行 
+\end_layout
+
+\begin_layout Itemize
+Scaling 行倍乘：用非零常数乘以方程组的某一行 
+\end_layout
+
+\begin_layout Itemize
+Replacement 行倍加：将方程组的某一行乘以一个非零 常数, 再加到另一行上 
+\end_layout
+
+\begin_layout Standard
+便可以得到上面的结果.
+ 
+\end_layout
+
+\begin_layout Standard
+首先更加仔细地看一下 Gauss 消元的过程.
+\end_layout
+
+\begin_layout Subsection
+Gauss 消去法的过程
+\end_layout
+
+\begin_layout Standard
+方程组
+\begin_inset Formula ${\bf Ax}={\bf b}$
+\end_inset
+
+的增广矩阵记为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+({\bf A}^{(0)}\ \ {\bf b}^{(0)})=\begin{pmatrix}a_{1,1}^{(0)} & a_{1,2}^{(0)} & a_{1,3}^{(0)} & \cdots & a_{1,n}^{(0)} & \beta_{1}^{(0)}\\
+a_{2,1}^{(0)} & a_{2,2}^{(0)} & a_{2,3}^{(0)} & \cdots & a_{2,n}^{(0)} & \beta_{2}^{(0)}\\
+a_{3,1}^{(0)} & a_{3,2}^{(0)} & a_{3,3}^{(0)} & \cdots & a_{3,n}^{(0)} & \beta_{3}^{(0)}\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+a_{n,1}^{(0)} & a_{n,2}^{(0)} & a_{n,3}^{(0)} & \cdots & a_{n,n}^{(0)} & \beta_{n}^{(0)}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中右上角的角标
+\begin_inset Formula $(m)$
+\end_inset
+
+表示第
+\begin_inset Formula $m$
+\end_inset
+
+次迭代, 即第
+\begin_inset Formula $m$
+\end_inset
+
+次消元的结果.
+ 
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $a_{11}\neq0$
+\end_inset
+
+, 第1步消元的工作就是对于第2 ~ n行: 将第
+\begin_inset Formula $i$
+\end_inset
+
+行分别减去第
+\begin_inset Formula $1$
+\end_inset
+
+行乘上
+\begin_inset Formula $a_{11}$
+\end_inset
+
+的倍数
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+l_{i.1}=\frac{a_{i,1}^{(0)}}{a_{1,1}^{(0)}},i=1,2,...,n,
+\]
+
+\end_inset
+
+得到
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+({\bf A}^{(1)}\ \ {\bf b}^{(1)})=\begin{pmatrix}a_{1,1}^{(0)} & a_{1,2}^{(0)} & a_{1,3}^{(0)} & \cdots & a_{1,n}^{(0)} & \beta_{1}^{(0)}\\
+0 & a_{2,2}^{(1)} & a_{2,3}^{(1)} & \cdots & a_{2,n}^{(1)} & \beta_{2}^{(1)}\\
+0 & a_{3,2}^{(1)} & a_{3,3}^{(1)} & \cdots & a_{3,n}^{(1)} & \beta_{3}^{(1)}\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & a_{n,2}^{(1)} & a_{n,3}^{(1)} & \cdots & a_{n,n}^{(1)} & \beta_{n}^{(1)}
+\end{pmatrix},\text{满足}\begin{array}{c}
+a_{i,j}^{(1)}=a_{i,j}^{(0)}-l_{i,1}a_{1.j}^{(0)}\\
+\beta_{i}^{(1)}=\beta_{i}^{(0)}-l_{i,1}\beta_{1}^{(0)}\\
+j=2,3,...,n\\
+i=2,3,...,n
+\end{array}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+考虑第
+\begin_inset Formula $k$
+\end_inset
+
+步, 在完成 第
+\begin_inset Formula $k-1$
+\end_inset
+
+步的时候, 矩阵看上去就像
+\begin_inset Formula 
+\[
+\left(\begin{array}{ll}
+{\bf A}^{(k-1)} & {\bf b}^{(k-1)}\end{array}\right)=\left(\begin{array}{cccccc}
+a_{1,1}^{(0)} & \cdots & a_{1,k}^{(0)} & \cdots & a_{1,n}^{(0)} & \beta_{1}^{(0)}\\
+ & \ddots & \vdots & \ddots & \vdots & \vdots\\
+ &  & a_{k,k}^{(k-1)} & \cdots & a_{k,n}^{(k-1)} & \beta_{k}^{(k-1)}\\
+ &  & \vdots & \ddots & \vdots & \vdots\\
+ &  & a_{n,k}^{(k-1)} & \cdots & a_{n,n}^{(k-1)} & \beta_{n}^{(k-1)}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+到了第 
+\begin_inset Formula $k$
+\end_inset
+
+ 步, 我们令
+\begin_inset Formula $l_{i.k}=\frac{a_{i,k}^{(k-1)}}{a_{k,k}^{(k-1)}},$
+\end_inset
+
+并且试图把
+\begin_inset Formula $k,k$
+\end_inset
+
+下面的列消去为 0, 其余列的系数就变成了
+\begin_inset Formula $\begin{array}{cc}
+a_{i,j}^{(k)}=a_{i,j}^{(k-1)}-l_{i,k}a_{k,j}^{(k-1)} & (\text{未知数的系数)}\\
+\beta_{i}^{(k)}=\beta_{i}^{(k-1)}-l_{i,k}\beta_{k}^{(k-1)} & (\text{常数项)}
+\end{array}$
+\end_inset
+
+, 对于
+\begin_inset Formula $i,j=k+1,k+2,...,n.$
+\end_inset
+
+ 经过这样一番操作, 就得到了第
+\begin_inset Formula $k$
+\end_inset
+
+步执行完了之后的样子:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{ll}
+{\bf A}^{(k)} & {\bf b}^{(k)}\end{array}\right)=\left(\begin{array}{ccccccc}
+a_{1,1}^{(0)} & \cdots & a_{1,k}^{(0)} & a_{1,k+1}^{(0)} & \cdots & a_{1,n}^{(0)} & \beta_{1}^{(0)}\\
+ & \ddots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+ &  & a_{k,k}^{(k-1)} & \blue{a_{k,k+1}^{(k-1)}} & \cdots & \blue{a_{k,n}^{(k-1)}} & \blue{\beta_{k}^{(k-1)}}\\
+ &  & \red 0 & \purple{a_{k+1,k+1}^{(k)}} & \purple{\cdots} & \purple{a_{k+1,n}^{(k)}} & \purple{\beta_{k}^{(k)}}\\
+ &  & \red{\vdots} & \purple{\vdots} & \purple{\ddots} & \purple{\vdots} & \purple{\vdots}\\
+ &  & \red 0 & \purple{a_{n,k+1}^{(k)}} & \purple{\cdots} & \purple{a_{n,n}^{(k)}} & \purple{\beta_{n}^{(k)}}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+实际上, 第
+\begin_inset Formula $k$
+\end_inset
+
+步的时候, 第
+\begin_inset Formula $k$
+\end_inset
+
+行的元素保持不变(蓝色部分); 更新的区域是其右下方的一个小矩形, 如紫色部分所示.
+ 
+\end_layout
+
+\begin_layout Standard
+在执行完了
+\begin_inset Formula $n-1$
+\end_inset
+
+ 步消元之后, 便得到了
+\begin_inset Formula 
+\[
+\left(\begin{array}{ll}
+{\bf A}^{(n-1)} & {\bf b}^{(n-1)}\end{array}\right)=\left(\begin{array}{cccccc}
+a_{11}^{(0)} & a_{12}^{(0)} & a_{13}^{(0)} & \cdots & a_{1n}^{(0)} & \beta_{1}^{(0)}\\
+ & a_{22}^{(1)} & a_{23}^{(1)} & \cdots & a_{2n}^{(1)} & \beta_{2}^{(1)}\\
+ &  & a_{33}^{(2)} & \cdots & a_{3n}^{(2)} & \beta_{3}^{(2)}\\
+ &  &  & \ddots & \vdots & \vdots\\
+ &  &  &  & a_{nn}^{(n-1)} & \beta_{n}^{(n-1)}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这时候便可以从
+\begin_inset Formula $x_{n}$
+\end_inset
+
+逐步回带, 依次求解.
+ 如
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+x_{n}=\frac{\beta_{n}^{(n-1)}}{a_{n,n}^{(n-1)}}\\
+x_{k}=\frac{\beta_{k}^{(k-1)}-\sum_{j=k+1}^{n}a_{k,j}^{(k-1)}x_{j}}{a_{k,k}^{(k-1)}} & k=n-1,n-2,\cdots,1
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+运算量估计
+\end_layout
+
+\begin_layout Standard
+对于Gauss消元法, 所需要的乘除法总次数为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+N_{1} & =\sum_{k=1}^{n-1}((n-k)(n-k+1)+n-k)\\
+ & =\sum_{k=1}^{n-1}(n-k)^{2}+2\sum_{k=1}^{n-1}(n-k)\\
+ & =\underbrace{\sum_{1\leq k\leq n-1}k^{2}}_{k\leftarrow n-k}+2\underbrace{\sum_{1\leq k\leq n-1}k}_{k\leftarrow n-k}\\
+ & =\frac{n(n-1)(2n-1)}{6}+2\frac{n(n-1)}{2}\\
+ & =\frac{n^{3}}{3}+\frac{n^{2}}{2}-\frac{5n}{6}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+另外, 回带的时候, 
+\end_layout
+
+\begin_layout Itemize
+求 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ 需做1次除法; 共 1 次
+\end_layout
+
+\begin_layout Itemize
+求
+\begin_inset Formula $x_{n-1}$
+\end_inset
+
+需做1次乘法和1次除法; 共2次
+\end_layout
+
+\begin_layout Itemize
+求
+\begin_inset Formula $x_{n-2}$
+\end_inset
+
+需做2次乘法和1次除法; 共3次
+\end_layout
+
+\begin_layout Itemize
+...
+ 如此往复
+\end_layout
+
+\begin_layout Itemize
+求 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ 需做
+\begin_inset Formula $n-1$
+\end_inset
+
+次乘法和1次除法; 共
+\begin_inset Formula $n$
+\end_inset
+
+次.
+ 
+\end_layout
+
+\begin_layout Standard
+于是
+\begin_inset Formula 
+\[
+N_{2}=1+2+\cdots+n=\frac{n(n+1)}{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+总运算次数为
+\begin_inset Formula $N=N_{1}+N_{2}=n^{3}/3+n^{2}-n/3.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+选主元减小误差
+\end_layout
+
+\begin_layout Standard
+在每次消元运算中可能引入微小的误差.
+  这主要是因为在除法的时候不能除以一个比较小的数.
+ 由此, 我们需要
+\series bold
+每次消元前, 在本列元素中选绝对值最大的 非零元作为主元(pivot),  然后经过换行换到 主对角线上, 再进行消元.
+  
+\end_layout
+
+\begin_layout Subsection
+使用计算器的附注
+\end_layout
+
+\begin_layout Standard
+使用Fx-991 CN CW计算器的时候, 可以通过主屏幕中的``方程
+\begin_inset Formula $\to$
+\end_inset
+
+线性方程组''中找到对应的结果.
+ 
+\end_layout
+
+\begin_layout Standard
+如果计算器支持矩阵运算, 在高斯消元回带过程中, 可以使用左乘一个初等矩阵的方法批量地把某一行乘上某个倍数加到另一行去.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+初等矩阵
+\end_layout
+
+\begin_layout Itemize
+如果希望把
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+矩阵的第
+\begin_inset Formula $i$
+\end_inset
+
+行和第
+\begin_inset Formula $j$
+\end_inset
+
+列对调, 就在
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+左边乘上
+\begin_inset Formula 
+\[
+\begin{pmatrix}1\\
+ & 1\\
+ &  & 0 &  & 1\\
+ &  &  & \ddots\\
+ &  & 1 &  & 0\\
+ &  &  &  &  & 1
+\end{pmatrix}\begin{array}{c}
+\\
+\\
+\leftarrow\text{第}i\text{行}\\
+\\
+\leftarrow\text{第}j\text{行}\\
+\\
+\end{array}
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+如果希望把
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+矩阵的第
+\begin_inset Formula $i$
+\end_inset
+
+行乘上
+\begin_inset Formula $k$
+\end_inset
+
+倍, 就在
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的左边乘上
+\begin_inset Formula 
+\[
+\begin{pmatrix}1\\
+ & 1\\
+ &  & k\\
+ &  &  & \ddots\\
+ &  &  &  & 1\\
+ &  &  &  &  & 1
+\end{pmatrix}\begin{array}{c}
+\\
+\\
+\leftarrow\text{第}i\text{行}\\
+\\
+\\
+\\
+\end{array}
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+如果希望把
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+矩阵的第
+\begin_inset Formula $i$
+\end_inset
+
+行乘上
+\begin_inset Formula $k$
+\end_inset
+
+倍加到第
+\begin_inset Formula $j$
+\end_inset
+
+行去, 就在
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的左边乘上
+\begin_inset Formula 
+\[
+\begin{pmatrix}1\\
+ & 1\\
+k &  & 1\\
+\uparrow &  &  & \ddots\\
+\text{第}i\text{行}k\text{倍} &  &  &  & 1\\
+ &  &  &  &  & 1
+\end{pmatrix}\begin{array}{c}
+\\
+\\
+\leftarrow\text{第}j\text{行}\\
+\\
+\\
+\\
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+上面的三个就叫做初等矩阵.
+ 它捕捉了高斯消元基本的一部捕捉的运算.
+ 总结一下, 初等矩阵有如下的性质
+\end_layout
+
+\begin_layout Enumerate
+设
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+是一个
+\begin_inset Formula $m\times n$
+\end_inset
+
+的 矩阵, 对
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+施行一次初等行变换, 相当于
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+左乘相应的
+\begin_inset Formula $m$
+\end_inset
+
+阶初等矩阵;
+\end_layout
+
+\begin_layout Enumerate
+初等矩阵都是可逆的.
+ 这是因为做一个相反的操作就可以变回单位矩阵.
+ 
+\end_layout
+
+\begin_layout Standard
+从初等矩阵的角度看Gauss消去法, 实际上就是
+\end_layout
+
+\begin_layout Itemize
+系数矩阵化成上三角矩阵, 实质上是做一系列初等行变换 
+\end_layout
+
+\begin_layout Itemize
+相当于用一系列初等矩阵去左乘增广矩阵 
+\end_layout
+
+\begin_layout Standard
+例如, 第
+\begin_inset Formula $k$
+\end_inset
+
+步消元实际上左乘的是 
+\begin_inset Formula 
+\[
+{\bf L}_{k}=\begin{pmatrix}1\\
+ & \ddots\\
+ &  & 1\\
+ &  &  & 1\\
+ &  &  & -l_{k+1,k} & 1\\
+ &  &  & \vdots & \vdots & \ddots\\
+ &  &  & -l_{n,k} & 0 & \cdots & 1
+\end{pmatrix}\begin{array}{c}
+\\
+\\
+\\
+\leftarrow\text{第}k\text{行}\\
+\\
+\\
+\\
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+三角分解法(LU分解)
+\end_layout
+
+\begin_layout Standard
+观察上节得到的
+\begin_inset Formula $L_{k}$
+\end_inset
+
+, 注意到他们是若干个初等矩阵的乘积, 因此均为非奇异矩阵.
+ 从而可以容易地求出他们的逆矩阵
+\begin_inset Formula $L_{k}^{-1}$
+\end_inset
+
+, 他们是
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\bf L}_{k}=\begin{pmatrix}1\\
+ & \ddots\\
+ &  & 1\\
+ &  &  & 1\\
+ &  &  & \red{l_{k+1,k}} & 1\\
+ &  &  & \red{\vdots} & \vdots & \ddots\\
+ &  &  & \red{l_{n,k}} & 0 & \cdots & 1
+\end{pmatrix}\begin{array}{c}
+\\
+\\
+\\
+\leftarrow\text{第}k\text{行}\\
+\\
+\\
+\\
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们知道
+\begin_inset Formula ${\bf L}_{n-1}{\bf L}_{n-2}\cdots{\bf L}_{1}\underbrace{({\bf A}^{(0)},{\bf b}^{(0)})}_{\text{初始的增广矩阵}}=\underbrace{({\bf A}^{(n-1)},{\bf b}^{(n-1)})}_{\text{Gauss 消元法的结果}}$
+\end_inset
+
+, 两边同时乘以他们的逆:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\red{{\bf L}_{n-1}^{-1}\cdots{\bf L}_{n-2}^{-1}{\bf L}_{n-1}^{-1}}{\bf L}_{n-1}{\bf L}_{n-2}\cdots{\bf L}_{1}({\bf A}^{(0)},{\bf b}^{(0)}) & =\red{{\bf L}_{n-1}^{-1}\cdots{\bf L}_{n-2}^{-1}{\bf L}_{n-1}^{-1}}({\bf A}^{(n-1)},{\bf b}^{(n-1)})\\
+({\bf A}^{(0)},{\bf b}^{(0)}) & =\underbrace{\red{{\bf L}_{n-1}^{-1}\cdots{\bf L}_{n-2}^{-1}{\bf L}_{n-1}^{-1}}}_{\text{下\text{三\text{角矩阵}}}}\underbrace{({\bf A}^{(n-1)},{\bf b}^{(n-1)})}_{\text{上\text{三\text{角矩阵}}}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+实际上, 高斯法的消元过程实质上是把系数矩阵
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+分解成一个单位下三角阵(Lower triangular matrix)与上三角矩阵(Upper triangular matrix)乘积的过程,
+ 即
+\begin_inset Formula ${\bf A=LU}$
+\end_inset
+
+ .
+ 当完成三角(lower-upper)分解后, 方程组
+\begin_inset Formula ${\bf Ax=b}$
+\end_inset
+
+的求解可以转化为： 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+{\bf Ax}={\bf b}\iff{\bf L\blue{Ux}=b}\\
+{\bf L\blue y=b}
+\end{cases}\implies\begin{cases}
+{\bf Ly=b}\\
+{\bf Ux=y}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+而这是易于求解的.
+ 因此, 解方程组的问题可转化为矩阵的三角分解(LU分解)问题 .
+ 
+\end_layout
+
+\begin_layout Subsection
+Dolittle 的 LU 分解法
+\end_layout
+
+\begin_layout Standard
+除了Gauss 消元的 LU 分解法, 我们可以使用待定系数法来比较逐个元素来确定
+\begin_inset Formula ${\bf L,U}$
+\end_inset
+
+矩阵每一个元素是什么.
+\end_layout
+
+\begin_layout Standard
+考虑
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ub{\left(\begin{array}{ccccc}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n}\\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2n}\\
+a_{31} & a_{32} & a_{33} & \cdots & a_{3n}\\
+\cdot & \cdot & \cdot & \cdots & \cdot\\
+\cdot & \cdot & \cdot & \cdots & \cdot\\
+a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn}
+\end{array}\right)}{{\bf A}}=\ub{\left(\begin{array}{ccccc}
+1\\
+l_{21} & 1\\
+l_{31} & l_{32} & 1\\
+\cdot & \cdot & \cdot\\
+\cdot & \cdot & \cdot & \cdot\\
+l_{n1} & l_{n2} & l_{n3} & \cdot & 1
+\end{array}\right)}{{\bf L}}\ub{\left(\begin{array}{cccccc}
+u_{11} & u_{12} & u_{13} & \cdot & \cdot & u_{1n}\\
+ & u_{22} & u_{23} & \cdot & \cdot & u_{2n}\\
+ &  & u_{33} & \cdot & \cdot & u_{3n}\\
+ &  &  & \cdot & \cdot & \cdot\\
+ &  &  &  & \cdot & \cdot\\
+ &  &  &  &  & u_{nn}
+\end{array}\right)}{{\bf U}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+按照依赖顺序, 我们先行后列遍历
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+依次确定矩阵
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第1行元素和矩阵
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第1列元素.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+由
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第1行和
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第
+\begin_inset Formula $j$
+\end_inset
+
+列元素相乘后与
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的第一行对应元素相等, 得
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第一行元素
+\begin_inset Formula $u_{1,j}$
+\end_inset
+
+ = 
+\begin_inset Formula $a_{1,j}$
+\end_inset
+
+
+\begin_inset Formula $(j=1,2,...,n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+由
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第
+\begin_inset Formula $i$
+\end_inset
+
+行
+\begin_inset Formula $(i>1)$
+\end_inset
+
+和
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第1列元素相乘后与
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的第一列对应元素相等有
+\begin_inset Formula $a_{i,1}=l_{i,1}\times u_{1,1}$
+\end_inset
+
+而得
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第1列元素
+\begin_inset Formula $l_{i,1}=a_{i1}/u_{11}(i=2,...,n).$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+依次确定矩阵
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第2行元素和矩阵
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第2列元素
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+由
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第2行和
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第
+\begin_inset Formula $j$
+\end_inset
+
+列元素相乘后与
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的第二行对应元素相等, 得
+\begin_inset Formula $a_{2j}=\red{l_{21}u_{1j}}+u_{2j}$
+\end_inset
+
+, 得
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第二行元素
+\begin_inset Formula $u_{2j}$
+\end_inset
+
+ 
+\begin_inset Formula $=$
+\end_inset
+
+ 
+\begin_inset Formula $a_{2j}$
+\end_inset
+
+ 
+\begin_inset Formula $-\red{l_{21}u_{1j}}(j=2,...,n).$
+\end_inset
+
+ (红色是已知元素)
+\end_layout
+
+\begin_layout Enumerate
+由
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第
+\begin_inset Formula $i$
+\end_inset
+
+行
+\begin_inset Formula $(i>2)$
+\end_inset
+
+和
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第2列元素相乘后与
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的第二列对应元素相等有
+\begin_inset Formula $a_{i2}=\red{l_{i1}\times u_{12}}+$
+\end_inset
+
+
+\begin_inset Formula $l_{i2}\times\red{u_{22}}$
+\end_inset
+
+, 从而得到
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第 2 列元素
+\begin_inset Formula $l_{i2}=(a_{i2}-l_{i1}×u_{12})/u_{22}(i=3,...,n)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+继续这样下去, 直到第
+\begin_inset Formula $k$
+\end_inset
+
+步:
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $k$
+\end_inset
+
+.
+ 依次确定矩阵
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第
+\begin_inset Formula $k$
+\end_inset
+
+行元素和矩阵
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第
+\begin_inset Formula $k$
+\end_inset
+
+列元素.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+由
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+第
+\begin_inset Formula $k$
+\end_inset
+
+行的元素
+\begin_inset Formula 
+\[
+a_{kj}=\red{\sum_{r=1}^{k-1}l_{kr}u_{rj}}+u_{kj}(k=j,\cdots,n)
+\]
+
+\end_inset
+
+可以得到
+\begin_inset Formula ${\bf U}$
+\end_inset
+
+的第
+\begin_inset Formula $k$
+\end_inset
+
+行元素
+\begin_inset Formula 
+\[
+u_{kj}=a_{kj}-\sum_{r=1}^{k-1}l_{kr}u_{ri},(j=k,\cdots,n).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+由
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+第
+\begin_inset Formula $k$
+\end_inset
+
+列的元素 
+\begin_inset Formula 
+\[
+a_{ik}=\red{\sum_{r=1}^{k-1}l_{ir}u_{rk}}+l_{ik}\red{u_{kk}}(k=k+1,\cdots,n)
+\]
+
+\end_inset
+
+可以得到
+\begin_inset Formula ${\bf L}$
+\end_inset
+
+的第
+\begin_inset Formula $k$
+\end_inset
+
+列元素 
+\begin_inset Formula 
+\[
+l_{ik}=\left(a_{ik}-\sum_{r=1}^{k-1}l_{ir}u_{rk}\right)/u_{kk},(j=k+1,\cdots,n).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+我们采取如下的紧凑格式来记忆.
+\end_layout
+
+\begin_layout Example
+使用Dolittle三角分解法解答线性方程组
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{pmatrix}2 & 1 & 5\\
+4 & 1 & 12\\
+-2 & -4 & 5
+\end{pmatrix}\begin{pmatrix}x_{1}\\
+x_{2}\\
+x_{3}
+\end{pmatrix}=\begin{pmatrix}11\\
+27\\
+12
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+采用紧凑格式, 将
+\begin_inset Formula ${\bf L,U}$
+\end_inset
+
+放在同一个矩阵里; 并且增广矩阵的结果用括号表示, 就有
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{pmatrix}(2) & (1) & (5) & (11)\\
+(4) & (1) & (12) & (27)\\
+(-2) & (-4) & (5) & (12)
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+第一步: 计算第一行和第一列的值: 
+\begin_inset Formula 
+\[
+\begin{pmatrix}(2):2 & (1):1 & (5):5 & (11):11\\
+(4):4/2=2 & (1) & (12) & (27)\\
+(-2):2/(-2)=-1 & (-4) & (5) & (12)
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+第二步: 计算第二行和第二列的值
+\begin_inset Formula 
+\[
+\begin{pmatrix}(2):2 & (1):1 & (5):5 & (11):11\\
+(4):2 & (1):1-1\times2=\red{-1} & (12):12-5\times2=2 & (27):27-11\times2=5\\
+(-2):-1 & (-4):(-4-1\times(-1))/\red{(-1)}=3 & (5) & (12)
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+第三步: 计算第三行和第三列的值
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{pmatrix}(2):2 & (1):1 & (5):5 & (11):11\\
+(4):2 & (1):-1 & (12):2 & (27):5\\
+(-2):-1 & (-4):3 & (5):5-5\times(-1)-10\times3=4 & (12):12-11\times(-1)-5\times3=8
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+于是分解为
+\begin_inset Formula 
+\[
+\begin{pmatrix}(2):2 & (1):1 & (5):5 & (11):11\\
+(4):2 & (1):-1 & (12):2 & (27):5\\
+(-2):-1 & (-4):3 & (5):4 & (12):8
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+即
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+{\bf A=LU}=\begin{pmatrix}1\\
+2 & 1\\
+-1 & 3 & 1
+\end{pmatrix}\begin{pmatrix}2 & 1 & 5\\
+ & -1 & 2\\
+ &  & 4
+\end{pmatrix},{\bf b}=\begin{pmatrix}11\\
+5\\
+8
+\end{pmatrix}
+\]
+
+\end_inset
+
+只要
+\begin_inset Formula ${\bf Ly=b,Ux=y}$
+\end_inset
+
+即可.
+ 
+\end_layout
+
+\begin_layout Section
+解线性方程组的迭代解法
+\end_layout
+
+\begin_layout Standard
+与解
+\begin_inset Formula $f(x)=0$
+\end_inset
+
+的不动点迭代相似, 将方程组
+\begin_inset Formula ${\bf Ax=b}$
+\end_inset
+
+等价改写成
+\begin_inset Formula ${\bf x=Bx+f}$
+\end_inset
+
+的形式, 建立迭代格式
+\begin_inset Formula ${\bf x}^{(k+1)}={\bf Bx}^{(k)}+{\bf f}$
+\end_inset
+
+.
+ 从
+\begin_inset Formula ${\bf x}_{0}$
+\end_inset
+
+出发, 生成迭代序列
+\begin_inset Formula $\{{\bf x}^{(k)}\}$
+\end_inset
+
+ , 直至收敛.
+ 其优点是程序简单, 存储量小、以及特别适用于求解系数矩阵为大型稀疏矩阵的方程组.
+ 
+\end_layout
+
+\begin_layout Standard
+下面考虑迭代公式的构造.
+ 对于一般迭代法的一般迭代格式, 任给
+\begin_inset Formula $m+1$
+\end_inset
+
+个初始向量
+\begin_inset Formula ${\bf x}^{(k)},{\bf x}^{(k-1)},...,{\bf x}^{(k-m)}$
+\end_inset
+
+, 代入公式
+\begin_inset Formula ${\bf x}^{(k+1)}=F_{k}({\bf x}^{(k)},{\bf x}^{(k-1)},\cdots,{\bf x}^{(k-m)});(k=0,1,\cdots)$
+\end_inset
+
+.
+ 这里, 第
+\begin_inset Formula $k+1$
+\end_inset
+
+步与前
+\begin_inset Formula $m+1$
+\end_inset
+
+步都有关, 称之为多步迭代法.
+ 倘若
+\begin_inset Formula $m=0,$
+\end_inset
+
+原式退化为
+\begin_inset Formula ${\bf x}^{(k+1)}=F_{k}({\bf x}^{(k)});k=0,1,\cdots$
+\end_inset
+
+, 称之为单步迭代法.
+ 如果
+\begin_inset Formula $F_{k}$
+\end_inset
+
+是线性的, 称之为单步线性迭代法, 即 
+\begin_inset Formula ${\bf x}^{(k+1)}={\bf B}_{k}{\bf x}^{(k)}+{\bf f}_{k};k=0,1,\cdots.$
+\end_inset
+
+其中
+\begin_inset Formula ${\bf B}_{k}$
+\end_inset
+
+是迭代矩阵.
+ 若
+\begin_inset Formula $F_{k}$
+\end_inset
+
+与
+\begin_inset Formula $k$
+\end_inset
+
+无关(
+\begin_inset Formula $B_{k}$
+\end_inset
+
+、
+\begin_inset Formula $f_{k}$
+\end_inset
+
+与
+\begin_inset Formula $k$
+\end_inset
+
+无关), 称为单步定常线性迭代法： 
+\begin_inset Formula ${\bf x}^{(k+1)}={\bf B}{\bf x}^{(k)}+{\bf f};k=0,1,\cdots.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+以上是迭代法的简单分类.
+ 对于解线性方程组, 我们说:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+设
+\begin_inset Formula ${\bf A}\in\R^{n\times n}$
+\end_inset
+
+,
+\begin_inset Formula ${\bf b}\in\mathbb{R}^{n},\det({\bf A})\neq0.$
+\end_inset
+
+如果方程组
+\begin_inset Formula 
+\[
+{\bf Ax=b\iff x=Bx+f}
+\]
+
+\end_inset
+
+, 则可以构造单步单步定常线性迭代法
+\begin_inset Formula ${\bf x}^{(k+1)}={\bf Bx}^{(k)}+{\bf f}.$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+当迭代公式产生的序列
+\begin_inset Formula $\{x^{(l)}\}_{k=0}^{\infty}$
+\end_inset
+
+ 收敛到方程组的解 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+时, 即
+\begin_inset Formula $\lim_{k\to\infty}x^{(k)}=x^{*}$
+\end_inset
+
+时, 称该迭代法是收敛的.
+ 
+\end_layout
+
+\begin_layout Standard
+什么时候迭代的结果是收敛的? 实际上有如下定理:
+\end_layout
+
+\begin_layout Theorem
+如下三个命题是等价的
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+迭代法
+\begin_inset Formula ${\bf x}^{(k+1)}={\bf Bx}^{(k)}+{\bf f}.$
+\end_inset
+
+收敛;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\rho({\bf B})<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+至少存在一种从属矩阵范数
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+, 使得
+\begin_inset Formula $||{\bf B}||<1.$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+矩阵的范数实际上衡量的是矩阵作为线性变换的拉伸程度.
+ 实际上其拉伸程度只要小于 1, 就满足了上一章的压缩性质.
+ 我们不予证明这三个条件.
+ 
+\end_layout
+
+\begin_layout Subsection
+Jacobi 迭代法
+\end_layout
+
+\begin_layout Standard
+Jacobi 认为, 解答线性方程组可以用这样的迭代法:
+\end_layout
+
+\begin_layout Example
+假设要求
+\begin_inset Formula 
+\[
+\begin{aligned}4x-y+z= & 7\\
+4x-8y+z= & -21\\
+-2x+y+5z= & 15
+\end{aligned}
+\]
+
+\end_inset
+
+我们把
+\begin_inset Formula $x,y,z$
+\end_inset
+
+反解出来得到: 
+\begin_inset Formula 
+\begin{align*}
+x & =\frac{7+y-z}{4}\\
+y & =\frac{21+4x+z}{8}\\
+z & =\frac{15+2x-y}{5}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+于是我们考虑这样的迭代过程
+\begin_inset Formula 
+\begin{align*}
+x_{k+1} & =\frac{7+y_{k}-z_{k}}{4}\\
+y_{k+1} & =\frac{21+4x_{k}+z_{k}}{8}\\
+z_{k+1} & =\frac{15+2x_{k}-y_{k}}{5}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+从一个初值开始然后不断迭代即可达到新的值.
+ 
+\end_layout
+
+\begin_layout Standard
+用线性代数的观点表示, 设方程组
+\begin_inset Formula ${\bf Ax=b}$
+\end_inset
+
+, 且
+\begin_inset Formula $\det({\bf A})\neq0.$
+\end_inset
+
+记
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+的严格上三角部分为
+\begin_inset Formula ${\bf -L}$
+\end_inset
+
+, 严格下三角的部分为
+\begin_inset Formula $-{\bf U}$
+\end_inset
+
+(这里的负号是为了方便后续化简).
+ 我们可以把原来的矩阵变化为
+\begin_inset Formula ${\bf A=D-L-U}$
+\end_inset
+
+.
+ 其中, 
+\begin_inset Formula ${\bf D=}\text{diag}(a_{11},a_{22},\cdots,a_{nn})$
+\end_inset
+
+.
+ 我们可以构造
+\begin_inset Formula ${\bf Dx=(L+U)x+b.}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $a_{ii}\neq0(i=1,2,\cdots,n)$
+\end_inset
+
+, 原方程组可化为 
+\begin_inset Formula ${\bf x=\red D}^{\red{-1}}{\bf \red{(L+U)}x+\blue D}^{\blue{-1}}{\bf \blue b}=\red{{\bf B}}{\bf x}+\blue{{\bf f}}$
+\end_inset
+
+.
+ 这就是Jacobi迭代法.
+ 
+\end_layout
+
+\begin_layout Subsection
+Gauss-Seidel迭代法
+\end_layout
+
+\begin_layout Standard
+在Jacobi迭代公式中, 计算
+\begin_inset Formula $x_{i}^{(k+1)}$
+\end_inset
+
+时, 利用已经算出来的新的
+\begin_inset Formula $x_{1}^{(k+1)},x_{2}^{(k+1)},\cdots,x_{i-1}^{(k+1)}$
+\end_inset
+
+值, 从而得到Gauss-Seidel迭代法.
+ 即上例子的迭代公式变为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{k+1}=\frac{7+y_{k}-z_{k}}{4};y_{k+1}=\frac{21+4\red{x_{k+1}}+z_{k}}{8};z_{k+1}=\frac{15+2\red{x_{k+1}}-\red{y_{k+1}}}{5}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于这个迭代法而言, 假设线性方程组
+\begin_inset Formula ${\bf Ax=b}$
+\end_inset
+
+的系数矩阵
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+是严格对角占优的(强对角优势矩阵), 则Jacobi迭代法和Gauss-Seidel迭代法的计算结果会收敛.
+  (强对角优势矩阵（不可约对角优势矩阵）是非奇异方阵 ).
+ 
+\end_layout
+
+\begin_layout Subsection
+使用计算器的附注
+\end_layout
+
+\begin_layout Standard
+若计算器具有矩阵计算功能, 将上述的内容表示为线性迭代的形式之后(对于Gauss-Seidel方法, 把
+\begin_inset Formula $x_{k+1}$
+\end_inset
+
+带入即可) , 便可以采用如下的迭代算法, 其原理如下:
+\end_layout
+
+\begin_layout Standard
+在计算完成后, 答案会储存在
+\begin_inset Formula $\texttt{MatAns}$
+\end_inset
+
+寄存器中.
+ 
+\end_layout
+
+\begin_layout Standard
+于是第一次, 需要计算
+\begin_inset Formula $\ub{\texttt{MatA}}{{\bf B}}\times\ub{\texttt{MatB}}{{\bf x}}+\ub{\texttt{MatC}}{{\bf f}}$
+\end_inset
+
+; 之后的每一次迭代只要输入
+\begin_inset Formula $\ub{\texttt{MatA}}{{\bf B}}\times\ub{\texttt{MatAns}}{{\bf x}}+\ub{\texttt{MatC}}{{\bf f}}$
+\end_inset
+
+即可.
+ 
+\end_layout
+
+\end_body
+\end_document
