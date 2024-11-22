@@ -2296,6 +2296,1103 @@ x_{n}\to x,y_{n}\to y\implies & x_{n}+y_{n}\to x+y,(n\to\infty)\\
 
 \begin_layout Proof
 (2) 根据(1), 
+\begin_inset Formula $|||x_{n}||-||x|||\leq||x_{n}-x||.$
+\end_inset
+
+ 于是由于
+\begin_inset Formula $x_{n}\to x$
+\end_inset
+
+, 可以推出
+\begin_inset Formula $||x_{n}||\to||x||(n\to\infty)$
+\end_inset
+
+.
+ 从而范数是连续函数.
+ 
+\end_layout
+
+\begin_layout Proof
+(3) 由于
+\begin_inset Formula $||x_{n}+y_{n}-x-y||\leq||x_{n}-x||+||y_{n}-y||$
+\end_inset
+
+, 以及
+\begin_inset Formula 
+\begin{align*}
+||\alpha_{n}x_{n}-\alpha x|| & \leq||\alpha_{n}x_{n}\blue{-\alpha_{n}x+\alpha_{n}x}-\alpha x||\\
+ & \leq|\alpha_{n}|||x_{n}-x||+|\alpha_{n}-\alpha|||x||.
+\end{align*}
+
+\end_inset
+
+由于
+\begin_inset Formula $|\alpha_{n}|$
+\end_inset
+
+有界, 于是
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+对于线性运算连续.
+ 
+\end_layout
+
+\begin_layout Standard
+实际上, 赋范空间一定是距离空间, 但是距离空间不一定是赋范空间.
+ 
+\end_layout
+
+\begin_layout Subsection
+赋范空间的例子
+\end_layout
+
+\begin_layout Standard
+由于距离有完备化和不完备的, 而且可以不完备的距离空间可以变为完备的.
+ 遵循这一做法, 赋范空间也可以被完备化.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Formula $L^{p}$
+\end_inset
+
+空间
+\end_layout
+
+\begin_layout Standard
+下面考虑在赋范函数空间
+\begin_inset Formula $L^{p}[a,b](1<p<\infty).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $f(x)$
+\end_inset
+
+是
+\begin_inset Formula $[a,b]$
+\end_inset
+
+区间上的可测函数.
+ 若
+\begin_inset Formula $|f|^{p}$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上可积(
+\begin_inset Formula $1\leq p<\infty)$
+\end_inset
+
+, 称为
+\begin_inset Formula $f$
+\end_inset
+
+是
+\begin_inset Formula $p$
+\end_inset
+
+次幂可积的.
+ 全体在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上区间
+\begin_inset Formula $p$
+\end_inset
+
+次幂可积的函数, 记为
+\begin_inset Formula $L^{p}[a,b]$
+\end_inset
+
+.
+ 即
+\begin_inset Formula 
+\[
+L^{p}[a,b]:=\left\{ x(t):\int_{a}^{b}|x(t)|^{p}\dd t,p<\infty\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+可以在
+\begin_inset Formula $L^{p}[a,b]$
+\end_inset
+
+中引入范数
+\begin_inset Formula 
+\[
+||x||=\left(\int_{a}^{b}|x(t)|^{p}\dd t\right)^{1/p}.
+\]
+
+\end_inset
+
+这确实是一个范数.
+ 对于
+\begin_inset Formula $||x+y||\leq||x||+||y||$
+\end_inset
+
+需要使用Holder不等式证明.
+ 这里略.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Formula $l^{p}$
+\end_inset
+
+空间
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $l^{p}(1\leq p<\infty)$
+\end_inset
+
+表示全体
+\begin_inset Formula $p$
+\end_inset
+
+次方可求和的数列, 即
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+l^{p}:=\left\{ x=\{\xi_{k}\}:\sum_{k=1}^{\infty}|\xi_{k}|^{p}<\infty\right\} .
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Definition
+这时候可以引进范数
+\begin_inset Formula 
+\[
+||x||_{p}:=\left(\sum_{k=1}^{\infty}|\xi_{k}|^{p}\right)^{1/p}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+同样可以像
+\begin_inset Formula $L^{p}$
+\end_inset
+
+空间那样证明.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+有限维赋范空间
+\end_layout
+
+\begin_layout Standard
+下面我们来考察有限维赋范空间.
+ 我们主要考察的是他们是否等价: 即, 他们是不是可以同时收敛或者同时发散? 用数学的语言描述, 就是
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $||\cdot||_{1}$
+\end_inset
+
+和
+\begin_inset Formula $||\cdot||_{2}$
+\end_inset
+
+是线性空间
+\begin_inset Formula $X$
+\end_inset
+
+上的两个不同范数, 如果存在
+\begin_inset Formula $a>0,b>0,$
+\end_inset
+
+使得
+\begin_inset Formula 
+\[
+a||\cdot||_{1}\leq||\cdot||_{2}\leq b||\cdot||_{1}
+\]
+
+\end_inset
+
+称范数
+\begin_inset Formula $||\cdot||_{1}$
+\end_inset
+
+和
+\begin_inset Formula $||\cdot||_{2}$
+\end_inset
+
+是等价的.
+ 
+\end_layout
+
+\begin_layout Standard
+也就是在等价的范数产生的赋范空间中, 虽说同一个元素的范数不同, 但是在空间的收敛性是一样的.
+ 
+\end_layout
+
+\begin_layout Standard
+实际上, 有限维空间中
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+上定义的所有范数都等价.
+ 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+上的所有范数都等价.
+ 
+\end_layout
+
+\begin_layout Proof
+令
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+是任意的一种范数, 我们证明存在
+\begin_inset Formula $a,b>0$
+\end_inset
+
+,满足, 
+\begin_inset Formula $a||v||<\underbrace{||v||_{2}}_{2\text{范\text{数}}}<b||v||$
+\end_inset
+
+.
+ 首先在
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+中选取一组基
+\begin_inset Formula $\{e_{1},e_{2},\cdots,e_{n}\}$
+\end_inset
+
+, 将
+\begin_inset Formula $v$
+\end_inset
+
+在这组基底下分解为
+\begin_inset Formula $v=x_{1}e_{1}+x_{2}e_{2}+\cdots+x_{n}e_{n}.$
+\end_inset
+
+根据三角不等式, 
+\begin_inset Formula 
+\[
+||v||\leq\sum_{j}|x_{j}|||e_{j}||
+\]
+
+\end_inset
+
+使用Cauchy不等式, 有
+\begin_inset Formula 
+\[
+\sum_{j}|x_{j}|||e_{j}||\leq\left(\sum_{j}x_{j}^{2}\right)^{1/2}\left(\sum_{j}||e_{j}||^{2}\right)^{1/2}
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\underbrace{\red{\frac{1}{\left(\sum_{j}||e_{j}||^{2}\right)^{1/2}}}}_{a}||v||\leq\left(\sum_{j}x_{j}^{2}\right)^{1/2}=||v||_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+所以只要取
+\begin_inset Formula $a$
+\end_inset
+
+如上述式子, 等式左边成立.
+ 
+\end_layout
+
+\begin_layout Proof
+接下来在
+\begin_inset Formula $K=\{v:||v||_{2}=1\}$
+\end_inset
+
+的集合上考虑.
+ 由于这个集合是有界闭集, 由于范数的连续性, 这就意味着如果
+\begin_inset Formula $||v_{j}||_{2}\to0$
+\end_inset
+
+, 那么
+\begin_inset Formula $||v_{j}||\to0$
+\end_inset
+
+.
+ 这样, 选择
+\begin_inset Formula $m$
+\end_inset
+
+是
+\begin_inset Formula $||v||$
+\end_inset
+
+在集合
+\begin_inset Formula $K$
+\end_inset
+
+上的最小值(不为 0), 令
+\begin_inset Formula $v\neq0$
+\end_inset
+
+为任意向量, 令
+\begin_inset Formula $u=v/||v||_{2}\in\R^{n}$
+\end_inset
+
+, 那么
+\begin_inset Formula $||u||_{2}=1$
+\end_inset
+
+, 所以
+\begin_inset Formula $||u||\geq m$
+\end_inset
+
+.
+ 因此
+\begin_inset Formula 
+\[
+||v||\geq m||v||_{2}\text{或\text{者}}||v_{2}||\leq b||v||,b=1/m.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+所以任意范数都和二范数是等价的; 进而可以说明任意两个范数都是等价的(传递性).
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+搜索norm on R^n equivalent, https://sites.math.washington.edu/~morrow/334_16/norms2.pd
+f
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+内积空间
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $\R$
+\end_inset
+
+中可以定义距离, 范数, 内积的概念.
+ 例如在
+\begin_inset Formula $\R^{2}$
+\end_inset
+
+中, 如果
+\begin_inset Formula ${\bf a}=(a_{1},a_{2});{\bf b}=(b_{1},b_{2})\in\R^{2}$
+\end_inset
+
+, 其内积可以定义为
+\begin_inset Formula $({\bf a,b})=a_{1}b_{1}+a_{2}b_{2}.$
+\end_inset
+
+ 从而
+\begin_inset Formula $\cos({\bf a,b})=\frac{({\bf a,b})}{||{\bf a}||||{\bf b}||},||{\bf a}||=\sqrt{({\bf a,a})}=\sqrt{a_{1}^{2}+b_{2}^{2}},a\perp b\iff(a,b)=0$
+\end_inset
+
+.
+ 实际上, 内积还满足一些性质, 我们把它抽象出来.
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $H$
+\end_inset
+
+是数域
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+上的线性空间, 对于任意
+\begin_inset Formula $x,y\in H$
+\end_inset
+
+, 有
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+中的一个数
+\begin_inset Formula $(x,y)$
+\end_inset
+
+与他们对应, 使得对于任意的
+\begin_inset Formula $x,y\in H,a\in\mathbb{K}$
+\end_inset
+
+, 满足
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(x,x)\geq0;(x,x)=0\iff x=0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(x,y)=\overline{(y,x)}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(ax,y)=a(x,y)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(x+y,z)=(x,z)+(y,z)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+则称
+\begin_inset Formula $(\cdot,\cdot)$
+\end_inset
+
+是
+\begin_inset Formula $H$
+\end_inset
+
+上的一个内积, 定义了内积的空间称为内积空间.
+ 
+\end_layout
+
+\begin_layout Remark*
+实际上
+\begin_inset Formula $(x,y)$
+\end_inset
+
+是一个二元函数.
+ 对于固定的
+\begin_inset Formula $y\in H,$
+\end_inset
+
+
+\begin_inset Formula $(x,y)$
+\end_inset
+
+是一个关于
+\begin_inset Formula $H$
+\end_inset
+
+中元素
+\begin_inset Formula $x$
+\end_inset
+
+的一个线性函数.
+ 
+\end_layout
+
+\begin_layout Remark*
+另外, 
+\begin_inset Formula $(x,ay)=\overline{(ay,x)}=\overline{a(y,x)}=\overline{a}(x,y)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+对于实向量
+\begin_inset Formula ${\bf x}=(x_{1},\cdots,x_{n});{\bf y}=(y_{1},\cdots,y_{n})\in\R^{n}$
+\end_inset
+
+, 定义
+\begin_inset Formula $({\bf x,y})=\sum_{k=1}^{n}x_{k}y_{k}.$
+\end_inset
+
+注意到这是一个内积.
+ 这就可以导致一个范数
+\begin_inset Formula $||{\bf x}||=\left(\sum_{k=1}^{n}|x_{k}|^{2}\right)^{1/2}.$
+\end_inset
+
+ 在复的向量空间中, 
+\begin_inset Formula ${\bf x}=(x_{1},\cdots,x_{n});{\bf y}=(y_{1},\cdots,y_{n})\in\mathbb{C}^{n}$
+\end_inset
+
+中, 可以定义内积
+\begin_inset Formula $({\bf x,y})=\sum_{k=1}^{n}x_{k}\overline{y_{k}}$
+\end_inset
+
+.
+ 这同样可以生成一个范数.
+ 
+\end_layout
+
+\begin_layout Subsection
+由内积生成的范数
+\end_layout
+
+\begin_layout Standard
+像我们可以在
+\begin_inset Formula $\R^{2}$
+\end_inset
+
+中定义范数
+\begin_inset Formula $||x||=\sqrt{(x,x)}$
+\end_inset
+
+那样, 我们下面展示由内积定义的范数满足范数的四个条件.
+ 在证明的过程中, 首要证明的等式是Schwartz 不等式.
+ 
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $H$
+\end_inset
+
+是内积空间, 
+\begin_inset Formula $\forall x,y\in H$
+\end_inset
+
+, 有
+\begin_inset Formula $|(x,y)|^{2}\leq(x,x)(y,y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+任取
+\begin_inset Formula $\lambda\in\mathbb{C}$
+\end_inset
+
+, 
+\begin_inset Formula $\forall x,y\in H,$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(x+\lambda y,x+\lambda y)=(x,x)+\overline{\lambda}(x,y)+\lambda(y,x)+|\lambda|^{2}(y,y)\geq0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+设
+\begin_inset Formula $y\neq0,$
+\end_inset
+
+令
+\begin_inset Formula $\lambda=-\frac{(x,y)}{(y,y)},$
+\end_inset
+
+带入上述得到
+\begin_inset Formula 
+\begin{align*}
+(x,x)-2\frac{|(x,y)|^{2}}{(y,y)}+\frac{|(x,y)|^{2}}{(y,y)} & \geq0\\
+(x,x)(y,y)-|(x,y)|^{2} & \geq0\\
+(x,x)(y,y) & \geq|(x,y)|^{2}.
+\end{align*}
+
+\end_inset
+
+并且当
+\begin_inset Formula $y=0$
+\end_inset
+
+的时候, 
+\begin_inset Formula $(y,y)=0.$
+\end_inset
+
+ 取得等号.
+\end_layout
+
+\begin_layout Remark*
+下面给出一些注记
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+等号成立当且仅当
+\begin_inset Formula $x,y$
+\end_inset
+
+线性相关的时候.
+\end_layout
+
+\begin_layout Enumerate
+实际上Cauchy不等式是 Schwartz 不等式的特殊形式, 只要取内积为
+\begin_inset Formula $(x,y)=\left(\sum_{k=1}^{n}|x_{k}|^{2}\right)^{1/2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+在内积空间
+\begin_inset Formula $H$
+\end_inset
+
+上, 对于
+\begin_inset Formula $\forall x\in H,$
+\end_inset
+
+定义
+\begin_inset Formula $||x||=\sqrt{(x,x)}$
+\end_inset
+
+, 则
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+是
+\begin_inset Formula $H$
+\end_inset
+
+上的一个范数.
+ 
+\end_layout
+
+\begin_layout Standard
+能成为范数, 主要验证三角不等式, 
+\begin_inset Formula 
+\begin{align*}
+\forall x,y\in H,||x+y||^{2}=(x+y,x+y) & \leq||x+y||||x||+||x+y||||y||\\
+ & =(||x+y||)||x||\\
+ & \leq||x||+||y||.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以我们说
+\end_layout
+
+\begin_layout Theorem
+每个内积空间
+\begin_inset Formula $H$
+\end_inset
+
+按范数
+\begin_inset Formula $||x||=\sqrt{(x,x)}$
+\end_inset
+
+成为一个线性赋范空间.
+ 
+\end_layout
+
+\begin_layout Standard
+这是因为内积空间中定义了范数, 由范数可以定义距离, 这就有了点列的收敛性等距离空间中具有的性质.
+ 
+\end_layout
+
+\begin_layout Standard
+此外, 内积函数也是关于
+\begin_inset Formula $(x,y)$
+\end_inset
+
+的连续函数.
+ 即
+\begin_inset Formula $x_{n}\to x,y_{n}\to y$
+\end_inset
+
+的时候, 
+\begin_inset Formula $(x_{n},y_{n})\to(x,y)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $H$
+\end_inset
+
+是内积空间, 则内积
+\begin_inset Formula $(x,y)$
+\end_inset
+
+是关于
+\begin_inset Formula $x,y$
+\end_inset
+
+的连续函数.
+ 即
+\begin_inset Formula $x_{n}\to x,y_{n}\to y\text{的时候},(x_{n},y_{n})\to(x,y),(n\to\infty).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+由于Schwartz不等式, 
+\begin_inset Formula 
+\begin{align*}
+|(x_{n},y_{n})-(x,y)| & \leq|(x_{n},y_{n})-(x_{n},y)|+|(x_{n},y)-(x,y)|\\
+ & =|(x_{n},y_{n}-y)|+(x_{n}-x,y)|\\
+ & \leq||x_{n}||||y_{n}-y||+||x_{n}-x||||y||.
+\end{align*}
+
+\end_inset
+
+从而
+\begin_inset Formula $\{||x_{n}||\}$
+\end_inset
+
+有界.
+ 且
+\begin_inset Formula $x_{n}\to x,y_{n}\to y$
+\end_inset
+
+的时候, 
+\begin_inset Formula $(x_{n},y_{n})\to(x,y),(n\to\infty).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这也说明极限运算和内积可以交换顺序.
+ 
+\end_layout
+
+\begin_layout Standard
+此外, 内积和相应范数有一定的关系.
+ 这类似于中学的时候向量操作的一些性质.
+ 
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $H$
+\end_inset
+
+是内积空间, 对于任意
+\begin_inset Formula $x,y\in H,$
+\end_inset
+
+有
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+平行四边形法则: 
+\begin_inset Formula $||x+y||^{2}+||x-y|^{2}=2(||x||^{2}+||y||^{2}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+极化恒等式: 
+\begin_inset Formula $(x,y)=\frac{1}{4}(||x+y||^{2}-||x-y||^{2}+i||x+iy||^{2}-i||x-iy||^{2}).$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+只要操纵下列的四个式子:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+||x+y||^{2} & =(x,x)+(x,y)+(y,x)+(y,y) & (a)\\
+||x-y||^{2} & =(x,x)-(x,y)-(y,x)+(y,y) & (b)\\
+||x+iy||^{2} & =(x,x)-i(x,y)+i(y,x)+(y,y) & (c)\\
+||x-iy||^{2} & =(x,x)+i(x,y)-i(y,x)+(y,y) & (d)
+\end{align*}
+
+\end_inset
+
+ 使用
+\begin_inset Formula $(a)+(b)$
+\end_inset
+
+得到1.; 使用
+\begin_inset Formula $(a)-(b)+i(c)-i(d)$
+\end_inset
+
+得到 2..
+\end_layout
+
+\begin_layout Standard
+平行四边形法则是内积空间的特征.
+ 后续在引入正交性之后, 可以发现平行四边形法则就变成了勾股定理.
+ 即如果
+\begin_inset Formula $x\perp y$
+\end_inset
+
+, 那么
+\begin_inset Formula $||x||^{2}+||y|^{2}=||x+y||^{2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+可以证明(这里略), 范数是内积空间产生的充要条件是: 平行四边形法则成立.
+ 但是, 不是所有的范数都可以由内积产生.
+ 
+\end_layout
+
+\begin_layout Standard
+我们同样可以定义完备的内积空间; 完备的内积空间被称为Hilbert空间.
+ 这是一类非常重要的空间.
+ 
+\end_layout
+
+\begin_layout Subsection
+正交与正交分解
+\end_layout
+
+\begin_layout Standard
+就像在
+\begin_inset Formula $n$
+\end_inset
+
+维欧式空间里面一样, 可以把其几何性质推广到一般的内积空间中.
+ 例如, 两个
+\begin_inset Formula $x,y$
+\end_inset
+
+两个向量之间的夹角可以定义为
+\begin_inset Formula $\theta=\arccos\left(\frac{(x,y)}{||x||||y||}\right).$
+\end_inset
+
+ 我们可以类比它给出定义.
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $X$
+\end_inset
+
+是内积空间.
+ 
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+, 如果
+\begin_inset Formula $(x,y)=0$
+\end_inset
+
+, 则称
+\begin_inset Formula $x,y$
+\end_inset
+
+正交, 记作
+\begin_inset Formula $x\perp y.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于完备的内积空间(Hilbert空间), 我们也可以把空间分解成正交的子空间的和.
+ 例如在学习线性代数的时候的Gram-Schmidt正交化方法.
+ 下面我们来看如何在内积空间中引入正交基, 投影, 坐标分解这些非常重要的概念, 建立起来完整的空间坐标理论.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+内积空间的正交系
+\end_layout
+
+\begin_layout Standard
+对于一般的内积空间, 我们采用如下的定义.
+ 
+\end_layout
+
+\begin_layout Definition
+设
+\begin_inset Formula $\{x_{\alpha}\}_{\alpha\in I}$
+\end_inset
+
+是内积空间
+\begin_inset Formula $X$
+\end_inset
+
+的子集, 如果当
+\begin_inset Formula $\forall\alpha\neq\beta$
+\end_inset
+
+的时候, 
+\begin_inset Formula $(x_{\alpha},x_{\beta})=0$
+\end_inset
+
+, 则称
+\begin_inset Formula $\{x_{\alpha}\}_{\alpha\in I}$
+\end_inset
+
+是
+\begin_inset Formula $X$
+\end_inset
+
+中的一个正交系.
+ 若
+\begin_inset Formula $\forall\alpha,||x_{\alpha}||=1$
+\end_inset
+
+, 称
+\begin_inset Formula $\{x_{\alpha}\}_{\alpha\in I}$
+\end_inset
+
+是一个标准正交系.
+ 
+\end_layout
+
+\begin_layout Standard
+在内积空间中, 正交系是线性无关的.
+ 即使是在无穷维空间中, 根据线性无关集合的定义(集合
+\begin_inset Formula $M$
+\end_inset
+
+是线性无关的, 如果
+\begin_inset Formula $M$
+\end_inset
+
+中的任何非空有限子集都是线性无关的), 也能说明内积空间中任意正交集合是线性无关的.
+ 这是因为
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $\{e_{1},\cdots,e_{n}\}$
+\end_inset
+
+是内积空间
+\begin_inset Formula $X$
+\end_inset
+
+中的正交系, 
+\begin_inset Formula $\{e_{1},\cdots,e_{k}\}$
+\end_inset
+
+是线性无关的.
+ 另外, 如果
+\begin_inset Formula $X$
+\end_inset
+
+是
+\begin_inset Formula $k$
+\end_inset
+
+维的, 则任何
+\begin_inset Formula $x\in X$
+\end_inset
+
+都可以表示为
+\begin_inset Formula 
+\[
+x=\sum_{n=1}^{k}(x,e_{n})e_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+证明大致可以考虑
+\begin_inset Formula $\alpha_{1}e_{1}+\cdots+\alpha_{k}e_{k}=0$
+\end_inset
+
+, 考虑对两边做内积.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+正交投影
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $\{e_{n}\}$
+\end_inset
+
+是内积空间
+\begin_inset Formula $X$
+\end_inset
+
+中的标准正交系, 
+\begin_inset Formula $x\in X,a_{1},a_{2},\cdots,a_{n}$
+\end_inset
+
+是
+\begin_inset Formula $n$
+\end_inset
+
+个数.
+ 当且仅当
+\begin_inset Formula $a_{k}=(x,e_{k})(k=1,2,\cdots,k)$
+\end_inset
+
+的时候, 
+\begin_inset Formula 
+\[
+\left\Vert x-\sum_{k=1}^{n}a_{k}e_{k}\right\Vert 
+\]
+
+\end_inset
+
+取得最小值.
+ 
 \end_layout
 
 \end_body

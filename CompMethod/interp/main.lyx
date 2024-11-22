@@ -1,0 +1,3686 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{mathrsfs}
+
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+
+
+
+\usepackage{cleveref}
+\crefname{equation}{式}{式}
+\crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\crefname{page}{页}{页}
+\crefname{chapter}{章}{章}
+\crefname{section}{节}{节}
+\crefname{appendix}{附录}{附录}
+\crefname{theorem}{定理}{定理}
+\crefname{lemma}{引理}{引理}
+\crefname{corollary}{推论}{推论}
+\crefname{proposition}{命题}{命题}
+\crefname{definition}{定义}{定义}
+\crefname{example}{例}{例}
+\crefname{algorithm}{算法}{算法}
+\crefname{listing}{列表}{列表}
+\crefname{line}{行}{行}
+
+\crefformat{chapter}{#2第#1章#3}
+\crefformat{section}{#2第#1节#3}
+\crefformat{subsection}{#2第#1节#3}
+\crefformat{subsubsection}{#2第#1节#3}
+
+\crefrangeformat{chapter}{#3第#1章#4至#5第#2章#6}
+\crefrangeformat{section}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsection}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsubsection}{#3第#1节#4至#5第#2节#6}
+
+\crefmultiformat{chapter}{#2第#1章#3}{和#2第#1章#3}{, #2第#1章#3}{和#2第#1章#3}
+\crefmultiformat{section}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsubsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+
+\crefrangemultiformat{chapter}{#3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}{, #3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}
+\crefrangemultiformat{section}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsubsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+
+\newcommand{\crefpairconjunction}{~和~}
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{~和~}
+\newcommand{\crefpairgroupconjunction}{~和~}
+\newcommand{\crefmiddlegroupconjunction}{, }
+\newcommand{\creflastgroupconjunction}{~和~}
+\newcommand{\crefrangeconjunction}{~至~}
+
+% LISTINGS
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Make SS at the beginning of a section
+
+\makeatletter
+%% See pp. 26f. of 'The LaTeX Companion,' 2nd. ed.
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+    {\csname the#1\endcsname\quad}%      default
+    {\csname #1@cntformat\endcsname}}%   individual control
+\newcommand{\section@cntformat}{\S\thesection\quad}
+\newcommand{\subsection@cntformat}{\S\thesubsection\quad}
+\makeatother % changes @ back to a special character
+
+\usepackage{titlesec}
+
+\CTEXsetup[format={\raggedright\large\bfseries}]{section}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection.}{0.5em}{}[.]
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\alph{subsubsection})}{0.5em}{}
+
+
+\usepackage{annotate-equations}
+
+
+
+\theoremstyle{definition}
+
+
+\usepackage{enumitem}
+
+\setlist{nosep}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt, 
+    margin=1in,
+    rmargin=2.5in
+}
+\setlength{\marginparwidth}{2in}
+\usepackage{environ}
+
+
+
+\newcommand{\lecture}[6]{
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf #1
+		\hfill #6} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill 第 #2 节: #3  \hfill} }
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Lecturer: #4 \hfill Scribes: #5} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   
+   \vspace*{4mm}
+}
+
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  font=small}
+% \setlength{\marginparwidth}{100pt}
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
+\usepackage{setspace}
+\newcounter{paranum}[section]
+\newcommand{\Par}[1]{\vspace{10pt}\noindent\textbf{\refstepcounter{paranum}\theparanum. }\textbf{#1}~~}
+\newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
+\newcommand{\mn}[1]{\marginnote{{#1}}}
+% \renewcommand{\algorithmcfname}{算法}
+\usepackage[abspath]{currfile}
+
+\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigside}[3]{\marginpar{\includegraphics[width=\marginparwidth]{figs/\jobname/#1}
+  \captionof{figure}{#2}\label{fig:#3}}}
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\stirling}[2]{\left\{{#1 \atop #2}\right\}}
+\newcommand{\binomt}[2]{\left(\left({#1 \atop #2}\right)\right)}
+\newcommand{\pf}[4]{#1_{#2}^{#3_{#4}}}
+\newcommand{\pl}[4]{#1_{#2}{#3^{#4}}}
+\newcommand{\ty}[3]{{#1} \equiv {#2} ~(\bmod {#3})}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\varsub}[2]{\stackrel{#1}{\stackrel{\rule{#2}{0.4pt}}{\rule{#2}{0.4pt}}}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\Ep}[1]{\mathbb E\left(#1\right)}
+
+\newcommand{\red}[1]{{{\color{red}#1}}}
+\newcommand{\teal}[1]{{{\color{teal}#1}}}
+\newcommand{\blue}[1]{{{\color{blue}#1}}}
+\newcommand{\purple}[1]{{{\color{purple}#1}}}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\like}{$\blacktriangleright$}
+\newcommand{\exrate}[1]{{[#1]~}}
+\newcommand{\newword}[2]{{\textbf{#1(#2)}\index{#1}}}
+\newcommand{\newenword}[1]{{\textbf{#1}\index{#1}}}
+\newcommand{\nwd}[1]{{\textbf{#1}\index{#1}}}
+
+\DeclareMathOperator{\End}{End}
+\newcommand{\huaa}{{\mathscr A}}
+\newcommand{\huab}{{\mathscr B}}
+\newcommand{\huac}{{\mathscr C}}
+\newcommand{\zkj}[1]{{$\mathscr{#1}$-子空间}}
+\newcommand{\vecgrp}[2]{{{#1}_1, {#1}_2,\cdots, {#1}_{#2}}}
+
+\newcommand{\fadetext}[1]{{{\color{gray} #1}}}
+
+\newcommand{\motivation}[1]{{{\blue{ #1}}}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:Code
+  LyxType               charstyle
+  LabelString           code
+  LatexType             command
+  LatexName             code
+  Font
+    Family              Sans
+    Color               Green
+  EndFont
+  Preamble
+    \newcommand*{\code}[1]{\texttt{#1}}
+  EndPreamble
+	ResetsFont true
+End
+
+InsetLayout Flex:NewENWord
+  LyxType               charstyle
+  LabelString           "nenwd"
+  LatexType             command
+  LatexName             newenword
+  Font
+    Family              Sans
+    Color               blue
+  EndFont
+  ResetsFont true
+End
+\end_local_layout
+\language chinese-simplified
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\set}[1]{\{#1\}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\stirling}[2]{\left\{  {#1\atop #2}\right\}  }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\binomt}[2]{\left(\left({#1\atop #2}\right)\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\varsub}[1]{\xlongarrow\{#1\}}
+{\underset{========}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\dd}{\mathrm{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ep}[1]{\mathbb{E}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\teal}[1]{{\color{blue}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\purple}[1]{{\color{purple}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Cov}{\mathop{\textrm{Cov}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\mathbb{E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\R}{\mathbb{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\F}{\mathbb{F}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\like}{\blacktriangleright}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\exrate}[1]{{[#1]~}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+插值法
+\end_layout
+
+\begin_layout Author
+《计算方法》课程笔记
+\end_layout
+
+\begin_layout Section
+引言
+\end_layout
+
+\begin_layout Standard
+在实际问题中出现的函数是多种多样的.
+ 常遇到这样的情况: 表达式过于复杂, 不便于计算, 但需在多点上求取函数值; 或者函数仅提供离散的函数值表(若干采样点处的值), 需要获取非采样点处的函数值.
+ 
+\end_layout
+
+\begin_layout Standard
+于是, 可以考虑在允许一定误差的基础上, 构建便于计算的近似解析函数表达式, 以简化复杂或未知函数的问题.
+ 利用邻近点上已知函数值的加权平均来估计未知函数值 – 插值法(interpolation).
+ 这种问题大体可以定义做:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+当函数 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+非常复杂或其表达式未知时, 可在一系列节点
+\begin_inset Formula $x_{0},x_{1},…,x_{n}$
+\end_inset
+
+处进行采样, 满足
+\begin_inset Formula $y_{0}=f(x_{0}),…,y_{n}=f(x_{n})$
+\end_inset
+
+, 据此构造一个简单易算的近似函数
+\begin_inset Formula $g(x)\approx f(x)$
+\end_inset
+
+, 使得
+\begin_inset Formula $g(x_{i})=f(x_{i})(i=0,…n)$
+\end_inset
+
+, 称
+\begin_inset Formula $g(x)$
+\end_inset
+
+为
+\begin_inset Formula $f(x)$
+\end_inset
+
+的插值函数.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+仅关注插值点处相等的多项式插值法
+\end_layout
+
+\begin_layout Subsection
+Taylor 多项式插值
+\end_layout
+
+\begin_layout Standard
+根据 《高等数学》中学习的Taylor 公式, 我们可以使用某一点处的 Taylor 展开来估计.
+ 但是, Taylor 展开对于函数的表达式要求很高: 一来, 函数表达式必须现实的给出; 二来, 函数
+\begin_inset Formula $f$
+\end_inset
+
+还要属于
+\begin_inset Formula $C^{N+1}[a,b]$
+\end_inset
+
+, 如果要展开
+\begin_inset Formula $N$
+\end_inset
+
+次的话.
+ 不易进行估计.
+\end_layout
+
+\begin_layout Subsection
+Lagrange多项式插值
+\end_layout
+
+\begin_layout Subsubsection
+直接解方程组
+\end_layout
+
+\begin_layout Standard
+实际我们面对的数据是若干个离散的点 
+\begin_inset Formula $x_{0},x_{1},\cdots,x_{n}$
+\end_inset
+
+, 满足
+\begin_inset Formula $a\leq x_{0}\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}.$
+\end_inset
+
+ 插值法就是找到一个多项式, 使得下面的定义成立: 
+\end_layout
+
+\begin_layout Definition
+设 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+在区间
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上有定义, 且已知它在
+\begin_inset Formula $n+1$
+\end_inset
+
+个互异点
+\begin_inset Formula $a\leq x_{0}\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}.$
+\end_inset
+
+上的函数值 
+\begin_inset Formula $y_{0},y_{1},…,y_{n}$
+\end_inset
+
+, 若存在一个次数不超过 
+\begin_inset Formula $n$
+\end_inset
+
+ 次的多项式 
+\begin_inset Formula 
+\[
+p(x)=a_{0}+a_{1}x+\cdots+a_{n}x^{n}
+\]
+
+\end_inset
+
+满足
+\begin_inset Formula $p(x_{i})=y_{i}(i=0,…n),$
+\end_inset
+
+则称
+\begin_inset Formula $p(x)$
+\end_inset
+
+为
+\begin_inset Formula $f(x)$
+\end_inset
+
+的
+\begin_inset Formula $n$
+\end_inset
+
+次插值多项式.
+  
+\end_layout
+
+\begin_layout Standard
+我们可以说明这个插值多项式的唯一性.
+\end_layout
+
+\begin_layout Theorem
+满足
+\begin_inset Formula $n+1$
+\end_inset
+
+个插值条件的
+\begin_inset Formula $n$
+\end_inset
+
+次插值多项式存在且唯一.
+ 
+\end_layout
+
+\begin_layout Proof
+设所要构造的插值多项式为: 
+\begin_inset Formula $P_{n}(x)=a_{0}+a_{1}x+a_{2}x^{2}+\cdots+a_{n}x^{n}$
+\end_inset
+
+, 由插值条件 
+\begin_inset Formula $P_{n}(x_{i})=y_{i},\quad i=0,1,\cdots,n$
+\end_inset
+
+, 得到如下线性代数方程组:  
+\begin_inset Formula 
+\[
+\begin{cases}
+1\cdot a_{0}+x_{0}a_{1}+\cdots+x_{0}^{n}a_{n}=y_{0}\\
+1\cdot a_{0}+x_{1}a_{1}+\cdots+x_{1}^{n}a_{n}=y_{1}\\
+\cdots\cdots\\
+1\cdot a_{0}+x_{n}a_{1}+\cdots+x_{n}^{n}a_{n}=y_{n}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+此方程组的系数行列式为Vandermonde行列式, 即 
+\begin_inset Formula 
+\[
+D=\begin{vmatrix}1 & x_{0} & x_{0}^{2} & \cdots & x_{0}^{n}\\
+1 & x_{1} & x_{1}^{2} & \cdots & x_{1}^{n}\\
+\cdots & \cdots & \cdots & \cdots & \cdots\\
+1 & x_{n} & x_{n}^{2} & \cdots & x_{n}^{n}
+\end{vmatrix}=\prod_{0\leq j<i\leq n}(x_{i}-x_{j})
+\]
+
+\end_inset
+
+当 
+\begin_inset Formula $x_{i}\neq x_{j}$
+\end_inset
+
+的时候, 
+\begin_inset Formula $D\neq0$
+\end_inset
+
+, 因此
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+由
+\begin_inset Formula $a_{0},a_{1},…,a_{n}$
+\end_inset
+
+唯一确定.
+ 
+\end_layout
+
+\begin_layout Standard
+显然, 求
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+可通过求线性方程组的解
+\begin_inset Formula $a_{0}\sim a_{𝑛}$
+\end_inset
+
+的方法.
+ 当
+\begin_inset Formula $n$
+\end_inset
+
+较大时, 计算量大, 表达式复杂, 不具有实用意义.
+  我们如何寻求易于计算、表达简单的
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+?  
+\end_layout
+
+\begin_layout Subsubsection
+Lagrange 插值
+\end_layout
+
+\begin_layout Paragraph
+线性插值
+\end_layout
+
+\begin_layout Standard
+先做一个简单的探索.
+ 根据点斜式, 过两点
+\begin_inset Formula $(x_{0},y_{0})$
+\end_inset
+
+ 和
+\begin_inset Formula $(x_{1},y_{1})$
+\end_inset
+
+ 的直线方程可写为 
+\begin_inset Formula 
+\begin{align*}
+y & =y_{0}+\underbrace{\frac{y_{1}-y_{0}}{x_{1}-x_{0}}}_{\text{斜\text{率}}}(x-x_{0})\\
+ & =y_{0}\underbrace{\red{\frac{x-x_{1}}{x_{0}-x_{1}}}}_{l_{0}(x)}+y_{1}\underbrace{\blue{\frac{x-x_{0}}{x_{1}-x_{0}}}}_{l_{1}(x)}.
+\end{align*}
+
+\end_inset
+
+ 我们发现
+\begin_inset Formula $\begin{cases}
+l_{0}(x_{0})=1 & l_{0}(x_{1})=0\\
+l_{1}(x_{1})=1 & l_{1}(x_{0})=0
+\end{cases}$
+\end_inset
+
+, 满足线性插值的条件.
+ 即, 可以写作
+\begin_inset Formula $y=y_{0}l_{0}(x)+y_{1}l_{1}(x).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+抛物插值
+\end_layout
+
+\begin_layout Standard
+过三点
+\begin_inset Formula $(x_{0},y_{0})$
+\end_inset
+
+ 、 
+\begin_inset Formula $(x_{1},y_{1})$
+\end_inset
+
+和 
+\begin_inset Formula $(x_{2},y_{2})$
+\end_inset
+
+可唯一确定一个抛物线.
+ 设方程为 
+\begin_inset Formula 
+\[
+y=A(x-x_{1})(x-x_{2})+B(x-x_{0})(x-x_{2})+C(x-x_{0})(x-x_{1}).
+\]
+
+\end_inset
+
+ 这样设置的好处是可以在带入的时候把不想干的内容消去变为 0.
+ 将三个插值点分别代入, 得 
+\begin_inset Formula 
+\[
+A=\frac{y_{0}}{(x_{0}-x_{1})(x_{0}-x_{2})}\quad B=\frac{y_{1}}{(x_{1}-x_{0})(x_{1}-x_{2})}\quad C=\frac{y_{2}}{(x_{2}-x_{0})(x_{2}-x_{1})}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+代入方程, 得 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\underbrace{\frac{(x-x_{1})(x-x_{2})}{(x_{0}-x_{1})(x_{0}-x_{2})}}_{l_{0}(x)}y_{0}+\underbrace{\frac{(x-x_{0})(x-x_{2})}{(x_{1}-x_{0})(x_{1}-x_{2})}}_{l_{1}(x)}y_{1}+\underbrace{\frac{(x-x_{0})(x-x_{1})}{(x_{2}-x_{0})(x_{2}-x_{1})}}_{l_{2}(x)}y_{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+并且
+\begin_inset Formula $l_{0},l_{1},l_{2}$
+\end_inset
+
+满足
+\begin_inset Formula $\begin{cases}
+l_{0}(x_{0})=1 & l_{0}(x_{1})=l_{0}(x_{2})=0\\
+l_{1}(x_{1})=1 & l_{1}(x_{0})=l_{1}(x_{2})=0\\
+l_{2}(x_{2})=1 & l_{2}(x_{0})=l_{2}(x_{1})=0
+\end{cases}$
+\end_inset
+
+.
+ 可写作
+\begin_inset Formula $y=y_{0}l_{0}(x)+y_{1}l_{1}(x)+y_{2}l_{2}(x)$
+\end_inset
+
+, 即三个(二次)插值基函数的线性组合.
+ 
+\end_layout
+
+\begin_layout Standard
+这里的基函数的``基'' 暗示着他们是线性空间的一组基底.
+ 具体一点, 他们是不超过二次的多项式空间
+\begin_inset Formula $\F[x]$
+\end_inset
+
+中的一组基(元素互相线性无关, 并且可以通过线性组合生成所有的不超过二次的多项式).
+ 另外值得注意到的是, 我们的基函数就如同坐标里面的标准正交基那样, 具有比较好的性质: 在我们感兴趣的点处取得 1, 不感兴趣的点处取得 0.
+ 后续的基函数也有类似的效果.
+ 可以帮助我们证明很多有趣的性质.
+ 
+\end_layout
+
+\begin_layout Paragraph
+推广到一般情况
+\end_layout
+
+\begin_layout Standard
+过
+\begin_inset Formula $n+1$
+\end_inset
+
+个点的
+\begin_inset Formula $n$
+\end_inset
+
+次插值多项式是否也可以表示为一组插值基函数的线性组合?  即如下所示的内容
+\begin_inset Formula 
+\[
+\begin{aligned}L_{n}(x)= & \underbrace{\frac{(x-x_{1})\cdots(x-x_{n})}{(x_{0}-x_{1})\cdots(x_{0}-x_{n})}}_{l_{1}(x)}y_{0}+\underbrace{\frac{(x-x_{0})(x-x_{2})\cdots(x-x_{n})}{(x_{1}-x_{0})(x_{1}-x_{2})\cdots(x_{1}-x_{n})}}_{l_{2}(x)}y_{1}+\cdots\\
+ & +\underbrace{\frac{(x-x_{0})\cdots(x-x_{n-1})}{(x_{n}-x_{0})\cdots(x_{n}-x_{n-1})}}_{l_{n}(x)}y_{n}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这个式子每一项的插值基函数
+\begin_inset Formula $l_{k}(x)$
+\end_inset
+
+的特点是: 
+\end_layout
+
+\begin_layout Itemize
+分子: 
+\begin_inset Formula $x$
+\end_inset
+
+与其他所有节点的差相乘
+\end_layout
+
+\begin_layout Itemize
+分母: 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+与其他所有节点的差相乘
+\end_layout
+
+\begin_layout Standard
+也就是可以表示成
+\begin_inset Formula 
+\[
+l_{k}(x)=\frac{\red{(x-x_{0})\cdots(x-x_{k-1})}\blue{(x-x_{k+1})\cdots(x-x_{n})}}{\red{(x_{k}-x_{0})\cdots(x_{k}-x_{k-1})}\blue{(x_{k}-x_{k+1})\cdots(x_{k}-x_{n})}}=\prod_{\begin{array}{c}
+i=0\\
+i\neq k
+\end{array}}^{n}\frac{x-x_{i}}{x_{k}-x_{i}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+可以发现, 我们构造的基函数具有
+\begin_inset Formula $\boxed{l_{k}(x_{i})=\begin{cases}
+1, & i=k\\
+0, & i\neq k
+\end{cases}}$
+\end_inset
+
+的性质, 满足插值条件.
+ 即 
+\begin_inset Formula $L_{n}(x)$
+\end_inset
+
+是通过这
+\begin_inset Formula $n+1$
+\end_inset
+
+个点的
+\begin_inset Formula $n$
+\end_inset
+
+次插值多项式, 称为Lagrange插值多项式.
+ 
+\end_layout
+
+\begin_layout Paragraph
+误差分析
+\end_layout
+
+\begin_layout Standard
+对于插值区间
+\begin_inset Formula $a,b$
+\end_inset
+
+上通过
+\begin_inset Formula $n+1$
+\end_inset
+
+个节点的
+\begin_inset Formula $n$
+\end_inset
+
+次插值多项式而言, 除了在插值节点
+\begin_inset Formula $x_{i}$
+\end_inset
+
+上没有误差之外, 在其它点上, 只是
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+的近似值, 一般存在误差.
+ 我们称
+\begin_inset Formula $R(x)=f(x)-P(x)$
+\end_inset
+
+为插值多项式的截断误差或余项.
+ 其估计有如下定理所示.
+ 
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $f\in C^{n}[a,b]$
+\end_inset
+
+,且
+\begin_inset Formula $f^{(n+1)}$
+\end_inset
+
+在
+\begin_inset Formula $(a,b)$
+\end_inset
+
+内存在, 则
+\begin_inset Formula $f$
+\end_inset
+
+的
+\begin_inset Formula $n$
+\end_inset
+
+ 次插值多项式
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+对于任何
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+有插值余项
+\begin_inset Formula 
+\[
+R_{n}(x)=f(x)-\varphi_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+其中
+\begin_inset Formula $\xi=\xi(x)\in(a,b),\omega_{n+1}=\prod_{i=0}^{n}(x-x_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(概要) 由于插值函数在插值点上误差为 0, 故将
+\begin_inset Formula $R_{n}$
+\end_inset
+
+做因式分解为
+\begin_inset Formula $\omega_{n+1}(x):=(x-x_{0})(x-x_{1})\cdots(x-x_{n})$
+\end_inset
+
+和一个未知项
+\begin_inset Formula $k(x)$
+\end_inset
+
+.
+ 即
+\begin_inset Formula 
+\[
+R_{n}(x)=k(x)(x-x_{0})(x-x_{1})\cdots(x-x_{n})=k(x)\omega_{n+1}(x).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+希望研究
+\begin_inset Formula $k(x)$
+\end_inset
+
+的具体性质, 于是考虑固定
+\begin_inset Formula $x$
+\end_inset
+
+, 依照定理中的形式构造出辅助函数
+\begin_inset Formula $\,\psi(t)=f(t)-\varphi_{n}(t)-K(x)w_{n+1}(t),t\in[a,b].$
+\end_inset
+
+它满足
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+插值点处
+\begin_inset Formula $\psi(x_{i})=0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+固定点处
+\begin_inset Formula $\psi(x)=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+因此至少有
+\begin_inset Formula $n+2$
+\end_inset
+
+个零点.
+ 根据Rolle定理, 可以得到
+\begin_inset Formula $\psi'(t)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+中有
+\begin_inset Formula $n+1$
+\end_inset
+
+个零点; 
+\begin_inset Formula $\psi''(t)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+中有
+\begin_inset Formula $n$
+\end_inset
+
+个零点.
+ 持续应用Rolle定理, 有
+\begin_inset Formula $\psi^{(n+1)}(t)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+中有
+\begin_inset Formula $1$
+\end_inset
+
+个零点, 即至少
+\begin_inset Formula $\exists\xi\in(a,b)$
+\end_inset
+
+, 使得
+\begin_inset Formula 
+\[
+\psi^{(n+1)}(\xi)=f^{(n+1)}(\xi)-0-(n+1)!k(x)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+从而得到
+\begin_inset Formula $K(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!},\xi=\xi(x)\in(a,b)$
+\end_inset
+
+, 带入误差的定义可得
+\begin_inset Formula $R_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+由于
+\begin_inset Formula $\xi$
+\end_inset
+
+在
+\begin_inset Formula $(a,b)$
+\end_inset
+
+内的具体位置无法确切给出, 但是对于连续函数而言只要知道最大值就可以估计误差.
+\end_layout
+
+\begin_layout Example
+线性插值的误差截为
+\begin_inset Formula $\ensuremath{R_{1}(x)=f(x)-P_{1}(x)=\frac{1}{2}f^{\prime\prime}(\xi)\left(x-x_{0}\right)\left(x-x_{1}\right)\quad\xi\in(a,b)}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+对于抛物插值, 误差为
+\begin_inset Formula 
+\[
+\begin{aligned}R_{2}(x) & =f(x)-P_{2}(x)\\
+ & =\frac{1}{6}f^{\prime\prime\prime}(\xi)(x-x_{0})(x-x_{1})(x-x_{2})\quad\xi\in(a,b)
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+已知
+\begin_inset Formula $x_{0}=100,x_{1}=121$
+\end_inset
+
+,用线性插值估计 
+\begin_inset Formula $f(x)=\sqrt{x}\textbf{ 在 }x=115$
+\end_inset
+
+ 时的截断误差.
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mn{可能作为填空题出现}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+考虑
+\begin_inset Formula 
+\[
+|R_{1}|=|\frac{1}{2!}f''(\xi)(x-x_{0})(x-x_{1})|\leq|\frac{1}{2!}\max_{t\in[x_{0},x_{1}]}f''(t)(x-x_{0})(x-x_{1})|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+得知
+\begin_inset Formula $f''(x)=-\frac{1}{4}x^{-3/2}$
+\end_inset
+
+, 其在
+\begin_inset Formula $[x_{0},x_{1}]$
+\end_inset
+
+上单调递增, 最大值是
+\begin_inset Formula $f''(100)=-1/4000,$
+\end_inset
+
+带入原式有误差上限为
+\begin_inset Formula $0.1125.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+已知
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+的函数表
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mn{可能作为大题出现}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f(x)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+构造Lagrange插值多项式.
+ 
+\end_layout
+
+\begin_layout Example
+这只需要构造好基函数即可.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+差商.
+ Newton 多项式插值
+\end_layout
+
+\begin_layout Standard
+若已由
+\begin_inset Formula $x_{0},x_{1},...,x_{n-1}$
+\end_inset
+
+算出
+\begin_inset Formula $P_{n-1}(x)$
+\end_inset
+
+, Lagrange公式无法直接利用其去计算
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+, 只能重算所有插值基函数； 能不能从
+\begin_inset Formula $P_{n-1}(x)$
+\end_inset
+
+简单修正一下, 直接构造出
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+? 
+\end_layout
+
+\begin_layout Standard
+由此, 我们希望令
+\begin_inset Formula $g(x)=P_{n}(x)-P_{n-1}(x)$
+\end_inset
+
+, 观察这个差的规律.
+ 我们发现, 则g(x)必是一个不超过
+\begin_inset Formula $k$
+\end_inset
+
+次的多项式.
+ 
+\end_layout
+
+\begin_layout Standard
+又
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+和
+\begin_inset Formula $P_{n-1}(x)$
+\end_inset
+
+都是
+\begin_inset Formula $f(x)$
+\end_inset
+
+的插值多项式, 则在
+\begin_inset Formula $x_{0},x_{1},...,x_{n-1}$
+\end_inset
+
+处有
+\begin_inset Formula $P_{n}(x_{i})=P_{n-1}(x_{i}),$
+\end_inset
+
+ 也就意味着在
+\begin_inset Formula $x_{0},x_{1},...,x_{n-1}$
+\end_inset
+
+处
+\begin_inset Formula $g(x_{i})=P_{n}(x_{i})−P_{n-1}(x_{i})=0.$
+\end_inset
+
+ 从而可以考虑令
+\begin_inset Formula $g(x)=a_{n}(x-x_{0})(x-x_{1})\cdots(x-x_{n-1})$
+\end_inset
+
+, 其中
+\begin_inset Formula $a_{n}$
+\end_inset
+
+为某一个待定的常数.
+ 从而得到递推公式
+\begin_inset Formula 
+\[
+P_{n}(x)=P_{n-1}(x)+a_{n}(x-x_{0})(x-x_{1})\cdots(x-x_{n-1}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+倘若设定初始情况
+\begin_inset Formula $P_{0}=a_{0}$
+\end_inset
+
+这个 0 次多项式的话, 就表明, 当我们有一个待插节点
+\begin_inset Formula $x_{0}$
+\end_inset
+
+做一次插值的时候, 我们希望得到的式子是
+\begin_inset Formula $\blue{P_{1}(x)}=P_{0}(x)+a_{1}(x-x_{0})=a_{0}+\red{a_{1}(x-x_{0})}$
+\end_inset
+
+; 由这个式子很容易得到两个节点
+\begin_inset Formula $x_{0},x_{1}$
+\end_inset
+
+导致的二次插值.
+ 即
+\begin_inset Formula $P_{2}(x)=\blue{P_{1}(x)}+\red{a_{2}(x-x_{0})(x-x_{1})}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+这样, 我们就得到了一种新的多项式插值公式, 称为 Newton插值公式.
+ 其可以大体表达做
+\begin_inset Formula 
+\[
+P_{n}(x)=a_{0}+a_{1}(x-x_{0})+a_{2}(x-x_{0})(x-x_{1})+\cdots+a_{n}\prod_{i=0}^{n-1}(x-x_{i}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+下面考虑求解各个
+\begin_inset Formula $a_{n}$
+\end_inset
+
+.
+ 我们可以列方程组解决.
+ 
+\end_layout
+
+\begin_layout Standard
+为保证满足插值条件
+\begin_inset Formula $P_{n}(x_{i})=y_{i}$
+\end_inset
+
+, 需且仅需满足如下的方程组:
+\begin_inset Formula 
+\[
+\begin{cases}
+y_{0}=P_{n}(x_{0})=a_{0} & (1)\\
+y_{1}=P_{n}(x_{1})=a_{0}+a_{1}(x_{1}-x_{0}) & (2)\\
+y_{2}=P_{n}(x_{2})=a_{0}+a_{1}(x_{2}-x_{0})+a_{2}(x_{2}-x_{0})(x_{2}-x_{1}) & (3)\\
+\cdots & (...)\\
+y_{n}=P_{n}(x_{n})=a_{0}+a_{1}(x_{n}-x_{0})+a_{2}(x_{n}-x_{0})(x_{n}-x_{1})+\ldots+a_{n}(x_{n}-x_{0})(x_{n}-x_{1})\cdots(x_{n}-x_{n-1}) & (n)
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+首先容易解得
+\begin_inset Formula $y_{0}=a_{0};y_{1}=\frac{y_{1}-y_{0}}{x_{1}-x_{0}}.$
+\end_inset
+
+ 对于
+\begin_inset Formula $a_{2}$
+\end_inset
+
+而言, 如果我们把形式变得统一, 把公因子消去的话, 解答式就会变得颇具规律.
+ 即
+\begin_inset Formula 
+\begin{align*}
+y_{2} & =y_{1}+\frac{y_{1}-y_{0}}{x_{1}-x_{0}}\red{(x_{2}-x_{0})}+a_{2}\red{(x_{2}-x_{0})}(x_{2}-x_{1})\\
+\frac{y_{2}-y_{1}}{\red{x_{2}-x_{0}}} & =\blue{\frac{y_{1}-y_{0}}{x_{1}-x_{0}}}+a_{2}(x_{2}-x_{1})\\
+\frac{\frac{y_{2}-y_{1}}{\red{x_{2}-x_{0}}}-\blue{\frac{y_{1}-y_{0}}{x_{1}-x_{0}}}}{x_{2}-x_{1}} & =a_{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+实际上, 上述的规律大致可以体现为不断地求函数平均变化率; 平均变化率的平均变化率, 如此往复.
+ 这足以让我们给出一个新定义 – 差商.
+\end_layout
+
+\begin_layout Definition
+函数
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+在区间
+\begin_inset Formula $[x_{i},x_{i+1}]$
+\end_inset
+
+上的平均变化率 
+\begin_inset Formula $\frac{f(x_{i+1})-f(x_{i})}{x_{i+1}-x_{i}}$
+\end_inset
+
+称为 
+\begin_inset Formula $f(x)$
+\end_inset
+
+在
+\begin_inset Formula $x_{i},x_{i+1}$
+\end_inset
+
+处的一阶差商, 记为 
+\begin_inset Formula $f[x_{i},x_{i+1}]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Definition
+一阶差商的平均变化率
+\begin_inset Formula $\frac{f[x_{i+1},x_{i+2}]-f[x_{i},x_{i+1}]}{x_{i+2}-x_{i}}$
+\end_inset
+
+称为
+\begin_inset Formula $f(x)$
+\end_inset
+
+ 在
+\begin_inset Formula $x_{i},x_{i+1},x_{i+2}$
+\end_inset
+
+处的二阶差商, 记为 
+\begin_inset Formula $f[x_{i},x_{i+1},x_{i+2}]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Definition
+一般地, 可以定义
+\begin_inset Formula $f(x)$
+\end_inset
+
+ 的
+\begin_inset Formula $n$
+\end_inset
+
+阶差商
+\begin_inset Formula $f\left[x_{0},x_{1},\cdots x_{n}\right]=\frac{f\left[x_{1},x_{2},\cdots x_{n}\right]-f\left[x_{0},x_{1},\cdots x_{n-1}\right]}{x_{n}-x_{0}}$
+\end_inset
+
+.
+ 实际上高阶差商可由低一阶的两个差商线性组合而得到.
+ 
+\end_layout
+
+\begin_layout Definition
+特别地, 可将
+\begin_inset Formula $f(x_{i})$
+\end_inset
+
+看成
+\begin_inset Formula $f(x)$
+\end_inset
+
+在
+\begin_inset Formula $x_{i}$
+\end_inset
+
+处的零阶差商.
+\end_layout
+
+\begin_layout Standard
+实际上我们上述得到的系数就是各个差商的值.
+ 为了得到一个更加易于理解的Newton 插值法, 需要对差商的性质做进一步的探究.
+ 
+\end_layout
+
+\begin_layout Theorem
+差商具有对称性, 与节点的顺序无关.
+  
+\end_layout
+
+\begin_layout Standard
+这是说, 好比
+\begin_inset Formula $f[x_{0},x_{1}]=f[x_{1},x_{0}],$
+\end_inset
+
+
+\begin_inset Formula $n$
+\end_inset
+
+阶差商是
+\begin_inset Formula $n+1$
+\end_inset
+
+阶对称的函数.
+ 
+\end_layout
+
+\begin_layout Proof
+(概要) 实际上, 
+\begin_inset Formula $k$
+\end_inset
+
+阶差商可表示为函数值
+\begin_inset Formula $f(x_{0}),f(x_{1}),...,f(x_{k})$
+\end_inset
+
+的线性组合
+\begin_inset Formula 
+\[
+f[x_{0},x_{1},\cdots,x_{k}]=\sum_{i=0}^{k}\frac{f(x_{i})}{\prod_{\stackrel{j=0}{j\neq i}}^{k}(x_{i}-x_{j})},
+\]
+
+\end_inset
+
+可以使用数学归纳法证明.
+ 这里省略.
+\end_layout
+
+\begin_layout Theorem
+若
+\begin_inset Formula $f[x,x_{0},x_{1},…,x_{k}]$
+\end_inset
+
+是
+\begin_inset Formula $x$
+\end_inset
+
+的
+\begin_inset Formula $k$
+\end_inset
+
+次多项式, 则下一级差商
+\begin_inset Formula $f[x,x_{0},x_{1},…,x_{k},x_{k+1}]$
+\end_inset
+
+是
+\begin_inset Formula $x$
+\end_inset
+
+的
+\begin_inset Formula $k-1$
+\end_inset
+
+次多项式.
+ 
+\end_layout
+
+\begin_layout Proof
+这是由于定义中
+\begin_inset Formula $f[x,x_{0},x_{1},\cdots,x_{k},x_{k+1}]=\frac{f[x_{0},x_{1},\cdots,x_{k},x_{k+1}]-f[x,x_{0},x_{1},\cdots,x_{k}]}{x_{k+1}-x}$
+\end_inset
+
+右端分子为
+\begin_inset Formula $k$
+\end_inset
+
+次多项式, 且当
+\begin_inset Formula $x=x_{k+1}$
+\end_inset
+
+时分子为0, 故分子必含有因式
+\begin_inset Formula $x_{k+1}–x$
+\end_inset
+
+, 与分母中的因式相消后, 右端为
+\begin_inset Formula $k-1$
+\end_inset
+
+次多项式.
+\end_layout
+
+\begin_layout Corollary*
+若
+\begin_inset Formula $f(x)$
+\end_inset
+
+是
+\begin_inset Formula $n$
+\end_inset
+
+次多项式函数, 则
+\begin_inset Formula $f(x)$
+\end_inset
+
+的
+\begin_inset Formula $n+1$
+\end_inset
+
+阶差商
+\begin_inset Formula $f[x,x_{0},x_{1},…,x_{n}]$
+\end_inset
+
+恒为
+\begin_inset Formula $0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+这可以看做上述定理的直接推论.
+ 使用差商的语言重写上述的推导过程, 就有
+\begin_inset Formula 
+\[
+\begin{aligned} & f(x)=f(x_{0})+f[x,x_{0}](x-x_{0}) & (1)\\
+ & f[x,x_{0}]=f[x_{0},x_{1}]+f[x,x_{0},x_{1}](x-x_{1}) & (2)\\
+ & f[x,x_{0},x_{1}]=f[x_{0},x_{1},x_{2}]+f[x,x_{0},x_{1},x_{2}](x-x_{2}) & (3)\\
+ & \cdots & (\cdots)\\
+ & f[x,x_{0},\cdots,x_{n-2}]=f[x_{0},x_{1},\cdots,x_{n-1}]+f[x,x_{0},\cdots,x_{n-1}](x-x_{n-1}) & (n-1)\\
+ & f[x,x_{0},\cdots,x_{n-1}]=f[x_{0},x_{1},\cdots,x_{n}]+f[x,x_{0},\cdots,x_{n}](x-x_{n}) & (n)
+\end{aligned}
+\]
+
+\end_inset
+
+只要将第
+\begin_inset Formula $(n)$
+\end_inset
+
+式代入第
+\begin_inset Formula $(n-1)$
+\end_inset
+
+式, 第
+\begin_inset Formula $(n-1)$
+\end_inset
+
+式代入第
+\begin_inset Formula $(n-2)$
+\end_inset
+
+式, 依次类推, 最后, 第(1)式可以变为: 
+\begin_inset Formula 
+\[
+\begin{aligned}f(x)= & f(x_{0})+f[x_{0},x_{1}](x-x_{0})+f[x_{0},x_{1},x_{2}](x-x_{0})(x-x_{1})+\cdots\\
+ & +f[x_{0},x_{1},\cdots,x_{n}](x-x_{0})\cdots(x-x_{n-1})+f[x,x_{0},\cdots,x_{n}](x-x_{0})\cdots(x-x_{n})
+\end{aligned}
+.
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection
+误差分析
+\end_layout
+
+\begin_layout Standard
+由插值多项式的唯一性可知: 满足同一组插值条件的Lagrange插值多项式
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+与Newton插值多项式
+\begin_inset Formula $N_{n}(x)$
+\end_inset
+
+ 实际上是同一个多项式 仅是同一插值多项式的不同表达形式而已 .
+ 因此误差也完全相等.
+ 
+\end_layout
+
+\begin_layout Example
+已知
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+的函数表
+\end_layout
+
+\begin_layout Example
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f(x)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+构造Newton插值多项式.
+ 
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mn{可能作为考试大题出现.
+ }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+列出差商表格可以知道: 
+\end_layout
+
+\begin_layout Example
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f(x)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+一阶差商
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+二阶差商
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+三阶差商
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{9-1}{1-0}=8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{23-9}{2-1}=14$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{14-8}{2-0}=3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{3-23}{4-2}=-10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{-10-14}{4-1}=-8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{-8-3}{4-0}=-\frac{11}{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+于是
+\begin_inset Formula $N(x)=1+8x+3x(x-1)-\frac{11}{4}x(x-1)(x-2).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+关注插值点导数的插值法
+\end_layout
+
+\begin_layout Standard
+Lagrange, Newton插值多项式的插值条件是: 在插值节点上, 插值函数与被插函数的函数值相等.
+ 如要保证插值函数能更好与被插函数相重合, 我们可以考虑不但要求“过点”, 还要要求“相切”, 即两者在节点上还有相同的导数值, 甚至更高阶导数也相等.
+  这类插值称为埃尔米特插值.
+ 
+\end_layout
+
+\begin_layout Subsection
+Hermite 插值
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mn{Hermite 插值内容考试不考.
+ }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+已知
+\begin_inset Formula $n+1$
+\end_inset
+
+个互异点
+\begin_inset Formula $a\leq x_{0}<x_{1}<…<x_{n}\leq b$
+\end_inset
+
+上的函数值
+\begin_inset Formula $f(x_{i})$
+\end_inset
+
+和导数值
+\begin_inset Formula $f'(x_{i})$
+\end_inset
+
+ , 若存在一个次数不超过
+\begin_inset Formula $2n+1$
+\end_inset
+
+次的多项式
+\begin_inset Formula $H(x)$
+\end_inset
+
+, 满足
+\begin_inset Formula 
+\[
+H\left(x_{i}\right)=f\left(x_{i}\right),H^{\prime}\left(x_{i}\right)=f^{\prime}\left(x_{i}\right),i=0,1,\cdots,n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+则称
+\begin_inset Formula $H(x)$
+\end_inset
+
+为
+\begin_inset Formula $f(x)$
+\end_inset
+
+的
+\begin_inset Formula $2n+1$
+\end_inset
+
+次Hermite插值多项式.
+ 
+\end_layout
+
+\begin_layout Standard
+式中给出了
+\begin_inset Formula $2n+2$
+\end_inset
+
+个条件, 可唯一确定一个次数不超过
+\begin_inset Formula $2n+1$
+\end_inset
+
+的多项式
+\begin_inset Formula $H_{2n+1}(x)$
+\end_inset
+
+, 采用类似于Lagrange插值多项式基函数的方法, 可求出埃尔米特多项式
+\begin_inset Formula $H_{2n+1}(x)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+已知函数在两个互异节点
+\begin_inset Formula $x_{0},x_{1}$
+\end_inset
+
+上的函数值
+\begin_inset Formula $f(x_{0})=$
+\end_inset
+
+ 
+\begin_inset Formula $y_{0},f(x_{1})=y_{1}$
+\end_inset
+
+和一阶导数值
+\begin_inset Formula $f^{\prime}(x_{0})=m_{0},f^{\prime}(x_{1})=m_{1}$
+\end_inset
+
+, 求一个三次插值多项式
+\begin_inset Formula $H(x)$
+\end_inset
+
+使其满足:
+\begin_inset Formula 
+\[
+\begin{cases}
+H(x_{0})=y_{0},H(x_{1})=y_{1}\\
+H'(x_{0})=m_{0},H'(x_{1})=m_{1}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+这样的
+\begin_inset Formula $𝐻(𝑥)$
+\end_inset
+
+称为三次Hermite插值多项式.
+ 
+\end_layout
+
+\begin_layout Example
+仿照上述 Newton, Lagrange 插值法, 采用构造插值基函数的方法, 可设:  
+\begin_inset Formula $H(x)=h_{0}(x)y_{0}+h_{1}(x)y_{1}+H_{0}(x)m_{0}+H_{1}(x)m_{1}$
+\end_inset
+
+, 其取值如下表:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{array}{cccccc}
+\hline  &  & \text{函数值} & \text{函数值} & \text{一阶导数} & \text{一阶导数}\\
+\text{基函数} &  & x_{0} & x_{0} & x_{0} & x_{1}\\
+\hline h_{0}(x) &  & 1 & 0 & 0 & 0\\
+\hline h_{1}(x) &  & 0 & 1 & 0 & 0\\
+\hline H_{0}(x) &  & 0 & 0 & 1 & 0\\
+\hline H_{1}(x) &  & 0 & 0 & 0 & 1
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+我们还是可以采用因子分析加上待定系数的方法.
+ 首先考察
+\begin_inset Formula $h_{0}(x),$
+\end_inset
+
+由于
+\begin_inset Formula $h_{0}(x_{1})=h_{0}^{\prime}(x_{1})=0$
+\end_inset
+
+, 所以
+\begin_inset Formula $h_{0}(x)$
+\end_inset
+
+中必有因子
+\begin_inset Formula $(x-x_{1})^{2}.$
+\end_inset
+
+由于
+\begin_inset Formula $h_{0}(x)$
+\end_inset
+
+最多是一个三次多项式, 要使得它满足基函数, 可以设
+\begin_inset Formula $h_{0}=(x-x_{1})^{2}(A+Bx)$
+\end_inset
+
+.
+ 不过由于我们一会儿要求
+\begin_inset Formula $x_{1},$
+\end_inset
+
+干脆让整个式子与
+\begin_inset Formula $x_{0},x_{1}$
+\end_inset
+
+的对称性结合起来.
+ 于是设
+\begin_inset Formula 
+\[
+h_{0}(x)=(a+b(x-x_{0}))\left(\frac{x-x_{1}}{x_{0}-x_{1}}\right)^{2}.
+\]
+
+\end_inset
+
+这个式子和上述是等价的.
+ 只是常数发生了不同.
+ 带入
+\begin_inset Formula $h_{0}(x_{0})=1$
+\end_inset
+
+, 解得
+\begin_inset Formula $a=1;$
+\end_inset
+
+对于
+\begin_inset Formula $b$
+\end_inset
+
+而言, 需要带入
+\begin_inset Formula $h_{0}'(x_{0})=0,$
+\end_inset
+
+解得
+\begin_inset Formula $b=\frac{-2}{x_{0}-x_{1}}.$
+\end_inset
+
+从而得到
+\begin_inset Formula 
+\[
+\boxed{h_{0}(x)=\left(1+2\frac{x-x_{0}}{x_{1}-x_{0}}\right)\left(\frac{x-x_{1}}{x_{0}-x_{1}}\right)^{2}},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+对于
+\begin_inset Formula $h_{1}$
+\end_inset
+
+而言, 可以设
+\begin_inset Formula 
+\[
+h_{1}(x)=(a+b(x-x_{1}))\left(\frac{x-x_{0}}{x_{1}-x_{0}}\right)^{2}
+\]
+
+\end_inset
+
+这样一个对称形式.
+ 由于基函数中正好同时具有这个对称形式, 因此只要将
+\begin_inset Formula $h_{0}$
+\end_inset
+
+中
+\begin_inset Formula $x_{0},x_{1}$
+\end_inset
+
+变量对换即可得到.
+ 即解得
+\begin_inset Formula 
+\[
+\boxed{h_{1}(x)=\left(1+2\frac{x-x_{1}}{x_{0}-x_{1}}\right)\left(\frac{x-x_{0}}{x_{1}-x_{0}}\right)^{2}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+再求 
+\begin_inset Formula $H_{0}(x)$
+\end_inset
+
+, 由于
+\begin_inset Formula $H_{0}(x_{0})=H_{0}(x_{1})=0$
+\end_inset
+
+,且
+\begin_inset Formula $H_{0}^{\prime}(x_{1})=0$
+\end_inset
+
+,所以
+\begin_inset Formula $H_{0}(x)$
+\end_inset
+
+中必有因子
+\begin_inset Formula $(x-x_{1})^{2}(x-x_{0})$
+\end_inset
+
+.
+ 又由于
+\begin_inset Formula $H_{0}(x)\text{最多是一个}3\text{次多项式，可以设：}$
+\end_inset
+
+
+\begin_inset Formula $H_{0}(x)=a(x-x_{0})(\frac{x-x_{1}}{x_{0}-x_{1}})^{2}$
+\end_inset
+
+(同样还是为了对称性考虑).
+ 对
+\begin_inset Formula $H_{0}(x)$
+\end_inset
+
+求导数 , 利用
+\begin_inset Formula $H_{0}^{\prime}(x_{0})=1$
+\end_inset
+
+可得
+\begin_inset Formula $a=1$
+\end_inset
+
+.
+ 于是得: 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\boxed{H_{0}(x)=(x-x_{0})(\frac{x-x_{1}}{x_{0}-x_{1}})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+由对称性可知: 
+\begin_inset Formula $\boxed{H_{1}(x)=(x-x_{1})(\frac{x-x_{0}}{x_{1}-x_{0}})^{2}}$
+\end_inset
+
+.
+ 带入上面式子即可得到.
+ 
+\end_layout
+
+\begin_layout Standard
+实际上, 可以说明满足插值条件的Hermite多项式是唯一的.
+ 并且其误差估计的方法与 Newton 多项式误差的证明相似, 我们给出如下的定理:
+\end_layout
+
+\begin_layout Theorem
+若
+\begin_inset Formula $f(x)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上存在
+\begin_inset Formula $2n+2$
+\end_inset
+
+阶导数, 则
+\begin_inset Formula $2n+1$
+\end_inset
+
+次Hermite插值多项式的余项为 
+\begin_inset Formula 
+\[
+R_{2n+1}(x)=f(x)-H_{2n+1}(x)=\frac{f^{(2n+2)}(\xi)}{(2n+2)!}\omega^{2}(x),
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\omega(x)=(x-x_{0})(x-x_{1})\cdots(x-x_{n})\quad\xi\in(a,b)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+分段插值
+\end_layout
+
+\begin_layout Standard
+高次插值
+\begin_inset Formula $P_{n}(x)$
+\end_inset
+
+在区间两端出现激烈振荡, 带来数值不稳定, 越靠近端点处逼近效果越差.
+ 增加插值多项式次数, 并不能总能提高插值精度.
+ 于是我们考虑对于插值过程分段, 每一小段使用低次插值.
+ 
+\end_layout
+
+\begin_layout Subsection
+分段线性插值
+\end_layout
+
+\begin_layout Standard
+分段线性插值的主要思路是: 将区间分成若干个小区间, 在每个小区间进行线性(或者低次)插值.
+ 用连接相邻节点的折线逼近被插函数.
+ 
+\end_layout
+
+\begin_layout Standard
+直观地说, 我们的任务是, 在每个小区间 
+\begin_inset Formula $[x_{i},x_{i+1}](i=0,1,2,\cdots,n)$
+\end_inset
+
+内做连接插值点
+\begin_inset Formula $(x_{i},y_{i})$
+\end_inset
+
+ 与
+\begin_inset Formula $(x_{i+1},y_{i+1})$
+\end_inset
+
+ 的直线.
+  譬如, 函数
+\begin_inset Formula $S_{1}$
+\end_inset
+
+在区间 
+\begin_inset Formula $[x_{i-1},x_{i}](i=1,2,\cdots,n)$
+\end_inset
+
+的表达式为
+\begin_inset Formula 
+\[
+S_{1}(x)=\red{\frac{x-x_{i}}{x_{i-1}-x_{i}}}y_{i-1}+\blue{\frac{x-x_{i-1}}{x_{i}-x_{i-1}}}y_{i}=\red{l_{i-1}(x)}y_{i-1}+\blue{l_{i}(x)}y_{i}\quad(x_{i-1}\leqslant x\leqslant x_{i});
+\]
+
+\end_inset
+
+函数 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+在区间
+\begin_inset Formula $[x_{i},x_{i+1}]$
+\end_inset
+
+ 内的表达式为 
+\begin_inset Formula 
+\[
+S_{1}(x)=\blue{\frac{x-x_{i+1}}{x_{i}-x_{i+1}}}y_{i}+\purple{\frac{x-x_{i}}{x_{i+1}-x_{i}}}y_{i+1}=\blue{l_{i}(x)}y_{i}+\purple{l_{i+1}(x)}y_{i+1}\quad(x_{i}\leqslant x\leqslant x_{i+1}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这里有重叠区间的重叠是因为他们的表达式是一样的.
+ 
+\end_layout
+
+\begin_layout Standard
+下面我们来考察使用基函数的方法如何书写.
+ 如果使用基函数, 那么
+\begin_inset Formula $S_{1}(x)$
+\end_inset
+
+在插值区间
+\begin_inset Formula $[a.b]$
+\end_inset
+
+内的表达式可以统一表示为
+\begin_inset Formula 
+\[
+S_{1}(x)=\sum_{i=0}^{n}l_{i}(x)y_{i},
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+l_{i}(x)=\begin{cases}
+\frac{x-x_{i-1}}{x_{i}-x_{i-1}} & x_{i-1}\leq x\leq x_{i},i=1,2,\cdots,n\\
+\frac{x-x_{i+1}}{x_{i}-x_{i+1}} & x_{i}\leq x\leq x_{i+1},i=0,1,\cdots,n-1\\
+0 & x\in[a,b]\backslash[x_{i-1},x_{i+1}]
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这个基函数只在
+\begin_inset Formula $x_{i}$
+\end_inset
+
+附近不为0, 在其他地方均为 0.
+ 这样的性质叫局部非零性.
+ 当插值点有误差的时候, 局部非零性将误差控制在一个给定的区域内.
+ 
+\end_layout
+
+\begin_layout Standard
+下面对它做误差估计.
+ 由于
+\begin_inset Formula $[a,b]$
+\end_inset
+
+区间内线性插值的误差可以被估计为
+\begin_inset Formula 
+\begin{align*}
+|R_{1}(x)| & =|f(x)-P_{1}(x)|=\frac{1}{2}|\blue{f^{\prime\prime}(\xi)}\left(x-x_{0}\right)\left(x-x_{1}\right)| & ,\xi\in(a,b)\\
+ & \leq\frac{1}{2}\max_{x\in(a,b)}|f''(x)||\left(x-x_{0}\right)\left(x-x_{1}\right)|
+\end{align*}
+
+\end_inset
+
+倘若对于我们插值的第
+\begin_inset Formula $i$
+\end_inset
+
+个小区间
+\begin_inset Formula $[x_{i},x_{i+1}](i=0,1,2,\cdots,n)$
+\end_inset
+
+应用这个式子, 便得到了
+\begin_inset Formula 
+\begin{align*}
+|R(x)| & =\frac{1}{2}\max_{x\in(x_{i},x_{i+1})}|f''(x)||\left(x-x_{0}\right)\left(x_{1}-x\right)|\\
+ & \leq\frac{1}{2}\max_{x\in(x_{i},x_{i+1})}|f''(x)|\frac{((x-x_{0})+(x_{1}-x))^{2}}{4} & (\text{这\text{是\text{因\text{为}}}}ab\leq\frac{(a+b)^{2}}{4})\\
+ & =\frac{1}{2}\max_{x\in(x_{i},x_{i+1})}|f''(x)|\frac{(x_{1}-x_{0})^{2}}{4}\\
+ & =\underbrace{\blue{\max_{x\in(x_{i},x_{i+1})}|f''(x)|}}_{M}\frac{(\red{x_{1}-x_{0}})^{2}}{8}
+\end{align*}
+
+\end_inset
+
+综合考虑, 最大的误差应当取得这一些小区间中最大的那一个, 于是最后估计为
+\begin_inset Formula 
+\[
+|R(x)|\leq\max_{0\leq i\leq i-1}|R_{i}(x)|\leq\blue{\max_{x\in(x_{i},x_{i+1})}|f''(x)|}\frac{(\red{\max_{0\leq i\leq n-1}x_{i+1}-x_{i}})^{2}}{8}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+已知函数
+\begin_inset Formula $y=f(x)=\frac{1}{1+x^{2}}$
+\end_inset
+
+在区间
+\begin_inset Formula $[0,5]$
+\end_inset
+
+上取如下的等距插值节点; 求区间上分段线性插值函数,并利用它求出
+\begin_inset Formula $f(4.5)$
+\end_inset
+
+的近似值.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mn{测试信息: 可能出现在考试中的解答题中.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\ensuremath{\ensuremath{\begin{array}{|c|c|c|c|c|c|c|}
+x_{i} & 0 & 1 & 2 & 3 & 4 & 5\\
+y_{i} & 1 & 0.5 & 0.2 & 0.1 & 0.05882 & 0.03846
+\end{array}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+对于第
+\begin_inset Formula $i$
+\end_inset
+
+分段区间
+\begin_inset Formula $[x_{i},x_{i+1}]$
+\end_inset
+
+的插值函数为
+\begin_inset Formula $P_{1}(x)=\frac{x-x_{i}}{x_{i}-x_{i+1}}y_{i}+\frac{x-x_{i}}{x_{i+1}-x_{i}}y_{i+1}=\frac{x_{i+1}-x}{1+x_{i}^{2}}+\frac{x-x_{i}}{1+x_{i+1}^{2}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+得到
+\begin_inset Formula 
+\[
+P(x)=\begin{cases}
+-(x-1)+0.5x, & x\in[0,1]\\
+-0.5(x-2)+0.2(x-1), & x\in[1,2]\\
+-0.2(x-3)+0.1(x-2), & x\in[2,3]\\
+-0.1(x-4)+0.05882(x-3), & x\in[3,4]\\
+-0.05882(x-5)+0.03846(x-4),x\in[4,5] & x\in[4,5]
+\end{cases}
+\]
+
+\end_inset
+
+, 从而
+\begin_inset Formula $P(4.5)=-0.05882\times(4.5-5)+0.03846\times(4.5-4)=0.04864.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "red"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+注意: 以下内容可以当做待定系数法的综合练习.
+ 考试中不考.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+样条函数插值
+\end_layout
+
+\begin_layout Standard
+高次插值函数可以保证曲线的光滑性, 但计算量大, 有剧烈振荡, 数值稳定性差；采用分段线性插值, 虽然计算简单, 但在分段点上仅连续而不光滑(导数不连续),
+ 这往往不能满足某些工程技术的高精度要求.
+ 如在船体、飞机等外形曲线的设计中, 不仅要求曲线连续, 而且要有二阶光滑度, 即有连续的二阶导数.
+  样条函数可以同时解决这两个问题, 使插值函数既是低阶分段函数, 又是光滑的函数.
+  
+\end_layout
+
+\begin_layout Standard
+具体来讲, 我们称下面曲线为样条函数.
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+在
+\begin_inset Formula $n+1$
+\end_inset
+
+个插值节点 
+\begin_inset Formula $a=x_{0}<x_{1}<x_{2}<\cdots<x_{n}=b$
+\end_inset
+
+处的函数值为
+\begin_inset Formula $y_{k}$
+\end_inset
+
+, 则在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+ 上
+\begin_inset Formula $f(x)$
+\end_inset
+
+的
+\begin_inset Formula $m$
+\end_inset
+
+次样条插值函数
+\begin_inset Formula $S(x)$
+\end_inset
+
+ 满足:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\ensuremath{S(x_{k})=y_{k}},\ensuremath{k=0,1,\cdots,n}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $S(x)$
+\end_inset
+
+在
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ 上
+\begin_inset Formula $m-1$
+\end_inset
+
+阶导数连续; 
+\end_layout
+
+\begin_layout Enumerate
+在区间
+\begin_inset Formula $[x_{k},x_{k+1}](k=0,1,\cdots,n-1)$
+\end_inset
+
+上
+\begin_inset Formula $S(x)$
+\end_inset
+
+是
+\begin_inset Formula $m$
+\end_inset
+
+次多项式.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+在工程实践中, 令
+\begin_inset Formula $m=3$
+\end_inset
+
+, 可以得到常用的三次样条函数.
+ 三次样条函数可以使用待定系数法求解; 但是计算量非常大.
+ 更加常见的办法是使用下面的方法求解.
+\end_layout
+
+\begin_layout Definition
+由二阶导数连续, 设
+\begin_inset Formula $S''(x_{k})=m_{k}(k=0,1,\cdots,n).$
+\end_inset
+
+ 
+\begin_inset Formula $m_{k}$
+\end_inset
+
+是未知、 待定的数.
+  因为
+\begin_inset Formula $S(x)$
+\end_inset
+
+是分段三次多项式, 则
+\begin_inset Formula $S^{\prime\prime}(x)$
+\end_inset
+
+是分段一次多 项式, 在每个区间
+\begin_inset Formula $\left[x_{k},x_{k+1}\right]$
+\end_inset
+
+内,  
+\begin_inset Formula 
+\[
+S^{\prime\prime}(x)=\frac{x_{k+1}-x}{\red{x_{k+1}-x_{k}}}m_{k}+\frac{x-x_{k}}{\red{x_{k+1}-x_{k}}}m_{k+1}
+\]
+
+\end_inset
+
+ 为了简便起见, 记 
+\begin_inset Formula $h_{k}:=\red{x_{k+1}-x_{k}}$
+\end_inset
+
+ ,则 
+\begin_inset Formula 
+\[
+S^{\prime\prime}(x)=\frac{x_{k+1}-x}{h_{k}}m_{k}+\frac{x-x_{k}}{h_{k}}m_{k+1}
+\]
+
+\end_inset
+
+ 将上式在区间
+\begin_inset Formula $[x_{k},x_{k+1}]$
+\end_inset
+
+上积分两次, 并且由
+\begin_inset Formula $S(x_{k})=y_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $S(x_{k+1})=y_{k+1}$
+\end_inset
+
+来确定两个积分常数.
+  当
+\begin_inset Formula $x\in[x_{k},x_{k+1}]$
+\end_inset
+
+时,  
+\begin_inset Formula 
+\[
+S(x)=-\frac{(x-x_{k+1})^{3}}{6h_{k}}m_{k}+\frac{(x-x_{k})^{3}}{6h_{k}}m_{k+1}-(y_{k}-\frac{h_{k}^{2}}{6}m_{k})\frac{x-x_{k+1}}{h_{k}}+(y_{k+1}-\frac{h_{k}^{2}}{6}m_{k+1})\frac{x-x_{k}}{h_{k}}
+\]
+
+\end_inset
+
+ 利用
+\begin_inset Formula $S(x)$
+\end_inset
+
+一阶导数连续的性质, 对上式求导, 得: 
+\begin_inset Formula 
+\[
+S^{\prime}(x)=-\frac{(x-x_{k+1})^{2}}{2h_{k}}m_{k}+\frac{(x-x_{k})^{2}}{2h_{k}}m_{k+1}-\frac{h_{k}}{6}(m_{k+1}-m_{k})+\frac{1}{h_{k}}(y_{k+1}-y_{k})
+\]
+
+\end_inset
+
+ 在上式中, 令
+\begin_inset Formula $x=x_{k}$
+\end_inset
+
+,得:  
+\begin_inset Formula 
+\[
+S^{\prime}(x_{k}+0)=-\frac{h_{k}}{6}m_{k+1}-\frac{h_{k}}{3}m_{k}+\frac{y_{k+1}-y_{k}}{h_{k}}
+\]
+
+\end_inset
+
+ 将上式中的
+\begin_inset Formula $k$
+\end_inset
+
+ 换成
+\begin_inset Formula $k-1$
+\end_inset
+
+,得
+\begin_inset Formula $S^{\prime}(x)$
+\end_inset
+
+ 在
+\begin_inset Formula $[x_{k-1},x_{k}]$
+\end_inset
+
+ 上的表达式,  用
+\begin_inset Formula $x=x_{k}$
+\end_inset
+
+代入,  
+\begin_inset Formula 
+\[
+S'(x_{k}-0)=\frac{h_{k-1}}{6}m_{k-1}+\frac{h_{k-1}}{3}m_{k}+\frac{y_{k}-y_{k-1}}{h_{k}}
+\]
+
+\end_inset
+
+ 而
+\begin_inset Formula $S^{\prime}(x_{k}+0)=S^{\prime}(x_{k}-0)$
+\end_inset
+
+ , 联立上述两式, 得到关于
+\begin_inset Formula $m_{k}$
+\end_inset
+
+ 的方程:  
+\begin_inset Formula 
+\[
+\frac{h_{k-1}}{6}m_{k-1}+\frac{h_{k}+h_{k-1}}{3}m_{k}+\frac{h_{k}}{6}m_{k+1}=\frac{y_{k+1}-y_{k}}{h_{k}}-\frac{y_{k}-y_{k-1}}{h_{k-1}}\quad k=1,2,\cdots,n-1
+\]
+
+\end_inset
+
+ 两边乘以
+\begin_inset Formula $\frac{6}{h_{k}+h_{k-1}}$
+\end_inset
+
+,得:  
+\begin_inset Formula 
+\[
+\frac{h_{k-1}}{h_{k}+h_{k-1}}m_{k-1}+2m_{k}+\frac{h_{k}}{h_{k}+h_{k-1}}m_{k+1}=\frac{6}{h_{k}+h_{k-1}}\Bigg(\frac{y_{k+1}-y_{k}}{h_{k}}-\frac{y_{k}-y_{k-1}}{h_{k-1}}\Bigg).
+\]
+
+\end_inset
+
+上式中, 等式左边含未知量
+\begin_inset Formula $m_{k-1},m_{k},m_{k+1}$
+\end_inset
+
+,等式右边 
+\begin_inset Formula $y_{k-1}$
+\end_inset
+
+ , 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+ , 
+\begin_inset Formula $y_{k+1}$
+\end_inset
+
+ 是已知的, 令
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+\lambda_{k}=\frac{h_{k-1}}{h_{k}+h_{k-1}},\quad\mu_{k}=\frac{h_{k}}{h_{k}+h_{k-1}}=1-\lambda_{k}\:,\quad C_{k}=\frac{6}{h_{k}+h_{k-1}}\Bigg(\frac{y_{k+1}-y_{k}}{h_{k}}-\frac{y_{k}-y_{k-1}}{h_{k-1}}\Bigg)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+则得: 
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+\lambda_{k}m_{k-1}+2m_{k}+\mu_{k}m_{k+1}=C_{k}\quad k=1,2,\cdots,n-1
+\]
+
+\end_inset
+
+ 这是含有
+\begin_inset Formula $n+1$
+\end_inset
+
+个未知量
+\begin_inset Formula $m_{0},m_{1},\cdots,m_{n}$
+\end_inset
+
+,共有
+\begin_inset Formula $n-1$
+\end_inset
+
+个方程组成的线性方程组.
+ 欲确定方程的解, 尚缺2个方程.
+ 因此, 求三次样条函数还要2个附加条件.
+ 通常在区间端点
+\begin_inset Formula $a=x_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $b=x_{n}$
+\end_inset
+
+上各加一个条件, 称为端点约束.
+ 常用端点约束有三种类型.
+ 
+\end_layout
+
+\begin_layout Enumerate
+给定两端点
+\begin_inset Formula $f(x)$
+\end_inset
+
+的一阶导数值:  
+\begin_inset Formula $S'(x_{0})=S'(x_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+给定两端点
+\begin_inset Formula $f(x)$
+\end_inset
+
+的二阶导数值: 
+\begin_inset Formula $S''(x_{0})=S''(x_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+当
+\begin_inset Formula $f(x)$
+\end_inset
+
+是以
+\begin_inset Formula $(x_{n},x_{0})$
+\end_inset
+
+为周期的函数时, 则要求
+\begin_inset Formula $S(x)$
+\end_inset
+
+也是周期函数.这时边界条件应满足 当
+\begin_inset Formula $f(x_{0})=f(x_{n})$
+\end_inset
+
+时,  
+\begin_inset Formula $S'(x_{0})=S'(x_{n});S''(x_{0})=S''(x_{n}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+第一类端点约束: 三转角方程 
+\end_layout
+
+\begin_layout Standard
+给出边界端点的一阶导数值: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S^{\prime}(x_{0})=y_{0}^{\prime}\:,\quad S^{\prime}(x_{n})=y_{n^{\circ}}^{\prime}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用前面已推导的公式, 
+\end_layout
+
+\begin_layout Standard
+当
+\begin_inset Formula $x\in[x_{k},x_{k+1}]$
+\end_inset
+
+时,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S^{\prime}(x)=-\frac{\left(x-x_{k+1}\right)^{2}}{2h_{k}}m_{k}+\frac{\left(x-x_{k}\right)^{2}}{2h_{k}}m_{k+1}-\frac{h_{k}}{6}(m_{k+1}-m_{k})+\frac{1}{h_{k}}(y_{k+1}-y_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+取 
+\begin_inset Formula $k=0$
+\end_inset
+
+, 
+\begin_inset Formula $x=x_{0}$
+\end_inset
+
+, 得: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{0}^{\prime}=-\frac{h_{0}}{3}m_{0}-\frac{h_{0}}{6}m_{1}+\frac{y_{1}-y_{0}}{h_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+取 
+\begin_inset Formula $k=n-1$
+\end_inset
+
+ , 
+\begin_inset Formula $x=x_{n}$
+\end_inset
+
+,得: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{n}=\frac{h_{n-1}}{6}m_{n-1}+\frac{h_{n-1}}{3}m_{n}+\frac{y_{n}-y_{n-1}}{h_{n-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+移项得
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+2m_{0}+m_{1} & =\frac{6}{h_{0}}\Bigg(\frac{y_{1}-y_{0}}{h_{0}}-y_{0}^{\prime}\Bigg)=C_{0}\\
+m_{n-1}+2m_{n}= & \frac{6}{h_{n-1}}\Bigg(y_{n}^{\prime}-\frac{y_{n}-y_{n-1}}{h_{n-1}}\Bigg)=C_{n}
+\end{align*}
+
+\end_inset
+
+ 于是, 我们可以建立如下方程组；
+\begin_inset Formula $\begin{cases}
+2m_{0}+m_{1}=C_{0}\\
+\lambda_{1}m_{0}+2m_{1}+\mu_{1}m_{2}=C_{1}\\
+\cdots\cdots\\
+\lambda_{n-1}m_{n-2}+2m_{n-1}+\mu_{n-1}m_{n}=C_{n-1}\\
+m_{n-1}+2m_{n}=C_{n}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其系数矩阵
+\begin_inset Formula $\begin{bmatrix}2 & 1\\
+\lambda_{1} & 2 & \mu_{1}\\
+ & \lambda_{2} & 2 & \mu_{2}\\
+ &  & \ddots & \ddots & \ddots\\
+ &  &  & \lambda_{n-1} & 2 & \mu_{n-1}\\
+ &  &  &  & 1 & 2
+\end{bmatrix}$
+\end_inset
+
+是严格对角占优的三对角矩阵, 从而可以解出对应的
+\begin_inset Formula $m_{0},m_{1},\cdots,m_{n}$
+\end_inset
+
+.
+ 可以得到三次样条函数的分段表达式.
+ 解得当
+\begin_inset Formula $x\in[x_{k},x_{k+1}]\text{的时候},S(x)=-\frac{\left(x-x_{k+1}\right)^{3}}{6h_{k}}m_{k}+\frac{\left(x-x_{k}\right)^{3}}{6h_{k}}m_{k+1}-(y_{k}-\frac{h_{k}^{2}}{6}m_{k})\frac{x-x_{k+1}}{h_{k}}+(y_{k+1}-\frac{h_{k}^{2}}{6}m_{k+1})\frac{x-x_{k}}{h_{k}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+第二类端点约束: 三弯矩方程 
+\end_layout
+
+\begin_layout Standard
+这种情况下, 附加条件为
+\begin_inset Formula $S''(x_{0})=m_{0},S''(x_{n})=m_{n}.$
+\end_inset
+
+ 对应的方程组为
+\begin_inset Formula 
+\[
+\text{\begin{cases}
+ 2m_{1}+\mu_{1}m_{2}  &  =C_{1}-\lambda_{1}m_{0}\\
+ \lambda_{2}m_{1}+2m_{2}+\mu_{2}m_{3}  &  =C_{2}\\
+ \lambda_{3}m_{2}+2m_{3}+\mu_{3}m_{4}  &  =C_{3}\\
+ \cdots\cdots\\
+ \lambda_{n-2}m_{n-3}+2m_{n-2}+\mu_{n-2}m_{n-1}  &  =C_{n-2}\\
+ \lambda_{n-1}m_{n-2}+2m_{n-1}=  &  C_{n-1}-\mu_{n-1}m_{n} 
+\end{cases}}
+\]
+
+\end_inset
+
+其系数矩阵正好是
+\begin_inset Formula $\begin{bmatrix}2 & \mu_{1}\\
+\lambda_{2} & 2 & \mu_{2}\\
+ & \lambda_{3} & 2 & \mu_{3}\\
+ &  & \ddots & \ddots & \ddots\\
+ &  &  & \lambda_{n-2} & 2 & \mu_{n-2}\\
+ &  &  &  & \lambda_{n-1} & 2
+\end{bmatrix},$
+\end_inset
+
+严格对角占优, 存在唯一解.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+第三类端点约束: 自然样条 
+\end_layout
+
+\begin_layout Standard
+第三类端点约束的条件为
+\begin_inset Formula $s'(x_{0})=s'(x_{n}),\quad s''(x_{0})=s''(x_{n})$
+\end_inset
+
+.
+ 可以得到约束条件
+\begin_inset Formula $m_{0}=m_{n},\lambda_{n}m_{1}+\mu_{n}m_{n-1}+2m_{n}=d_{n}$
+\end_inset
+
+, 与剩余的方程联立可以得到
+\begin_inset Formula 
+\[
+\begin{bmatrix}2 & \lambda_{1} &  &  & \mu_{1}\\
+\mu_{2} & 2 & \lambda_{2}\\
+ & \ddots & \ddots & \ddots\\
+ &  & \mu_{n-1} & 2 & \lambda_{n-1}\\
+\lambda_{n} &  &  & \mu_{n} & 2
+\end{bmatrix}\begin{bmatrix}m_{1}\\
+m_{2}\\
+\vdots\\
+m_{n-1}\\
+m_{n}
+\end{bmatrix}=\begin{bmatrix}d_{1}\\
+d_{2}\\
+\\
+d_{n-1}\\
+d_{n}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+系数矩阵严格对角占优, 方程组存在唯一解.
+  
+\end_layout
+
+\end_body
+\end_document

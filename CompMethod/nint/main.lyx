@@ -1,0 +1,3318 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{mathrsfs}
+
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+
+
+
+\usepackage{cleveref}
+\crefname{equation}{式}{式}
+\crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\crefname{page}{页}{页}
+\crefname{chapter}{章}{章}
+\crefname{section}{节}{节}
+\crefname{appendix}{附录}{附录}
+\crefname{theorem}{定理}{定理}
+\crefname{lemma}{引理}{引理}
+\crefname{corollary}{推论}{推论}
+\crefname{proposition}{命题}{命题}
+\crefname{definition}{定义}{定义}
+\crefname{example}{例}{例}
+\crefname{algorithm}{算法}{算法}
+\crefname{listing}{列表}{列表}
+\crefname{line}{行}{行}
+
+\crefformat{chapter}{#2第#1章#3}
+\crefformat{section}{#2第#1节#3}
+\crefformat{subsection}{#2第#1节#3}
+\crefformat{subsubsection}{#2第#1节#3}
+
+\crefrangeformat{chapter}{#3第#1章#4至#5第#2章#6}
+\crefrangeformat{section}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsection}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsubsection}{#3第#1节#4至#5第#2节#6}
+
+\crefmultiformat{chapter}{#2第#1章#3}{和#2第#1章#3}{, #2第#1章#3}{和#2第#1章#3}
+\crefmultiformat{section}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsubsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+
+\crefrangemultiformat{chapter}{#3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}{, #3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}
+\crefrangemultiformat{section}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsubsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+
+\newcommand{\crefpairconjunction}{~和~}
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{~和~}
+\newcommand{\crefpairgroupconjunction}{~和~}
+\newcommand{\crefmiddlegroupconjunction}{, }
+\newcommand{\creflastgroupconjunction}{~和~}
+\newcommand{\crefrangeconjunction}{~至~}
+
+% LISTINGS
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Make SS at the beginning of a section
+
+\makeatletter
+%% See pp. 26f. of 'The LaTeX Companion,' 2nd. ed.
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+    {\csname the#1\endcsname\quad}%      default
+    {\csname #1@cntformat\endcsname}}%   individual control
+\newcommand{\section@cntformat}{\S\thesection\quad}
+\newcommand{\subsection@cntformat}{\S\thesubsection\quad}
+\makeatother % changes @ back to a special character
+
+\usepackage{titlesec}
+
+\CTEXsetup[format={\raggedright\large\bfseries}]{section}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection.}{0.5em}{}[.]
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\alph{subsubsection})}{0.5em}{}
+
+
+\usepackage{annotate-equations}
+
+
+
+\theoremstyle{definition}
+
+
+\usepackage{enumitem}
+
+\setlist{nosep}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt, 
+    margin=1in,
+    rmargin=2.5in
+}
+\setlength{\marginparwidth}{2in}
+\usepackage{environ}
+
+
+
+\newcommand{\lecture}[6]{
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf #1
+		\hfill #6} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill 第 #2 节: #3  \hfill} }
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Lecturer: #4 \hfill Scribes: #5} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   
+   \vspace*{4mm}
+}
+
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  font=small}
+% \setlength{\marginparwidth}{100pt}
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
+\usepackage{setspace}
+\newcounter{paranum}[section]
+\newcommand{\Par}[1]{\vspace{10pt}\noindent\textbf{\refstepcounter{paranum}\theparanum. }\textbf{#1}~~}
+\newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
+\newcommand{\mn}[1]{\marginnote{{#1}}}
+% \renewcommand{\algorithmcfname}{算法}
+\usepackage[abspath]{currfile}
+
+\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigside}[3]{\marginpar{\includegraphics[width=\marginparwidth]{figs/\jobname/#1}
+  \captionof{figure}{#2}\label{fig:#3}}}
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\stirling}[2]{\left\{{#1 \atop #2}\right\}}
+\newcommand{\binomt}[2]{\left(\left({#1 \atop #2}\right)\right)}
+\newcommand{\pf}[4]{#1_{#2}^{#3_{#4}}}
+\newcommand{\pl}[4]{#1_{#2}{#3^{#4}}}
+\newcommand{\ty}[3]{{#1} \equiv {#2} ~(\bmod {#3})}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\varsub}[2]{\stackrel{#1}{\stackrel{\rule{#2}{0.4pt}}{\rule{#2}{0.4pt}}}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\Ep}[1]{\mathbb E\left(#1\right)}
+
+\newcommand{\red}[1]{{{\color{red}#1}}}
+\newcommand{\teal}[1]{{{\color{teal}#1}}}
+\newcommand{\blue}[1]{{{\color{blue}#1}}}
+\newcommand{\purple}[1]{{{\color{purple}#1}}}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\like}{$\blacktriangleright$}
+\newcommand{\exrate}[1]{{[#1]~}}
+\newcommand{\newword}[2]{{\textbf{#1(#2)}\index{#1}}}
+\newcommand{\newenword}[1]{{\textbf{#1}\index{#1}}}
+\newcommand{\nwd}[1]{{\textbf{#1}\index{#1}}}
+
+\DeclareMathOperator{\End}{End}
+\newcommand{\huaa}{{\mathscr A}}
+\newcommand{\huab}{{\mathscr B}}
+\newcommand{\huac}{{\mathscr C}}
+\newcommand{\zkj}[1]{{$\mathscr{#1}$-子空间}}
+\newcommand{\vecgrp}[2]{{{#1}_1, {#1}_2,\cdots, {#1}_{#2}}}
+
+\newcommand{\fadetext}[1]{{{\color{gray} #1}}}
+
+\newcommand{\motivation}[1]{{{\blue{ #1}}}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:Code
+  LyxType               charstyle
+  LabelString           code
+  LatexType             command
+  LatexName             code
+  Font
+    Family              Sans
+    Color               Green
+  EndFont
+  Preamble
+    \newcommand*{\code}[1]{\texttt{#1}}
+  EndPreamble
+	ResetsFont true
+End
+
+InsetLayout Flex:NewENWord
+  LyxType               charstyle
+  LabelString           "nenwd"
+  LatexType             command
+  LatexName             newenword
+  Font
+    Family              Sans
+    Color               blue
+  EndFont
+  ResetsFont true
+End
+\end_local_layout
+\language chinese-simplified
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\set}[1]{\{#1\}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\stirling}[2]{\left\{  {#1\atop #2}\right\}  }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\binomt}[2]{\left(\left({#1\atop #2}\right)\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\varsub}[1]{\xlongarrow\{#1\}}
+{\underset{========}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\dd}{\mathrm{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ep}[1]{\mathbb{E}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\teal}[1]{{\color{blue}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\purple}[1]{{\color{purple}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Cov}{\mathop{\textrm{Cov}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\mathbb{E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\R}{\mathbb{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\F}{\mathbb{F}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\like}{\blacktriangleright}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\exrate}[1]{{[#1]~}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ub}[2]{\underbrace{#1}_{#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+数值积分
+\end_layout
+
+\begin_layout Author
+《计算方法》课程笔记
+\end_layout
+
+\begin_layout Section
+引言
+\end_layout
+
+\begin_layout Standard
+在定积分的学习中, 我们根据定积分的定义采取分割、近似、求和、取极限四步骤获取了最后的积分值.
+ 如下例子:
+\end_layout
+
+\begin_layout Example
+求曲线 
+\begin_inset Formula $y=x^{2}$
+\end_inset
+
+、直线
+\begin_inset Formula $x=1$
+\end_inset
+
+和
+\begin_inset Formula $x$
+\end_inset
+
+轴所围成的曲边三角形的面积.
+ 
+\end_layout
+
+\begin_layout Example
+(1)分割: 将区间
+\begin_inset Formula $[0,1]$
+\end_inset
+
+等分成
+\begin_inset Formula $n$
+\end_inset
+
+个小区间, 直线
+\begin_inset Formula $x=i/n(i=1,2,...,n-1)$
+\end_inset
+
+把曲边三角形分成n个小曲边梯形, 
+\begin_inset Formula $S=\Delta s_{1}+\Delta s_{2}+\ldots+\Delta s_{i}+\ldots+\Delta s_{n-1}+\Delta s_{n}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Example
+(2)近似: 第
+\begin_inset Formula $i$
+\end_inset
+
+个小曲边梯形面积： 
+\begin_inset Formula $\Delta\mathrm{s}_{i}\approx\frac{1}{n}\cdot\left(\frac{i-1}{n}\right)^{2}\quad(i=1,2,\ldots,n)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Example
+(3)求和: 小曲边梯形面积的总和： 
+\begin_inset Formula 
+\[
+\begin{aligned}S_{n} & =\frac{1}{n}\cdot0+\frac{1}{n}\cdot\left(\frac{1}{n}\right)^{2}+\frac{1}{n}\cdot\left(\frac{2}{n}\right)^{2}+\ldots+\frac{1}{n}\cdot\left(\frac{n-1}{n}\right)^{2}\\
+ & =\frac{1}{3}\biggl(1-\frac{1}{n}\biggr)\biggl(1-\frac{1}{2n}\biggr)
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+(4) 取极限: 取得
+\begin_inset Formula $S_{n}$
+\end_inset
+
+的极限, 得曲边三角形面积
+\begin_inset Formula $S=\lim_{n\to\infty}S_{n}=\lim_{n\to\infty}\frac{1}{3}\left(1-\frac{1}{n}\right)\left(1-\frac{1}{2n}\right)=\frac{1}{3}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+后来我们掌握了Newton-Lebniz公式.
+ 然而,  Newton-Leibniz公式并不能完全解决定积分的实际计算问题, 因为实际问题极其复杂: 首先, 不一定能够找到用初等函数的有限形式表示的原函数
+\begin_inset Formula $F(x)$
+\end_inset
+
+, 如
+\begin_inset Formula $\int\frac{\sin x}{x}\dd x$
+\end_inset
+
+; 其次, 虽然原函数能用初等函数表示, 但表达式太复杂.
+ 第三, 被积函数f(x)表达式未知, 是用函数表/图形的形式给出的.
+  对于这些情况, 要计算积分的准确值十分困难.
+ 可见, 通过原函数来计算积分有其局限性, 需要研究新的积分计算方法来解决牛顿-莱布尼兹公式难以解决的积分问题.
+  具体地我们可以利用数值方法来近似计算定积分.
+  
+\end_layout
+
+\begin_layout Standard
+我们回到积分的定义.
+ 定积分的几何意义是: 由曲线
+\begin_inset Formula $y=f(x),x=a,x=b$
+\end_inset
+
+与
+\begin_inset Formula $x$
+\end_inset
+
+轴所围成的曲边梯形的面积.
+  此前我们采用如下的方法进行计算:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+矩形法: 用点
+\begin_inset Formula $a\leq x_{0}<x_{1}<\cdots<x_{n}\leq b$
+\end_inset
+
+,将区间
+\begin_inset Formula $[a,b]$
+\end_inset
+
+进行划分, 记
+\begin_inset Formula $\Delta x_{i}=x_{i+1}-x_{i},f(x_{i})=f_{i}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+若取
+\begin_inset Formula $f_{i}$
+\end_inset
+
+为矩形的高, 得左矩形公式： 
+\begin_inset Formula 
+\[
+I(f)=\int_{a}^{b}f(x)\mathrm{d}x\approx\Delta x_{0}\red{f_{0}}+\Delta x_{1}\red{f_{1}}+\cdots+\Delta x_{n-1}\red{f_{n-1}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+若取
+\begin_inset Formula $f_{i+1}$
+\end_inset
+
+为矩形的高, 得左矩形公式： 
+\begin_inset Formula 
+\[
+I(f)=\int_{a}^{b}f(x)\mathrm{d}x\approx\Delta x_{0}\red{f_{1}}+\Delta x_{1}\red{f_{2}}+\cdots+\Delta x_{n-1}\red{f_{n}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+取两式的平均值, 得梯形公式： 
+\begin_inset Formula 
+\begin{align*}
+I(f)=\int_{a}^{b}f(x)\mathrm{d}x\approx & \frac{\Delta x_{0}}{2}f_{0}+\frac{\Delta x_{0}+\Delta x_{1}}{2}f_{1}+\cdots\\
+ & +\frac{\Delta x_{n-2}+\Delta x_{n-1}}{2}f_{n-1}+\frac{\Delta x_{n-1}}{2}f_{n}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+实际上, 上述三式的共同特点是: 将定积分的计算转换为计算各点函数值的线性组合, 只是系数选取不同而已.
+  由此我们导出数值积分的基本形式.
+\end_layout
+
+\begin_layout Subsection
+数值积分的基本形式
+\end_layout
+
+\begin_layout Standard
+数值积分实际上是取
+\begin_inset Formula $f(x)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上一些离散点 
+\begin_inset Formula $a\leq x_{0}<x_{1}<\cdots<x_{n}\leq b$
+\end_inset
+
+处的函数值的线性组合作为定积分的近似值,  将求积过程转化为涉及到这些点相关的乘法与加法的代数运算.
+ 即
+\begin_inset Formula 
+\[
+I(f)=\int_{a}^{b}f(x)dx\approx Q(f)=\sum_{k=0}^{n}A_{k}f(x_{k}),
+\]
+
+\end_inset
+
+该公式称为数值求积公式(机械求积公式), 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+为求积节点, 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+为求积系数, 该方法称为数值积分.
+ 和以往一样, 其截断误差或余项定义做
+\begin_inset Formula $E(f):=I(f)-Q(f)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+于是, 我们接下来要考虑的问题主要有:
+\end_layout
+
+\begin_layout Itemize
+如何选择合适的求积节点
+\begin_inset Formula $x_{k}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+如何确定合适的求积系数
+\begin_inset Formula $A_{k}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Standard
+使误差 
+\begin_inset Formula $E(f)=I(f)-Q(f)$
+\end_inset
+
+尽可能的小.
+ 
+\end_layout
+
+\begin_layout Standard
+实际上, 一个最简单的思路是采用被积函数 
+\begin_inset Formula $f$
+\end_inset
+
+ 简单易积的插值函数近似替代
+\begin_inset Formula $f$
+\end_inset
+
+ 进行积分.
+ 最简单的想法是采用插值多项式替代
+\begin_inset Formula $f$
+\end_inset
+
+进行积分.
+ 
+\end_layout
+
+\begin_layout Section
+插值求积.
+ 衡量标准
+\end_layout
+
+\begin_layout Subsection
+使用多项式插值近似原函数
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:poly-ori"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们希望用插值多项式近似原函数, 用插值函数的积分作为 
+\begin_inset Formula $I(f)$
+\end_inset
+
+的近似值.
+ 不妨设插值函数为Lagrange多项式, 可得到插值型求积公式 
+\begin_inset Formula 
+\[
+I(f)\approx\int_{a}^{b}\ub{\red{\sum_{k=0}^{n}l_{k}(x)f(x_{k})}}{L_{n}(x)}\dd x=\sum_{k=0}^{n}\biggl(\int_{a}^{b}l_{k}(x)dx\biggr)f(x_{k}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中求积系数 
+\begin_inset Formula $A_{k}=\int_{a}^{b}l_{k}(x)\dd x,k=0,1,2,\ldots,n$
+\end_inset
+
+.
+ 有
+\begin_inset Formula $Q(f)=\sum_{k=0}^{n}A_{k}f(x_{k})$
+\end_inset
+
+, 从而
+\begin_inset Formula 
+\[
+E(f)=I(f)-Q(f)=\int_{a}^{b}R_{n}(x)\dd x=\boxed{\int_{a}^{b}\frac{f^{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x)\dd x}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+若被积函数
+\begin_inset Formula $f(x)$
+\end_inset
+
+ 是不超过
+\begin_inset Formula $n$
+\end_inset
+
+次的多项式函数, 则
+\begin_inset Formula $f^{(n+1)}=0$
+\end_inset
+
+恒成立, 
+\begin_inset Formula $E(f)=0$
+\end_inset
+
+.
+ 相应的插值型求积公式不是近似公式, 而是精确公式.
+ 
+\end_layout
+
+\begin_layout Standard
+通过上述的论述, 我们可得到求积公式对多项式类函数的精确程度.
+ 任何连续函数都可由某个多项式函数一致逼近, 一个求积公式对多项式类函数的精确程度如何, 能反映该求积公式的``优劣''.
+  为衡量数值求积公式的``优劣''程度, 引入``代数精度''的概念作为评价指标.
+ 
+\end_layout
+
+\begin_layout Subsection
+衡量标准: 代数精度
+\end_layout
+
+\begin_layout Definition
+如果某个数值求积公式 
+\begin_inset Formula $Q(f)=\sum_{k=0}^{n}A_{k}f(x_{k})$
+\end_inset
+
+对 
+\begin_inset Formula $f(x)$
+\end_inset
+
+取
+\series bold
+所有
+\series default
+次数不超过
+\begin_inset Formula $m$
+\end_inset
+
+次的多项式均能精确成立, 但至少对某个
+\begin_inset Formula $m＋1$
+\end_inset
+
+次 的多项式不精确成立, 则称该求积公式具有
+\begin_inset Formula $m$
+\end_inset
+
+次代数精度.
+  
+\end_layout
+
+\begin_layout Standard
+这定义立马说明代数精度越高说明公式越能对更多的多项式函数准确成立, 即对更多的被积函数都能准确成立.
+ 
+\end_layout
+
+\begin_layout Standard
+要验证一个求积公式具有
+\begin_inset Formula $m$
+\end_inset
+
+次代数精度, 只需验证其对
+\begin_inset Formula $f(x)＝1,x,x^{2},…,x^{m}$
+\end_inset
+
+精确成立, 但对
+\begin_inset Formula $f(x)＝x^{m+1}$
+\end_inset
+
+不精确成立.
+ (即: 
+\begin_inset Formula $\begin{cases}
+\sum_{i=0}^{n}A_{i}x_{i}^{k}=\int_{a}^{b}x^{k}dx\\
+\sum_{i=0}^{n}A_{i}x_{i}^{m+1}\neq\int_{a}^{b}x^{m+1}dx
+\end{cases}(k=0,1,\ldots,m)$
+\end_inset
+
+).
+ 这是因为
+\begin_inset Formula $\{1,x,x^{2},x^{3},\cdots,x^{m}\}$
+\end_inset
+
+是
+\begin_inset Formula $\F[x^{m}]$
+\end_inset
+
+空间的一组基.
+ 由于积分是线性算子, 因此只要判定基底的精确性, 就可以得知其对于全空间的精确性.
+\end_layout
+
+\begin_layout Example
+试确定系数
+\begin_inset Formula $\omega_{i}$
+\end_inset
+
+, 使下面的求积公式具有至少2次代数精度, 并求出此求积公式的代数精度.
+  
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\int_{-1}^{1}f(x)dx\approx\omega_{0}f(-1)+\omega_{1}f(0)+\omega_{2}f(1).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mn{有可能作为填空题出现.
+ }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{array}{c}
+f(x)=1\\
+f(x)=x\\
+f(x)=x^{2}
+\end{array}\begin{cases}
+\omega_{0}+\omega_{1}+\omega_{2}=\int_{-1}^{1}1\dd x & =2\\
+-\omega_{0}+\omega_{2}=\int_{-1}^{1}x\dd x & =0(\text{奇\text{函\text{数}}})\\
+\omega_{0}+\omega_{2}=\int_{-1}^{1}x^{2}\dd x & =2/3
+\end{cases}
+\]
+
+\end_inset
+
+从而
+\begin_inset Formula $\omega_{0}=1/3=\omega_{2},\omega_{1}=4/3$
+\end_inset
+
+.
+ 以求积公式为
+\begin_inset Formula $\int_{-1}^{1}f(x)dx\approx[f(-1)+4f(0)+f(1)]/3.$
+\end_inset
+
+ 并且可以立即得到其具有三次代数精度: 
+\begin_inset Formula $\int_{-1}^{1}x^{3}\dd x=0=-1+1$
+\end_inset
+
+; 但是不具有四次代数精度: 
+\begin_inset Formula $\int_{-1}^{1}x^{4}\dd x\neq0=-1+1$
+\end_inset
+
+.
+ 所以此求积公式具有 3 次代数精度.
+ 
+\end_layout
+
+\begin_layout Standard
+那么代数精度似乎与被插值的节点数有关.
+ 实际上, 根据上例的探索, 发现含有
+\begin_inset Formula $n+1$
+\end_inset
+
+个互异节点的插值型求积公式对
+\begin_inset Formula $f(x)＝1,x,x^{2},…,x^{n}$
+\end_inset
+
+精确成立, 所以其代数精度至少为
+\begin_inset Formula $n$
+\end_inset
+
+次.
+  这可以从误差的角度看到: 毕竟
+\begin_inset Formula $E(f)=I(f)-Q(f)=\int_{a}^{b}R_{n}(x)dx=\int_{a}^{b}\ub{\frac{\red{f^{(n+1)}(\xi)}}{(n+1)!}}{\text{为}0}\omega_{n+1}(x)\dd x$
+\end_inset
+
+.
+ 反之, 还可以知道如果求积公式
+\begin_inset Formula $\int_{a}^{b}f(x)\mathrm{d}x\approx\sum_{i=0}^{n}\omega_{i}f(x_{i})$
+\end_inset
+
+ 的代数精度至少为
+\begin_inset Formula $n$
+\end_inset
+
+次, 则它必定是插值型的.
+  这是因为求积公式对
+\begin_inset Formula $n$
+\end_inset
+
+次Lagrange插值基函数
+\begin_inset Formula $l_{k}(x)$
+\end_inset
+
+精确成立, 就是说 
+\begin_inset Formula $\int_{a}^{b}l_{k}(x)\mathrm{d}x=\sum_{i=0}^{n}\omega_{i}\teal{l_{k}(x_{i})}$
+\end_inset
+
+.注意到
+\begin_inset Formula $\teal{l_{k}(x_{i})}=[k=i]$
+\end_inset
+
+, 于是求和记号中只剩下第
+\begin_inset Formula $k$
+\end_inset
+
+项, 变为了
+\begin_inset Formula $\omega_{k}=\int_{a}^{b}l_{k}(x)\mathrm{d}x$
+\end_inset
+
+.
+ 由此我们给出定理:
+\end_layout
+
+\begin_layout Theorem
+求积公式
+\begin_inset Formula $\int_{a}^{b}f(x)\mathrm{d}x\approx\sum_{i=0}^{n}\omega_{i}f(x_{i})$
+\end_inset
+
+ 至少具有n次代数精度的充要条件是：它是插值型的.
+ 
+\end_layout
+
+\begin_layout Standard
+根据求积节点的选择不同, 常见的求积公式可分为两大类： 
+\end_layout
+
+\begin_layout Itemize
+Newton-Cotes型公式, 基于等距分布的求积节点.
+\end_layout
+
+\begin_layout Itemize
+Gauss型公式, 取相应的正交多项式的根作为求积节点.
+\end_layout
+
+\begin_layout Section
+Newton-Cotes求积公式
+\end_layout
+
+\begin_layout Subsection
+公式导出
+\end_layout
+
+\begin_layout Standard
+在插值型求积公式中, 节点xk按等距分布, 令步长 
+\begin_inset Formula $h=\frac{b-a}{n},x_{k}=a+kh\quad(k=0,1,2,\cdots,n)$
+\end_inset
+
+.
+ 以这些等距节点为插值节点的插值型求积公式称为Newton-Cotes求积公式.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+使用待定系数法确定公式
+\end_layout
+
+\begin_layout Standard
+实际上, 如果我们采用待定系数法, 把Cotes系数写作
+\begin_inset Formula 
+\[
+\int_{a}^{b}f(x)dx=A_{0}\cdot f(a)+A_{1}\cdot f\left(a+\frac{b-a}{n}\right)+A_{2}\cdot f\left(a+2\cdot\frac{b-a}{n}\right)+\cdots+A_{n}\cdot f(b)
+\]
+
+\end_inset
+
+的形式, 这些积分系数
+\begin_inset Formula $\{A_{0},A_{1},\cdots,A_{n}\}$
+\end_inset
+
+可能与
+\begin_inset Formula $a,b$
+\end_inset
+
+有关.
+ 为了简化计算, 我们干脆把上述内容统一平移到
+\begin_inset Formula $[0,n]$
+\end_inset
+
+并且除以区间的长度.
+ 这样, 我们得到一组新的系数
+\begin_inset Formula $\{a_{0},a_{1},\cdots,a_{n}\}$
+\end_inset
+
+, 满足
+\begin_inset Formula $A_{i}=(b-a)a_{i}$
+\end_inset
+
+.
+ 因此, 上述的估计就变成了
+\begin_inset Formula 
+\[
+\int_{a}^{b}f(x)dx\approx(b-a)\cdot{\displaystyle \sum_{i=0}^{n}a_{i}\cdot f\left(a+i\cdot\frac{b-a}{n}\right)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们现在来求解这些系数.
+ 令
+\begin_inset Formula ${\bf M}=\begin{pmatrix}1 & 0 & 0 & \cdots & 0\\
+1 & 1 & 1 & \cdots & 1\\
+1 & 2 & 2^{2} & \cdots & 2^{n}\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+1 & n & n^{2} & \cdots & n^{n}
+\end{pmatrix}\in\R^{(n+1)\times(n+1)},{\bf A}=n\begin{pmatrix}a_{0}\\
+a_{1}\\
+a_{2}\\
+\vdots\\
+a_{n}
+\end{pmatrix}\in\R^{(n+1)\times1},{\bf B}=\begin{pmatrix}\int_{0}^{n}x^{0}\dd x\\
+\int_{0}^{n}x^{1}\dd x\\
+\int_{0}^{n}x^{2}\dd x\\
+\vdots\\
+\int_{0}^{n}x^{n}\dd x
+\end{pmatrix}\in\R^{(n+1)\times1}$
+\end_inset
+
+ 从而让
+\begin_inset Formula ${\bf M}'{\bf A}={\bf B}.$
+\end_inset
+
+ 由于
+\begin_inset Formula ${\bf A=(M')}^{-1}{\bf B}$
+\end_inset
+
+, 所以我们的系数就是
+\begin_inset Formula $\frac{1}{n}{\bf A}.$
+\end_inset
+
+ 因此就得到的Cotes公式的表达.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+https://people.clas.ufl.edu/kees/files/NewtonCotes.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+找规律得到的公式
+\end_layout
+
+\begin_layout Example
+下面对于Newton-Cotes的
+\begin_inset Formula $n$
+\end_inset
+
+取值进行初步探究.
+ 实际上, 
+\begin_inset Formula $n$
+\end_inset
+
+通常取1, 2, 3, 4等值.
+ 
+\end_layout
+
+\begin_layout Example
+(1) 
+\begin_inset Formula $n=1$
+\end_inset
+
+时, 
+\begin_inset Formula $x_{0}=a,x_{1}=b$
+\end_inset
+
+.
+ 插值函数为
+\begin_inset Formula $p_{1}(x)=\frac{x-b}{a-b}f(a)+\frac{x-a}{b-a}f(b)$
+\end_inset
+
+.
+ 对这个式子从
+\begin_inset Formula $a$
+\end_inset
+
+到
+\begin_inset Formula $b$
+\end_inset
+
+的积分, 就有
+\begin_inset Formula 
+\begin{align*}
+\int_{a}^{b}\red{\ub{\frac{x-b}{a-b}}{l_{0}(x)}f(a)}+\blue{\ub{\frac{x-a}{b-a}}{l_{1}(x)}f(b)}\dd x & =\red{\left[\frac{(x-b)^{2}}{2(a-b)}f(a)\right]_{a}^{b}}+\blue{\left[\frac{(x-a)^{2}}{2(b-a)}f(b)\right]_{a}^{b}}\\
+ & =\red{\ub{-\frac{a-b}{2}}{A_{0}}f(a)}+\blue{\ub{\frac{b-a}{2}}{A_{1}}f(b)}\\
+ & =\frac{b-a}{2}(f(a)+f(b)).
+\end{align*}
+
+\end_inset
+
+这就是早些时候得到的梯形求积公式/两点公式.
+ 
+\end_layout
+
+\begin_layout Example
+(2) 
+\begin_inset Formula $n=2$
+\end_inset
+
+时, 
+\begin_inset Formula $h=\frac{b-a}{2},x_{0}=a,x_{1}=\frac{a+b}{2},x_{2}=b$
+\end_inset
+
+.
+ 插值多项式为
+\begin_inset Formula 
+\[
+\begin{aligned}p_{2}(x)= & \frac{(x-x_{1})(x-x_{2})}{(x_{0}-x_{1})(x_{0}-x_{2})}f(x_{0})+\frac{(x-x_{0})(x-x_{2})}{(x_{1}-x_{0})(x_{1}-x_{2})}f(x_{1})\\
+ & +\frac{(x-x_{0})(x-x_{1})}{(x_{2}-x_{0})(x_{2}-x_{1})}f(x_{2})
+\end{aligned}
+\]
+
+\end_inset
+
+实际上像上例一样, 由于积分的线性性, 求积系数
+\begin_inset Formula $A_{k}$
+\end_inset
+
+可以直接由 Lagrange 基函数积分得到.
+ 它具有一次代数精度.
+ 即
+\begin_inset Formula $A_{k}=\int_{a}^{b}l_{k}(x)dx,k=0,1,2,\ldots,n$
+\end_inset
+
+.
+ 使用Wolfram Alpha 的符号积分功能, 可以得到
+\begin_inset Formula $A_{0}=h/3,A_{1}=4h/3,A_{2}=h/3.$
+\end_inset
+
+ 化简得到
+\begin_inset Formula 
+\[
+\boxed{Q(f)=S_{1}=\frac{b-a}{6}\left(f(a)+4f\biggl(\frac{a+b}{2}\biggr)+f(b)\right)}.
+\]
+
+\end_inset
+
+这就是Simpson求积公式.
+ 它具有三次代数精度.
+ 
+\end_layout
+
+\begin_layout Example
+(3) 
+\begin_inset Formula $n=3$
+\end_inset
+
+时, 
+\begin_inset Formula $h=\frac{b-a}{3},x_{0}=a,x_{1}=\frac{2a+b}{3},x_{2}=\frac{a+2b}{3},x_{3}=b$
+\end_inset
+
+.
+ 插值多项式为 
+\begin_inset Formula 
+\[
+\begin{gathered}p_{3}(x)=\frac{(x-x_{1})(x-x_{2})(x-x_{3})}{(x_{0}-x_{1})(x_{0}-x_{2})(x_{0}-x_{3})}f(x_{0})+\frac{(x-x_{0})(x-x_{2})(x-x_{3})}{(x_{1}-x_{0})(x_{1}-x_{2})(x_{1}-x_{3})}f(x_{1})\\
++\frac{(x-x_{0})(x-x_{1})(x-x_{3})}{(x_{2}-x_{0})(x_{2}-x_{1})(x_{2}-x_{3})}f(x_{2})+\frac{(x-x_{0})(x-x_{1})(x-x_{2})}{(x_{3}-x_{0})(x_{3}-x_{1})(x_{3}-x_{2})}f(x_{3})
+\end{gathered}
+\]
+
+\end_inset
+
+可求得 
+\begin_inset Formula $A_{0}=\frac{3h}{8},A_{1}=\frac{9h}{8},A_{2}=\frac{9h}{8},A_{3}=\frac{3h}{8}$
+\end_inset
+
+.
+ 求积公式为
+\begin_inset Formula 
+\[
+\boxed{Q(f)=S_{3/8}=\frac{b-a}{8}\left(f(a)+3f\bigg(\frac{2a+b}{3}\bigg)+3f\bigg(\frac{2b+a}{3}\bigg)+f(b)\right)}.
+\]
+
+\end_inset
+
+这是 Simpson 3/8求积公式, 具有 3 次代数精度.
+ 
+\end_layout
+
+\begin_layout Example
+(4) 
+\begin_inset Formula $n=4$
+\end_inset
+
+时, 
+\begin_inset Formula $h=\frac{b-a}{4},x_{0}=a,x_{1}=a+h,x_{2}=a+2h,x_{3}=a+3h,x_{4}=b$
+\end_inset
+
+.
+ 插值多项式为
+\begin_inset Formula $p_{4}(x)=l_{0}(x)f(x_{0})+l_{1}(x)f(x_{1})+l_{2}(x)f(x_{2})+l_{3}(x)f(x_{3})+l_{4}(x)f(x_{4})$
+\end_inset
+
+, 可以求得 
+\begin_inset Formula $A_{0}=\frac{14h}{45},A_{1}=\frac{64h}{45},A_{2}=\frac{24h}{45},A_{3}=\frac{64h}{45},A_{4}=\frac{14h}{45}$
+\end_inset
+
+.
+ 对应的求积公式为 
+\begin_inset Formula 
+\[
+\boxed{\begin{gathered}Q(f)=C_{1}=\frac{b-a}{90}[7f(a)+32f(a+h)+12f(a+2h)\\
++32f(a+3h)+7f(b)]
+\end{gathered}
+}.
+\]
+
+\end_inset
+
+这是 Cotes 求积公式, 具有 5 次代数精度.
+ 
+\end_layout
+
+\begin_layout Standard
+观察前面求积公式, 等距节点条件下, 可以得到 
+\begin_inset Formula $I(f)=\int_{a}^{b}f(x)\mathrm{d}x\approx(b-a)\sum_{i=0}^{n}C_{i}^{(n)}f(x_{i})$
+\end_inset
+
+, 其中
+\begin_inset Formula $C_{i}^{(n)}=\frac{A_{i}}{b-a}=\frac{1}{b-a}\int_{a}^{b}\prod_{j=0,j\neq i}^{n}\frac{x-x_{j}}{x_{i}-x_{j}}\dd x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+为简化计算,可以使用起始值
+\begin_inset Formula $a$
+\end_inset
+
+和步长
+\begin_inset Formula $h$
+\end_inset
+
+来表示.
+ 令
+\begin_inset Formula $x:=a+th$
+\end_inset
+
+, 这就有
+\begin_inset Formula $\dd x=h\dd t$
+\end_inset
+
+, 
+\begin_inset Formula $x-xj=(t-j)h,xi-xj=(i-j)h$
+\end_inset
+
+.
+ 于是上述的积分公式可以变为 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}C_{i}^{(n)} & =\frac{1}{b-a}\int_{a}^{b}\frac{(x-x_{0})(x-x_{1})\cdots(x-x_{i-1})(x-x_{i+1})\cdots(x-x_{n})}{(x_{i}-x_{0})(x_{i}-x_{1})\cdots(x_{i}-x_{i-1})(x_{i}-x_{i+1})\cdots(x_{i}-x_{n})}\dd x\\
+ & =\frac{h}{b-a}\int_{0}^{n}\frac{t(t-1)\cdots(t-i+1)(t-i-1)\cdots(t-n)h^{n}}{i(i-1)\cdots2\times1\times(-1)(-2)\cdots(-(n-i))h^{n}}\dd t & (\text{把}x\\
+ & =\frac{(-1)^{n-i}}{ni!(n-i)!}\int_{0}^{n}t(t-1)\cdots(t-i+1)(t-i-1)\cdots(t-n)\dd t
+\end{aligned}
+\text{代\text{换为}}t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这就表明Cotes系数只依赖被积区间的等分数
+\begin_inset Formula $n$
+\end_inset
+
+, 与积分区间
+\begin_inset Formula $[a,b]$
+\end_inset
+
+和被积函数
+\begin_inset Formula $f(x)$
+\end_inset
+
+都无关.
+ 只要给出了等分数就能算出 
+\begin_inset Formula $C_{i}^{(n)}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+误差分析
+\end_layout
+
+\begin_layout Standard
+像上文一样, 数值积分的误差主要来自于各个插值点之间的部分与原函数的差别.
+ 早在第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:poly-ori"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+节的时候我们说明了
+\begin_inset Formula $E(f)=\boxed{\int_{a}^{b}\frac{f^{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x)\dd x}$
+\end_inset
+
+.
+ 下面我们由于积分中值定理导出积分加权平均值定理, 这就给后续误差的估计带来了方便.
+ 
+\end_layout
+
+\begin_layout Standard
+回顾积分中值定理: 
+\end_layout
+
+\begin_layout Theorem*
+若函数
+\begin_inset Formula $f(x)$
+\end_inset
+
+在闭区间
+\begin_inset Formula $[a,b]$
+\end_inset
+
+连续, 在积分区间内至少存在一个数
+\begin_inset Formula $\xi,$
+\end_inset
+
+满足
+\begin_inset Formula $\int_{a}^{b}f(x)\dd x=f(\xi)(b-a)\ ,(a\leq\xi\leq b).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+倘若我们对积分区间的每一点乘上一个权重, 不同点的权重可以不同, 但是必须同号.
+ 我们同样可以导出类似的结论.
+ 
+\end_layout
+
+\begin_layout Theorem
+如果函数
+\begin_inset Formula $f(x)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+内连续; 积分权重函数
+\begin_inset Formula $g(x)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+可积且不变号.
+ 那么在积分区间内至少存在一点
+\begin_inset Formula $\xi$
+\end_inset
+
+使得
+\begin_inset Formula $\int_{a}^{b}f(x)g(x)\dd x=f(\xi)\int_{a}^{b}g(x)\dd x.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+不失一般性考虑
+\begin_inset Formula $g(x)>0$
+\end_inset
+
+.
+ 由于
+\begin_inset Formula $f$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+内是连续函数, 因此设其最小值和最大值为
+\begin_inset Formula $m,M,$
+\end_inset
+
+且满足
+\begin_inset Formula $m\leq f(t)\leq M,t\in[a,b]$
+\end_inset
+
+.
+ 取到最小值和最大值的自变量值记作
+\begin_inset Formula $x_{m},x_{M}.$
+\end_inset
+
+ 我们记左手边为
+\begin_inset Formula $C:=\int_{a}^{b}f(x)g(x)\dd x$
+\end_inset
+
+, 定义函数
+\begin_inset Formula $\theta:[a,b]\to\R$
+\end_inset
+
+, 满足
+\begin_inset Formula $\theta(t)=f(t)\red{\int_{a}^{b}g(x)\dd x}.$
+\end_inset
+
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+是连续的, 因为
+\begin_inset Formula $f$
+\end_inset
+
+是连续的, 而后面红色部分是一个常数.
+ 
+\end_layout
+
+\begin_layout Proof
+考虑
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, 由于
+\begin_inset Formula $g(x)>0$
+\end_inset
+
+恒成立.
+ 注意到
+\begin_inset Formula $mg(x)\leq f(x)g(x)\leq Mg(x).$
+\end_inset
+
+ 所以
+\begin_inset Formula 
+\[
+\int_{a}^{b}mg(x)dx\leq\int_{a}^{b}f(x)g(x)dx\leq\int_{a}^{b}Mg(x)dx.
+\]
+
+\end_inset
+
+即
+\begin_inset Formula $\theta(x_{m})\leq C\leq\theta(x_{M}).$
+\end_inset
+
+ 根据连续函数的介值定理, 存在某个常数
+\begin_inset Formula $\xi$
+\end_inset
+
+, 使得
+\begin_inset Formula $\theta(\xi)=C.$
+\end_inset
+
+ 即
+\begin_inset Formula $\int_{a}^{b}f(x)g(x)dx=f(c)\cdot\int_{a}^{b}g(x)dx.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+同理可证
+\begin_inset Formula $g(x)\leq0$
+\end_inset
+
+的情形.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+https://math.stackexchange.com/questions/4492330/if-f-g-are-continuous-on-a-b-and-
+gx-0-then-there-is-a-c-where-in
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+考虑上述例子的误差.
+ 
+\end_layout
+
+\begin_layout Example
+(1) 首先考虑梯形求积公式的误差.
+ 写出对应的公式: 
+\begin_inset Formula 
+\[
+E_{1}=\int_{a}^{b}R_{1}(x)dx=\int_{a}^{b}\red{\frac{f''(\xi)}{2!}}\blue{(x-a)(x-b)}\dd x
+\]
+
+\end_inset
+
+如果我们认为
+\begin_inset Formula $f''$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+连续, 由于
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+, 说明
+\begin_inset Formula $(x-a)(x-b)\leq0$
+\end_inset
+
+.
+ 根据上述的中值定理, 存在
+\begin_inset Formula $\eta\in(a,b)$
+\end_inset
+
+, 满足
+\begin_inset Formula 
+\begin{align*}
+E_{1} & =\red{\frac{f''(\eta)}{2!}}\int_{a}^{b}\blue{(x-a)(x-b)}\dd x\\
+ & =\red{\frac{f''(\eta)}{2!}}\frac{1}{6}(a-b)^{3}\\
+ & =\boxed{-\frac{f''(\eta)}{12}(b-a)^{3},\eta\in(a,b).}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+(2) 然后考虑Simpson 求积公式.
+ 考虑写出对应误差函数: 
+\begin_inset Formula 
+\[
+E_{2}(x)=\int_{a}^{b}\red{\frac{f'''(\xi)}{3!}}\blue{(x-a)\biggl(x-\frac{a+b}{2}\biggr)(x-b)}\dd x
+\]
+
+\end_inset
+
+但是问题在于, 上述蓝色部分在区间
+\begin_inset Formula $[a,b]$
+\end_inset
+
+内并不保号.
+ 不能直接用积分中值定理.
+ 所以我们考虑采用另外的插值法.
+ 由于Simpson公式具有三次代数精度, 故其对于满足以下条件的Hermite三次插值多项式
+\begin_inset Formula $H(x)$
+\end_inset
+
+也能够精确成立.
+ 即令
+\begin_inset Formula 
+\[
+\left.\left\{ \begin{aligned}H(a) & =f(a) & H(b) & =f(b)\\
+H(c) & =f(c) & H^{\prime}(c) & =f^{\prime}(c)
+\end{aligned}
+\right.\right.\left(c=\frac{a+b}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+故有
+\begin_inset Formula $\int_{a}^{b}H(x)\mathrm{d}x=\frac{b-a}{6}[H(a)+4H(c)+H(b)].$
+\end_inset
+
+ 这就表明Simpson求积公式所求的积分可以用 
+\begin_inset Formula $\int_{a}^{b}H(x)\mathrm{d}x$
+\end_inset
+
+表示, 这时候求积公式的截断误差为
+\begin_inset Formula $E(f)=I(f)-S_{1}=\int_{a}^{b}(f(x)-H(x))\dd x.$
+\end_inset
+
+ 利用Hermite多项式的余项公式得到
+\begin_inset Formula $E(f)=\int_{a}^{b}\red{\frac{f^{(4)}(\xi)}{4!}}\blue{(x-a)(x-c)^{2}(x-b)}\dd x.$
+\end_inset
+
+ 这时候
+\begin_inset Formula $(x-a)(x-c)^{2}(x-b)\leq0$
+\end_inset
+
+具有保号性, 
+\series bold
+补充
+\begin_inset Formula $f^{(4)}$
+\end_inset
+
+连续的条件之后
+\series default
+, 利用积分中值定理:
+\begin_inset Formula 
+\[
+E=\frac{f^{(4)}(\eta)}{4!}\int_{a}^{b}(x-a)(x-c)^{2}(x-b)\dd x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+使用Wolfram Alpha计算这个积分表达式, 就可以得到
+\begin_inset Formula $E=\boxed{-\frac{(b-a)^{5}}{2880}f^{(4)}(\eta)}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+(3) 对于
+\begin_inset Formula $n=3$
+\end_inset
+
+的情况, 实际推导就已经过于复杂, 这里直接给出结果: 设
+\begin_inset Formula $f^{(4)}(x)$
+\end_inset
+
+ 在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上连续, 则Simpson 3/8求积公式的误差是
+\begin_inset Formula $E_{3}=-\frac{(b-a)^{5}}{6480}f^{(4)}(\eta),a<\eta<b.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+(4) 对于
+\begin_inset Formula $n=4$
+\end_inset
+
+的情况, 我们有: 设
+\begin_inset Formula $f^{(6)}(x)$
+\end_inset
+
+ 在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上连续, 则Cotes求积公式的误差是
+\begin_inset Formula $E_{4}=-\frac{8}{945}{\left(\frac{b-a}{4}\right)}^{7}f^{(6)}(\eta),a<\eta<b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+系数特点和稳定性
+\end_layout
+
+\begin_layout Standard
+我们下面重点看Cotes 系数
+\begin_inset Formula $C_{i}^{(n)}=\frac{(-1)^{n-i}}{ni!(n-i)!}\int_{0}^{n}\prod_{j=0,j\neq i}^{n}(t-j)\mathrm{d}t$
+\end_inset
+
+.
+ 其具有如下的性质
+\end_layout
+
+\begin_layout Theorem
+Cotes 系数满足
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+代数和为 1, 即
+\begin_inset Formula $\sum_{i=0}^{n}C_{i}^{(n)}=1$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+具有对称性, 即
+\begin_inset Formula $C_{i}^{(n)}=C_{n-i}^{(n)}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+对于(1), 把常数项拿进积分号, 
+\begin_inset Formula $C_{i}^{(n)}=\frac{(-1)^{n-i}}{ni!(n-i)!}\int_{0}^{n}\prod_{j=0,j\neq i}^{n}(t-j)\mathrm{d}t=\int_{0}^{n}\red{\frac{(-1)^{n-i}}{ni!(n-i)!}\prod_{j=0,j\neq i}^{n}(t-j)}\mathrm{d}t$
+\end_inset
+
+.
+ 考虑
+\begin_inset Formula 
+\[
+F_{i}(t)=\frac{(-1)^{n-i}}{i!(n-i)!n}\prod_{j=0,j\neq i}^{n}(t-j).
+\]
+
+\end_inset
+
+这个式子对于
+\begin_inset Formula $t=0,1,2,\cdots,n$
+\end_inset
+
+只有当
+\begin_inset Formula $t=i$
+\end_inset
+
+的时候, 
+\begin_inset Formula $F_{i}(t)\neq0$
+\end_inset
+
+.
+ 即原式变为
+\begin_inset Formula $\frac{(-1)^{n-i}}{(n-i)!n}(-1)^{n-i}(n-i)!=1/n$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\sum_{i=0}^{n}F_{i}(t)$
+\end_inset
+
+是一个
+\begin_inset Formula $n$
+\end_inset
+
+次多项式, 当
+\begin_inset Formula $t=0,1,2,3,\cdots,n$
+\end_inset
+
+这
+\begin_inset Formula $n+1$
+\end_inset
+
+个点的时候, 多项式的值都是
+\begin_inset Formula $1/n$
+\end_inset
+
+.
+ 由于代数基本定理, 除非
+\begin_inset Formula $F_{i}(t)$
+\end_inset
+
+恒为
+\begin_inset Formula $1/n,$
+\end_inset
+
+否则多项式的次数会更高.
+ 
+\end_layout
+
+\begin_layout Proof
+所以可以知道
+\begin_inset Formula 
+\[
+\begin{aligned}\sum_{i=0}^{n}C_{i}^{(n)} & =\sum_{i=0}^{n}\int_{0}^{n}F_{i}(t)dt\\
+ & =\int_{0}^{n}\sum_{i=0}^{n}F_{i}(t)dt\\
+ & =\int_{0}^{n}\frac{1}{n}dt\\
+ & =1.
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+注意到
+\end_layout
+
+\begin_layout Proof
+(2) 这是因为, 
+\begin_inset Formula $\sum_{i=0}^{n}\frac{(-1)^{n-i}}{ni!(n-i)!}\int_{0}^{n}\prod_{j=0,j\neq i}^{n}(t-j)\mathrm{d}t$
+\end_inset
+
+将
+\begin_inset Formula $i$
+\end_inset
+
+代为
+\begin_inset Formula $n-i$
+\end_inset
+
+之后原式不变.
+ 
+\end_layout
+
+\begin_layout Standard
+实际上, 当
+\begin_inset Formula $n\geq8$
+\end_inset
+
+时,  Cotes系数出现负数, 稳定性得不到保证.
+ 另外, 由于Runge现象, 收敛性也无法保证.
+ 故一般不采用高阶的牛顿-柯特斯求积公式.
+  
+\end_layout
+
+\begin_layout Section
+复化(复合/组合)求积公式
+\end_layout
+
+\begin_layout Standard
+由梯形/辛普森/柯特斯公式知, 求积节点数增多, 公式精度也会相应提高.
+ 
+\begin_inset Formula $n>7$
+\end_inset
+
+时, Cotes系数开始出现负值, 可能会导致舍入误差增大, 并且往往难以估计.
+  因此, 不能用增加求积节点数的方法来提高计算精度.
+ 在实际应用中, 提高积分计算精度常用两种方法: 
+\end_layout
+
+\begin_layout Itemize
+用复化(组合)公式;
+\end_layout
+
+\begin_layout Itemize
+用非等距节点.
+\end_layout
+
+\begin_layout Standard
+复化求积公式大体的流程是: 
+\end_layout
+
+\begin_layout Enumerate
+将积分区间分割成多个小区间 
+\end_layout
+
+\begin_layout Enumerate
+每个小区间上使用低次Newton-Cotes求积公式 
+\end_layout
+
+\begin_layout Enumerate
+所有小区间上的计算结果相加得到整个区间上的求积公式 
+\end_layout
+
+\begin_layout Subsection
+预先选定步长
+\end_layout
+
+\begin_layout Subsubsection
+复化梯形公式
+\end_layout
+
+\begin_layout Standard
+首先我们定小区间：将
+\begin_inset Formula $[a,b]$
+\end_inset
+
+分成 
+\begin_inset Formula $n$
+\end_inset
+
+ 等分
+\begin_inset Formula $[x_{i},x_{i+1}]$
+\end_inset
+
+, 其中节点：
+\begin_inset Formula 
+\[
+x_{i}=a+i\cdot h,\quad k=\frac{b-a}{n}\quad(i=0,1,\cdots,n)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在每个小区间
+\begin_inset Formula $[x_{k},x_{k+1}](k=0,1,…,n-1)$
+\end_inset
+
+上应用梯形公式 
+\begin_inset Formula 
+\[
+\int_{x_{k}}^{x_{k+1}}f(x)dx\approx\blue{\frac{h}{2}(f(x_{k})+f(x_{k+1}))}
+\]
+
+\end_inset
+
+对于每个区间上都这样做, 累加求和就得到
+\begin_inset Formula 
+\[
+\begin{aligned}I & =\int_{a}^{b}f(x)dx=\sum_{k=0}^{n-1}\int_{x_{k}}^{x_{k+1}}f(x)dx\approx\sum_{k=0}^{n-1}\blue{\frac{h}{2}(f(x_{k})+f(x_{k+1}))}\\
+ & =\frac{h}{2}\left(f(x_{0})+2(f(x_{1})+f(x_{2})+...+f(x_{n-1}))+f(x_{n})\right)\\
+ & =\boxed{\frac{h}{2}\left(\blue{f(a)}+\red{2\sum_{k=1}^{n-1}f(x_{k})}+\blue{f(b)}\right)}.
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这就是复化梯形公式.
+ 
+\end_layout
+
+\begin_layout Standard
+要估计这种方法的误差, 只需要考察每个估计区间之间的误差.
+ 譬如, 在子区间
+\begin_inset Formula $[x_{k},x_{k+1}]$
+\end_inset
+
+上梯形公式的余项
+\begin_inset Formula $R_{T_{k}}$
+\end_inset
+
+是
+\begin_inset Formula 
+\[
+R_{T_{k}}=-\frac{h^{3}}{12}f^{\prime\prime}(\eta_{k})\quad\eta_{k}\in[x_{k},x_{k+1}].
+\]
+
+\end_inset
+
+ 于是, 在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上的余项
+\begin_inset Formula $R_{n}$
+\end_inset
+
+就是他们的和:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}R_{n}(f)=I-T_{n}(f) & =\sum_{k=0}^{n-1}\left(-\frac{h^{3}}{12}f^{\prime\prime}(\eta_{k})\right)\\
+ & =-\frac{h^{2}}{12}(b-a)\frac{1}{n}\sum_{k=0}^{n-1}f^{\prime\prime}(\eta_{k})
+\end{aligned}
+\]
+
+\end_inset
+
+由于 
+\begin_inset Formula $\min_{0\leq k\leq n-1}f^{\prime\prime}(\eta_{k})\leq\frac{1}{n}\sum_{k=0}^{n-1}f^{\prime\prime}(\eta_{k})\leq\max_{0\leq k\leq n-1}f^{\prime\prime}(\eta_{k})$
+\end_inset
+
+ , 倘若
+\begin_inset Formula $f''(x)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上连续, 根据介值定理知, 存在
+\begin_inset Formula $\eta\in[a,b]$
+\end_inset
+
+, 使
+\begin_inset Formula $\frac{1}{n}\sum_{k=0}^{n-1}f^{\prime\prime}(\eta_{k})=f^{\prime\prime}(\eta)$
+\end_inset
+
+.
+ 因此余项 
+\begin_inset Formula 
+\[
+R_{n}(f)=I-T_{n}(f)=-\frac{b-a}{12}h^{2}f^{\prime\prime}(\eta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+复化 Simpson 公式
+\end_layout
+
+\begin_layout Standard
+和上述例子一样, 将
+\begin_inset Formula $[a,b]$
+\end_inset
+
+分成 
+\begin_inset Formula $n$
+\end_inset
+
+ 等分
+\begin_inset Formula $[x_{i},x_{i+1}]$
+\end_inset
+
+, 其中节点：
+\begin_inset Formula 
+\[
+x_{k}=a+k\cdot h,\quad h=\frac{b-a}{n}\quad(k=0,1,\cdots,n).
+\]
+
+\end_inset
+
+在区间
+\begin_inset Formula $[x_{k},x_{k+1}],k=0,1,\cdots,n-1$
+\end_inset
+
+上采用Simpson公式
+\begin_inset Formula $Q(f)=\frac{b-a}{6}(f(a)+4f(\frac{a+b}{2})+f(b))$
+\end_inset
+
+然后对每个小区间相加就得到
+\begin_inset Formula 
+\[
+\begin{aligned}I=\int_{a}^{b}f(x)dx & =\sum_{k=0}^{n-1}\int_{x_{k}}^{x_{k+1}}f(x)dx\approx\sum_{k=0}^{n-1}\frac{h}{6}\left(f(x_{k})+4f\Big(x_{k+\frac{1}{2}}\Big)+f(x_{k+1})\right)\\
+ & =\frac{h}{6}\left(f(a)+4\sum_{k=0}^{n-1}f\Big(x_{k+\frac{1}{2}}\Big)+2\sum_{k=1}^{n-1}f(x_{k})+f(b)\right)
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这就是复化Simpson公式.
+ 与上例子类似的误差分析显示如果
+\begin_inset Formula $f\in C^{(4)}[a,b]$
+\end_inset
+
+, 那么
+\begin_inset Formula $R_{n}(f)=I-S_{n}(f)=-\frac{b-a}{180}\biggl(\frac{h}{2}\biggr)^{4}f^{(4)}(\eta)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+步长的选取
+\end_layout
+
+\begin_layout Standard
+使用复化求积公式前, 首先要确定合适的步长
+\begin_inset Formula $h$
+\end_inset
+
+.
+ 若太大, 计算精度难以保证; 若太小, 计算量增加甚至浪费 .
+ 实际上, 更加实际的做法是采取将区间不断对分的方法, 即取
+\begin_inset Formula $n=2^{k}(k=0,1,2,...)$
+\end_inset
+
+, 反复使用复化求积公式, 直到相邻两次前后两次近似值的小于指定的精度, 即
+\begin_inset Formula $|I_{2n}-I_{n}|<\epsilon$
+\end_inset
+
+为止.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+复化梯形公式应对变化的步长做出的改动
+\end_layout
+
+\begin_layout Paragraph
+步长折半产生的计算量
+\end_layout
+
+\begin_layout Standard
+若要把
+\begin_inset Formula $[x_{i},x_{i+1}]$
+\end_inset
+
+分成两半
+\begin_inset Formula $[x_{i},x_{i+1/2}],[x_{i+1/2},x_{i+1}]$
+\end_inset
+
+, 根据复化梯形公式, 有
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}T_{2n} & =\sum_{i=0}^{n-1}\frac{h}{4}\left(\left(f(x_{i})+f\big(x_{i+1/2}\big)\right)+\left(f\big(x_{i+1/2}\big)+f(x_{i+1})\right)\right)\\
+ & =\sum_{i=0}^{n-1}\frac{h}{4}\left(f(x_{i})+2f\big(x_{i+1/2}\big)+f(x_{i+1})\right)\\
+ & =\frac{1}{2}\ub{\blue{\frac{h}{2}\sum_{i=0}^{n-1}\left(f(x_{i})+f(x_{i+1})\right)}}{T_{n}}+\frac{h}{2}\sum_{i=0}^{n-1}f(x_{i+1/2})
+\end{aligned}
+\]
+
+\end_inset
+
+从而便得到了递推式.
+ 
+\end_layout
+
+\begin_layout Paragraph
+终止条件的选取 
+\end_layout
+
+\begin_layout Standard
+由复化梯形公式的余项(误差)知 
+\begin_inset Formula 
+\begin{align*}
+I-T_{n} & =-\frac{b-a}{12}\left(\frac{b-a}{n}\right)^{2}f^{\prime\prime}(\eta_{1})\\
+I-T_{2n} & =-\frac{b-a}{12}\left(\frac{b-a}{2n}\right)^{2}f^{\prime\prime}(\eta_{2})
+\end{align*}
+
+\end_inset
+
+因此假若
+\begin_inset Formula $f''$
+\end_inset
+
+变化不大, 
+\begin_inset Formula $\frac{I-T_{n}}{I-T_{2n}}\approx4.$
+\end_inset
+
+ 因此可以根据 
+\begin_inset Formula $T$
+\end_inset
+
+ 估计
+\begin_inset Formula $I$
+\end_inset
+
+.
+ 即
+\begin_inset Formula $\blue{I\approx{T}_{2n}+\frac{1}{4-1}({T}_{2n}-{T}_{n})}$
+\end_inset
+
+.
+ 于是误差控制条件就为
+\begin_inset Formula $\left|\frac{1}{4-1}(T_{2n}-T_{n})\right|<\varepsilon$
+\end_inset
+
+.
+ 上述条件满足, 程序终止；否则, 继续分半计算.
+  
+\end_layout
+
+\begin_layout Subsection
+Romberg求积公式
+\end_layout
+
+\begin_layout Standard
+上文
+\begin_inset Formula $I$
+\end_inset
+
+的估计值值得拿出来仔细研究.
+ 具体来讲, 自动选步长的梯形积分公式终止条件得到的近似关系式实际上揭示了我们可以拿
+\begin_inset Formula $T_{n},T_{2n}$
+\end_inset
+
+的某一个线性组合更好地估计积分值.
+ 比如, 我们可以提出
+\begin_inset Formula 
+\[
+\overline{T}=T_{2n}+\frac{1}{3}(T_{2n}-T_{n})=\frac{4}{4-1}T_{2n}-\frac{1}{4-1}T_{n}.
+\]
+
+\end_inset
+
+考查
+\begin_inset Formula $\overline{T}$
+\end_inset
+
+与
+\begin_inset Formula $n$
+\end_inset
+
+等分辛普森公式
+\begin_inset Formula $S_{n}$
+\end_inset
+
+之间的关系, 有
+\begin_inset Formula 
+\[
+\begin{aligned}\overline{T} & =\frac{4T_{2n}-T_{n}}{4-1}\\
+ & =\frac{1}{3}\left(T_{n}+2h\sum_{k=1}^{n}f\biggl(\frac{x_{k-1}+x_{k}}{2}\biggr)\right)\\
+ & =\frac{1}{3}\left(\frac{h}{2}\left(f(a)+f(b)+2\sum_{k=1}^{n-1}f(x_{k})\right)+2h\sum_{k=1}^{n}f\left(\frac{x_{k-1}+x_{k}}{2}\right)\right)\\
+ & =\frac{h}{6}\left(f(a)+f(b)+2\sum_{k=1}^{n-1}f(x_{k})+4\sum_{k=1}^{n}f\biggl(\frac{x_{k-1}+x_{k}}{2}\biggr)\right)=S_{n}\\
+ & =\frac{4}{3}T_{2n}-\frac{1}{3}T_{n}
+\end{aligned}
+\]
+
+\end_inset
+
+可见, 用梯形法二分前后两个积分值
+\begin_inset Formula $T_{n}$
+\end_inset
+
+和
+\begin_inset Formula $T_{2n}$
+\end_inset
+
+, 按照上式所做的线性组合, 可得到具有更高精度的由复化辛普森公式计算的积分值
+\begin_inset Formula $\boxed{S_{n}=\frac{4}{3}T_{2n}-\frac{1}{3}T_{n}}$
+\end_inset
+
+.
+  
+\end_layout
+
+\begin_layout Standard
+继续这样做, 也可以得到自动选步长的复化Simpson公式.
+ 根据的就是他们的误差关系得到
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned} & I-S_{n}=-\frac{b-a}{2880}h^{4}f^{(4)}(\eta_{1})\\
+ & I-S_{2n}=-\frac{b-a}{2880}\biggl(\frac{h}{2}\biggr)^{4}f^{(4)}(\eta_{2})
+\end{aligned}
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $f^{(4)}$
+\end_inset
+
+变化不大的时候, 可以知道
+\begin_inset Formula $\frac{I-S_{n}}{I-S_{2n}}\approx4^{2}.$
+\end_inset
+
+因此, 取
+\begin_inset Formula $\blue{I\approx S_{2n}+\frac{1}{4^{2}-1}(S_{2n}-S_{n})}$
+\end_inset
+
+得到自动选步长的Simpson公式.
+ 同样, 用可以用这个得到更高精度积分的估计式子:
+\begin_inset Formula 
+\[
+\bar{S}=\frac{4^{2}}{4^{2}-1}S_{2n}-\frac{1}{4^{2}-1}S_{n}.
+\]
+
+\end_inset
+
+我们发现这正是复化 Cotes 公式.
+ 即
+\begin_inset Formula $S_{n}$
+\end_inset
+
+和
+\begin_inset Formula $S_{2n}$
+\end_inset
+
+线性组合可以得到计算精度为
+\begin_inset Formula $O(h^{6})$
+\end_inset
+
+, 代数精度为5的复化Cotes公式.
+ 
+\end_layout
+
+\begin_layout Standard
+同理, 由复化Cotes公式重复上述的过程就可以得到精度更高的公式.
+ 即
+\begin_inset Formula 
+\[
+\bar{C}=\frac{4^{3}}{4^{3}-1}C_{2n}+\frac{1}{4^{3}-1}C_{n}=\frac{64}{63}C_{2n}-\frac{1}{63}C_{n}=:R_{n}
+\]
+
+\end_inset
+
+即
+\begin_inset Formula $C_{n}$
+\end_inset
+
+和
+\begin_inset Formula $C_{2n}$
+\end_inset
+
+线性组合可以得到计算精度为
+\begin_inset Formula $O(h^{8})$
+\end_inset
+
+, 代数精度为7的近似公式
+\begin_inset Formula $R_{n}$
+\end_inset
+
+, 我们称之为Romberg公式.
+  
+\end_layout
+
+\begin_layout Remark*
+(1)上述加速技巧统称为Romberg求积方法； (2)每加速一次, 计算精度提高二阶.
+ 
+\end_layout
+
+\begin_layout Example
+用Romberg算法计算
+\begin_inset Formula $\int_{0}^{1}\frac{\sin(x)}{x}\dd x$
+\end_inset
+
+, 要求精度
+\begin_inset Formula $\epsilon=10^{-7}.$
+\end_inset
+
+ 可以补充定义
+\begin_inset Formula $f(0)=\lim_{x\to0}\frac{\sin x}{x}=1,$
+\end_inset
+
+表格中
+\begin_inset Formula $h=\frac{b-a}{2^{i}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{2^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S_{2^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{2^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{2^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{(b-a)}{2}(f(a)+f(b))$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{2}=\frac{1}{2}T_{1}+\frac{1}{2}\sum_{i=0}^{n-1}f(x_{i+1/2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S_{1}=\frac{4}{3}T_{2}-\frac{1}{3}T_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{4}=\frac{1}{2}T_{2}+\frac{1}{4}\sum_{i=0}^{n-1}f(x_{i+1/2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S_{2}=\frac{4}{3}T_{4}-\frac{1}{3}T_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}=\frac{16}{15}S_{2}-\frac{1}{15}S_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{8}=\frac{1}{2}T_{4}+\frac{1}{8}\sum_{i=0}^{n-1}f(x_{i+1/2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S_{3}=\frac{4}{3}T_{8}-\frac{1}{3}T_{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{2}=\frac{16}{15}S_{4}-\frac{1}{15}S_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{1}=\frac{64}{63}C_{2}-\frac{1}{63}C_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+分别计算可得
+\end_layout
+
+\begin_layout Example
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{2^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S_{2^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{2^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{2^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.920735492$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.939793285$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.946145882$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.944513520$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.946086932$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.946083002$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\backslash$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.945690864$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.94608331$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.946083070$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.946083071$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Gauss型求积公式
+\end_layout
+
+\begin_layout Definition
+采用
+\begin_inset Formula $\int_{a}^{b}f(x)\mathrm{d}x\approx\sum_{k=0}^{n}A_{k}f(x_{k})$
+\end_inset
+
+估计的时候, 若存在
+\begin_inset Formula $n+1$
+\end_inset
+
+个节点
+\begin_inset Formula $x_{i}\in[a,b]$
+\end_inset
+
+及求积系数
+\begin_inset Formula $A_{i}$
+\end_inset
+
+, 使得求积公式具有
+\begin_inset Formula $2n+1$
+\end_inset
+
+次代数精度, 则称节点
+\begin_inset Formula $x_{i}$
+\end_inset
+
+为高斯点, 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+为高斯系数, 求积公式为高斯(Gauss)求积公式.
+ 
+\end_layout
+
+\begin_layout Remark*
+(1)Gauss求积公式仍然是插值型求积公式 (2)Gauss系数可通过Gauss点和Lagrange基函数得到.
+\end_layout
+
+\begin_layout Standard
+下面看一个例子.
+ 
+\end_layout
+
+\begin_layout Example
+试确定
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ , 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+以及系数
+\begin_inset Formula $\omega_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{1}$
+\end_inset
+
+, 导出两点Gauss求积公式.
+ 
+\begin_inset Formula 
+\[
+\int_{-1}^{1}f(x)\mathrm{d}x\approx\omega_{0}f(x_{0})+\omega_{1}f(x_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+将
+\begin_inset Formula $f(x)=1,x,x^{2},x^{3}$
+\end_inset
+
+ 代入有
+\begin_inset Formula $\begin{cases}
+\omega_{0}+\omega_{1}=\int_{-1}^{1}1\mathrm{d}x=2\\
+\omega_{0}x_{0}+\omega_{1}x_{1}=\int_{-1}^{1}x\mathrm{d}x=0\\
+\omega_{0}x_{0}^{2}+\omega_{1}x_{1}^{2}=\int_{-1}^{1}x^{2}\mathrm{d}x=2/3\\
+\omega_{0}x_{0}^{3}+\omega_{1}x_{1}^{3}=\int_{-1}^{1}x^{3}\mathrm{d}x=0
+\end{cases}$
+\end_inset
+
+, 使其精确成立得 
+\begin_inset Formula $\begin{cases}
+\omega_{0}=\omega_{1}=1\\
+x_{0}=-x_{1}=\frac{-1}{\sqrt{3}}
+\end{cases}$
+\end_inset
+
+.
+ 这是因为对称性.
+ 因此, 
+\begin_inset Formula $\int_{-1}^{1}f(x)dx\approx\sum_{i=0}^{n}\omega_{i}f(x_{i})=f(-1/\sqrt{3})+f(1/\sqrt{3})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+类似可得到, 在区间
+\begin_inset Formula $[-1,1]$
+\end_inset
+
+上, Gauss 型求积公式如
+\begin_inset Formula $\boxed{\int_{-1}^{1}f(x)\mathrm{d}x\approx\sum_{i=0}^{n}\omega_{i}f(x_{i})=f(-1/\sqrt{3})+f(1/\sqrt{3})}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+用两点Gauss求积公式计算 
+\begin_inset Formula $I=\int_{0}^{1}\frac{\sin(x)}{x}\dd x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+令 
+\begin_inset Formula $x=(t+1)/2$
+\end_inset
+
+, 则
+\begin_inset Formula $t\in[-1,1].$
+\end_inset
+
+ 两点公式记为
+\begin_inset Formula $I\approx\frac{\sin\left(\left(\frac{-1}{\sqrt{3}}+1\right)/2\right)}{\frac{-1}{\sqrt{3}}+1}+\frac{\sin\left(\left(\frac{1}{\sqrt{3}}+1\right)/2\right)}{\frac{1}{\sqrt{3}}+1}=0.9460411.$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
