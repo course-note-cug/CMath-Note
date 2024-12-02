@@ -1,0 +1,1733 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{mathrsfs}
+
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+
+
+
+\usepackage{cleveref}
+\crefname{equation}{式}{式}
+\crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\crefname{page}{页}{页}
+\crefname{chapter}{章}{章}
+\crefname{section}{节}{节}
+\crefname{appendix}{附录}{附录}
+\crefname{theorem}{定理}{定理}
+\crefname{lemma}{引理}{引理}
+\crefname{corollary}{推论}{推论}
+\crefname{proposition}{命题}{命题}
+\crefname{definition}{定义}{定义}
+\crefname{example}{例}{例}
+\crefname{algorithm}{算法}{算法}
+\crefname{listing}{列表}{列表}
+\crefname{line}{行}{行}
+
+\crefformat{chapter}{#2第#1章#3}
+\crefformat{section}{#2第#1节#3}
+\crefformat{subsection}{#2第#1节#3}
+\crefformat{subsubsection}{#2第#1节#3}
+
+\crefrangeformat{chapter}{#3第#1章#4至#5第#2章#6}
+\crefrangeformat{section}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsection}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsubsection}{#3第#1节#4至#5第#2节#6}
+
+\crefmultiformat{chapter}{#2第#1章#3}{和#2第#1章#3}{, #2第#1章#3}{和#2第#1章#3}
+\crefmultiformat{section}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsubsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+
+\crefrangemultiformat{chapter}{#3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}{, #3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}
+\crefrangemultiformat{section}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsubsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+
+\newcommand{\crefpairconjunction}{~和~}
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{~和~}
+\newcommand{\crefpairgroupconjunction}{~和~}
+\newcommand{\crefmiddlegroupconjunction}{, }
+\newcommand{\creflastgroupconjunction}{~和~}
+\newcommand{\crefrangeconjunction}{~至~}
+
+% LISTINGS
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Make SS at the beginning of a section
+
+\makeatletter
+%% See pp. 26f. of 'The LaTeX Companion,' 2nd. ed.
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+    {\csname the#1\endcsname\quad}%      default
+    {\csname #1@cntformat\endcsname}}%   individual control
+\newcommand{\section@cntformat}{\S\thesection\quad}
+\newcommand{\subsection@cntformat}{\S\thesubsection\quad}
+\makeatother % changes @ back to a special character
+
+\usepackage{titlesec}
+
+\CTEXsetup[format={\raggedright\large\bfseries}]{section}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection.}{0.5em}{}[.]
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\alph{subsubsection})}{0.5em}{}
+
+
+\usepackage{annotate-equations}
+
+
+
+\theoremstyle{definition}
+
+
+\usepackage{enumitem}
+
+\setlist{nosep}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt, 
+    margin=1in,
+    rmargin=2.5in
+}
+\setlength{\marginparwidth}{2in}
+\usepackage{environ}
+
+
+
+\newcommand{\lecture}[6]{
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf #1
+		\hfill #6} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill 第 #2 节: #3  \hfill} }
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Lecturer: #4 \hfill Scribes: #5} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   
+   \vspace*{4mm}
+}
+
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  font=small}
+% \setlength{\marginparwidth}{100pt}
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
+\usepackage{setspace}
+\newcounter{paranum}[section]
+\newcommand{\Par}[1]{\vspace{10pt}\noindent\textbf{\refstepcounter{paranum}\theparanum. }\textbf{#1}~~}
+\newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
+\newcommand{\mn}[1]{\marginnote{{#1}}}
+% \renewcommand{\algorithmcfname}{算法}
+\usepackage[abspath]{currfile}
+
+\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigside}[3]{\marginpar{\includegraphics[width=\marginparwidth]{figs/\jobname/#1}
+  \captionof{figure}{#2}\label{fig:#3}}}
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\stirling}[2]{\left\{{#1 \atop #2}\right\}}
+\newcommand{\binomt}[2]{\left(\left({#1 \atop #2}\right)\right)}
+\newcommand{\pf}[4]{#1_{#2}^{#3_{#4}}}
+\newcommand{\pl}[4]{#1_{#2}{#3^{#4}}}
+\newcommand{\ty}[3]{{#1} \equiv {#2} ~(\bmod {#3})}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\varsub}[2]{\stackrel{#1}{\stackrel{\rule{#2}{0.4pt}}{\rule{#2}{0.4pt}}}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\Ep}[1]{\mathbb E\left(#1\right)}
+
+\newcommand{\red}[1]{{{\color{red}#1}}}
+\newcommand{\teal}[1]{{{\color{teal}#1}}}
+\newcommand{\blue}[1]{{{\color{blue}#1}}}
+\newcommand{\purple}[1]{{{\color{purple}#1}}}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\like}{$\blacktriangleright$}
+\newcommand{\exrate}[1]{{[#1]~}}
+\newcommand{\newword}[2]{{\textbf{#1(#2)}\index{#1}}}
+\newcommand{\newenword}[1]{{\textbf{#1}\index{#1}}}
+\newcommand{\nwd}[1]{{\textbf{#1}\index{#1}}}
+
+\DeclareMathOperator{\End}{End}
+\newcommand{\huaa}{{\mathscr A}}
+\newcommand{\huab}{{\mathscr B}}
+\newcommand{\huac}{{\mathscr C}}
+\newcommand{\zkj}[1]{{$\mathscr{#1}$-子空间}}
+\newcommand{\vecgrp}[2]{{{#1}_1, {#1}_2,\cdots, {#1}_{#2}}}
+
+\newcommand{\fadetext}[1]{{{\color{gray} #1}}}
+
+\newcommand{\motivation}[1]{{{\blue{ #1}}}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:Code
+  LyxType               charstyle
+  LabelString           code
+  LatexType             command
+  LatexName             code
+  Font
+    Family              Sans
+    Color               Green
+  EndFont
+  Preamble
+    \newcommand*{\code}[1]{\texttt{#1}}
+  EndPreamble
+	ResetsFont true
+End
+
+InsetLayout Flex:NewENWord
+  LyxType               charstyle
+  LabelString           "nenwd"
+  LatexType             command
+  LatexName             newenword
+  Font
+    Family              Sans
+    Color               blue
+  EndFont
+  ResetsFont true
+End
+\end_local_layout
+\language chinese-simplified
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\set}[1]{\{#1\}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\stirling}[2]{\left\{  {#1\atop #2}\right\}  }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\binomt}[2]{\left(\left({#1\atop #2}\right)\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\varsub}[1]{\xlongarrow\{#1\}}
+{\underset{========}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\dd}{\mathrm{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ep}[1]{\mathbb{E}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\teal}[1]{{\color{blue}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\purple}[1]{{\color{purple}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Cov}{\mathop{\textrm{Cov}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\mathbb{E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\R}{\mathbb{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\F}{\mathbb{F}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\like}{\blacktriangleright}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\exrate}[1]{{[#1]~}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ub}[2]{\underbrace{#1}_{#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+非线性方程
+\begin_inset Formula $f(x)=0$
+\end_inset
+
+的解法
+\end_layout
+
+\begin_layout Author
+《计算方法》课程笔记
+\end_layout
+
+\begin_layout Section
+引言
+\end_layout
+
+\begin_layout Standard
+非线性方程的求根问题是科学与工程应用中常遇到的一大类问题.
+ 譬如
+\begin_inset Formula $f(x)=0$
+\end_inset
+
+: 其中
+\begin_inset Formula $f(x)$
+\end_inset
+
+为非线性函数.
+ 方程的根也称为函数
+\begin_inset Formula $f$
+\end_inset
+
+的零点.
+  
+\end_layout
+
+\begin_layout Standard
+理论上, 
+\begin_inset Formula $n$
+\end_inset
+
+次代数方程在复数域内一定有
+\begin_inset Formula $n$
+\end_inset
+
+个根(考虑重数).
+ 16世纪人们发现了三/四次方程的求根公式, 但是其过于复杂, 基本没人用.
+ 19世纪从群论的角度可以证明大于等于5次的一般代数方程不能用代数公式求解.
+\end_layout
+
+\begin_layout Standard
+至于超越方程, 求解过程就更加困难.
+ 解可能是一个或多个, 也可能是无穷多个, 一般也不存在根的解析表达式.
+ 因此, 研究用数值方法求满足一定精度要求的根的近似解具有重要的现实意义.
+\end_layout
+
+\begin_layout Standard
+用数值方法求非线性方程的根大体分为三个部分:
+\end_layout
+
+\begin_layout Enumerate
+判定根的存在性.
+ 方程有没有根? 若有, 有几个?  
+\end_layout
+
+\begin_layout Enumerate
+确定根的分布范围.
+ 将每个根用区间分隔开来, 获得各根的初始近似值.
+  
+\end_layout
+
+\begin_layout Enumerate
+根的精确化.
+ 将根的初始近似值按某种方法逐步精确化, 直到满足预先要求的精度为止.
+ 
+\end_layout
+
+\begin_layout Standard
+本章研究内容是在有根的前提下求出方程的近似根.
+ 
+\end_layout
+
+\begin_layout Section
+非迭代法简介
+\end_layout
+
+\begin_layout Subsection
+二分法
+\end_layout
+
+\begin_layout Standard
+二分法的原理在高中就讲过.
+ 下面简单回顾.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+若
+\begin_inset Formula $f\in C[a,b]$
+\end_inset
+
+,且
+\begin_inset Formula $f(a)\cdot f(b)<0$
+\end_inset
+
+,则
+\begin_inset Formula $f$
+\end_inset
+
+在
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+上必 有一根.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其具体方法大约可以描述为通过二等分不断缩小有根区间的长度, 直到满足精度为止.
+ 其算法也是显而易见的: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+给定有根区间
+\begin_inset Formula $[a,b]$
+\end_inset
+
+
+\begin_inset Formula $(f(a)\cdot f(b)<0)$
+\end_inset
+
+ 和精度要求
+\begin_inset Formula $\epsilon$
+\end_inset
+
+或
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+令 
+\begin_inset Formula $x=(a+b)/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+如果 
+\begin_inset Formula $b–a\leq2\epsilon$
+\end_inset
+
+ 或 
+\begin_inset Formula $|f(x)|\leq\delta$
+\end_inset
+
+ , 停止计算, 输出
+\begin_inset Formula $x$
+\end_inset
+
+, 否则执行第3步;
+\end_layout
+
+\begin_layout Enumerate
+如果
+\begin_inset Formula $f(a)f(x)<0$
+\end_inset
+
+, 则令
+\begin_inset Formula $b=x$
+\end_inset
+
+, 否则令 
+\begin_inset Formula $a=x$
+\end_inset
+
+, 返回第1步.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+误差分析
+\end_layout
+
+\begin_layout Standard
+记
+\begin_inset Formula $a_{0}=a,b_{0}=b$
+\end_inset
+
+, 第
+\begin_inset Formula $k$
+\end_inset
+
+步的有根区间为
+\begin_inset Formula $[a_{k},b_{k}]$
+\end_inset
+
+, 设
+\begin_inset Formula $x^{*}$
+\end_inset
+
+为准确值.
+ 有
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}\left|x_{k}-x^{*}\right| & =\left|\frac{b_{k}+a_{k}}{2}-x^{*}\right|\leq\frac{b_{k}-a_{k}}{2}=\frac{b_{k-1}-a_{k-1}}{2^{2}}=\cdots\cdots\\
+|x_{k}-x_{k-1}| & =\frac{b_{k}-a_{k}}{2}=\frac{b_{0}-a_{0}}{2^{k+1}}=\frac{b-a}{2^{k+1}}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于给定精度
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ ,可估计二分法所需的步数
+\begin_inset Formula $k$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\frac{b-a}{2^{k+1}}\leq\varepsilon\quad\Rightarrow\quad k\geq\log_{2}\frac{b-a}{\varepsilon}-1,
+\]
+
+\end_inset
+
+干脆取得
+\begin_inset Formula 
+\[
+\boxed{k=\left\lceil \log_{2}\frac{b-a}{\varepsilon}\right\rceil -1}
+\]
+
+\end_inset
+
+即可满足我们对误差的要求.
+ 
+\end_layout
+
+\begin_layout Subsection
+试值法
+\end_layout
+
+\begin_layout Standard
+二分法的迭代过程没有考虑
+\begin_inset Formula $f(a)$
+\end_inset
+
+和
+\begin_inset Formula $f(b)$
+\end_inset
+
+的大小.
+ 试值法认为, 如果在等分区间的过程中, 比如, 如果
+\begin_inset Formula $f(a)$
+\end_inset
+
+比
+\begin_inset Formula $f(b)$
+\end_inset
+
+更接近于0, 则根有可能更靠近
+\begin_inset Formula $f(a)$
+\end_inset
+
+.
+ 因此, 试值法用过
+\begin_inset Formula $f(a)$
+\end_inset
+
+和
+\begin_inset Formula $f(b)$
+\end_inset
+
+割线的交点代替区间中点.
+ 
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $f(a)f(b)<0$
+\end_inset
+
+, 过点
+\begin_inset Formula $(a,f(a))$
+\end_inset
+
+和
+\begin_inset Formula $(b,f(b))$
+\end_inset
+
+的割线
+\begin_inset Formula $L$
+\end_inset
+
+与
+\begin_inset Formula $x$
+\end_inset
+
+轴交点
+\begin_inset Formula $(c,0)$
+\end_inset
+
+.
+  
+\end_layout
+
+\begin_layout Standard
+我们知道, 经过点
+\begin_inset Formula $(a,f(a))$
+\end_inset
+
+和
+\begin_inset Formula $(b,f(b))$
+\end_inset
+
+的割线是
+\begin_inset Formula $f(b)=\frac{f(b)-f(a)}{b-a}(x-b).$
+\end_inset
+
+ 令
+\begin_inset Formula $y=0,$
+\end_inset
+
+就有
+\begin_inset Formula $x=b-\frac{f(b)(b-a)}{f(b)-f(a)}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+试值法的过程只要把上述二分法第一步改为
+\begin_inset Formula $\boxed{x=b-\frac{f(b)(b-a)}{f(b)-f(a)}=\frac{a_{n}f(b_{n})-b_{n}f(a_{n})}{f(b_{n})-f(a_{n})}}$
+\end_inset
+
+ 即可.
+ 
+\end_layout
+
+\begin_layout Standard
+下面探讨试值法的收敛性.
+ 实际上可构造一系列
+\begin_inset Formula $\{[a_{n},b_{n}]\}$
+\end_inset
+
+区间序列, 其中每个序列都包含零点.
+ 上面提到在每一步中, 零点
+\begin_inset Formula $r$
+\end_inset
+
+的近似值为
+\begin_inset Formula 
+\[
+c_{n}=b_{n}-f(b_{n})\frac{b_{n}-a_{n}}{f(b_{n})-f(a_{n})}=\red{\frac{a_{n}f(b_{n})-b_{n}f(a_{n})}{f(b_{n})-f(a_{n})}}.
+\]
+
+\end_inset
+
+迭代许多轮之后, 我们说
+\begin_inset Formula $a_{k},b_{k}$
+\end_inset
+
+将会靠得很近, 所以我们采用红色的式子进行计算, 来避免丢失精度.
+ 
+\end_layout
+
+\begin_layout Standard
+实际上, 试值法碰到“不动点”的时候, 可能越来越慢, 甚至还不如二分法 ; 另外尽管区间宽度
+\begin_inset Formula $b_{n}-a_{n}$
+\end_inset
+
+越来越小, 但可能不趋近于零, 无法作为终止判别条件.
+ 因此就需要根据
+\begin_inset Formula $\delta$
+\end_inset
+
+来判别.
+ 
+\end_layout
+
+\begin_layout Section
+迭代法简介
+\end_layout
+
+\begin_layout Subsection
+迭代法的收敛性
+\end_layout
+
+\begin_layout Subsubsection
+是否收敛
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $g(x)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上连续可导, 对
+\begin_inset Formula $\forall x\in[a,b]$
+\end_inset
+
+,若:  
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $g(x)\in[a,b]$
+\end_inset
+
+ (映内性),
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|g'(x)|\leq L<1$
+\end_inset
+
+ (压缩性, 
+\begin_inset Formula $L$
+\end_inset
+
+为常数, 称为压缩系数).
+ 
+\end_layout
+
+\begin_layout Standard
+那么
+\end_layout
+
+\begin_layout Enumerate
+函数
+\begin_inset Formula $f(x)=x-g(x)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上有唯一零点
+\begin_inset Formula $x^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+对于任意初值
+\begin_inset Formula $x_{0}\in[a,b]$
+\end_inset
+
+, 迭代公式
+\begin_inset Formula $x_{k+1}=g(x_{k})$
+\end_inset
+
+均收敛于方程的根
+\begin_inset Formula $x^{*}$
+\end_inset
+
+；
+\end_layout
+
+\begin_layout Enumerate
+迭代误差可用如下两个等价的不等式来估计:
+\begin_inset Formula 
+\begin{align*}
+|x_{k}-x^{*}| & \leq\frac{L}{1-L}|x_{k}-x_{k-1}|\\
+|x_{k}-x^{*}| & \leq\frac{L^{k}}{1-L}|x_{1}-x_{0}|
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+其证明大致思路只要使用Lagrange中值定理即可.
+ 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $x^{3}+4x^{2}-10=0$
+\end_inset
+
+在[1,2]上有一个根(正根), 分析
+\begin_inset Formula $g(x)=\frac{1}{2}(10-x^{3})^{\frac{1}{2}}$
+\end_inset
+
+的收敛性.
+ 
+\end_layout
+
+\begin_layout Example
+求导得到
+\begin_inset Formula 
+\[
+g^{\prime}=-\frac{3x^{2}}{4\sqrt{10-x^{3}}}\quad g^{\prime\prime}=-\left(\frac{3x}{2\sqrt{10-x^{3}}}+\frac{9x^{4}}{8\sqrt{\left(10-x^{3}\right)^{3}}}\right),
+\]
+
+\end_inset
+
+显然, 在此区间上
+\begin_inset Formula $g'(x)$
+\end_inset
+
+、
+\begin_inset Formula $g''(x)$
+\end_inset
+
+均
+\begin_inset Formula $<0$
+\end_inset
+
+, 
+\begin_inset Formula $g(x)$
+\end_inset
+
+、
+\begin_inset Formula $g'(x)$
+\end_inset
+
+均为减函数.
+ 考虑
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+映内性: 
+\begin_inset Formula $g(1)=3/2\in[1,2]$
+\end_inset
+
+, 但
+\begin_inset Formula $g(2)=\sqrt{2}/2\approx0.7071\notin[1,2]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+压缩性: 
+\begin_inset Formula $|g'(1)|=0.25<1$
+\end_inset
+
+, 但
+\begin_inset Formula $|g'(2)|\approx2.12>1$
+\end_inset
+
+.
+  
+\end_layout
+
+\begin_layout Standard
+均不满足收敛条件.
+ 但是考虑子区间[1, 1.5], 上述两个条件均满足了.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+收敛定理有了, 满足定理的两个条件不容易.
+ 下面我们探讨一种在某一点附近收敛的情况.
+ 
+\end_layout
+
+\begin_layout Definition
+若存在
+\begin_inset Formula $g(x)$
+\end_inset
+
+的不动点
+\begin_inset Formula $x^{*}$
+\end_inset
+
+及其某个邻域
+\begin_inset Formula $N(x^{*},\delta):=[x^{*}-\delta,x^{*}+\delta]$
+\end_inset
+
+, 使得
+\begin_inset Formula $\forall x_{0}\in N$
+\end_inset
+
+,由迭代公式生成的序列
+\begin_inset Formula $\{x_{k}\}(\{x_{k}\}\subset N)$
+\end_inset
+
+ 收敛于
+\begin_inset Formula $x^{*}$
+\end_inset
+
+,则称迭代公式局部收敛.
+ 
+\end_layout
+
+\begin_layout Theorem
+设
+\begin_inset Formula $x^{*}$
+\end_inset
+
+是
+\begin_inset Formula $g(x)$
+\end_inset
+
+的不动点, 
+\begin_inset Formula $g^{\prime}(x)$
+\end_inset
+
+在
+\begin_inset Formula $x^{*}$
+\end_inset
+
+的某个邻域上连续, 且 
+\begin_inset Formula $|g^{\prime}(x^{*})|<1$
+\end_inset
+
+,则迭代公式局部收敛.
+ 
+\end_layout
+
+\begin_layout Standard
+证明可以使用连续函数的定义和Lagrange中值定理得到.
+ 
+\end_layout
+
+\begin_layout Standard
+但是, 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+本身就是待求的, 如何判断
+\begin_inset Formula $|g'(x^{*})|<1$
+\end_inset
+
+呢? 实际上, 
+\begin_inset Formula $g'(x)$
+\end_inset
+
+的连续性表明: 如果
+\begin_inset Formula $g(x)$
+\end_inset
+
+迭代收敛到
+\begin_inset Formula $x^{*}$
+\end_inset
+
+, 在
+\begin_inset Formula $x^{*}$
+\end_inset
+
+的某个邻域内就应该有
+\begin_inset Formula $|g'(x)|<1$
+\end_inset
+
+.
+ 在应用中, 如已知
+\begin_inset Formula $x^{*}$
+\end_inset
+
+的大致位置, 而
+\begin_inset Formula $x_{0}$
+\end_inset
+
+为
+\begin_inset Formula $x^{*}$
+\end_inset
+
+的一个较好的近似值, 可用
+\begin_inset Formula $|g'(x_{0})|<1$
+\end_inset
+
+代替
+\begin_inset Formula $|g'(x^{*})|<1$
+\end_inset
+
+, 这就可以判定上述迭代公式的收敛性.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+收敛速度
+\end_layout
+
+\begin_layout Definition
+设迭代
+\begin_inset Formula $x_{k+1}=g(x_{k})$
+\end_inset
+
+收敛到
+\begin_inset Formula $g(x)$
+\end_inset
+
+的不动点
+\begin_inset Formula $x^{*}$
+\end_inset
+
+.
+ 记绝对误差
+\begin_inset Formula $e_{k}=x_{k}-x^{*}$
+\end_inset
+
+.
+ 若
+\begin_inset Formula $\lim_{k\to\infty}\left|\frac{e_{k+1}}{e_{k}^{p}}\right|=C\neq0\text{ }(C\text{为常数)}$
+\end_inset
+
+, 则称该迭代为以收敛阶
+\begin_inset Formula $p$
+\end_inset
+
+收敛到
+\begin_inset Formula $x^{*}$
+\end_inset
+
+.
+ 数
+\begin_inset Formula $C$
+\end_inset
+
+称为渐近误差常数.
+  
+\end_layout
+
+\begin_layout Definition
+更进一步, 当
+\begin_inset Formula $p=1$
+\end_inset
+
+时称为线性收敛; 
+\end_layout
+
+\begin_layout Definition
+当 
+\begin_inset Formula $p>1$
+\end_inset
+
+ 时称为超线性收敛.
+ 当
+\begin_inset Formula $p=2$
+\end_inset
+
+时称为二次(阶)收敛（或平方收敛） .
+ 
+\end_layout
+
+\begin_layout Remark*
+实际上, 不动点迭代中, 若迭代数列
+\begin_inset Formula $\{x_{k}\}$
+\end_inset
+
+收敛, 且 
+\begin_inset Formula $g'(x)\neq0$
+\end_inset
+
+, 则
+\begin_inset Formula $e_{k+1}=x_{k+1}-x^{*}=g(x_{k})-g(x^{*})=g'(\xi)e_{k}$
+\end_inset
+
+.
+ 取极限得 
+\begin_inset Formula $\lim_{n\to\infty}|e_{k+1}/e_{k}|=|g'(x^{*})|\neq0$
+\end_inset
+
+, 这就表明其线性收敛.
+ 实际上要想得到超线性收敛,就必然满足
+\begin_inset Formula $g'(x^{*})=0$
+\end_inset
+
+.
+ 并且可以看出来线性收敛的时候
+\begin_inset Formula $|C|<1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Newton迭代法
+\end_layout
+
+\begin_layout Subsubsection
+基本思想
+\end_layout
+
+\begin_layout Standard
+在学习微积分的时候我们知道性质还不算差的函数可以被线性近似, 即
+\begin_inset Formula $f(x)\approx f(x_{k})+f'(x_{k})(x-x_{k}).$
+\end_inset
+
+ 当
+\begin_inset Formula $f'(x_{k})\neq0$
+\end_inset
+
+时, 
+\begin_inset Formula $f(x)=0$
+\end_inset
+
+可用此线性方程(切线)近似代替, 即 
+\begin_inset Formula $f(x_{k})+f'(x_{k})(x^{*}-x_{k})\approx0$
+\end_inset
+
+.
+ 解这个方程, 就得到了迭代公式
+\begin_inset Formula $x^{*}\approx x_{k}-\frac{f(x_{k})}{f'(x_{k})}.$
+\end_inset
+
+ 使左端取得
+\begin_inset Formula $x_{k+1},$
+\end_inset
+
+就得到了
+\begin_inset Formula 
+\[
+\boxed{x_{k+1}\approx x_{k}-\frac{f(x_{k})}{f^{\prime}(x_{k})},k=0,1,2,\cdots}
+\]
+
+\end_inset
+
+这就是Newton迭代公式.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+收敛情况
+\end_layout
+
+\begin_layout Standard
+Newton 迭代法在单根情形下至少二阶收敛.
+ 
+\end_layout
+
+\begin_layout Example
+试说明: 设
+\begin_inset Formula $f(x)$
+\end_inset
+
+在零点
+\begin_inset Formula $x^{*}$
+\end_inset
+
+的邻域内
+\begin_inset Formula $f''$
+\end_inset
+
+连续,则牛顿迭代公式在
+\begin_inset Formula $x^{*}$
+\end_inset
+
+是单根的情况下至少平方局部收敛.
+\end_layout
+
+\begin_layout Example
+先证局部收敛: Newton法 可 写 成 不 动 点 迭 代 的 形 式 :
+\begin_inset Formula $x_{k+1}=\varphi(x_{k})=x_{k}-\frac{f(x_{k})}{f^{\prime}(x_{k})}.$
+\end_inset
+
+ 若
+\begin_inset Formula $x^{*}$
+\end_inset
+
+是方程
+\begin_inset Formula $f(x)=0\text{的单根}f(x^{*})=0$
+\end_inset
+
+, 
+\begin_inset Formula $f^{\prime}(x^{*})\neq0\Rightarrow x^{*}=\varphi(x^{*}).$
+\end_inset
+
+ 所以
+\begin_inset Formula $x^{*}$
+\end_inset
+
+是
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+的不动点.
+ 又
+\begin_inset Formula 
+\[
+\varphi^{\prime}(x)=1-\frac{[f^{\prime}(x)]^{2}-f(x)f^{\prime\prime}(x)}{\left[f^{\prime}(x)\right]^{2}}=\frac{f(x)f^{\prime\prime}(x)}{\left[f^{\prime}(x)\right]^{2}}\Rightarrow\varphi^{\prime}(x^{*})=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+再证至少收敛阶
+\begin_inset Formula $p=2$
+\end_inset
+
+: 将
+\begin_inset Formula $f(x^{*})$
+\end_inset
+
+在
+\begin_inset Formula $x_{k}$
+\end_inset
+
+处做一阶Taylor展开:  
+\begin_inset Formula 
+\[
+0=f(x^{*})=f(x_{k})+f^{\prime}(x_{k})(x^{*}-x_{k})+\frac{1}{2}f^{\prime\prime}(\xi)(x^{*}-x_{k})^{2}
+\]
+
+\end_inset
+
+因为没有重根, 
+\begin_inset Formula $f^{\prime}(x_{k})\neq0$
+\end_inset
+
+, 等式两边同时除以
+\begin_inset Formula $f^{\prime}(x_{k})$
+\end_inset
+
+, 得到
+\begin_inset Formula 
+\[
+\begin{aligned} & x_{k}-x^{*}=\frac{f(x_{k})}{f^{\prime}(x_{k})}+\frac{f^{\prime\prime}(\xi)}{2f^{\prime}(x_{k})}\left(x^{*}-x_{k}\right)^{2}\\
+\Rightarrow & x_{k}-\frac{f(x_{k})}{f'(x_{k})}-x^{*}=\frac{f''(\xi)}{2f'(x_{k})}{\left(x^{*}-x_{k}\right)}^{2}\\
+\Rightarrow & x_{k+1}-x^{*}=\frac{f''(\xi)}{2f'(x_{k})}(x^{*}-x_{k})^{2}\\
+\Rightarrow & \lim_{k\to\infty}\frac{|e_{k+1}|}{\left|e_{k}\right|^{2}}=\lim_{k\to\infty}\frac{|x^{*}-x_{k+1}|}{\left|x^{*}-x_{k}\right|^{2}}=\frac{|f^{\prime\prime}(x^{*})|}{2|f^{\prime}(x^{*})|}=c\neq0
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+所以Newton迭代法(单根的情况下)至少二阶局部收敛.
+ 
+\end_layout
+
+\begin_layout Example
+Newton法也适用于求重根的情形, 但是收敛速度会变慢.
+ 实际上当
+\begin_inset Formula $x^{*}$
+\end_inset
+
+是
+\begin_inset Formula $f(x$
+\end_inset
+
+)的
+\begin_inset Formula $m(m>1)$
+\end_inset
+
+重根时, 
+\begin_inset Formula $f(x)$
+\end_inset
+
+可以表示为: 
+\begin_inset Formula $f(x)=(x-x^{*})^{m}g(x)\text{ (其中}g(x^{*})\neq0)$
+\end_inset
+
+, 迭代公式变为
+\begin_inset Formula $x_{k+1}=x_{k}-\frac{f(x_{k})}{f^{\prime}(x_{k})}=x_{k}-\frac{(x_{k}-x^{*})g(x_{k})}{mg(x_{k})+(x_{k}-x^{*})g^{\prime}(x_{k})}$
+\end_inset
+
+.
+ 令
+\begin_inset Formula $e_{k}=x_{k}-x^{*}$
+\end_inset
+
+, 则将上式两边同减
+\begin_inset Formula $x^{*}$
+\end_inset
+
+, 得
+\begin_inset Formula $e_{k+1}=x_{k+1}-x^{*}=e_{k}-\frac{e_{k}g(x_{k})}{mg(x_{k})+e_{k}g^{\prime}(x_{k})}$
+\end_inset
+
+.
+ 两边同时除以
+\begin_inset Formula $e_{k}$
+\end_inset
+
+, 取极限, 得
+\begin_inset Formula 
+\[
+\lim_{k\to\infty}\frac{e_{k+1}}{e_{k}}=\lim_{k\to\infty}\left(1-\frac{g(x_{k})}{mg(x_{k})+e_{k}g^{\prime}(x_{k})}\right)=1-\frac{1}{m}\neq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+这表明牛顿法求方程的重根时仅为线性收敛.
+ 并且
+\begin_inset Formula $m$
+\end_inset
+
+重数越高, 收敛越慢.
+ 
+\end_layout
+
+\begin_layout Subsection
+割线法
+\end_layout
+
+\begin_layout Standard
+由于 Newton 迭代法每次迭代都要计算导数
+\begin_inset Formula $f'(x_{k})$
+\end_inset
+
+, 当
+\begin_inset Formula $f(x)$
+\end_inset
+
+较复杂时, 计算量大.
+ 下面考察一种避免导数运算的求根方法.
+ 在迭代过程中用到前两步
+\begin_inset Formula $x_{k}$
+\end_inset
+
+和
+\begin_inset Formula $x_{k-1}$
+\end_inset
+
+处的函数值构造迭代函数来提高迭代的收敛速度.
+ 
+\end_layout
+
+\begin_layout Standard
+虽说不必计算
+\begin_inset Formula $f$
+\end_inset
+
+在
+\begin_inset Formula $x_{k}$
+\end_inset
+
+处的导数, 但是也应该有和导数一样的类似物.
+ 我们考虑两个点
+\begin_inset Formula $x_{k},x_{k-1}$
+\end_inset
+
+之间的差商
+\begin_inset Formula $\frac{f(x_{k})-f(x_{k-1})}{x_{k}-x_{k-1}},$
+\end_inset
+
+并用这个来近似替代替代牛顿公式中的点
+\begin_inset Formula $x_{k}$
+\end_inset
+
+处的导数
+\begin_inset Formula $f'(x_{k})$
+\end_inset
+
+, 得到
+\begin_inset Formula 
+\[
+x_{k+1}=x_{k}-\frac{f(x_{k})}{f(x_{k})-f(x_{k-1})}(x_{k}-x_{k-1}),k=1,2,3,\cdots.
+\]
+
+\end_inset
+
+这称为割线迭代公式, 相应的迭代法称为割线法、弦截 (两步)法或多点迭代法.
+  
+\end_layout
+
+\begin_layout Standard
+所以, 割线法的迭代过程如下所示:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+用曲线上两点
+\begin_inset Formula $P_{0}(x_{0},f(x_{0}))$
+\end_inset
+
+、
+\begin_inset Formula $P_{1}(x_{1},f(x_{1}))$
+\end_inset
+
+的割线来代替曲线, 用割线与
+\begin_inset Formula $x$
+\end_inset
+
+轴交点的横座标作为方程的近似根
+\begin_inset Formula $x_{2}$
+\end_inset
+
+, 再过
+\begin_inset Formula $P_{1}$
+\end_inset
+
+和
+\begin_inset Formula $P_{2}(x_{2},f(x_{2}))$
+\end_inset
+
+作割线求出
+\begin_inset Formula $x_{3}$
+\end_inset
+
+,  ...
+ 以此类推, 当收敛时可求出满足精度要求的
+\begin_inset Formula $x_{k}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这种方法只需计算函数值, 避免计算导数； 但是它需要两个初始点, 收敛比牛顿迭代法稍慢, 对初始点要求同样高.
+ 
+\end_layout
+
+\begin_layout Standard
+可以证明, 割线法的收敛阶为
+\begin_inset Formula $\boxed{\frac{\sqrt{5}+1}{2}\approx1.618.}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+在
+\begin_inset Formula $f(x)$
+\end_inset
+
+的单根
+\begin_inset Formula $x^{*}$
+\end_inset
+
+的邻域内
+\begin_inset Formula $f''(x)$
+\end_inset
+
+连续, 则存在
+\begin_inset Formula $x^{*}$
+\end_inset
+
+的某个邻域
+\begin_inset Formula $N(x^{*})=[x^{*}-\delta,x^{*}+\delta]$
+\end_inset
+
+, 使得当
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ , 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ 
+\begin_inset Formula $N(x^{*})$
+\end_inset
+
+时, 由弦截法产生的序列收敛到 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+, 且收敛阶为
+\begin_inset Formula $\boxed{\frac{\sqrt{5}+1}{2}\approx1.618.}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+证明过于复杂, 这里略.
+ 
+\end_layout
+
+\end_body
+\end_document

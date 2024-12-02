@@ -3206,7 +3206,7 @@ f
 \begin_inset Formula $n$
 \end_inset
 
-维欧式空间里面一样, 可以把其几何性质推广到一般的内积空间中.
+维Euclid空间里面一样, 可以把其几何性质推广到一般的内积空间中.
  例如, 两个
 \begin_inset Formula $x,y$
 \end_inset
@@ -3284,7 +3284,11 @@ f
 \begin_inset Formula $X$
 \end_inset
 
-中的一个正交系.
+中的一个
+\series bold
+正交系
+\series default
+.
  若
 \begin_inset Formula $\forall\alpha,||x_{\alpha}||=1$
 \end_inset
@@ -3349,7 +3353,11 @@ x=\sum_{n=1}^{k}(x,e_{n})e_{n}.
 \end_layout
 
 \begin_layout Standard
-证明大致可以考虑
+证明大致可以考虑线性空间向量
+\begin_inset Formula $x$
+\end_inset
+
+的基表示
 \begin_inset Formula $\alpha_{1}e_{1}+\cdots+\alpha_{k}e_{k}=0$
 \end_inset
 
@@ -3357,8 +3365,98 @@ x=\sum_{n=1}^{k}(x,e_{n})e_{n}.
  
 \end_layout
 
+\begin_layout Proof
+(1) 对于
+\begin_inset Formula $\{e_{1},e_{2},\cdots,e_{k}\}$
+\end_inset
+
+考虑方程
+\begin_inset Formula $\alpha_{1}e_{1}+\cdots+\alpha_{k}e_{k}=0,$
+\end_inset
+
+两边都对
+\begin_inset Formula $e_{m},(m=1,2,\cdots,k)$
+\end_inset
+
+做内积就有
+\begin_inset Formula 
+\begin{align*}
+\underbrace{0}_{\begin{array}{c}
+0\text{和谁的内积}\\
+\text{结\text{果都是 0}}
+\end{array}} & =\left(\sum_{n=1}^{k}\alpha_{n}e_{n},e_{m}\right)=\sum_{n=1}^{n}\alpha_{n}(e_{n},e_{m})\\
+ & =\alpha_{m}(e_{m},e_{m})=\alpha_{m}. & (\text{正\text{交性}})
+\end{align*}
+
+\end_inset
+
+从而说明
+\begin_inset Formula $\alpha_{m}$
+\end_inset
+
+只能等于 0, 从而是线性无关的.
+ 
+\end_layout
+
+\begin_layout Proof
+(2) 如果
+\begin_inset Formula $X$
+\end_inset
+
+是
+\begin_inset Formula $k$
+\end_inset
+
+维的, 对任意的
+\begin_inset Formula $x\in X,$
+\end_inset
+
+都可以表为
+\begin_inset Formula $\{e_{1},\cdots,e_{k}\}$
+\end_inset
+
+的线性组合.
+ 比如取
+\begin_inset Formula $\forall x,x=\sum_{n=1}^{k}\lambda_{n}e_{n}.$
+\end_inset
+
+同样对于两边做内积, 有
+\begin_inset Formula $(x,e_{m})=\left(\sum_{n=1}^{k}\lambda_{n}e_{n},e_{m}\right)=\sum_{n=1}^{k}\lambda_{n}(e_{n},e_{m})=\lambda_{m}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+这实际上说明如果一个向量空间里面的
+\begin_inset Formula $x$
+\end_inset
+
+如果在一组正交系下面表示, 那么它的表示中
+\begin_inset Formula $e_{n}$
+\end_inset
+
+前面的系数
+\begin_inset Formula $\alpha_{n}$
+\end_inset
+
+就一定是
+\begin_inset Formula $(x,e_{n})$
+\end_inset
+
+.
+ 这就是正交分解的非常好的性质.
+ 
+\end_layout
+
 \begin_layout Subsubsection
 正交投影
+\end_layout
+
+\begin_layout Standard
+实际上, 正交系中向量的个数如果小于空间的维度的话, 我们可以通过类似与投影的办法不断的从每个向量的值摘出来.
+ 
 \end_layout
 
 \begin_layout Theorem
@@ -3393,6 +3491,105 @@ x=\sum_{n=1}^{k}(x,e_{n})e_{n}.
 
 取得最小值.
  
+\end_layout
+
+\begin_layout Standard
+这可以从勾股定理中得到.
+ 更一般如果在一些更特殊的条件下, 便可以通过这个性质找出一组无关向量组.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+正交基底
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $\{x_{\alpha}\}_{\alpha\in I}$
+\end_inset
+
+是
+\begin_inset Formula $X$
+\end_inset
+
+的正交系, 如果包含它的最小闭子空间是全空间
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $\{x_{\alpha}\}_{\alpha\in I}$
+\end_inset
+
+就称为
+\begin_inset Formula $X$
+\end_inset
+
+的正交基.
+ 
+\end_layout
+
+\begin_layout Example
+例如, 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+空间中的标准基底是
+\begin_inset Formula $\begin{array}{cccccccc}
+e_{n}=( & 0, & 0, & \cdots, & 1, & 0, & \cdots, & 0)\\
+ &  &  &  & n
+\end{array}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+线性空间
+\begin_inset Formula $L^{2}[-\pi,\pi]$
+\end_inset
+
+中定义内积
+\begin_inset Formula $(x,y)=\int_{-\pi}^{\pi}x(t)\overline{y(t)}\dd t$
+\end_inset
+
+, 那么三角函数系
+\begin_inset Formula 
+\[
+\{e_{n}\}=\left\{ \frac{1}{\sqrt{2\pi}},\frac{1}{\sqrt{\pi}}\cos t,\frac{1}{\sqrt{\pi}}\sin t,\cdots,\frac{1}{\sqrt{\pi}}\cos kt,\frac{1}{\sqrt{\pi}}\sin kt,\cdots\right\} 
+\]
+
+\end_inset
+
+是这个空间的标准正交基.
+ 
+\end_layout
+
+\begin_layout Example
+另外, 
+\begin_inset Formula 
+\[
+\{e_{n}\}=\left\{ \frac{1}{\sqrt{2\pi}}e^{int}:n=\pm1,\pm2,\cdots\right\} 
+\]
+
+\end_inset
+
+是它的另一组标准正交基.
+ 
+\end_layout
+
+\begin_layout Section
+有界线性算子
+\end_layout
+
+\begin_layout Standard
+高等数学中研究了微分和积分.
+ 实际上微分和积分都是线性运算, 与线性变换的矩阵
+\begin_inset Formula ${\bf A}$
+\end_inset
+
+有很多相似的地方.
+ 这节的主要目的是把全体有界算子看做一个线性空间, 并赋予范数, 称为一个赋范空间.
+ 这种抽象可以
 \end_layout
 
 \end_body
