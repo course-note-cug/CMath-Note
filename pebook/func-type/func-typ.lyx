@@ -1,0 +1,1298 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{mathrsfs}
+
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+
+
+
+\usepackage{cleveref}
+\crefname{equation}{式}{式}
+\crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\crefname{page}{页}{页}
+\crefname{chapter}{章}{章}
+\crefname{section}{节}{节}
+\crefname{appendix}{附录}{附录}
+\crefname{theorem}{定理}{定理}
+\crefname{lemma}{引理}{引理}
+\crefname{corollary}{推论}{推论}
+\crefname{proposition}{命题}{命题}
+\crefname{definition}{定义}{定义}
+\crefname{example}{例}{例}
+\crefname{algorithm}{算法}{算法}
+\crefname{listing}{列表}{列表}
+\crefname{line}{行}{行}
+
+\crefformat{chapter}{#2第#1章#3}
+\crefformat{section}{#2第#1节#3}
+\crefformat{subsection}{#2第#1节#3}
+\crefformat{subsubsection}{#2第#1节#3}
+
+\crefrangeformat{chapter}{#3第#1章#4至#5第#2章#6}
+\crefrangeformat{section}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsection}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsubsection}{#3第#1节#4至#5第#2节#6}
+
+\crefmultiformat{chapter}{#2第#1章#3}{和#2第#1章#3}{, #2第#1章#3}{和#2第#1章#3}
+\crefmultiformat{section}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsubsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+
+\crefrangemultiformat{chapter}{#3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}{, #3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}
+\crefrangemultiformat{section}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsubsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+
+\newcommand{\crefpairconjunction}{~和~}
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{~和~}
+\newcommand{\crefpairgroupconjunction}{~和~}
+\newcommand{\crefmiddlegroupconjunction}{, }
+\newcommand{\creflastgroupconjunction}{~和~}
+\newcommand{\crefrangeconjunction}{~至~}
+
+% LISTINGS
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Make SS at the beginning of a section
+
+\makeatletter
+%% See pp. 26f. of 'The LaTeX Companion,' 2nd. ed.
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+    {\csname the#1\endcsname\quad}%      default
+    {\csname #1@cntformat\endcsname}}%   individual control
+\newcommand{\section@cntformat}{\S\thesection\quad}
+\newcommand{\subsection@cntformat}{\S\thesubsection\quad}
+\makeatother % changes @ back to a special character
+
+\usepackage{titlesec}
+
+\CTEXsetup[format={\raggedright\large\bfseries}]{section}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection.}{0.5em}{}[.]
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\alph{subsubsection})}{0.5em}{}
+
+
+\usepackage{annotate-equations}
+
+
+
+\theoremstyle{definition}
+
+
+\usepackage{enumitem}
+
+\setlist{nosep}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt, 
+    margin=1in,
+    rmargin=2.5in
+}
+\setlength{\marginparwidth}{2in}
+\usepackage{environ}
+
+
+
+\newcommand{\lecture}[6]{
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf #1
+		\hfill #6} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill 第 #2 节: #3  \hfill} }
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Lecturer: #4 \hfill Scribes: #5} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   
+   \vspace*{4mm}
+}
+
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  font=small}
+% \setlength{\marginparwidth}{100pt}
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
+\usepackage{setspace}
+\newcounter{paranum}[section]
+\newcommand{\Par}[1]{\vspace{10pt}\noindent\textbf{\refstepcounter{paranum}\theparanum. }\textbf{#1}~~}
+\newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
+\newcommand{\mn}[1]{\marginnote{{#1}}}
+% \renewcommand{\algorithmcfname}{算法}
+\usepackage[abspath]{currfile}
+
+\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigside}[3]{\marginpar{\includegraphics[width=\marginparwidth]{figs/\jobname/#1}
+  \captionof{figure}{#2}\label{fig:#3}}}
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\stirling}[2]{\left\{{#1 \atop #2}\right\}}
+\newcommand{\binomt}[2]{\left(\left({#1 \atop #2}\right)\right)}
+\newcommand{\pf}[4]{#1_{#2}^{#3_{#4}}}
+\newcommand{\pl}[4]{#1_{#2}{#3^{#4}}}
+\newcommand{\ty}[3]{{#1} \equiv {#2} ~(\bmod {#3})}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\varsub}[2]{\stackrel{#1}{\stackrel{\rule{#2}{0.4pt}}{\rule{#2}{0.4pt}}}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\Ep}[1]{\mathbb E\left(#1\right)}
+
+\newcommand{\red}[1]{{{\color{red}#1}}}
+\newcommand{\teal}[1]{{{\color{teal}#1}}}
+\newcommand{\blue}[1]{{{\color{blue}#1}}}
+\newcommand{\purple}[1]{{{\color{purple}#1}}}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\like}{$\blacktriangleright$}
+\newcommand{\exrate}[1]{{[#1]~}}
+\newcommand{\newword}[2]{{\textbf{#1(#2)}\index{#1}}}
+\newcommand{\newenword}[1]{{\textbf{#1}\index{#1}}}
+\newcommand{\nwd}[1]{{\textbf{#1}\index{#1}}}
+
+\DeclareMathOperator{\End}{End}
+\newcommand{\huaa}{{\mathscr A}}
+\newcommand{\huab}{{\mathscr B}}
+\newcommand{\huac}{{\mathscr C}}
+\newcommand{\zkj}[1]{{$\mathscr{#1}$-子空间}}
+\newcommand{\vecgrp}[2]{{{#1}_1, {#1}_2,\cdots, {#1}_{#2}}}
+
+\newcommand{\fadetext}[1]{{{\color{gray} #1}}}
+
+\newcommand{\motivation}[1]{{{\blue{ #1}}}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:Code
+  LyxType               charstyle
+  LabelString           code
+  LatexType             command
+  LatexName             code
+  Font
+    Family              Sans
+    Color               Green
+  EndFont
+  Preamble
+    \newcommand*{\code}[1]{\texttt{#1}}
+  EndPreamble
+	ResetsFont true
+End
+
+InsetLayout Flex:NewENWord
+  LyxType               charstyle
+  LabelString           "nenwd"
+  LatexType             command
+  LatexName             newenword
+  Font
+    Family              Sans
+    Color               blue
+  EndFont
+  ResetsFont true
+End
+\end_local_layout
+\language chinese-simplified
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\totf}{\stackrel{t}{\rightarrow}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\st}{\text{ s.t. }}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Z}{\mathbb{Z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\N}{\mathbb{N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ifr}[2]{\frac{{\displaystyle #1}}{{\displaystyle #2}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cons}[2]{\begin{array}{ccc}
+#1 & \ \  & #2\end{array}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\B}{\mathbb{B}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cs}[1]{\mathit{\ #1\ }}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "../../commands.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+函数
+\end_layout
+
+\begin_layout Standard
+函数就是两个集合之间特定的对应``关系'', 这个特定体现在一旦输入给定, 输出就不能发生变化.
+ 
+\end_layout
+
+\begin_layout Definition
+(全函数) 如果从
+\begin_inset Formula $A$
+\end_inset
+
+到
+\begin_inset Formula $B$
+\end_inset
+
+的函数是全函数, 记作
+\begin_inset Formula $A\totf B$
+\end_inset
+
+, 就是满足
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\forall a\in A.\forall b,b'\in B.(\red{(a,b)\in f}\land\blue{((a,b')\in f\implies b=b')})$
+\end_inset
+
+.
+ (函数)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\forall a\in A.\exists b\in B\st(a,b)\in f.$
+\end_inset
+
+ (全都有定义)
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+(1) 第一条是满足函数的性质; 第二条说明这个函数在定义域上的每个元素都有定义.
+ 
+\end_layout
+
+\begin_layout Remark*
+(2) 对于一般的函数, 如果
+\begin_inset Formula $f$
+\end_inset
+
+在
+\begin_inset Formula $a$
+\end_inset
+
+处没有定义, 可以写为
+\begin_inset Formula $f(a)=\bot.$
+\end_inset
+
+ 如果把
+\begin_inset Formula $\bot$
+\end_inset
+
+当做一种特殊取值的话, 那么可以扩展为全函数
+\begin_inset Formula $f:A\totf(B+\{\bot\}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(函数的相等) 对于两个函数
+\begin_inset Formula $f,g:A\to B$
+\end_inset
+
+, 
+\begin_inset Formula $f=g\iff\forall a\in A.f(a)=g(a).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(函数的复合) 如果
+\begin_inset Formula $f:A\to B,g:B\to C,$
+\end_inset
+
+那么函数
+\begin_inset Formula $g\circ f=A\to C$
+\end_inset
+
+, 对应法则为
+\begin_inset Formula $(g\circ f)(a)=g(f(a)),\forall a\in A.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(有限函数和函数值更新) 如果
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+是偏函数, 
+\begin_inset Formula $a_{1},\cdots,a_{n}\in A;b_{1},b_{2},\cdots,b_{n}\in B.$
+\end_inset
+
+
+\begin_inset Formula $f[a_{1}\mapsto b_{1},a_{2}\mapsto b_{2},\cdots,a_{n}\mapsto b_{n}]$
+\end_inset
+
+表示新的映射
+\begin_inset Formula $g:A\to B$
+\end_inset
+
+满足
+\begin_inset Formula $g(x)=\begin{cases}
+b_{i} & \text{对某些}i\text{,如果}x=a_{i}\\
+f(x) & \text{对所有的}i,\text{如\text{果}}x\neq a_{i}
+\end{cases}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Remark*
+这看上去就像把函数
+\begin_inset Formula $f$
+\end_inset
+
+的值更新了.
+ 有时候也称为继承.
+ 
+\end_layout
+
+\begin_layout Problem
+数学里面的函数和计算机科学的函数有什么不同?
+\end_layout
+
+\begin_layout Solution*
+实际上普通程序语言的函数(如 C, C++)并不是纯正意义上的数学函数.
+ 比如它可能会调用全局变量导致即使有相同的输入参数, 结果也可能发生改变.
+ 
+\end_layout
+
+\begin_layout Solution*
+当然, 如果认为全局变量(或者栈帧)也在输入的一部分, 那他们确实是一样的.
+ 
+\end_layout
+
+\begin_layout Section
+编程语言中的类型
+\end_layout
+
+\begin_layout Standard
+简单起见, 可以认为
+\series bold
+类型是取值的集合
+\series default
+.
+ 这个取值的集合暗示了我们希望具有这个类型变量的值取得什么.
+ 比如通常的可认为是
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+int
+\end_layout
+
+\end_inset
+
+类型的取值范围是
+\begin_inset Formula $[-2147383648,2147483647].$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+乘积和函数类型
+\end_layout
+
+\begin_layout Definition
+(函数类型) 如果
+\begin_inset Formula $f$
+\end_inset
+
+是一个从
+\begin_inset Formula $A$
+\end_inset
+
+到
+\begin_inset Formula $B$
+\end_inset
+
+的偏函数, 我们说
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+, 并且说
+\begin_inset Formula $f$
+\end_inset
+
+的类型是
+\begin_inset Formula $A\to B.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Remark*
+(1) 
+\begin_inset Formula $A,B$
+\end_inset
+
+都是某些类型.
+ 
+\end_layout
+
+\begin_layout Remark*
+(2) 如果
+\begin_inset Formula $A,B$
+\end_inset
+
+都不是函数类型, 那么
+\begin_inset Formula $A\to B$
+\end_inset
+
+称为一阶函数; 反之称为高阶函数.
+ 
+\end_layout
+
+\begin_layout Remark*
+(3) 如果是全函数可以记其类型为
+\begin_inset Formula $A\totf B$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Remark*
+(4) 函数类型的结合律在右侧.
+ 即
+\begin_inset Formula $A\to(B\to C)$
+\end_inset
+
+可以缩写为
+\begin_inset Formula $A\to B\to C.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Remark*
+(5) 函数应用的结合律是左结合的.
+ 即
+\begin_inset Formula $fab$
+\end_inset
+
+实际上指的是
+\begin_inset Formula $(f(a))(b)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Definition
+(乘积类型) 如果
+\begin_inset Formula $A_{1},A_{2},A_{3},\cdots,A_{n}$
+\end_inset
+
+是类型, 那么
+\begin_inset Formula $A_{1}\times A_{2}\times\cdots\times A_{n}$
+\end_inset
+
+是乘积类型.
+ 
+\end_layout
+
+\begin_layout Example
+高阶函数.
+ 
+\end_layout
+
+\begin_layout Example
+(1) 定义
+\begin_inset Formula $\blue{add}(n)=p,\red{p(x)=x+n}.$
+\end_inset
+
+其中
+\begin_inset Formula $add$
+\end_inset
+
+的类型为
+\begin_inset Formula $\mathbb{N}\totf\red{\mathbb{N}\totf\mathbb{N}}.$
+\end_inset
+
+ 例如
+\begin_inset Formula $add(1)(7)=p(7)_{n=1}=7+1=8.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+(2) 定义
+\begin_inset Formula $twice\red{(f)(x)}=\blue{f(f(x))}$
+\end_inset
+
+, 其具有类型
+\begin_inset Formula $(\red{\mathbb{N}\to\mathbb{N}})\totf(\blue{\mathbb{N}\to\mathbb{N}})$
+\end_inset
+
+; 如果
+\begin_inset Formula $square(x)=x^{2}(\mathbb{N}\to\mathbb{N})$
+\end_inset
+
+作为参数, 就有
+\begin_inset Formula $twice(square)=j,$
+\end_inset
+
+满足
+\begin_inset Formula $j(x)=x^{4}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+函数的部分带入(Curry)
+\end_layout
+
+\begin_layout Standard
+对于二元及以上的函数, 我们可以带入部分表达式来获得求值原函数的效果.
+ 例如, 定义
+\begin_inset Formula $plus(x,y)=x+y$
+\end_inset
+
+的类型是
+\begin_inset Formula $(\mathbb{N}\times\mathbb{N})\to\mathbb{N}$
+\end_inset
+
+; 定义
+\begin_inset Formula $\blue{add}(n)$
+\end_inset
+
+(上例)的类型就是
+\begin_inset Formula $\mathbb{N}\totf(\mathbb{N}\totf\mathbb{N})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+类型推断
+\end_layout
+
+\begin_layout Definition
+(类型) 
+\series bold
+类型是取值的集合
+\series default
+.
+ 约定``
+\begin_inset Formula $x$
+\end_inset
+
+的类型是
+\begin_inset Formula $t$
+\end_inset
+
+''简单记作
+\begin_inset Formula $x:t.$
+\end_inset
+
+ 如果一个表达式是 well-typed, 当且仅当所有的参数和参与运算的算符的类型都是合适的.
+ 如果一个表达式
+\begin_inset Formula $e$
+\end_inset
+
+是 well-typed, 并且最后的值的类型是
+\begin_inset Formula $t,$
+\end_inset
+
+记作
+\begin_inset Formula $e:t$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Definition
+如果 
+\begin_inset Formula $e$
+\end_inset
+
+是表达式, 出现了变量
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 只有在做出某些假定下, 
+\begin_inset Formula $x$
+\end_inset
+
+的类型才可以确定.
+ 这样的假定被称为类型环境, 记作
+\begin_inset Formula $\tau=[x\mapsto t,\cdots]$
+\end_inset
+
+, 表示将
+\begin_inset Formula $x$
+\end_inset
+
+映射到它的类型: 
+\begin_inset Formula $\tau x=t$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Definition
+对于类型的推理可以记作
+\begin_inset Formula $\tau\vdash e:t$
+\end_inset
+
+表示在环境
+\begin_inset Formula $\tau$
+\end_inset
+
+中, 
+\begin_inset Formula $e$
+\end_inset
+
+是 well-typed, 并且具有类型
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 或者可以竖着写作
+\begin_inset Formula $\ifr{\tau}{e:t}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+类型的推理规则.
+ 像数理逻辑那样, 只要
+\begin_inset Formula $x:\N,$
+\end_inset
+
+就有
+\begin_inset Formula $x+x:\N$
+\end_inset
+
+可以记作
+\begin_inset Formula $[x\mapsto\N]\vdash x+x:\N.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Example
+通常情况下只用对某些部分更新, 因此可以记作
+\begin_inset Formula $\tau[x\mapsto t]\vdash x:t$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+若干实例.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Bool 表达式类型
+\begin_inset Formula $\B=\{\texttt{true},\texttt{false}\}$
+\end_inset
+
+, 有
+\begin_inset Formula 
+\[
+\ifr{\tau\vdash e:\B}{\tau\vdash not\ e:\B}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+考虑两个整数类型的加法:
+\begin_inset Formula 
+\[
+\ifr{\cons{\tau\vdash e_{1}:\Z}{\tau\vdash e_{2}:\Z}}{\tau\vdash e_{1}+e_{2}:\Z}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+考虑有序对.
+\begin_inset Formula 
+\[
+\ifr{\cons{\tau\vdash e_{1}:t_{1}}{\tau\vdash e_{2}:t_{2}}}{\tau\vdash(e_{1},e_{2}):t_{1}\times t_{2}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+考虑高阶函数.
+\begin_inset Formula 
+\[
+\ifr{\cons{\tau\vdash f:t\to t'}{\tau\vdash e:t}}{\tau\vdash f(e):t'}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+多步骤的类型推导:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(m+n,m-n),m,n\in\Z.$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\ifr{\cons{\ifr{\cons{\tau\vdash m:\Z}{\tau\vdash n:\Z}}{r\vdash m+n:\Z}}{\ifr{\cons{\tau\vdash m:\Z}{\tau\vdash n:\Z}}{r\vdash m-n:\Z}}}{\tau:(m+n,m-n):\Z\times\Z}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\tau=[f\mapsto\N\to\N,x\mapsto\N]$
+\end_inset
+
+, 有
+\begin_inset Formula 
+\[
+\ifr{\cons{\tau\vdash f:\N\to\N}{\ifr{\cons{\tau\vdash f:\N\to\N}{\tau\vdash x:\N}}{\tau:f(x):\N}}}{\tau\vdash f(f(x)):\N}.
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+和类型
+\end_layout
+
+\begin_layout Standard
+为什么提出和类型.
+ 回顾 C 语言中, 空指针
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+NULL
+\end_layout
+
+\end_inset
+
+只不过是
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+的又一个定义.
+ 概念上就可以使用类似于
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Inttag(0)
+\end_layout
+
+\end_inset
+
+表示这是一个整数 0; 而
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Pointertag(0)
+\end_layout
+
+\end_inset
+
+可以概念上认为这是空指针
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+NULL
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+可以看做这样的一个结构体:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+struct numeric {
+\end_layout
+
+\begin_layout Plain Layout
+
+  enum numeric_kind kind; // INT or FLOAT
+\end_layout
+
+\begin_layout Plain Layout
+
+  union {
+\end_layout
+
+\begin_layout Plain Layout
+
+    int i;
+\end_layout
+
+\begin_layout Plain Layout
+
+    float f;
+\end_layout
+
+\begin_layout Plain Layout
+
+  } data;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(和类型) 如果
+\begin_inset Formula $C_{i}$
+\end_inset
+
+是标记(构造子), 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+是类型, 那么有和类型 
+\begin_inset Formula 
+\[
+C_{1}t_{11}\times\cdots\times C_{1}t_{1k_{1}}|\cdots|C_{n}t_{n1}\times\cdots\times C_{n}t_{nk_{n}}
+\]
+
+\end_inset
+
+.
+ 其中
+\begin_inset Formula $n\geq1,k_{i}\geq0,$
+\end_inset
+
+且
+\begin_inset Formula $C_{i}$
+\end_inset
+
+要不同, 我们说属于这个的类型是由
+\begin_inset Formula $C_{i}(v_{i1},\cdots,v_{ik_{i}})$
+\end_inset
+
+构造而来的(
+\begin_inset Formula $v_{i1}:t_{i1},\cdots,v_{ik_{i}}:t_{ik_{i}}).$
+\end_inset
+
+ 它表示下列的值的集合: 
+\begin_inset Formula 
+\[
+\bigcup_{i=1}^{n}\{C_{i}(v_{1},\cdots,v_{k_{i}})|v_{j}:t_{ij},j=1,2,\cdots,k_{i}\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+(1) 为什么
+\begin_inset Formula $C_{i}$
+\end_inset
+
+要不同? 这是因为如果相同了等于重复了, 为了方便起见就没有包含相同的.
+ 
+\end_layout
+
+\begin_layout Subsection
+递归的类型
+\end_layout
+
+\begin_layout Definition
+(递归类型) 可以递归地定义如下的类型(数据类型)作为和类型
+\begin_inset Formula $T=C_{1}t_{11}\times\cdots\times t_{1k_{1}}|\cdots|C_{n}t_{n1}\times\cdots\times t_{nk_{n}}$
+\end_inset
+
+.
+ 其中
+\begin_inset Formula $t_{ij}$
+\end_inset
+
+可以包含
+\begin_inset Formula $T$
+\end_inset
+
+或者其他类型的名字.
+ 所有的构造子
+\begin_inset Formula $C_{1},C_{2},\cdots,C_{n}$
+\end_inset
+
+必须是不同的.
+ 
+\end_layout
+
+\begin_layout Remark*
+(1) 递归的数据类型和和类型很像, 有什么区别? 注意到和类型中所有的
+\begin_inset Formula $t_{i}$
+\end_inset
+
+不会包含他自己; 但是这里的
+\begin_inset Formula $t_{i}$
+\end_inset
+
+可以包含自己, 所以它产生的集合可能会任意大.
+ 
+\end_layout
+
+\begin_layout Example
+List类型.
+ 有限列表被定义为
+\begin_inset Formula $As=\cs{nils}|\cs{cons}A\times As$
+\end_inset
+
+, 其中
+\begin_inset Formula $nils,cons$
+\end_inset
+
+为构造子.
+ 这表明: 
+\begin_inset Formula $As$
+\end_inset
+
+的元素
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+要么是
+\begin_inset Formula $nil$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+要么有
+\begin_inset Formula $cons(a,as),a:A,as:As$
+\end_inset
+
+的形式.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Example
+有限长度的列表, 元素在
+\begin_inset Formula $A$
+\end_inset
+
+中, 通常称为
+\begin_inset Formula $A^{*}.$
+\end_inset
+
+ 如
+\begin_inset Formula $cons(7,cons(9,cons(13,nil)))$
+\end_inset
+
+具有类型
+\begin_inset Formula $\Z^{*}.$
+\end_inset
+
+ 也可以写作
+\begin_inset Formula $[7,9,13]$
+\end_inset
+
+或者
+\begin_inset Formula $7::9::13.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+List类型的语义.
+ 上述内容的集合描述实际上是
+\begin_inset Formula $As=\{nil\}\cup\{cons(a,as)|a\in A\land as\in As\}$
+\end_inset
+
+.
+ 这可以通过求闭包得到.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+语法解析树.
+ 从编译原理课上知道语法解析树有如下的形式: 
+\begin_inset Formula $Nexp=\cs{Int}\N|\cs{Add}Nexp\times Nexp|\cs{Mul}Nexp\times Nexp.$
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

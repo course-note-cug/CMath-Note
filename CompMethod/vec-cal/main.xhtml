@@ -1,0 +1,5226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="GENERATOR" content="LyX 2.3.7" />
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<title>LyX Document</title>
+<style type='text/css'>
+/* LyX Provided Styles */
+mstyle.boxed { border: 1px solid black; }
+
+/* Layout-provided Styles */
+div.standard {
+	margin-bottom: 2ex;
+}
+h2.section {
+font-weight: bold;
+font-size: x-large;
+margin-top: 1.3ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+h5.paragraph {
+font-weight: bold;
+font-size: medium;
+margin-top: 0.4ex;
+text-align: left;
+
+}
+ol.enumerate {
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+margin-left: 3ex;
+text-align: left;
+
+}
+h3.subsection {
+font-weight: bold;
+font-size: large;
+margin-top: 0.9ex;
+margin-bottom: 0.5ex;
+text-align: left;
+
+}
+div.definition {
+font-style: normal;
+font-variant: normal;
+font-size: medium;
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+span.definition_label {
+font-weight: bold;
+font-style: normal;
+font-variant: normal;
+font-size: medium;
+
+}
+div.remark_ {
+font-style: normal;
+font-variant: normal;
+font-size: medium;
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+span.remark__label {
+font-weight: normal;
+font-style: italic;
+font-variant: normal;
+font-size: medium;
+
+}
+div.theorem {
+font-style: italic;
+font-variant: normal;
+font-size: medium;
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+span.theorem_label {
+font-weight: bold;
+font-style: normal;
+font-variant: normal;
+font-size: medium;
+
+}
+div.plain_layout {
+text-align: left;
+
+}
+div.Frameless { margin: 1em; }
+table {
+	border-collapse: collapse;
+	display: inline-block;
+}
+td {
+	border: 1px solid black;
+	padding: 0.5ex;
+}
+
+
+</style>
+</head>
+<body dir="auto">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="section" id='magicparlabel-2346'><span class="section_label">1</span> 回顾变量的微分学</h2>
+<div class="standard" id='magicparlabel-2347'>在学习向量和矩阵的求导之前, 最好回顾关于一元函数、多元函数的微分学. </div>
+<h5 class="paragraph" id='magicparlabel-2348'><span class="paragraph_label"></span> 一元函数的微分学</h5>
+<div class="standard" id='magicparlabel-2349'>微分算子<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>D</mi>
+ </mrow></math>是一个线性算子. 这就意味着对于映射<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>f</mi><mo>,</mo><mi>g</mi>
+  </mrow>
+ </mrow></math>、常数<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>k</mi><mo>,</mo><mi>l</mi>
+  </mrow>
+ </mrow></math>, 有<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>D</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>k</mi><mi>f</mi><mo>+</mo><mi>l</mi><mi>g</mi>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo><mi>k</mi><mi>D</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>f</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>+</mo><mi>l</mi><mi>D</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>g</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>. 此外, 我们还有链式法则, 即<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo><mi>f</mi>
+   <msub>
+    <mrow><mo>'</mo>
+    </mrow>
+    <mrow>
+     <mrow><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+   </msub><mi>g</mi>
+   <msub>
+    <mrow><mo>'</mo>
+    </mrow>
+    <mrow><mi>x</mi>
+    </mrow>
+   </msub>
+  </mrow>
+ </mrow></math>. </div>
+<h5 class="paragraph" id='magicparlabel-2350'><span class="paragraph_label"></span> 多元函数的微分学</h5>
+<div class="standard" id='magicparlabel-2351'>最重要的是考虑多元函数的复合函数. </div>
+<h2 class="section" id='magicparlabel-2352'><span class="section_label">2</span> 向量求导: 两种格式</h2>
+<div class="standard" id='magicparlabel-2353'>一句话概括: 向量求导无非就是将多个变量排成了一个比较好的格式. 并且在这个比较好的格式上面求微分. 再继续之前, 我们先来回顾几个重要的技巧:</div>
+
+<ol class="enumerate" id='magicparlabel-2354'><li class="enumerate_item"><b>作为点积的求和</b>. 对于形如<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow><mo> &sum; </mo>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msub>
+   <msub>
+    <mrow><mi>u</mi>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msub>
+   <msub>
+    <mrow><mi>v</mi>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msub>
+  </mrow>
+ </mrow></math>的式子, 可以使用两个列向量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mrow>
+    <mstyle mathvariant='bold'><mi>u</mi>
+    </mstyle>
+   </mrow><mo>,</mo>
+   <mrow>
+    <mstyle mathvariant='bold'><mi>v</mi>
+    </mstyle>
+   </mrow>
+  </mrow>
+ </mrow></math>并且写作点积的形式: 即<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo> &sum; </mo>
+   <msub>
+    <mrow><mi>u</mi>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msub>
+   <msub>
+    <mrow><mi>v</mi>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msub><mo>=</mo>
+   <mrow>
+    <mstyle mathvariant='bold'>
+     <mrow><mi>u</mi><mo> &sdot; </mo><mi>v</mi>
+     </mrow>
+    </mstyle>
+   </mrow><mo>=</mo>
+   <mrow>
+    <mstyle mathvariant='bold'>
+     <mrow><mi>u</mi><mo>'</mo><mi>v</mi>
+     </mrow>
+    </mstyle>
+   </mrow><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item"><b>作为矩阵乘法的点积和</b>. 对于一个矩阵<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle>
+  </mrow>
+ </mrow></math>, 其中如果第<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>i</mi>
+ </mrow></math>行第<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>j</mi>
+ </mrow></math>列的元素是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow>
+     <mrow>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msub><mo> &sdot; </mo>
+   <msub>
+    <mrow>
+     <mrow>
+      <mstyle mathvariant='bold'><mi>v</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow><mi>j</mi>
+    </mrow>
+   </msub>
+  </mrow>
+ </mrow></math>, 可以定义两个矩阵<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mrow>
+    <mstyle mathvariant='bold'><mi>U</mi>
+    </mstyle>
+   </mrow><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mtable>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd>
+         <msub>
+          <mrow>
+           <mrow>
+            <mstyle mathvariant='bold'><mi>u</mi>
+            </mstyle>
+           </mrow>
+          </mrow>
+          <mrow><mn>1</mn>
+          </mrow>
+         </msub>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mtd>
+     <mtd>
+      <mtable>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd>
+         <msub>
+          <mrow>
+           <mrow>
+            <mstyle mathvariant='bold'><mi>u</mi>
+            </mstyle>
+           </mrow>
+          </mrow>
+          <mrow><mn>2</mn>
+          </mrow>
+         </msub>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mtd>
+     <mtd>
+      <mi>&ctdot;
+      </mi>
+     </mtd>
+     <mtd>
+      <mtable>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd>
+         <msub>
+          <mrow>
+           <mrow>
+            <mstyle mathvariant='bold'><mi>u</mi>
+            </mstyle>
+           </mrow>
+          </mrow>
+          <mrow>
+           <mrow><mi>n</mi><mo>-</mo><mn>1</mn>
+           </mrow>
+          </mrow>
+         </msub>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mtd>
+     <mtd>
+      <mtable>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd>
+         <msub>
+          <mrow>
+           <mrow>
+            <mstyle mathvariant='bold'><mi>u</mi>
+            </mstyle>
+           </mrow>
+          </mrow>
+          <mrow><mi>n</mi>
+          </mrow>
+         </msub>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+  </mrow>
+ </mrow></math>、<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mrow>
+    <mstyle mathvariant='bold'><mi>V</mi>
+    </mstyle>
+   </mrow><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mtable>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd>
+         <msub>
+          <mrow>
+           <mrow>
+            <mstyle mathvariant='bold'><mi>v</mi>
+            </mstyle>
+           </mrow>
+          </mrow>
+          <mrow><mn>1</mn>
+          </mrow>
+         </msub>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mtd>
+     <mtd>
+      <mtable>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd>
+         <msub>
+          <mrow>
+           <mrow>
+            <mstyle mathvariant='bold'><mi>v</mi>
+            </mstyle>
+           </mrow>
+          </mrow>
+          <mrow><mn>2</mn>
+          </mrow>
+         </msub>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mtd>
+     <mtd>
+      <mi>&ctdot;
+      </mi>
+     </mtd>
+     <mtd>
+      <mtable>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd>
+         <msub>
+          <mrow>
+           <mrow>
+            <mstyle mathvariant='bold'><mi>v</mi>
+            </mstyle>
+           </mrow>
+          </mrow>
+          <mrow>
+           <mrow><mi>n</mi><mo>-</mo><mn>1</mn>
+           </mrow>
+          </mrow>
+         </msub>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mtd>
+     <mtd>
+      <mtable>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd>
+         <msub>
+          <mrow>
+           <mrow>
+            <mstyle mathvariant='bold'><mi>v</mi>
+            </mstyle>
+           </mrow>
+          </mrow>
+          <mrow><mi>n</mi>
+          </mrow>
+         </msub>
+        </mtd>
+       </mtr>
+       <mtr>
+        <mtd><mo>|</mo>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+  </mrow>
+ </mrow></math>, 使得<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mrow>
+    <mstyle mathvariant='bold'>
+     <mrow><mi>X</mi><mo>=</mo><mi>U</mi><mo>'</mo><mi>V</mi>
+     </mrow>
+    </mstyle>
+   </mrow><mn>.</mn>
+  </mrow>
+ </mrow></math> </li>
+</ol>
+<h3 class="subsection" id='magicparlabel-2356'><span class="subsection_label">2.1</span> 基本定义</h3>
+
+<div class="definition" id='magicparlabel-2357'><div class="definition_item"><span class="definition_label">定义1.</span>
+(向量对标量求导) 向量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mrow>
+    <mstyle mathvariant='bold'><mi>y</mi>
+    </mstyle>
+   </mrow><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <msub>
+       <mrow><mi>y</mi>
+       </mrow>
+       <mrow><mn>1</mn>
+       </mrow>
+      </msub>
+     </mtd>
+     <mtd>
+      <msub>
+       <mrow><mi>y</mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msub>
+     </mtd>
+     <mtd>
+      <msub>
+       <mrow><mi>y</mi>
+       </mrow>
+       <mrow><mn>3</mn>
+       </mrow>
+      </msub>
+     </mtd>
+     <mtd>
+      <mi>&ctdot;
+      </mi>
+     </mtd>
+     <mtd>
+      <msub>
+       <mrow><mi>y</mi>
+       </mrow>
+       <mrow><mi>m</mi>
+       </mrow>
+      </msub>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo><mo>'</mo>
+  </mrow>
+ </mrow></math>对于标量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math>的求导记作<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle class='boxed'>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mrow>
+        <mstyle mathvariant='normal'><mi>d</mi>
+        </mstyle>
+        <mrow>
+         <mstyle mathvariant='bold'><mi>y</mi>
+         </mstyle>
+        </mrow>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow>
+        <mstyle mathvariant='normal'><mi>d</mi>
+        </mstyle><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>:</mo><mo>=</mo>
+     <msup>
+      <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+       <mtable>
+        <mtr>
+         <mtd>
+          <mfrac>
+           <mrow>
+            <mrow>
+             <mstyle mathvariant='normal'><mi>d</mi>
+             </mstyle>
+             <msub>
+              <mrow><mi>y</mi>
+              </mrow>
+              <mrow><mn>1</mn>
+              </mrow>
+             </msub>
+            </mrow>
+           </mrow>
+           <mrow>
+            <mrow>
+             <mstyle mathvariant='normal'><mi>d</mi>
+             </mstyle><mi>x</mi>
+            </mrow>
+           </mrow>
+          </mfrac>
+         </mtd>
+         <mtd>
+          <mfrac>
+           <mrow>
+            <mrow>
+             <mstyle mathvariant='normal'><mi>d</mi>
+             </mstyle>
+             <msub>
+              <mrow><mi>y</mi>
+              </mrow>
+              <mrow><mn>2</mn>
+              </mrow>
+             </msub>
+            </mrow>
+           </mrow>
+           <mrow>
+            <mrow>
+             <mstyle mathvariant='normal'><mi>d</mi>
+             </mstyle><mi>x</mi>
+            </mrow>
+           </mrow>
+          </mfrac>
+         </mtd>
+         <mtd>
+          <mfrac>
+           <mrow>
+            <mrow>
+             <mstyle mathvariant='normal'><mi>d</mi>
+             </mstyle>
+             <msub>
+              <mrow><mi>y</mi>
+              </mrow>
+              <mrow><mn>3</mn>
+              </mrow>
+             </msub>
+            </mrow>
+           </mrow>
+           <mrow>
+            <mrow>
+             <mstyle mathvariant='normal'><mi>d</mi>
+             </mstyle><mi>x</mi>
+            </mrow>
+           </mrow>
+          </mfrac>
+         </mtd>
+         <mtd>
+          <mi>&ctdot;
+          </mi>
+         </mtd>
+         <mtd>
+          <mfrac>
+           <mrow>
+            <mrow>
+             <mstyle mathvariant='normal'><mi>d</mi>
+             </mstyle>
+             <msub>
+              <mrow><mi>y</mi>
+              </mrow>
+              <mrow><mi>m</mi>
+              </mrow>
+             </msub>
+            </mrow>
+           </mrow>
+           <mrow>
+            <mrow>
+             <mstyle mathvariant='normal'><mi>d</mi>
+             </mstyle><mi>x</mi>
+            </mrow>
+           </mrow>
+          </mfrac>
+         </mtd>
+        </mtr>
+       </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+      </mrow>
+      <mrow><mo>'</mo>
+      </mrow>
+     </msup>
+    </mrow>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></div>
+</div>
+
+<div class="remark_" id='magicparlabel-2358'><div class="remark__item"><span class="remark__label">注.</span>
+(1) 这通常称为向量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>y</mi>
+   </mstyle>
+  </mrow>
+ </mrow></math>的切向量. 实际上这里映射<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mrow>
+    <mstyle mathvariant='bold'><mi>y</mi>
+    </mstyle>
+   </mrow><mo>:</mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mn>1</mn>
+    </mrow>
+   </msup><mo> &rarr; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi>m</mi>
+    </mrow>
+   </msup><mn>.</mn>
+  </mrow>
+ </mrow></math></div>
+<div class="remark__item">(2) 这里我们采用竖着排版的形式. 这样的情形只是一个习惯性操作. 倘若定义<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow>
+      <mstyle mathvariant='normal'><mi>d</mi>
+      </mstyle>
+      <mrow>
+       <mstyle mathvariant='bold'><mi>y</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow>
+      <mstyle mathvariant='normal'><mi>d</mi>
+      </mstyle><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>:</mo><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle>
+         <msub>
+          <mrow><mi>y</mi>
+          </mrow>
+          <mrow><mn>1</mn>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle>
+         <msub>
+          <mrow><mi>y</mi>
+          </mrow>
+          <mrow><mn>2</mn>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle>
+         <msub>
+          <mrow><mi>y</mi>
+          </mrow>
+          <mrow><mn>3</mn>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd>
+      <mi>&ctdot;
+      </mi>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle>
+         <msub>
+          <mrow><mi>y</mi>
+          </mrow>
+          <mrow><mi>m</mi>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo><mo>,</mo>
+  </mrow>
+ </mrow></math>那么后续的内容除了符号上有更改以外, 没有太多区别. </div>
+</div>
+
+<div class="definition" id='magicparlabel-2360'><div class="definition_item"><span class="definition_label">定义2.</span>
+(标量对向量求导) 标量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>y</mi>
+ </mrow></math>对于向量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mrow>
+    <mstyle mathvariant='bold'><mi>x</mi>
+    </mstyle>
+   </mrow><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <msub>
+       <mrow><mi>x</mi>
+       </mrow>
+       <mrow><mn>1</mn>
+       </mrow>
+      </msub>
+     </mtd>
+     <mtd>
+      <msub>
+       <mrow><mi>x</mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msub>
+     </mtd>
+     <mtd>
+      <msub>
+       <mrow><mi>x</mi>
+       </mrow>
+       <mrow><mn>3</mn>
+       </mrow>
+      </msub>
+     </mtd>
+     <mtd>
+      <mi>&ctdot;
+      </mi>
+     </mtd>
+     <mtd>
+      <msub>
+       <mrow><mi>x</mi>
+       </mrow>
+       <mrow><mi>m</mi>
+       </mrow>
+      </msub>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo><mo>'</mo>
+  </mrow>
+ </mrow></math>的<b>分子形式</b>记作</div>
+<div class="definition_item"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle class='boxed'>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>y</mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mrow>
+         <mstyle mathvariant='bold'><mi>x</mi>
+         </mstyle>
+        </mrow>
+       </mrow>
+      </mrow>
+     </mfrac><mo>:</mo><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+     <mtable>
+      <mtr>
+       <mtd>
+        <mfrac>
+         <mrow>
+          <mrow>
+           <mstyle mathvariant='normal'><mi>d</mi>
+           </mstyle><mi>y</mi>
+          </mrow>
+         </mrow>
+         <mrow>
+          <mrow>
+           <mstyle mathvariant='normal'><mi>d</mi>
+           </mstyle>
+           <msub>
+            <mrow><mi>x</mi>
+            </mrow>
+            <mrow><mn>1</mn>
+            </mrow>
+           </msub>
+          </mrow>
+         </mrow>
+        </mfrac>
+       </mtd>
+       <mtd>
+        <mfrac>
+         <mrow>
+          <mrow>
+           <mstyle mathvariant='normal'><mi>d</mi>
+           </mstyle><mi>y</mi>
+          </mrow>
+         </mrow>
+         <mrow>
+          <mrow>
+           <mstyle mathvariant='normal'><mi>d</mi>
+           </mstyle>
+           <msub>
+            <mrow><mi>x</mi>
+            </mrow>
+            <mrow><mn>2</mn>
+            </mrow>
+           </msub>
+          </mrow>
+         </mrow>
+        </mfrac>
+       </mtd>
+       <mtd>
+        <mfrac>
+         <mrow>
+          <mrow>
+           <mstyle mathvariant='normal'><mi>d</mi>
+           </mstyle><mi>y</mi>
+          </mrow>
+         </mrow>
+         <mrow>
+          <mrow>
+           <mstyle mathvariant='normal'><mi>d</mi>
+           </mstyle>
+           <msub>
+            <mrow><mi>x</mi>
+            </mrow>
+            <mrow><mn>3</mn>
+            </mrow>
+           </msub>
+          </mrow>
+         </mrow>
+        </mfrac>
+       </mtd>
+       <mtd>
+        <mi>&ctdot;
+        </mi>
+       </mtd>
+       <mtd>
+        <mfrac>
+         <mrow>
+          <mrow>
+           <mstyle mathvariant='normal'><mi>d</mi>
+           </mstyle><mi>y</mi>
+          </mrow>
+         </mrow>
+         <mrow>
+          <mrow>
+           <mstyle mathvariant='normal'><mi>d</mi>
+           </mstyle>
+           <msub>
+            <mrow><mi>x</mi>
+            </mrow>
+            <mrow><mi>m</mi>
+            </mrow>
+           </msub>
+          </mrow>
+         </mrow>
+        </mfrac>
+       </mtd>
+      </mtr>
+     </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+    </mrow>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math>其<b>分母形式</b>可以类似记作<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mrow>
+       <mstyle mathvariant='bold'><mi>x</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+    </mrow>
+   </mfrac><mo>:</mo><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle><mi>y</mi>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle>
+         <msub>
+          <mrow><mi>x</mi>
+          </mrow>
+          <mrow><mn>1</mn>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle><mi>y</mi>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle>
+         <msub>
+          <mrow><mi>x</mi>
+          </mrow>
+          <mrow><mn>2</mn>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle><mi>y</mi>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle>
+         <msub>
+          <mrow><mi>x</mi>
+          </mrow>
+          <mrow><mn>3</mn>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd>
+      <mi>&ctdot;
+      </mi>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle><mi>y</mi>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <mstyle mathvariant='normal'><mi>d</mi>
+         </mstyle>
+         <msub>
+          <mrow><mi>x</mi>
+          </mrow>
+          <mrow><mi>m</mi>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo><mo>'</mo><mn>.</mn>
+  </mrow>
+ </mrow></math></div>
+<div class="definition_item">这里<b>分子形式</b>的意思是: 生成的向量的<b>行数</b>和<b>分子</b>的行数相同. </div>
+</div>
+
+<div class="remark_" id='magicparlabel-2363'><div class="remark__item"><span class="remark__label">注.</span>
+(1) 分子形式和分母形式实际上是求导之后对于变量如何排布进行的约定. 如果不加说明, 下列总是使用分子形式. </div>
+<div class="remark__item">(2) 实际上这是映射<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>y</mi>
+   </mstyle><mo>:</mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi>n</mi>
+    </mrow>
+   </msup><mo> &rarr; </mo>
+   <mstyle mathvariant='double-struck'><mi>R</mi>
+   </mstyle>
+  </mrow>
+ </mrow></math>. 并且与梯度之间的关系是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi> &nabla; </mi><mi>y</mi><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>'</mo>
+  </mrow>
+ </mrow></math>. </div>
+</div>
+
+<div class="definition" id='magicparlabel-2365'><div class="definition_item"><span class="definition_label">定义3.</span>
+(向量对向量求导) 向量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>y</mi><mo>=</mo>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+
+   <mrow>
+    <msub>
+     <mrow><mi>y</mi>
+     </mrow>
+     <mrow><mn>1</mn>
+     </mrow>
+    </msub><mo>,</mo>
+    <msub>
+     <mrow><mi>y</mi>
+     </mrow>
+     <mrow><mn>2</mn>
+     </mrow>
+    </msub><mo>,</mo>
+    <mi>&ctdot;
+    </mi><mo>,</mo>
+    <msub>
+     <mrow><mi>y</mi>
+     </mrow>
+     <mrow><mi>m</mi>
+     </mrow>
+    </msub>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+<mo>'</mo>
+  </mrow>
+ </mrow></math>对向量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>x</mi><mo>=</mo>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+
+   <mrow>
+    <msub>
+     <mrow><mi>x</mi>
+     </mrow>
+     <mrow><mn>1</mn>
+     </mrow>
+    </msub><mo>,</mo>
+    <msub>
+     <mrow><mi>x</mi>
+     </mrow>
+     <mrow><mn>2</mn>
+     </mrow>
+    </msub><mo>,</mo>
+    <mi>&ctdot;
+    </mi><mo>,</mo>
+    <msub>
+     <mrow><mi>x</mi>
+     </mrow>
+     <mrow><mi>n</mi>
+     </mrow>
+    </msub>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+<mo>'</mo>
+  </mrow>
+ </mrow></math>求导的<b>分子形式</b>写作<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mtable>
+   <mtr>
+    <mtd>
+     <mstyle class='boxed'>
+      <mstyle displaystyle='true' scriptlevel='0'>
+       <mrow>
+        <mfrac>
+         <mrow>
+          <mrow><mi> &part; </mi>
+           <mstyle mathvariant='bold'><mi>y</mi>
+           </mstyle>
+          </mrow>
+         </mrow>
+         <mrow>
+          <mrow><mi> &part; </mi>
+           <mstyle mathvariant='bold'><mi>x</mi>
+           </mstyle>
+          </mrow>
+         </mrow>
+        </mfrac><mo>:</mo><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+        <mtable>
+         <mtr>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mn>1</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mn>1</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mn>1</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mn>2</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+          <mtd>
+           <mi>&ctdot;
+           </mi>
+          </mtd>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mn>1</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mi>n</mi>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+         </mtr>
+         <mtr>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mn>2</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mn>1</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mn>2</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mn>2</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+          <mtd>
+           <mi>&ctdot;
+           </mi>
+          </mtd>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mn>2</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mi>n</mi>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+         </mtr>
+         <mtr>
+          <mtd>
+           <mi>&vellip;
+           </mi>
+          </mtd>
+          <mtd>
+           <mi>&vellip;
+           </mi>
+          </mtd>
+          <mtd>
+           <mi>&dtdot;
+           </mi>
+          </mtd>
+          <mtd>
+           <mi>&vellip;
+           </mi>
+          </mtd>
+         </mtr>
+         <mtr>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mi>m</mi>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mn>1</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mi>m</mi>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mn>2</mn>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+          <mtd>
+           <mi>&ctdot;
+           </mi>
+          </mtd>
+          <mtd>
+           <mfrac>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>y</mi>
+               </mrow>
+               <mrow><mi>m</mi>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+            <mrow>
+             <mrow><mi> &part; </mi>
+              <msub>
+               <mrow><mi>x</mi>
+               </mrow>
+               <mrow><mi>n</mi>
+               </mrow>
+              </msub>
+             </mrow>
+            </mrow>
+           </mfrac>
+          </mtd>
+         </mtr>
+        </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+       </mrow>
+      </mstyle>
+     </mstyle>
+    </mtd>
+    <mtd>
+     <mrow><mi>m</mi>
+      <mstyle mathvariant='normal'><mo>行</mo>
+      </mstyle>
+     </mrow>
+    </mtd>
+   </mtr>
+   <mtr>
+    <mtd>
+     <mrow><mi>n</mi>
+      <mstyle mathvariant='normal'><mo>列</mo>
+      </mstyle>
+     </mrow>
+    </mtd>
+    <mtd><mrow/>
+    </mtd>
+   </mtr>
+  </mtable>
+ </mrow></math></div>
+<div class="definition_item">其<b>分母形式</b>就是分子形式的转置. </div>
+<div class="definition_item">这里<b>分子形式</b>的意思是: 生成的矩阵的<b>行数</b>和<b>分子</b>的行数相同. </div>
+</div>
+
+<div class="remark_" id='magicparlabel-2368'><div class="remark__item"><span class="remark__label">注.</span>
+(1)实际上映射<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>y</mi>
+   </mstyle><mo>:</mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi>m</mi>
+    </mrow>
+   </msup><mo> &rarr; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi>n</mi>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>, 这就是Jacobian矩阵. </div>
+</div>
+
+<div class="definition" id='magicparlabel-2369'><div class="definition_item"><span class="definition_label">定义4.</span>
+(矩阵对标量求导) 矩阵<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>Y</mi>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>m</mi><mo> &times; </mo><mi>n</mi>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>对于标量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math>的求导的分子形式记作<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle class='boxed'>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mstyle mathvariant='bold'><mi>Y</mi>
+        </mstyle>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>=</mo>
+     <msub>
+      <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <msub>
+           <mrow><mi>y</mi>
+           </mrow>
+           <mrow>
+            <mrow><mi>i</mi><mo>,</mo><mi>j</mi>
+            </mrow>
+           </mrow>
+          </msub>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>x</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+      </mrow>
+      <mrow>
+       <mrow><mi>i</mi><mo>,</mo><mi>j</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></div>
+<div class="definition_item">分母形式就是分子形式的转置. </div>
+<div class="definition_item">这里<b>分子形式</b>的意思是: 生成的矩阵的<b>行数</b>和<b>分子</b>的行数相同. </div>
+</div>
+
+<div class="remark_" id='magicparlabel-2372'><div class="remark__item"><span class="remark__label">注.</span>
+这时候<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>Y</mi>
+   </mstyle><mo>:</mo>
+   <mstyle mathvariant='double-struck'><mi>R</mi>
+   </mstyle><mo> &rarr; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>m</mi><mo> &times; </mo><mi>n</mi>
+     </mrow>
+    </mrow>
+   </msup><mn>.</mn>
+  </mrow>
+ </mrow></math></div>
+</div>
+
+<div class="standard" id='magicparlabel-2373'><br />
+
+</div>
+
+<div class="definition" id='magicparlabel-2374'><div class="definition_item"><span class="definition_label">定义5.</span>
+(标量对矩阵求导) 标量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>y</mi>
+ </mrow></math>对于矩阵<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>p</mi><mo> &times; </mo><mi>q</mi>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>求导的分子形式记作<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle class='boxed'>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>y</mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mstyle mathvariant='bold'><mi>x</mi>
+        </mstyle>
+       </mrow>
+      </mrow>
+     </mfrac><mo>=</mo>
+     <msub>
+      <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>y</mi>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <msub>
+           <mrow><mi>x</mi>
+           </mrow>
+           <mrow>
+           </mrow>
+          </msub>
+         </mrow>
+        </mrow>
+       </mfrac>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+      </mrow>
+      <mrow>
+       <mrow><mi>i</mi><mo>,</mo><mi>j</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></div>
+<div class="definition_item">分母形式就是分子形式的转置. </div>
+<div class="definition_item">这里<b>分子形式</b>的意思是: 生成的矩阵的<b>行数</b>和<b>分母的列数</b>相同. (因为分子就是一个标量). </div>
+</div>
+
+<div class="remark_" id='magicparlabel-2377'><div class="remark__item"><span class="remark__label">注.</span>
+实际上这时候映射<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>y</mi><mo>:</mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>p</mi><mo> &times; </mo><mi>q</mi>
+     </mrow>
+    </mrow>
+   </msup><mo> &rarr; </mo>
+   <mstyle mathvariant='double-struck'><mi>R</mi>
+   </mstyle>
+  </mrow>
+ </mrow></math>. 常见的函数为矩阵的迹、矩阵的行列式. </div>
+</div>
+<h2 class="section" id='magicparlabel-2378'><span class="section_label">3</span> 常见求导结果</h2>
+<h3 class="subsection" id='magicparlabel-2379'><span class="subsection_label">3.1</span> 向量对向量</h3>
+
+<ol class="enumerate" id='magicparlabel-2768'><li class="enumerate_item">常数相关
+
+<ol class="enumerate" id='magicparlabel-2773'><li class="enumerate_item">常向量的导数是 0: 若<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>a</mi>
+  </mstyle>
+ </mrow></math>中不含变量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>x</mi>
+  </mstyle>
+ </mrow></math>, 那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>a</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mn>0</mn>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">常数进出求导: 若<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>a</mi>
+ </mrow></math>中不含变量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>x</mi>
+  </mstyle>
+ </mrow></math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>a</mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>a</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">常矩阵进出求导: 
+
+<ol class="enumerate" id='magicparlabel-2998'><li class="enumerate_item">若<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>n</mi><mo> &times; </mo><mi>m</mi>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>中不含变量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>m</mi><mo> &times; </mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>, 那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'>
+       <mrow><mi>A</mi><mi>x</mi>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">若<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>n</mi><mo> &times; </mo><mi>m</mi>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>中不含变量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>m</mi><mo> &times; </mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>, 那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'>
+       <mrow><mi>x</mi><mo>'</mo><mi>A</mi>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>A</mi><mo>'</mo>
+    </mrow>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">若<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>n</mi><mo> &times; </mo><mi>m</mi>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>中不含变量<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>m</mi><mo> &times; </mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup><mo>,</mo>
+  </mrow>
+ </mrow></math>而向量值函数<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+    </mrow>
+   </mstyle><mo> &isin; </mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='double-struck'><mi>R</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>m</mi><mo> &times; </mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math>, 那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'>
+       <mrow><mi>A</mi><mi>u</mi>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+</ol>
+</li></ol>
+</li><li class="enumerate_item">乘法
+
+<ol class="enumerate" id='magicparlabel-3094'><li class="enumerate_item">变元在向量: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>a</mi>
+ </mrow></math>中不含<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>x</mi>
+  </mstyle>
+ </mrow></math>, 但是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>u</mi>
+   </mstyle><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>u</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>a</mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>a</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">变元在常数: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+   <mstyle mathvariant='bold'><mi>a</mi>
+   </mstyle>
+  </mrow>
+ </mrow></math>中不含<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle><mo>:</mo>
+  </mrow>
+ </mrow></math><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+      <mstyle mathvariant='bold'><mi>a</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>a</mi>
+   </mstyle>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">两个都有: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+    </mrow>
+   </mstyle>
+  </mrow>
+ </mrow></math>: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>v</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mstyle mathvariant='bold'><mi>u</mi>
+   </mstyle>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+</ol>
+</li><li class="enumerate_item">加法: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+    </mrow>
+   </mstyle><mo>,</mo>
+  </mrow>
+ </mrow></math>那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo>(</mo>
+      <mstyle mathvariant='bold'>
+       <mrow><mi>u</mi><mo>+</mo><mi>v</mi><mo>)</mo>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>v</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">链式法则
+
+<ol class="enumerate" id='magicparlabel-3486'><li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>g</mi><mo>=</mo><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>u</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+    </mrow>
+   </mstyle><mo>,</mo>
+  </mrow>
+ </mrow></math><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>g</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>g</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>f</mi><mo>=</mo><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>g</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>g</mi><mo>=</mo><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>u</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+    </mrow>
+   </mstyle><mo>,</mo>
+  </mrow>
+ </mrow></math><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>f</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>f</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>g</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>g</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+</ol>
+</li></ol>
+<h3 class="subsection" id='magicparlabel-3694'><span class="subsection_label">3.2</span> 标量对向量</h3>
+
+<ol class="enumerate" id='magicparlabel-3706'><li class="enumerate_item">常数相关: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>a</mi>
+ </mrow></math>中不含<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>x</mi>
+  </mstyle>
+ </mrow></math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mn>.</mn>
+  </mrow>
+ </mrow></math> <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>a</mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>a</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">加法: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mn>.</mn>
+  </mrow>
+ </mrow></math> <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow><mi>u</mi><mo>+</mo><mi>v</mi>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">乘法: 如果<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+  </mrow>
+ </mrow></math> <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>u</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>v</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">链式法则: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>f</mi><mo>=</mo><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>g</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>g</mi><mo>=</mo><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>u</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+  </mrow>
+ </mrow></math><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>f</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>f</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>g</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>g</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">点积: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+   </mrow>
+  </mstyle>
+ </mrow></math><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mstyle mathvariant='bold'>
+       <mrow><mi>u</mi><mo> &sdot; </mo><mi>v</mi>
+       </mrow>
+      </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>u</mi>
+   </mstyle><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>v</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mstyle mathvariant='bold'><mi>v</mi>
+   </mstyle><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">二次型: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>A</mi>
+   </mrow>
+  </mstyle>
+ </mrow></math>中不含<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>x</mi>
+   </mstyle><mo>,</mo>
+  </mrow>
+ </mrow></math><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mstyle mathvariant='bold'>
+       <mrow><mi>u</mi><mo>'</mo><mi>A</mi><mi>v</mi>
+       </mrow>
+      </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>u</mi>
+   </mstyle><mo>'</mo>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>v</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mstyle mathvariant='bold'><mi>v</mi>
+   </mstyle><mo>'</mo>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+</ol>
+<h3 class="subsection" id='magicparlabel-5901'><span class="subsection_label">3.3</span> 向量对标量</h3>
+
+<ol class="enumerate" id='magicparlabel-5909'><li class="enumerate_item">常数相关: 
+
+<ol class="enumerate" id='magicparlabel-5934'><li class="enumerate_item">常数: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>a</mi>
+ </mrow></math>与<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math>无关, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>. <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>a</mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>a</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">常矩阵: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>A</mi>
+  </mstyle>
+ </mrow></math>与<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math>无关, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>. <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'>
+       <mrow><mi>A</mi><mi>u</mi>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+</ol>
+</li><li class="enumerate_item">转置: 如果<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+  </mrow>
+ </mrow></math>那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>'</mo>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">加法: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>v</mi><mo>=</mo><mi>v</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>. 那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo>(</mo>
+      <mstyle mathvariant='bold'>
+       <mrow><mi>u</mi><mo>+</mo><mi>v</mi><mo>)</mo>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>v</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">乘法相关
+
+<ol class="enumerate" id='magicparlabel-6149'><li class="enumerate_item">向量的外积: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>v</mi><mo>=</mo><mi>v</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mn>.</mn>
+  </mrow>
+ </mrow></math> <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow>
+       <mstyle mathvariant='bold'>
+        <mrow><mi>u</mi><mo>'</mo>
+        </mrow>
+       </mstyle><mo> &times; </mo>
+       <mstyle mathvariant='bold'><mi>v</mi>
+       </mstyle>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>'</mo><mo> &times; </mo>
+   <mstyle mathvariant='bold'><mi>v</mi>
+   </mstyle><mo>+</mo>
+   <mstyle mathvariant='bold'><mi>u</mi>
+   </mstyle><mo>'</mo><mo> &times; </mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>v</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">矩阵的外积: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mstyle mathvariant='bold'>
+       <mrow><mi>U</mi><mo> &times; </mo><mi>v</mi>
+       </mrow>
+      </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo> &times; </mo>
+   <mstyle mathvariant='bold'><mi>v</mi>
+   </mstyle><mo>+</mo>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo> &times; </mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+</ol>
+</li><li class="enumerate_item">链式法则: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>u</mi><mo>=</mo><mi>u</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>f</mi><mo>=</mo><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>g</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>g</mi><mo>=</mo><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>u</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mn>.</mn>
+    </mrow>
+   </mstyle>
+  </mrow>
+ </mrow></math>那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>f</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>f</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>g</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>g</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>u</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+</ol>
+<h3 class="subsection" id='magicparlabel-4112'><span class="subsection_label">3.4</span> 向量对矩阵</h3>
+
+<ol class="enumerate" id='magicparlabel-4123'><li class="enumerate_item">常数相关: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>a</mi>
+ </mrow></math>不含<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>X</mi>
+  </mstyle>
+ </mrow></math>相关的变量, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mn>.</mn>
+  </mrow>
+ </mrow></math> 那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>a</mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>a</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>x</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">加法: 如果<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mn>.</mn>
+  </mrow>
+ </mrow></math> 那么<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow><mi>u</mi><mo>+</mo><mi>v</mi>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">乘法: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>v</mi><mo>=</mo><mi>v</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mn>.</mn>
+  </mrow>
+ </mrow></math> <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>u</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>v</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">链式法则: 
+
+<ol class="enumerate" id='magicparlabel-6512'><li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>u</mi><mo>=</mo><mi>u</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>u</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>g</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>g</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>u</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msub>
+       <mrow><mi>X</mi>
+       </mrow>
+       <mrow>
+        <mrow><mi>i</mi><mi>j</mi>
+        </mrow>
+       </mrow>
+      </msub>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='normal'>
+    <mrow><mi>t</mi><mi>r</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+    </mfrac>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msub>
+        <mrow><mi>X</mi>
+        </mrow>
+        <mrow>
+         <mrow><mi>i</mi><mi>j</mi>
+         </mrow>
+        </mrow>
+       </msub>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></li>
+</ol>
+</li></ol>
+<h3 class="subsection" id='magicparlabel-6617'><span class="subsection_label">3.5</span> 矩阵对标量</h3>
+
+<ol class="enumerate" id='magicparlabel-6629'><li class="enumerate_item">常数相关:
+
+<ol class="enumerate" id='magicparlabel-6641'><li class="enumerate_item">标量常数: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo><mi>a</mi>
+  </mrow>
+ </mrow></math>不是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math>的函数: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>a</mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mi>a</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">矩阵: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mrow><mi>A</mi><mo>,</mo><mi>B</mi>
+   </mrow>
+  </mstyle>
+ </mrow></math>不是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math>的函数, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>U</mi><mo>=</mo><mi>U</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'>
+       <mrow><mi>A</mi><mi>U</mi><mi>B</mi>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mstyle mathvariant='bold'><mi>B</mi>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+</ol>
+</li><li class="enumerate_item">加法: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+   <mstyle mathvariant='bold'><mi>V</mi>
+   </mstyle><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>V</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle><mo>+</mo>
+       <mstyle mathvariant='bold'><mi>V</mi>
+       </mstyle>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>V</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">乘法相关:<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>U</mi><mo>=</mo><mi>U</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>,</mo>
+   <mstyle mathvariant='bold'>
+    <mrow><mi>V</mi><mo>=</mo><mi>V</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>
+
+<ol class="enumerate" id='magicparlabel-6712'><li class="enumerate_item">矩阵乘法: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+       <mstyle mathvariant='bold'><mi>V</mi>
+       </mstyle>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>V</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mstyle mathvariant='bold'><mi>V</mi>
+   </mstyle>
+  </mrow>
+ </mrow></math>.</li>
+<li class="enumerate_item">张量乘法: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle><mo> &otimes; </mo>
+       <mstyle mathvariant='bold'><mi>V</mi>
+       </mstyle>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo> &otimes; </mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>V</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo> &otimes; </mo>
+   <mstyle mathvariant='bold'><mi>V</mi>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">逐元素相乘: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle><mo> &cir; </mo>
+       <mstyle mathvariant='bold'><mi>V</mi>
+       </mstyle>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo> &cir; </mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>V</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo> &cir; </mo>
+   <mstyle mathvariant='bold'><mi>V</mi>
+   </mstyle>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">矩阵的逆: 
+
+<ol class="enumerate" id='magicparlabel-6876'><li class="enumerate_item">一元情况: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow>
+        <mstyle mathvariant='bold'><mi>U</mi>
+        </mstyle>
+       </mrow>
+       <mrow>
+        <mrow><mo>-</mo><mn>1</mn>
+        </mrow>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo>-</mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>U</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>U</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">多元情况: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>U</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+      <msup>
+       <mrow>
+        <mstyle mathvariant='bold'><mi>U</mi>
+        </mstyle>
+       </mrow>
+       <mrow>
+        <mrow><mo>-</mo><mn>1</mn>
+        </mrow>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>U</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>x</mi>
+      </mrow>
+     </mrow>
+    </mfrac>
+    <msup>
+     <mrow>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+     <mrow>
+      <mrow><mo>-</mo><mn>1</mn>
+      </mrow>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>y</mi>
+      </mrow>
+     </mrow>
+    </mfrac><mo>-</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>x</mi><mi> &part; </mi><mi>y</mi>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>y</mi>
+      </mrow>
+     </mrow>
+    </mfrac>
+    <msup>
+     <mrow>
+      <mstyle mathvariant='bold'><mi>U</mi>
+      </mstyle>
+     </mrow>
+     <mrow>
+      <mrow><mo>-</mo><mn>1</mn>
+      </mrow>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mstyle mathvariant='bold'><mi>U</mi>
+       </mstyle>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>x</mi>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>U</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math></li>
+</ol>
+</li></ol>
+</li><li class="enumerate_item">函数的复合: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>A</mi>
+  </mstyle>
+ </mrow></math>不是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math>的函数, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mrow><mi>g</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>X</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   </mrow>
+  </mstyle>
+ </mrow></math>是标量形式的多项式(可以是无穷级数的形式); <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>g</mi><mo>'</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math>是对应的标量求导的结果; <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mrow><mi>g</mi><mo>'</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+<mi>x</mi>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   </mrow>
+  </mstyle>
+ </mrow></math>是对应矩阵的变化, 有<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mstyle mathvariant='bold'><mi>g</mi>
+      </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow><mi>x</mi>
+       <mstyle mathvariant='bold'><mi>A</mi>
+       </mstyle>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo>
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>g</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi> &prime; </mi>
+    </mrow>
+   </msup><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>x</mi>
+    <mstyle mathvariant='bold'><mi>A</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>g</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi> &prime; </mi>
+    </mrow>
+   </msup><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>x</mi>
+    <mstyle mathvariant='bold'><mi>A</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+</ol>
+<h2 class="section" id='magicparlabel-6957'><span class="section_label">4</span> 使用微分形式计算</h2>
+<div class="standard" id='magicparlabel-6971'>类似于全微分一样, 矩阵的计算可以用微分形式进行求解. 下面列举常用的微分形式的分子结果. </div>
+
+<div class="theorem" id='magicparlabel-7110'><div class="theorem_item"><span class="theorem_label">定理1.</span>
+如下是微分形式矩阵运算的基本法则.</div>
+<div class="theorem_item">
+
+<div class='Frameless'><div class="plain_layout" style='text-align: center;' id='magicparlabel-11197'><table><tbody><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11198'>描述</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11199'>表达式</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11200'>结果</div>
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11201'>矩阵的迹</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11202'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'>
+     <mrow><mi>t</mi><mi>r</mi>
+     </mrow>
+    </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11203'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'>
+    <mrow><mi>t</mi><mi>r</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></div>
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11204'>矩阵的行列式</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11205'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mo>|</mo>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle><mo>|</mo>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11206'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo>|</mo>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle><mo>|</mo>
+   <mstyle mathvariant='normal'>
+    <mrow><mi>t</mi><mi>r</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <msup>
+     <mrow>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+     <mrow>
+      <mrow><mo>-</mo><mn>1</mn>
+      </mrow>
+     </mrow>
+    </msup>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></div>
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11207'>矩阵的对数</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11208'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mo> ln </mo><mo>|</mo>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle><mo>|</mo>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11209'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'>
+    <mrow><mi>t</mi><mi>r</mi>
+    </mrow>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <msup>
+     <mrow>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+     <mrow>
+      <mrow><mo>-</mo><mn>1</mn>
+      </mrow>
+     </mrow>
+    </msup><mi>d</mi>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></div>
+</td>
+</tr></tbody>
+</table>
+</div>
+
+
+
+<div class="plain_layout" style='text-align: center;' id='magicparlabel-11210'><table><tbody><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11211'>描述</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11212'>表达式</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11213'>结果</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11214'>条件</div>
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11215'>常数</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11216'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'><mi>A</mi>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11217'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mn>0</mn>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11218'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>A</mi>
+  </mstyle>
+ </mrow></math>不是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>X</mi>
+  </mstyle>
+ </mrow></math>的函数</div>
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11219'>线性乘法</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11220'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>a</mi>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11221'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>a</mi>
+   <mstyle mathvariant='normal'>
+    <mrow><mi>d</mi><mi>X</mi>
+    </mrow>
+   </mstyle>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11222'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>a</mi>
+ </mrow></math>不是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'><mi>X</mi>
+  </mstyle>
+ </mrow></math>的函数</div>
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11223'>线性加法</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11224'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mstyle mathvariant='bold'>
+    <mrow><mi>X</mi><mo>+</mo><mi>Y</mi>
+    </mrow>
+   </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11225'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle><mo>+</mo>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle>
+   <mstyle mathvariant='bold'><mi>Y</mi>
+   </mstyle>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11227'>矩阵乘法</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11228'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>Y</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11229'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   <mstyle mathvariant='bold'><mi>Y</mi>
+   </mstyle><mo>+</mo>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>Y</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11231'>Kronecker 乘法</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11232'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle><mo> &otimes; </mo>
+    <mstyle mathvariant='bold'><mi>Y</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11233'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo> &otimes; </mo>
+   <mstyle mathvariant='bold'><mi>Y</mi>
+   </mstyle><mo>+</mo>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle><mo> &otimes; </mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>Y</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11235'>逐元素相乘</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11236'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle><mo> &cir; </mo>
+    <mstyle mathvariant='bold'><mi>Y</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11237'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo> &cir; </mo>
+   <mstyle mathvariant='bold'><mi>Y</mi>
+   </mstyle><mo>+</mo>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle><mo> &cir; </mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>Y</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11239'>转置</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11240'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle><mo>'</mo>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11241'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>'</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11243'>求逆</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11244'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>X</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11245'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo>-</mo>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>X</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>X</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11247'>多项式幂次</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11248'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>X</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi>n</mi>
+    </mrow>
+   </msup>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11249'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msubsup>
+    <mrow><mo> &sum; </mo>
+    </mrow>
+    <mrow>
+     <mrow><mi>i</mi><mo>=</mo><mn>0</mn>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi>n</mi><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msubsup>
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>X</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msup><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   <msup>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>X</mi>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mrow><mi>n</mi><mo>-</mo><mi>i</mi><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11250'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>n</mi>
+ </mrow></math>是正整数</div>
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11251'>指数</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11252'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>(</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <msup>
+       <mrow><mi>e</mi>
+       </mrow>
+       <mrow>
+        <mstyle mathvariant='bold'><mi>X</mi>
+        </mstyle>
+       </mrow>
+      </msup>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>)</mo><mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11253'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msubsup>
+    <mrow><mo> &int; </mo>
+    </mrow>
+    <mrow><mn>0</mn>
+    </mrow>
+    <mrow><mn>1</mn>
+    </mrow>
+   </msubsup>
+   <msup>
+    <mrow><mi>e</mi>
+    </mrow>
+    <mrow>
+     <mrow><mi>a</mi>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </msup><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>d</mi>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   <msup>
+    <mrow><mi>e</mi>
+    </mrow>
+    <mrow>
+     <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+      <mrow><mn>1</mn><mo>-</mo><mi>a</mi>
+      </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle>
+     </mrow>
+    </mrow>
+   </msup>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mi>a</mi>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11255'>对数</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11256'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mo> log </mo>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11257'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msubsup>
+    <mrow><mo> &int; </mo>
+    </mrow>
+    <mrow><mn>0</mn>
+    </mrow>
+    <mrow><mi> &infin; </mi>
+    </mrow>
+   </msubsup><mo>(</mo>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle><mo>+</mo><mi>z</mi>
+   <mstyle mathvariant='bold'><mi>I</mi>
+   </mstyle>
+   <msup>
+    <mrow><mo>)</mo>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>d</mi>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>(</mo>
+   <mstyle mathvariant='bold'><mi>X</mi>
+   </mstyle><mo>+</mo><mi>z</mi>
+   <mstyle mathvariant='bold'><mi>I</mi>
+   </mstyle>
+   <msup>
+    <mrow><mo>)</mo>
+    </mrow>
+    <mrow>
+     <mrow><mo>-</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msup>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mi>z</mi>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+
+</td>
+</tr><tr><td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11259'>复合函数</div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11260'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='normal'><mi>d</mi>
+   </mstyle><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>=</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11261'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow><mo> &sum; </mo>
+    </mrow>
+    <mrow>
+     <mrow><mi>i</mi><mi>j</mi>
+     </mrow>
+    </mrow>
+   </msub>
+   <msub>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>P</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msub><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+   <mrow>
+    <mstyle mathvariant='normal'><mi>d</mi>
+    </mstyle>
+    <mstyle mathvariant='bold'><mi>X</mi>
+    </mstyle>
+   </mrow>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+   <msub>
+    <mrow>
+     <mstyle mathvariant='bold'><mi>P</mi>
+     </mstyle>
+    </mrow>
+    <mrow><mi>j</mi>
+    </mrow>
+   </msub><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>{</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mrow>
+       <msup>
+        <mrow><mi>f</mi>
+        </mrow>
+        <mrow><mi> &prime; </mi>
+        </mrow>
+       </msup><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+       <msub>
+        <mrow><mi> &lambda; </mi>
+        </mrow>
+        <mrow><mi>i</mi>
+        </mrow>
+       </msub>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+      </mrow>
+     </mtd>
+     <mtd>
+      <mrow>
+       <msub>
+        <mrow><mi> &lambda; </mi>
+        </mrow>
+        <mrow><mi>i</mi>
+        </mrow>
+       </msub><mo>=</mo>
+       <msub>
+        <mrow><mi> &lambda; </mi>
+        </mrow>
+        <mrow><mi>j</mi>
+        </mrow>
+       </msub>
+      </mrow>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd>
+      <mfrac>
+       <mrow>
+        <mrow><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+         <msub>
+          <mrow><mi> &lambda; </mi>
+          </mrow>
+          <mrow><mi>i</mi>
+          </mrow>
+         </msub>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+<mo>-</mo><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+
+         <msub>
+          <mrow><mi> &lambda; </mi>
+          </mrow>
+          <mrow><mi>j</mi>
+          </mrow>
+         </msub>
+<mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow>
+         <msub>
+          <mrow><mi> &lambda; </mi>
+          </mrow>
+          <mrow><mi>i</mi>
+          </mrow>
+         </msub><mo>-</mo>
+         <msub>
+          <mrow><mi> &lambda; </mi>
+          </mrow>
+          <mrow><mi>j</mi>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd>
+      <mrow>
+       <msub>
+        <mrow><mi> &lambda; </mi>
+        </mrow>
+        <mrow><mi>i</mi>
+        </mrow>
+       </msub><mo> &ne; </mo>
+       <msub>
+        <mrow><mi> &lambda; </mi>
+        </mrow>
+        <mrow><mi>j</mi>
+        </mrow>
+       </msub>
+      </mrow>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>.</mo>
+  </mrow>
+ </mrow></math></div>
+</td>
+<td align='center' valign='top'>
+<div class="plain_layout" id='magicparlabel-11262'><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>{</mo>
+  <mtable>
+   <mtr>
+    <mtd>
+     <mrow>
+      <mstyle mathvariant='bold'><mi>X</mi>
+      </mstyle><mo>=</mo>
+      <msub>
+       <mrow><mo> &sum; </mo>
+       </mrow>
+       <mrow><mi>i</mi>
+       </mrow>
+      </msub>
+      <msub>
+       <mrow><mi> &lambda; </mi>
+       </mrow>
+       <mrow><mi>i</mi>
+       </mrow>
+      </msub>
+      <msub>
+       <mrow>
+        <mstyle mathvariant='bold'><mi>P</mi>
+        </mstyle>
+       </mrow>
+       <mrow><mi>i</mi>
+       </mrow>
+      </msub>
+      <mstyle mathvariant='normal'>
+       <mrow><mo>可</mo><mo>对</mo><mo>角</mo><mo>化</mo>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mtd>
+    <mtd><mrow/>
+    </mtd>
+   </mtr>
+   <mtr>
+    <mtd>
+     <mrow><mi>f</mi>
+      <mstyle mathvariant='normal'>
+       <mrow><mo>在</mo><mo>每</mo><mo>个</mo>
+       </mrow>
+      </mstyle>
+      <msub>
+       <mrow><mi> &lambda; </mi>
+       </mrow>
+       <mrow><mi>i</mi>
+       </mrow>
+      </msub>
+      <mstyle mathvariant='normal'>
+       <mrow><mo>处</mo><mo>可</mo><mo>微</mo>
+       </mrow>
+      </mstyle>
+     </mrow>
+    </mtd>
+    <mtd><mrow/>
+    </mtd>
+   </mtr>
+  </mtable>
+ </mrow></math></div>
+</td>
+</tr></tbody>
+</table>
+</div>
+</div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2365 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{mathrsfs}
+
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+
+
+
+\usepackage{cleveref}
+\crefname{equation}{式}{式}
+\crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\crefname{page}{页}{页}
+\crefname{chapter}{章}{章}
+\crefname{section}{节}{节}
+\crefname{appendix}{附录}{附录}
+\crefname{theorem}{定理}{定理}
+\crefname{lemma}{引理}{引理}
+\crefname{corollary}{推论}{推论}
+\crefname{proposition}{命题}{命题}
+\crefname{definition}{定义}{定义}
+\crefname{example}{例}{例}
+\crefname{algorithm}{算法}{算法}
+\crefname{listing}{列表}{列表}
+\crefname{line}{行}{行}
+
+\crefformat{chapter}{#2第#1章#3}
+\crefformat{section}{#2第#1节#3}
+\crefformat{subsection}{#2第#1节#3}
+\crefformat{subsubsection}{#2第#1节#3}
+
+\crefrangeformat{chapter}{#3第#1章#4至#5第#2章#6}
+\crefrangeformat{section}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsection}{#3第#1节#4至#5第#2节#6}
+\crefrangeformat{subsubsection}{#3第#1节#4至#5第#2节#6}
+
+\crefmultiformat{chapter}{#2第#1章#3}{和#2第#1章#3}{, #2第#1章#3}{和#2第#1章#3}
+\crefmultiformat{section}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+\crefmultiformat{subsubsection}{#2第#1节#3}{和#2第#1节#3}{, #2第#1节#3}{和#2第#1节#3}
+
+\crefrangemultiformat{chapter}{#3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}{, #3第#1章#4至#5第#2章#6}{和#3第#1章#4至#5第#2章#6}
+\crefrangemultiformat{section}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+\crefrangemultiformat{subsubsection}{#3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}{, #3第#1节#4至#5第#2节#6}{和#3第#1节#4至#5第#2节#6}
+
+\newcommand{\crefpairconjunction}{~和~}
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{~和~}
+\newcommand{\crefpairgroupconjunction}{~和~}
+\newcommand{\crefmiddlegroupconjunction}{, }
+\newcommand{\creflastgroupconjunction}{~和~}
+\newcommand{\crefrangeconjunction}{~至~}
+
+% LISTINGS
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% Make SS at the beginning of a section
+
+\makeatletter
+%% See pp. 26f. of 'The LaTeX Companion,' 2nd. ed.
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+    {\csname the#1\endcsname\quad}%      default
+    {\csname #1@cntformat\endcsname}}%   individual control
+\newcommand{\section@cntformat}{\S\thesection\quad}
+\newcommand{\subsection@cntformat}{\S\thesubsection\quad}
+\makeatother % changes @ back to a special character
+
+\usepackage{titlesec}
+
+\CTEXsetup[format={\raggedright\large\bfseries}]{section}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection.}{0.5em}{}[.]
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\alph{subsubsection})}{0.5em}{}
+
+
+\usepackage{annotate-equations}
+
+
+
+\theoremstyle{definition}
+
+
+\usepackage{enumitem}
+
+\setlist{nosep}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt, 
+    margin=1in,
+    rmargin=2.5in
+}
+\setlength{\marginparwidth}{2in}
+\usepackage{environ}
+
+
+
+\newcommand{\lecture}[6]{
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf #1
+		\hfill #6} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill 第 #2 节: #3  \hfill} }
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Lecturer: #4 \hfill Scribes: #5} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   
+   \vspace*{4mm}
+}
+
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  font=small}
+% \setlength{\marginparwidth}{100pt}
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{gray}\ttfamily\small}
+\usepackage{setspace}
+\newcounter{paranum}[section]
+\newcommand{\Par}[1]{\vspace{10pt}\noindent\textbf{\refstepcounter{paranum}\theparanum. }\textbf{#1}~~}
+\newcommand{\lec}[1]{\reversemarginpar\marginnote{{\textbf{#1}}}}
+\newcommand{\mn}[1]{\marginnote{{#1}}}
+% \renewcommand{\algorithmcfname}{算法}
+\usepackage[abspath]{currfile}
+
+\newcommand{\incfig}[1]{\begin{center}\includegraphics[width=.4\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigw}[1]{\begin{center}\includegraphics[width=.8\textwidth]{figs/\jobname/#1}\end{center}}
+\newcommand{\incfigside}[3]{\marginpar{\includegraphics[width=\marginparwidth]{figs/\jobname/#1}
+  \captionof{figure}{#2}\label{fig:#3}}}
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\stirling}[2]{\left\{{#1 \atop #2}\right\}}
+\newcommand{\binomt}[2]{\left(\left({#1 \atop #2}\right)\right)}
+\newcommand{\pf}[4]{#1_{#2}^{#3_{#4}}}
+\newcommand{\pl}[4]{#1_{#2}{#3^{#4}}}
+\newcommand{\ty}[3]{{#1} \equiv {#2} ~(\bmod {#3})}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\varsub}[2]{\stackrel{#1}{\stackrel{\rule{#2}{0.4pt}}{\rule{#2}{0.4pt}}}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\Ep}[1]{\mathbb E\left(#1\right)}
+
+\newcommand{\red}[1]{{{\color{red}#1}}}
+\newcommand{\teal}[1]{{{\color{teal}#1}}}
+\newcommand{\blue}[1]{{{\color{blue}#1}}}
+\newcommand{\purple}[1]{{{\color{purple}#1}}}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\like}{$\blacktriangleright$}
+\newcommand{\exrate}[1]{{[#1]~}}
+\newcommand{\newword}[2]{{\textbf{#1(#2)}\index{#1}}}
+\newcommand{\newenword}[1]{{\textbf{#1}\index{#1}}}
+\newcommand{\nwd}[1]{{\textbf{#1}\index{#1}}}
+
+\DeclareMathOperator{\End}{End}
+\newcommand{\huaa}{{\mathscr A}}
+\newcommand{\huab}{{\mathscr B}}
+\newcommand{\huac}{{\mathscr C}}
+\newcommand{\zkj}[1]{{$\mathscr{#1}$-子空间}}
+\newcommand{\vecgrp}[2]{{{#1}_1, {#1}_2,\cdots, {#1}_{#2}}}
+
+\newcommand{\fadetext}[1]{{{\color{gray} #1}}}
+
+\newcommand{\motivation}[1]{{{\blue{ #1}}}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:Code
+  LyxType               charstyle
+  LabelString           code
+  LatexType             command
+  LatexName             code
+  Font
+    Family              Sans
+    Color               Green
+  EndFont
+  Preamble
+    \newcommand*{\code}[1]{\texttt{#1}}
+  EndPreamble
+	ResetsFont true
+End
+
+InsetLayout Flex:NewENWord
+  LyxType               charstyle
+  LabelString           "nenwd"
+  LatexType             command
+  LatexName             newenword
+  Font
+    Family              Sans
+    Color               blue
+  EndFont
+  ResetsFont true
+End
+\end_local_layout
+\language chinese-simplified
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\set}[1]{\{#1\}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\stirling}[2]{\left\{  {#1\atop #2}\right\}  }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\binomt}[2]{\left(\left({#1\atop #2}\right)\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\varsub}[1]{\xlongarrow\{#1\}}
+{\underset{========}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\dd}{\mathrm{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ep}[1]{\mathbb{E}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\teal}[1]{{\color{blue}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\purple}[1]{{\color{purple}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Var}{\mathop{\textrm{Var}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Cov}{\mathop{\textrm{Cov}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\mathbb{E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\R}{\mathbb{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\F}{\mathbb{F}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\like}{\blacktriangleright}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\exrate}[1]{{[#1]~}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ub}[2]{\underbrace{#1}_{#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\vvec}[1]{\begin{array}{c}
+|\\
+#1\\
+|
+\end{array}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\hvec}[1]{\begin{array}{ccc}
+- & #1 & -\end{array}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\bf}[1]{\mathbf{#1}}
+{\mathbf{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\pd}{\partial}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+回顾变量的微分学
+\end_layout
+
+\begin_layout Standard
+在学习向量和矩阵的求导之前, 最好回顾关于一元函数、多元函数的微分学.
+ 
+\end_layout
+
+\begin_layout Paragraph
+一元函数的微分学
+\end_layout
+
+\begin_layout Standard
+微分算子
+\begin_inset Formula $\mathscr{D}$
+\end_inset
+
+是一个线性算子.
+ 这就意味着对于映射
+\begin_inset Formula $f,g$
+\end_inset
+
+、常数
+\begin_inset Formula $k,l$
+\end_inset
+
+, 有
+\begin_inset Formula $\mathscr{D}(kf+lg)=k\mathscr{D}(f)+l\mathscr{D}(g)$
+\end_inset
+
+.
+ 此外, 我们还有链式法则, 即
+\begin_inset Formula $f(g(x))=f'_{g(x)}g'_{x}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+多元函数的微分学
+\end_layout
+
+\begin_layout Standard
+最重要的是考虑多元函数的复合函数.
+ 
+\end_layout
+
+\begin_layout Section
+向量求导: 两种格式
+\end_layout
+
+\begin_layout Standard
+一句话概括: 向量求导无非就是将多个变量排成了一个比较好的格式.
+ 并且在这个比较好的格式上面求微分.
+ 再继续之前, 我们先来回顾几个重要的技巧:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+作为点积的求和
+\series default
+.
+ 对于形如
+\begin_inset Formula $\sum_{i}u_{i}v_{i}$
+\end_inset
+
+的式子, 可以使用两个列向量
+\begin_inset Formula ${\bf u},{\bf v}$
+\end_inset
+
+并且写作点积的形式: 即
+\begin_inset Formula $\sum u_{i}v_{i}={\bf{u\cdot v}}={\bf{u'v}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+作为矩阵乘法的点积和
+\series default
+.
+ 对于一个矩阵
+\begin_inset Formula ${\bf X}$
+\end_inset
+
+, 其中如果第
+\begin_inset Formula $i$
+\end_inset
+
+行第
+\begin_inset Formula $j$
+\end_inset
+
+列的元素是
+\begin_inset Formula ${\bf u}_{i}\cdot{\bf v}_{j}$
+\end_inset
+
+, 可以定义两个矩阵
+\begin_inset Formula ${\bf U}=\begin{bmatrix}\vvec{{\bf u}_{1}} & \vvec{{\bf u}_{2}} & \cdots & \vvec{{\bf u}_{n-1}} & \vvec{{\bf u}_{n}}\end{bmatrix}$
+\end_inset
+
+、
+\begin_inset Formula ${\bf V}=\begin{bmatrix}\vvec{{\bf v}_{1}} & \vvec{{\bf v}_{2}} & \cdots & \vvec{{\bf v}_{n-1}} & \vvec{{\bf v}_{n}}\end{bmatrix}$
+\end_inset
+
+, 使得
+\begin_inset Formula ${\bf{X=U'V}}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+基本定义
+\end_layout
+
+\begin_layout Definition
+(向量对标量求导) 向量
+\begin_inset Formula ${\bf y}=\begin{bmatrix}y_{1} & y_{2} & y_{3} & \cdots & y_{m}\end{bmatrix}'$
+\end_inset
+
+对于标量
+\begin_inset Formula $x$
+\end_inset
+
+的求导记作
+\begin_inset Formula 
+\[
+\boxed{\frac{\dd{\bf y}}{\dd x}:=\begin{bmatrix}\frac{\dd y_{1}}{\dd x} & \frac{\dd y_{2}}{\dd x} & \frac{\dd y_{3}}{\dd x} & \cdots & \frac{\dd y_{m}}{\dd x}\end{bmatrix}^{'}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+(1) 这通常称为向量
+\begin_inset Formula ${\bf y}$
+\end_inset
+
+的切向量.
+ 实际上这里映射
+\begin_inset Formula ${\bf y}:\R^{1}\to\R^{m}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+(2) 这里我们采用竖着排版的形式.
+ 这样的情形只是一个习惯性操作.
+ 倘若定义
+\begin_inset Formula $\frac{\dd{\bf y}}{\dd x}:=\begin{bmatrix}\frac{\dd y_{1}}{\dd x} & \frac{\dd y_{2}}{\dd x} & \frac{\dd y_{3}}{\dd x} & \cdots & \frac{\dd y_{m}}{\dd x}\end{bmatrix},$
+\end_inset
+
+那么后续的内容除了符号上有更改以外, 没有太多区别.
+ 
+\end_layout
+
+\begin_layout Definition
+(标量对向量求导) 标量
+\begin_inset Formula $y$
+\end_inset
+
+对于向量
+\begin_inset Formula ${\bf x}=\begin{bmatrix}x_{1} & x_{2} & x_{3} & \cdots & x_{m}\end{bmatrix}'$
+\end_inset
+
+的
+\series bold
+分子形式
+\series default
+记作
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+\boxed{\frac{\partial y}{\partial{\bf x}}:=\begin{bmatrix}\frac{\dd y}{\dd x_{1}} & \frac{\dd y}{\dd x_{2}} & \frac{\dd y}{\dd x_{3}} & \cdots & \frac{\dd y}{\dd x_{m}}\end{bmatrix}}.
+\]
+
+\end_inset
+
+其
+\series bold
+分母形式
+\series default
+可以类似记作
+\begin_inset Formula 
+\[
+\frac{\partial y}{\partial{\bf x}}:=\begin{bmatrix}\frac{\dd y}{\dd x_{1}} & \frac{\dd y}{\dd x_{2}} & \frac{\dd y}{\dd x_{3}} & \cdots & \frac{\dd y}{\dd x_{m}}\end{bmatrix}'.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+这里
+\series bold
+分子形式
+\series default
+的意思是: 生成的向量的
+\series bold
+行数
+\series default
+和
+\series bold
+分子
+\series default
+的行数相同.
+ 
+\end_layout
+
+\begin_layout Remark*
+(1) 分子形式和分母形式实际上是求导之后对于变量如何排布进行的约定.
+ 如果不加说明, 下列总是使用分子形式.
+ 
+\end_layout
+
+\begin_layout Remark*
+(2) 实际上这是映射
+\begin_inset Formula $\bf y:\R^{n}\to\R$
+\end_inset
+
+.
+ 并且与梯度之间的关系是
+\begin_inset Formula $\nabla y=\left(\frac{\partial y}{\partial\bf x}\right)'$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Definition
+(向量对向量求导) 向量
+\begin_inset Formula $\bf{y=}[y_{1},y_{2},\cdots,y_{m}]'$
+\end_inset
+
+对向量
+\begin_inset Formula $\bf{x=}[x_{1},x_{2},\cdots,x_{n}]'$
+\end_inset
+
+求导的
+\series bold
+分子形式
+\series default
+写作
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\boxed{{\displaystyle \frac{\pd\bf y}{\pd\bf x}:=\begin{bmatrix}\frac{\pd y_{1}}{\pd x_{1}} & \frac{\pd y_{1}}{\pd x_{2}} & \cdots & \frac{\pd y_{1}}{\pd x_{n}}\\
+\frac{\pd y_{2}}{\pd x_{1}} & \frac{\pd y_{2}}{\pd x_{2}} & \cdots & \frac{\pd y_{2}}{\pd x_{n}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\pd y_{m}}{\pd x_{1}} & \frac{\pd y_{m}}{\pd x_{2}} & \cdots & \frac{\pd y_{m}}{\pd x_{n}}
+\end{bmatrix}}} & m\text{行}\\
+n\text{列}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+其
+\series bold
+分母形式
+\series default
+就是分子形式的转置.
+ 
+\end_layout
+
+\begin_layout Definition
+这里
+\series bold
+分子形式
+\series default
+的意思是: 生成的矩阵的
+\series bold
+行数
+\series default
+和
+\series bold
+分子
+\series default
+的行数相同.
+ 
+\end_layout
+
+\begin_layout Remark*
+(1)实际上映射
+\begin_inset Formula $\bf y:\R^{m}\to\R^{n}$
+\end_inset
+
+, 这就是Jacobian矩阵.
+ 
+\end_layout
+
+\begin_layout Definition
+(矩阵对标量求导) 矩阵
+\begin_inset Formula $\bf Y\in\R^{m\times n}$
+\end_inset
+
+对于标量
+\begin_inset Formula $x$
+\end_inset
+
+的求导的分子形式记作
+\begin_inset Formula 
+\[
+\boxed{\frac{\pd\bf Y}{\pd x}=\left(\frac{\pd y_{i,j}}{\pd x}\right)_{i,j}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+分母形式就是分子形式的转置.
+ 
+\end_layout
+
+\begin_layout Definition
+这里
+\series bold
+分子形式
+\series default
+的意思是: 生成的矩阵的
+\series bold
+行数
+\series default
+和
+\series bold
+分子
+\series default
+的行数相同.
+ 
+\end_layout
+
+\begin_layout Remark*
+这时候
+\begin_inset Formula $\bf Y:\R\to\R^{m\times n}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(标量对矩阵求导) 标量
+\begin_inset Formula $y$
+\end_inset
+
+对于矩阵
+\begin_inset Formula $\bf X\in\R^{p\times q}$
+\end_inset
+
+求导的分子形式记作
+\begin_inset Formula 
+\[
+\boxed{\frac{\pd y}{\pd\bf x}=\left(\frac{\pd y}{\pd x_{\red{j,i}}}\right)_{i,j}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+分母形式就是分子形式的转置.
+ 
+\end_layout
+
+\begin_layout Definition
+这里
+\series bold
+分子形式
+\series default
+的意思是: 生成的矩阵的
+\series bold
+行数
+\series default
+和
+\series bold
+分母的列数
+\series default
+相同.
+ (因为分子就是一个标量).
+ 
+\end_layout
+
+\begin_layout Remark*
+实际上这时候映射
+\begin_inset Formula $y:\R^{p\times q}\to\R$
+\end_inset
+
+.
+ 常见的函数为矩阵的迹、矩阵的行列式.
+ 
+\end_layout
+
+\begin_layout Section
+常见求导结果
+\end_layout
+
+\begin_layout Subsection
+向量对向量
+\end_layout
+
+\begin_layout Enumerate
+常数相关
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+常向量的导数是 0: 若
+\begin_inset Formula $\bf a$
+\end_inset
+
+中不含变量
+\begin_inset Formula $\bf x$
+\end_inset
+
+, 那么
+\begin_inset Formula $\frac{\pd\bf a}{\pd\bf x}=\bf 0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+常数进出求导: 若
+\begin_inset Formula $a$
+\end_inset
+
+中不含变量
+\begin_inset Formula $\bf x$
+\end_inset
+
+, 
+\begin_inset Formula $\bf{u=u}(\bf x)$
+\end_inset
+
+那么
+\begin_inset Formula $\frac{\pd a\bf u}{\pd\bf x}=a\frac{\pd\bf u}{\pd\bf x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+常矩阵进出求导: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+若
+\begin_inset Formula $\bf A\in\R^{n\times m}$
+\end_inset
+
+中不含变量
+\begin_inset Formula $\bf x\in\R^{m\times1}$
+\end_inset
+
+, 那么
+\begin_inset Formula $\frac{\pd\bf{Ax}}{\pd\bf x}=\bf A.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+若
+\begin_inset Formula $\bf A\in\R^{n\times m}$
+\end_inset
+
+中不含变量
+\begin_inset Formula $\bf x\in\R^{m\times1}$
+\end_inset
+
+, 那么
+\begin_inset Formula $\frac{\pd\bf{x'A}}{\pd\bf x}=\bf{A'}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+若
+\begin_inset Formula $\bf A\in\R^{n\times m}$
+\end_inset
+
+中不含变量
+\begin_inset Formula $\bf x\in\R^{m\times1},$
+\end_inset
+
+而向量值函数
+\begin_inset Formula $\bf{u=u(x)}\in\R^{m\times1}$
+\end_inset
+
+, 那么
+\begin_inset Formula $\frac{\pd\bf{Au}}{\pd\bf x}=\bf A.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+乘法
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+变元在向量: 
+\begin_inset Formula $a$
+\end_inset
+
+中不含
+\begin_inset Formula $\bf x$
+\end_inset
+
+, 但是
+\begin_inset Formula $\bf u=\bf u(\bf x)$
+\end_inset
+
+: 
+\begin_inset Formula $\frac{\pd a\bf u}{\partial\bf x}=a\frac{\pd\bf u}{\pd\bf x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+变元在常数: 
+\begin_inset Formula $v=v(\bf x),\bf a$
+\end_inset
+
+中不含
+\begin_inset Formula $\bf x:$
+\end_inset
+
+
+\begin_inset Formula $\frac{\pd v\bf a}{\pd\bf x}=\bf a\frac{\pd v}{\pd\bf x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+两个都有: 
+\begin_inset Formula $v=v(\bf x),\bf{u=u(x)}$
+\end_inset
+
+: 
+\begin_inset Formula $\frac{\pd v\bf u}{\pd\bf x}=v\frac{\partial\bf u}{\partial\bf x}+\bf u\frac{\pd v}{\pd\bf x}.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+加法: 
+\begin_inset Formula $\bf{u=u(x),v=v(x)},$
+\end_inset
+
+那么
+\begin_inset Formula $\frac{\pd(\bf{u+v)}}{\pd\bf x}=\frac{\pd\bf u}{\pd\bf x}+\frac{\pd\bf v}{\pd\bf x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+链式法则
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\bf{u=u(x),g=g(u)},$
+\end_inset
+
+
+\begin_inset Formula $\frac{\pd\bf g}{\pd\bf x}=\frac{\pd\bf g}{\pd\bf u}\frac{\pd\bf u}{\pd\bf x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\bf{u=u(x),f=f(g),g=g(u)},$
+\end_inset
+
+
+\begin_inset Formula $\frac{\pd\bf f}{\pd\bf x}=\frac{\pd\bf f}{\pd\bf g}\frac{\pd\bf g}{\pd\bf u}\frac{\pd\bf u}{\pd\bf x}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+标量对向量
+\end_layout
+
+\begin_layout Enumerate
+常数相关: 
+\begin_inset Formula $a$
+\end_inset
+
+中不含
+\begin_inset Formula $\bf x$
+\end_inset
+
+, 
+\begin_inset Formula $u=u(\bf x).$
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\pd au}{\pd\bf x}=a\frac{\pd u}{\pd\bf x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+加法: 
+\begin_inset Formula $u=u(\bf x),v=v(\bf x).$
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\pd(u+v)}{\pd\bf x}=\frac{\pd u}{\pd\bf x}+\frac{\pd v}{\pd\bf x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+乘法: 如果
+\begin_inset Formula $u=u(\bf x),v=v(\bf x),$
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\pd uv}{\pd\bf x}=u\frac{\pd v}{\pd\bf x}+v\frac{\pd u}{\pd\bf x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+链式法则: 
+\begin_inset Formula $f=f(g),g=g(u),u=u(\bf x),$
+\end_inset
+
+
+\begin_inset Formula $\frac{\pd f}{\pd\bf x}=\frac{\pd f}{\pd g}\frac{\pd g}{\pd u}\frac{\pd u}{\pd\bf x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+点积: 
+\begin_inset Formula $\bf{u=u(x),v=v(x),}$
+\end_inset
+
+
+\begin_inset Formula $\frac{\pd(\bf{u\cdot v})}{\pd\bf x}=\bf u'\frac{\pd\bf v}{\pd\bf x}+\bf v'\frac{\pd\bf u}{\pd\bf x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+二次型: 
+\begin_inset Formula $\bf{u=u(x),v=v(x),A}$
+\end_inset
+
+中不含
+\begin_inset Formula $\bf x,$
+\end_inset
+
+
+\begin_inset Formula $\frac{\pd(\bf{u'Av})}{\pd\bf x}=\bf u'\bf A\frac{\pd\bf v}{\pd\bf x}+\bf v'\bf A'\frac{\pd\bf u}{\pd\bf x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+向量对标量
+\end_layout
+
+\begin_layout Enumerate
+常数相关: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+常数: 
+\begin_inset Formula $a$
+\end_inset
+
+与
+\begin_inset Formula $x$
+\end_inset
+
+无关, 
+\begin_inset Formula $\bf{u=u}(x)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\frac{\pd a\bf u}{\pd x}=a\frac{\pd\bf u}{\pd x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+常矩阵: 
+\begin_inset Formula $\bf A$
+\end_inset
+
+与
+\begin_inset Formula $x$
+\end_inset
+
+无关, 
+\begin_inset Formula $\bf{u=u}(x)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\frac{\pd\bf{Au}}{\pd x}=\bf A\frac{\pd\bf u}{\pd x}.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+转置: 如果
+\begin_inset Formula $\bf{u=u}(x),$
+\end_inset
+
+那么
+\begin_inset Formula $\frac{\pd\bf u'}{\pd x}=\left(\frac{\pd\bf u}{\pd x}\right)'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+加法: 
+\begin_inset Formula $\bf{u=u}(x),\bf{v=v}(x)$
+\end_inset
+
+.
+ 那么
+\begin_inset Formula $\frac{\pd(\bf{u+v)}}{\pd x}=\frac{\pd\bf u}{\pd x}+\frac{\pd\bf v}{\pd x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+乘法相关
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+向量的外积: 
+\begin_inset Formula $\bf{u=u}(x),\bf{v=v}(x).$
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\pd(\bf{u'}\times\bf v)}{\pd x}=\left(\frac{\pd\bf u}{\pd x}\right)'\times\bf v+\bf u'\times\frac{\pd\bf v}{\pd x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+矩阵的外积: 
+\begin_inset Formula $\frac{\pd(\bf{U\times v})}{\pd x}=\frac{\pd\bf U}{\pd x}\times\bf v+\bf U\times\frac{\pd\bf x}{\pd x}.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+链式法则: 
+\begin_inset Formula $\bf{u=u}(x),\bf{f=f(g),g=g(u).}$
+\end_inset
+
+那么
+\begin_inset Formula $\frac{\pd\bf f}{\pd x}=\frac{\pd\bf f}{\pd\bf g}\frac{\pd\bf g}{\pd\bf u}\frac{\pd\bf u}{\pd x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+向量对矩阵
+\end_layout
+
+\begin_layout Enumerate
+常数相关: 
+\begin_inset Formula $a$
+\end_inset
+
+不含
+\begin_inset Formula $\bf X$
+\end_inset
+
+相关的变量, 
+\begin_inset Formula $u=u(\bf X).$
+\end_inset
+
+ 那么
+\begin_inset Formula $\frac{\pd au}{\pd\bf X}=a\frac{\pd u}{\pd\bf x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+加法: 如果
+\begin_inset Formula $u=u(\bf X),v=v(\bf X).$
+\end_inset
+
+ 那么
+\begin_inset Formula $\frac{\partial(u+v)}{\partial\mathbf{X}}=\frac{\partial u}{\partial\mathbf{X}}+\frac{\partial v}{\partial\mathbf{X}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+乘法: 
+\begin_inset Formula $u=u(\bf X),v=v(\bf X).$
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\partial uv}{\partial\mathbf{X}}=u\frac{\partial v}{\partial\mathbf{X}}+v\frac{\partial u}{\partial\mathbf{X}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+链式法则: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $u=u(\bf X)$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial f(g(u))}{\partial\mathbf{X}}=\frac{\partial f(g)}{\partial g}\frac{\partial g(u)}{\partial u}\frac{\partial u}{\partial\mathbf{X}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbf{U}=\mathbf{U}(\mathbf{X})$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial g(\mathbf{U})}{\partial X_{ij}}=\mathrm{tr}\left(\frac{\partial g(\mathbf{U})}{\partial\mathbf{U}}\frac{\partial\mathbf{U}}{\partial X_{ij}}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+矩阵对标量
+\end_layout
+
+\begin_layout Enumerate
+常数相关:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+标量常数: 
+\begin_inset Formula $\mathbf{U}=\mathbf{U}(x),a$
+\end_inset
+
+不是
+\begin_inset Formula $x$
+\end_inset
+
+的函数: 
+\begin_inset Formula $\frac{\partial a\mathbf{U}}{\partial x}=a\frac{\partial\mathbf{U}}{\partial x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+矩阵: 
+\begin_inset Formula $\bf{A,B}$
+\end_inset
+
+不是
+\begin_inset Formula $x$
+\end_inset
+
+的函数, 
+\begin_inset Formula $\bf{U=U}(x)$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial\mathbf{AUB}}{\partial x}=\mathbf{A}\frac{\partial\mathbf{U}}{\partial x}\mathbf{B}.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+加法: 
+\begin_inset Formula $\mathbf{U}=\mathbf{U}(x),\mathbf{V}=\mathbf{V}(x)$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial(\mathbf{U}+\mathbf{V})}{\partial x}=\frac{\partial\mathbf{U}}{\partial x}+\frac{\partial\mathbf{V}}{\partial x}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+乘法相关:
+\begin_inset Formula $\bf{U=U}(x),\bf{V=V}(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+矩阵乘法: 
+\begin_inset Formula $\frac{\partial(\mathbf{U}\mathbf{V})}{\partial x}=\mathbf{U}\frac{\partial\mathbf{V}}{\partial x}+\frac{\partial\mathbf{U}}{\partial x}\mathbf{V}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+张量乘法: 
+\begin_inset Formula $\frac{\partial(\mathbf{U}\otimes\mathbf{V})}{\partial x}=\mathbf{U}\otimes\frac{\partial\mathbf{V}}{\partial x}+\frac{\partial\mathbf{U}}{\partial x}\otimes\mathbf{V}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+逐元素相乘: 
+\begin_inset Formula $\frac{\partial(\mathbf{U}\circ\mathbf{V})}{\partial x}=\mathbf{U}\circ\frac{\partial\mathbf{V}}{\partial x}+\frac{\partial\mathbf{U}}{\partial x}\circ\mathbf{V}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+矩阵的逆: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+一元情况: 
+\begin_inset Formula $\frac{\partial\mathbf{U}^{-1}}{\partial x}=-\mathbf{U}^{-1}\frac{\partial\mathbf{U}}{\partial x}\mathbf{U}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+多元情况: 
+\begin_inset Formula $\mathbf{U}=\mathbf{U}(x,y)$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial^{2}\mathbf{U}^{-1}}{\partial x\partial y}=\mathbf{U}^{-1}\left(\frac{\partial\mathbf{U}}{\partial x}\mathbf{U}^{-1}\frac{\partial\mathbf{U}}{\partial y}-\frac{\partial^{2}\mathbf{U}}{\partial x\partial y}+\frac{\partial\mathbf{U}}{\partial y}\mathbf{U}^{-1}\frac{\partial\mathbf{U}}{\partial x}\right)\mathbf{U}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+函数的复合: 
+\begin_inset Formula $\bf A$
+\end_inset
+
+不是
+\begin_inset Formula $x$
+\end_inset
+
+的函数, 
+\begin_inset Formula $\bf{g(X)}$
+\end_inset
+
+是标量形式的多项式(可以是无穷级数的形式); 
+\begin_inset Formula $g'(x)$
+\end_inset
+
+是对应的标量求导的结果; 
+\begin_inset Formula $\bf{g'(x)}$
+\end_inset
+
+是对应矩阵的变化, 有
+\begin_inset Formula $\frac{\partial\mathbf{g}(x\mathbf{A})}{\partial x}=\mathbf{A}\mathbf{g}^{\prime}(x\mathbf{A})=\mathbf{g}^{\prime}(x\mathbf{A})\mathbf{A}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+使用微分形式计算
+\end_layout
+
+\begin_layout Standard
+类似于全微分一样, 矩阵的计算可以用微分形式进行求解.
+ 下面列举常用的微分形式的分子结果.
+ 
+\end_layout
+
+\begin_layout Theorem
+如下是微分形式矩阵运算的基本法则.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+描述
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+表达式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+结果
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+矩阵的迹
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(\text{tr}(\bf X))$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathrm{tr}(\dd\bf X)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+矩阵的行列式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(|\bf X|)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $|\bf X|\text{tr}(\bf X^{-1}\dd\bf X)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+矩阵的对数
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(\ln|\mathbf{X}|)=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathrm{tr}(\mathbf{X}^{-1}d\mathbf{X})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+描述
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+表达式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+结果
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+条件
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+常数
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(\mathbf{A})=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bf A$
+\end_inset
+
+不是
+\begin_inset Formula $\bf X$
+\end_inset
+
+的函数
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+线性乘法
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(a\mathbf{X})=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a\mathrm{dX}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a$
+\end_inset
+
+不是
+\begin_inset Formula $\bf X$
+\end_inset
+
+的函数
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+线性加法
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(\mathbf{X+Y})=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd\mathbf{X}+\dd\mathbf{Y}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+矩阵乘法
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(\mathbf{X}\mathbf{Y})=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(\dd\mathbf{X})\mathbf{Y}+\mathbf{X}(\dd\mathbf{Y})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kronecker 乘法
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(\mathbf{X}\otimes\mathbf{Y})=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(\dd\mathbf{X})\otimes\mathbf{Y}+\mathbf{X}\otimes(\dd\mathbf{Y})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+逐元素相乘
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(\mathbf{X}\circ\mathbf{Y})=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(\dd\mathbf{X})\circ\mathbf{Y}+\mathbf{X}\circ(\dd\mathbf{Y})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+转置
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd(\bf X')=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(\dd\bf X)'$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+求逆
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd\left(\mathbf{X}^{-1}\right)=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\mathbf{X}^{-1}\left(\dd\mathbf{X}\right)\mathbf{X}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+多项式幂次
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd\left(\mathbf{X}^{n}\right)=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sum_{i=0}^{n-1}\mathbf{X}^{i}(\dd\mathbf{X})\mathbf{X}^{n-i-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+是正整数
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+指数
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd\begin{pmatrix}e^{\mathbf{X}}\end{pmatrix}=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\int_{0}^{1}e^{a\mathbf{X}}(d\mathbf{X})e^{(1-a)\mathbf{X}}\dd a$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+对数
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd\left(\log\bf X\right)=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\int_{0}^{\infty}(\mathbf{X}+z\mathbf{I})^{-1}(d\mathbf{X})(\mathbf{X}+z\mathbf{I})^{-1}\dd z$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+复合函数
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\dd\left(f(\mathbf{X})\right)=$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sum_{ij}\mathbf{P}_{i}(\dd\mathbf{X})\mathbf{P}_{j}\left\{ \begin{array}{ll}
+f^{\prime}(\lambda_{i}) & \lambda_{i}=\lambda_{j}\\
+\frac{f(\lambda_{i})-f(\lambda_{j})}{\lambda_{i}-\lambda_{j}} & \lambda_{i}\neq\lambda_{j}
+\end{array}\right.$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{cases}
+\mathbf{X}=\sum_{i}\lambda_{i}\mathbf{P}_{i}\text{可对角化}\\
+f\text{在每个}\lambda_{i}\text{处可微}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Kronecker 乘法是
+\begin_inset Formula $\mathbf{A}\otimes\mathbf{B}=\begin{bmatrix}a_{11}\mathbf{B} & \cdots & a_{1n}\mathbf{B}\\
+\vdots & \ddots & \vdots\\
+a_{m1}\mathbf{B} & \cdots & a_{mn}\mathbf{B}
+\end{bmatrix}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
