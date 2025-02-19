@@ -326,168 +326,22 @@ End
 
 \begin_body
 
-\begin_layout Standard
-\begin_inset FormulaMacro
-\newcommand{\totf}{\stackrel{t}{\rightarrow}}
-\end_inset
-
-
+\begin_layout Section*
+练习题: 典型变量分析的数学推导以及性质
 \end_layout
 
 \begin_layout Standard
-\begin_inset FormulaMacro
-\newcommand{\st}{\text{ s.t. }}
+在统计中, 考虑两个随机向量
+\begin_inset Formula ${\bf X}^{m\times1}$
 \end_inset
 
-
-\begin_inset FormulaMacro
-\newcommand{\Z}{\mathbb{Z}}
+和
+\begin_inset Formula ${\bf Y}^{n\times1}$
 \end_inset
 
-
-\begin_inset FormulaMacro
-\newcommand{\N}{\mathbb{N}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\ifr}[2]{\frac{{\displaystyle #1}}{{\displaystyle #2}}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\cons}[2]{\begin{array}{ccc}
-#1 & \ \  & #2\end{array}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\B}{\mathbb{B}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\cs}[1]{\mathit{\ #1\ }}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\tt}{\texttt{true}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\ff}{\texttt{false}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\finto}{\Downarrow}
-\end_inset
-
-
+的相关性问题.
+ 希望通过这样的方法进行计算: 
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "../../commands.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-基本定义
-\end_layout
-
-\begin_layout Standard
-下面对于程序的语义进行定义, 这就需要系统地给每一个属于这个语言的内容赋予其语义.
- 
-\end_layout
-
-\begin_layout Definition
-(操作语义, 非正式) 操作语义描述了通过这个程序是
-\series bold
-如何求值的
-\series default
-来描述这个程序的语义.
- 
-\end_layout
-
-\begin_layout Example
-布尔表达式的操作语义.
- 对于
-\begin_inset Formula 
-\begin{align*}
-e\in Exp & ::= &  & \texttt{true}\\
- & | &  & \texttt{false}\\
- & | &  & \texttt{not }e\\
- & | &  & \texttt{if }e\ e\ e
-\end{align*}
-
-\end_inset
-
-通过直觉可以知道其最终结果是
-\begin_inset Formula $\{\texttt{true},\texttt{false}\}$
-\end_inset
-
-的集合.
- 这通常被称为大步语义, 通常记作
-\begin_inset Formula $a\Downarrow b$
-\end_inset
-
-, 表示
-\begin_inset Formula $a$
-\end_inset
-
-最终会求得
-\begin_inset Formula $b.$
-\end_inset
-
- 根据这个直觉可以构造定义
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-\begin_inset Formula $\tt\finto\tt$
-\end_inset
-
-; 
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\ff\finto\ff$
-\end_inset
-
-;
-\end_layout
-
-\begin_layout Enumerate
-Not-T: 
-\begin_inset Formula $\ifr{e_{1}\finto\tt}{\texttt{not }e\finto\ff}.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Not-F: 
-\begin_inset Formula $\ifr{e_{1}\finto\ff}{\texttt{not }e\finto\tt}.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-If-T: 
-\begin_inset Formula $\ifr{\cons{e_{1}\finto\tt}{e_{2}\finto e'}}{\texttt{if }e_{1}\ e_{2}\ e_{3}\finto e}$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \end_body
 \end_document

@@ -1,0 +1,32 @@
+<TMU|<tuple|1.0.5|1.2.9.7>>
+
+<style|<tuple|exam|chinese>>
+
+<\body>
+  <doc-data|<doc-title|求导之外的最小值: Lagrange乘数法简介>>
+
+  <section|回顾: 使用求导的方法得到一类函数的变化情况>
+
+  在高中数学课本中学习到过如何求“光滑连续函数”的导数得到其变化情况的. 通常, 考察的函数为一元函数(自变量只有一个). 通过求函数的导数, 便可以切线斜率的变化规律, 从而断定其最小值在哪里.\ 
+
+  一个通常的办法是对原始函数求导, 找到导数等于0的点(驻点): 这些是极小值/极大值可能的候选项; 然后在这些地方找到全局的最大值/最小值.\ 
+
+  现实生活中, 更常见的是研究的变化规律由多个互不相同的输入构成. 例如, 理想气体方程中, 有<math|p =n R T/V >这一式子, 要确定<math|p>, 就必须确定<math|T,V>两个变量. 我们必须想办法研究这样的式子.\ 
+
+  更一般地, 假设我们所研究的量为<math|y>, 各个因素相应状态由<math|x<rsub|1>,x<rsub|2>,<gap|>,x<rsub|n >>描述, 那么上面的依赖关系可以看做有序数组<math|<around*|(|x<rsub|1>,x<rsub|2>,<gap|>,x<rsub|n >|)>>和<math|y>之间的函数对应关系<math|y=f<around*|(|x<rsub|1>,x<rsub|2>,<gap|>,x<rsub|n >|)>.>
+
+  \;
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|auto-1|<tuple|1|?|../../../../Library/Application Support/XmacsLabs/texts/scratch/no_name_3.tm>>
+  </collection>
+</references>

@@ -511,6 +511,14 @@ End
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tr}{\mathrm{tr}}
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 回顾变量的微分学
 \end_layout
@@ -926,6 +934,347 @@ n\text{列}
 .
  常见的函数为矩阵的迹、矩阵的行列式.
  
+\end_layout
+
+\begin_layout Section
+引例: 使用迹(trace), 化为标量形式
+\end_layout
+
+\begin_layout Standard
+在线性代数中学习过: 某个矩阵
+\begin_inset Formula $\bf A\in\R^{n\times n}$
+\end_inset
+
+的迹
+\begin_inset Formula $\tr\bf A:=\sum_{i=1}^{n}A_{ii}.$
+\end_inset
+
+ 现在考虑某个
+\begin_inset Formula $f=\tr(g(\bf X))$
+\end_inset
+
+, 然后想要求
+\begin_inset Formula $\frac{\pd f}{\pd\bf X}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们把矩阵
+\begin_inset Formula $\bf A$
+\end_inset
+
+的第
+\begin_inset Formula $i$
+\end_inset
+
+行第
+\begin_inset Formula $j$
+\end_inset
+
+列赋予一个新的记号: 
+\begin_inset Formula $[\bf A]_{ij}.$
+\end_inset
+
+ 比如我们观察到: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $[\bf{AB}]_{ik}=\sum_{j}A_{ij}B_{jk}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $[\bf{ABC}']_{ij}=\sum_{k}A_{ik}[\bf{BC}']_{kj}=\sum_{k}A_{ik}\sum_{l}B_{kl}C_{jl}=\sum_{k}\sum_{l}A_{ik}B_{kl}C_{jl}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这就使得我们可以把它展开为完全的标量形式了, 进而应用求导公式.
+ 
+\end_layout
+
+\begin_layout Example
+求
+\begin_inset Formula $f(\bf X)=\tr(\bf{AXB}),$
+\end_inset
+
+其中
+\begin_inset Formula $\bf{A,B}$
+\end_inset
+
+是常矩阵.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Solution*
+我们知道
+\begin_inset Formula 
+\begin{align*}
+f & =\tr(\bf{AXB})\\
+ & =\sum_{i}[\bf{AXB}]_{ii}=\sum_{i}\sum_{j}A_{ij}[\bf{XB}]_{ji}\\
+ & =\sum_{i}\sum_{j}A_{ij}\sum_{k}X_{jk}B_{ki}=\sum_{i}\sum_{j}\sum_{k}A_{ij}X_{jk}B_{ki}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+固定
+\begin_inset Formula $j,k$
+\end_inset
+
+两个下标, 将此式子对于
+\begin_inset Formula $X_{jk}$
+\end_inset
+
+求导, 就得到了
+\begin_inset Formula 
+\begin{align*}
+\frac{\pd f}{\pd X_{jk}} & =\sum_{i}A_{ij}B_{ki} & (\text{下\text{标}}k\text{这\text{时\text{候已经固定}}})\\
+ & =[\bf{BA}]_{kj}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+因为结果肯定与
+\begin_inset Formula $\bf X$
+\end_inset
+
+相同, 那么行列就是
+\begin_inset Formula $j,k.$
+\end_inset
+
+ 因此我们的矩阵求导的形式为
+\begin_inset Formula $\frac{\pd\tr(\bf{AXB})}{\pd\bf X}=\bf{A'B'}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+类似地, 令
+\begin_inset Formula $f(\bf X)=\tr(\bf{AX'B}),$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f & =\sum_{i}[\bf{AX'B}]_{ii}=\sum_{i}\sum_{j}A_{ij}[\bf{X'B}]_{ji}\\
+ & =\sum_{i}\sum_{j}A_{ij}\sum_{k}X'_{jk}B_{ki}=\sum_{i}\sum_{j}A_{ij}\sum_{k}X_{kj}B_{ki}\\
+ & =\sum_{i}\sum_{j}\sum_{k}A_{ij}X_{kj}B_{ki}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+固定
+\begin_inset Formula $k,j$
+\end_inset
+
+, 对
+\begin_inset Formula $X_{kj}$
+\end_inset
+
+求导有: 
+\begin_inset Formula $\frac{\pd f}{\pd X_{jk}}=\sum_{i}A_{ij}B_{ki}=[\bf{BA}]_{kj},$
+\end_inset
+
+由于求导的结果一定与
+\begin_inset Formula $\bf X$
+\end_inset
+
+相同, 那么就是
+\begin_inset Formula $\boxed{\frac{\pd\tr(\bf{AX'B})}{\pd\bf X}=\bf{BA}.}$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+问题在于, 若有多个同时出现的指标该怎么办? 来看下面的内容.
+ 
+\end_layout
+
+\begin_layout Example
+考虑
+\begin_inset Formula $f=\tr(\bf{AXBXC'}),$
+\end_inset
+
+求
+\begin_inset Formula $\pd f/\pd\bf X.$
+\end_inset
+
+
+\begin_inset Formula $\bf{A,B,C}$
+\end_inset
+
+为常数矩阵.
+ 
+\end_layout
+
+\begin_layout Solution*
+考虑
+\begin_inset Formula 
+\[
+f=\sum_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+使用微分形式计算
+\end_layout
+
+\begin_layout Standard
+类似于全微分一样, 矩阵的计算可以用微分形式进行求解.
+ 下面列举常用的微分形式的分子结果.
+ 
+\end_layout
+
+\begin_layout Theorem
+第一组恒等式: 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\[
+\begin{align}dy & =\frac{dy}{dx}dx\\
+dy & =\frac{dy}{d\mathbf{x}}d\mathbf{x}\\
+dy & =\mathrm{tr}(\frac{dy}{d\mathbf{X}}d\mathbf{X})\\
+d\mathbf{y} & =\frac{d\mathbf{y}}{dx}dx\\
+d\mathbf{y} & =\frac{d\mathbf{y}}{d\mathbf{x}}d\mathbf{x}\\
+d\mathbf{Y} & =\frac{d\mathbf{Y}}{dx}dx
+\end{align}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+第二组恒等式:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\[
+\begin{align}d\mathbf{A} & =\mathbf{0}\\
+d(a\mathbf{X}) & =a~d\mathbf{X}\\
+d(\mathbf{X+Y}) & =d\mathbf{X}+d\mathbf{Y}\\
+d({\mathbf{X}\mathbf{Y}}) & =(d\mathbf{X})\mathbf{Y}+\mathbf{X}(d\mathbf{Y})\\
+d({\mathbf{X_{1}}\mathbf{X_{2}}\cdots\mathbf{X_{n}}}) & =(d\mathbf{X_{1}})\mathbf{X_{2}}\cdots\mathbf{X_{n}}+\mathbf{X_{1}}(d\mathbf{X_{2}})\cdots\mathbf{X_{n}}+\cdots+\mathbf{X_{1}}\mathbf{X_{2}}\cdots(d\mathbf{X_{n}})\\
+d({\mathbf{A}\mathbf{X}}\mathbf{B}+\mathbf{C}) & =\mathbf{A}(d\mathbf{X})\mathbf{B}\\
+d({\mathbf{X}\otimes\mathbf{Y}}) & =(d\mathbf{X})\otimes\mathbf{Y}+\mathbf{X}\otimes(d\mathbf{Y})\\
+d({\mathbf{X}\circ\mathbf{Y}}) & =(d\mathbf{X})\circ\mathbf{Y}+\mathbf{X}\circ(d\mathbf{Y})\\
+d(\mathbf{X}^{\top}) & =(d\mathbf{X})^{\top}\\
+d(\mathbf{X}^{-1}) & =-\mathbf{X}^{-1}(d\mathbf{X})\mathbf{X}^{-1}\\
+d(\mathrm{tr}(\mathbf{X})) & =\mathrm{tr}(d\mathbf{X})\\
+d(|\mathbf{X}|) & =\mathrm{tr}(adj(\mathbf{X})d\mathbf{X})=|\mathbf{X}|\mathrm{tr}(\mathbf{X}^{-1}d\mathbf{X})\\
+d(\sigma(\mathbf{X})) & =\sigma'(\mathbf{X})\circ d\mathbf{X}~~~\text{其中 \ensuremath{\sigma} 是逐元素相关的操作}
+\end{align}
+.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+第三组恒等式:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\[
+\begin{align}d(z(\mathbf{y}(\mathbf{x}))) & =\frac{dz}{d\mathbf{y}}\frac{d\mathbf{y}}{d\mathbf{x}}d\mathbf{x}\\
+d(z(y(\mathbf{X}))) & =\mathrm{tr}(\frac{dz}{dy}\frac{dy}{d\mathbf{X}}d\mathbf{X})\\
+d(z(\mathbf{Y}(x))) & =\mathrm{tr}(\frac{dz}{d\mathbf{Y}}\frac{d\mathbf{Y}}{dx}dx)\\
+d(\mathbf{z}(\mathbf{y}(\mathbf{x}))) & =\frac{d\mathbf{z}}{d\mathbf{y}}\frac{d\mathbf{y}}{d\mathbf{x}}d\mathbf{x}
+\end{align}
+.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+第四组恒等式: 
+\begin_inset Formula 
+\[
+\begin{align}df(x,y,z) & =\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy+\frac{\partial f}{\partial z}dz\\
+df(x,\mathbf{y},\mathbf{Z}) & =\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial\mathbf{y}}d\mathbf{y}+\mathrm{tr}(\frac{\partial f}{\partial\mathbf{Z}}d\mathbf{Z})\\
+d\mathbf{f}(x,\mathbf{y}) & =\frac{\partial\mathbf{f}}{\partial x}dx+\frac{\partial\mathbf{f}}{\partial\mathbf{y}}d\mathbf{y}\\
+d\mathbf{F}(x,y,z) & =\frac{\partial\mathbf{F}}{\partial x}dx+\frac{\partial\mathbf{F}}{\partial y}dy+\frac{\partial\mathbf{F}}{\partial z}dz
+\end{align}
+.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Kronecker 乘法是
+\begin_inset Formula $\mathbf{A}\otimes\mathbf{B}=\begin{bmatrix}a_{11}\mathbf{B} & \cdots & a_{1n}\mathbf{B}\\
+\vdots & \ddots & \vdots\\
+a_{m1}\mathbf{B} & \cdots & a_{mn}\mathbf{B}
+\end{bmatrix}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1553,812 +1902,6 @@ n\text{列}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-使用微分形式计算
-\end_layout
-
-\begin_layout Standard
-类似于全微分一样, 矩阵的计算可以用微分形式进行求解.
- 下面列举常用的微分形式的分子结果.
- 
-\end_layout
-
-\begin_layout Theorem
-如下是微分形式矩阵运算的基本法则.
-\end_layout
-
-\begin_layout Theorem
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-描述
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-表达式
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-结果
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-矩阵的迹
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(\text{tr}(\bf X))$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\mathrm{tr}(\dd\bf X)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-矩阵的行列式
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(|\bf X|)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $|\bf X|\text{tr}(\bf X^{-1}\dd\bf X)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-矩阵的对数
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(\ln|\mathbf{X}|)=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\mathrm{tr}(\mathbf{X}^{-1}d\mathbf{X})$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="13" columns="4">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-描述
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-表达式
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-结果
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-条件
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-常数
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(\mathbf{A})=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $0$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\bf A$
-\end_inset
-
-不是
-\begin_inset Formula $\bf X$
-\end_inset
-
-的函数
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-线性乘法
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(a\mathbf{X})=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $a\mathrm{dX}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $a$
-\end_inset
-
-不是
-\begin_inset Formula $\bf X$
-\end_inset
-
-的函数
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-线性加法
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(\mathbf{X+Y})=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd\mathbf{X}+\dd\mathbf{Y}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-矩阵乘法
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(\mathbf{X}\mathbf{Y})=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $(\dd\mathbf{X})\mathbf{Y}+\mathbf{X}(\dd\mathbf{Y})$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Kronecker 乘法
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(\mathbf{X}\otimes\mathbf{Y})=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $(\dd\mathbf{X})\otimes\mathbf{Y}+\mathbf{X}\otimes(\dd\mathbf{Y})$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-逐元素相乘
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(\mathbf{X}\circ\mathbf{Y})=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $(\dd\mathbf{X})\circ\mathbf{Y}+\mathbf{X}\circ(\dd\mathbf{Y})$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-转置
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd(\bf X')=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $(\dd\bf X)'$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-求逆
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd\left(\mathbf{X}^{-1}\right)=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $-\mathbf{X}^{-1}\left(\dd\mathbf{X}\right)\mathbf{X}^{-1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-多项式幂次
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd\left(\mathbf{X}^{n}\right)=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\sum_{i=0}^{n-1}\mathbf{X}^{i}(\dd\mathbf{X})\mathbf{X}^{n-i-1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $n$
-\end_inset
-
-是正整数
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-指数
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd\begin{pmatrix}e^{\mathbf{X}}\end{pmatrix}=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\int_{0}^{1}e^{a\mathbf{X}}(d\mathbf{X})e^{(1-a)\mathbf{X}}\dd a$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-对数
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd\left(\log\bf X\right)=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\int_{0}^{\infty}(\mathbf{X}+z\mathbf{I})^{-1}(d\mathbf{X})(\mathbf{X}+z\mathbf{I})^{-1}\dd z$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-复合函数
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\dd\left(f(\mathbf{X})\right)=$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\sum_{ij}\mathbf{P}_{i}(\dd\mathbf{X})\mathbf{P}_{j}\left\{ \begin{array}{ll}
-f^{\prime}(\lambda_{i}) & \lambda_{i}=\lambda_{j}\\
-\frac{f(\lambda_{i})-f(\lambda_{j})}{\lambda_{i}-\lambda_{j}} & \lambda_{i}\neq\lambda_{j}
-\end{array}\right.$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\begin{cases}
-\mathbf{X}=\sum_{i}\lambda_{i}\mathbf{P}_{i}\text{可对角化}\\
-f\text{在每个}\lambda_{i}\text{处可微}
-\end{cases}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Remark*
-Kronecker 乘法是
-\begin_inset Formula $\mathbf{A}\otimes\mathbf{B}=\begin{bmatrix}a_{11}\mathbf{B} & \cdots & a_{1n}\mathbf{B}\\
-\vdots & \ddots & \vdots\\
-a_{m1}\mathbf{B} & \cdots & a_{mn}\mathbf{B}
-\end{bmatrix}$
-\end_inset
-
-.
 \end_layout
 
 \end_body

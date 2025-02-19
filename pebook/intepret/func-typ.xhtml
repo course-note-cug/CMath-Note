@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="GENERATOR" content="LyX 2.3.7" />
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<title>LyX Document</title>
+<style type='text/css'>
+/* Layout-provided Styles */
+div.standard {
+	margin-bottom: 2ex;
+}
+h2.section {
+font-weight: bold;
+font-size: x-large;
+margin-top: 1.3ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+div.definition {
+font-style: normal;
+font-variant: normal;
+font-size: medium;
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+span.definition_label {
+font-weight: bold;
+font-style: normal;
+font-variant: normal;
+font-size: medium;
+
+}
+div.example {
+font-style: normal;
+font-variant: normal;
+font-size: medium;
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+span.example_label {
+font-weight: bold;
+font-style: normal;
+font-variant: normal;
+font-size: medium;
+
+}
+ol.enumerate {
+margin-top: 0.7ex;
+margin-bottom: 0.7ex;
+margin-left: 3ex;
+text-align: left;
+
+}
+
+
+</style>
+</head>
+<body dir="auto">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 class="section" id='magicparlabel-2132'><span class="section_label">1</span> 基本定义</h2>
+<div class="standard" id='magicparlabel-2133'>下面对于程序的语义进行定义, 这就需要系统地给每一个属于这个语言的内容赋予其语义. </div>
+
+<div class="definition" id='magicparlabel-2134'><div class="definition_item"><span class="definition_label">定义1.</span>
+(操作语义, 非正式) 操作语义描述了通过这个程序是<b>如何求值的</b>来描述这个程序的语义. </div>
+</div>
+
+<div class="example" id='magicparlabel-2135'><div class="example_item"><span class="example_label">例1.</span>
+布尔表达式的操作语义. 对于<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mtable>
+  <mtr>
+   <mtd>
+    <mrow><mi>e</mi><mo> &isin; </mo><mi>E</mi><mi>x</mi><mi>p</mi>
+    </mrow>
+   </mtd>
+   <mtd>
+    <mrow><mo>:</mo><mo>:</mo><mo>=</mo>
+    </mrow>
+   </mtd>
+   <mtd><mrow/>
+   </mtd>
+   <mtd>
+    <mstyle mathvariant='monospace'>
+     <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+     </mrow>
+    </mstyle>
+   </mtd>
+  </mtr>
+  <mtr>
+   <mtd><mrow/>
+   </mtd>
+   <mtd><mo>|</mo>
+   </mtd>
+   <mtd><mrow/>
+   </mtd>
+   <mtd>
+    <mstyle mathvariant='monospace'>
+     <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+     </mrow>
+    </mstyle>
+   </mtd>
+  </mtr>
+  <mtr>
+   <mtd><mrow/>
+   </mtd>
+   <mtd><mo>|</mo>
+   </mtd>
+   <mtd><mrow/>
+   </mtd>
+   <mtd>
+    <mrow>
+     <mstyle mathvariant='monospace'>
+      <mrow><mi>n</mi><mi>o</mi><mi>t</mi>&nbsp;
+      </mrow>
+     </mstyle><mi>e</mi>
+    </mrow>
+   </mtd>
+  </mtr>
+  <mtr>
+   <mtd><mrow/>
+   </mtd>
+   <mtd><mo>|</mo>
+   </mtd>
+   <mtd><mrow/>
+   </mtd>
+   <mtd>
+    <mrow>
+     <mstyle mathvariant='monospace'>
+      <mrow><mi>i</mi><mi>f</mi>&nbsp;
+      </mrow>
+     </mstyle><mi>e</mi><mspace width="10px" /><mi>e</mi><mspace width="10px" /><mi>e</mi>
+    </mrow>
+   </mtd>
+  </mtr>
+ </mtable></math>通过直觉可以知道其最终结果是<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>{
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+    </mrow>
+   </mstyle><mo>,</mo>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+    </mrow>
+   </mstyle>}
+  </mrow>
+ </mrow></math>的集合. 这通常被称为大步语义, 通常记作<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>a</mi><mo> &dArr; </mo><mi>b</mi>
+  </mrow>
+ </mrow></math>, 表示<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>a</mi>
+ </mrow></math>最终会求得<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>b</mi><mn>.</mn>
+  </mrow>
+ </mrow></math> 根据这个直觉可以构造定义<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>e</mi><mo> &dArr; </mo><mi>e</mi><mo> &sub; </mo><mi>E</mi><mi>x</mi><mi>p</mi><mo> &times; </mo>{
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+    </mrow>
+   </mstyle><mo>,</mo>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+    </mrow>
+   </mstyle>}<mn>.</mn>
+  </mrow>
+ </mrow></math></div>
+
+<ol class="enumerate" id='magicparlabel-2136'><li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+    </mrow>
+   </mstyle><mo> &dArr; </mo>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+    </mrow>
+   </mstyle>
+  </mrow>
+ </mrow></math>; </li>
+<li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+    </mrow>
+   </mstyle><mo> &dArr; </mo>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+    </mrow>
+   </mstyle>
+  </mrow>
+ </mrow></math>;</li>
+<li class="enumerate_item">Not-T: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mrow>
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>1</mn>
+        </mrow>
+       </msub><mo> &dArr; </mo>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+        </mrow>
+       </mstyle>
+      </mrow>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mrow>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>n</mi><mi>o</mi><mi>t</mi>&nbsp;
+        </mrow>
+       </mstyle><mi>e</mi><mo> &dArr; </mo>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+        </mrow>
+       </mstyle>
+      </mrow>
+     </mstyle>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">Not-F: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mrow>
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>1</mn>
+        </mrow>
+       </msub><mo> &dArr; </mo>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+        </mrow>
+       </mstyle>
+      </mrow>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mrow>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>n</mi><mi>o</mi><mi>t</mi>&nbsp;
+        </mrow>
+       </mstyle><mi>e</mi><mo> &dArr; </mo>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+        </mrow>
+       </mstyle>
+      </mrow>
+     </mstyle>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">If-T: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mtable>
+       <mtr>
+        <mtd>
+         <mrow>
+          <msub>
+           <mrow><mi>e</mi>
+           </mrow>
+           <mrow><mn>1</mn>
+           </mrow>
+          </msub><mo> &dArr; </mo>
+          <mstyle mathvariant='monospace'>
+           <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+           </mrow>
+          </mstyle>
+         </mrow>
+        </mtd>
+        <mtd>
+         <mrow><mspace width="10px" /><mspace width="10px" />
+         </mrow>
+        </mtd>
+        <mtd>
+         <mrow>
+          <msub>
+           <mrow><mi>e</mi>
+           </mrow>
+           <mrow><mn>2</mn>
+           </mrow>
+          </msub><mo> &dArr; </mo><mi>e</mi><mo>'</mo>
+         </mrow>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mrow>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>i</mi><mi>f</mi>&nbsp;
+        </mrow>
+       </mstyle>
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>1</mn>
+        </mrow>
+       </msub><mspace width="10px" />
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msub><mspace width="10px" />
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>3</mn>
+        </mrow>
+       </msub><mo> &dArr; </mo><mi>e</mi>
+      </mrow>
+     </mstyle>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+<li class="enumerate_item">If-F:<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mtable>
+       <mtr>
+        <mtd>
+         <mrow>
+          <msub>
+           <mrow><mi>e</mi>
+           </mrow>
+           <mrow><mn>1</mn>
+           </mrow>
+          </msub><mo> &dArr; </mo>
+          <mstyle mathvariant='monospace'>
+           <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+           </mrow>
+          </mstyle>
+         </mrow>
+        </mtd>
+        <mtd>
+         <mrow><mspace width="10px" /><mspace width="10px" />
+         </mrow>
+        </mtd>
+        <mtd>
+         <mrow>
+          <msub>
+           <mrow><mi>e</mi>
+           </mrow>
+           <mrow><mn>3</mn>
+           </mrow>
+          </msub><mo> &dArr; </mo><mi>e</mi><mo>'</mo>
+         </mrow>
+        </mtd>
+       </mtr>
+      </mtable>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mrow>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>i</mi><mi>f</mi>&nbsp;
+        </mrow>
+       </mstyle>
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>1</mn>
+        </mrow>
+       </msub><mspace width="10px" />
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msub><mspace width="10px" />
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>3</mn>
+        </mrow>
+       </msub><mo> &dArr; </mo><mi>e</mi><mo>'</mo>
+      </mrow>
+     </mstyle>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math> </li>
+</ol>
+<div class="example_item">但是小步语义可以定义做<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>e</mi><mo> &#x21A4; </mo><mi>e</mi><mo>'</mo><mo> &sub; </mo><mi>E</mi><mi>x</mi><mi>p</mi><mo> &times; </mo><mi>E</mi><mi>x</mi><mi>p</mi>
+  </mrow>
+ </mrow></math>. </div>
+
+<ol class="enumerate" id='magicparlabel-2143'><li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>n</mi><mi>o</mi><mi>t</mi>&nbsp;
+    </mrow>
+   </mstyle>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+    </mrow>
+   </mstyle><mo> &#x21A4; </mo>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+    </mrow>
+   </mstyle>
+  </mrow>
+ </mrow></math>;</li>
+<li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>n</mi><mi>o</mi><mi>t</mi>&nbsp;
+    </mrow>
+   </mstyle>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+    </mrow>
+   </mstyle><mo> &#x21A4; </mo>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+    </mrow>
+   </mstyle>
+  </mrow>
+ </mrow></math>;</li>
+<li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>i</mi><mi>f</mi>&nbsp;
+     <mstyle mathvariant='monospace'>
+      <mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi>
+      </mrow>
+     </mstyle><mspace width="10px" />
+    </mrow>
+   </mstyle>
+   <msub>
+    <mrow><mi>e</mi>
+    </mrow>
+    <mrow><mn>2</mn>
+    </mrow>
+   </msub><mspace width="10px" />
+   <msub>
+    <mrow><mi>e</mi>
+    </mrow>
+    <mrow><mn>3</mn>
+    </mrow>
+   </msub><mo> &#x21A4; </mo>
+   <msub>
+    <mrow><mi>e</mi>
+    </mrow>
+    <mrow><mn>2</mn>
+    </mrow>
+   </msub>
+  </mrow>
+ </mrow></math>;</li>
+<li class="enumerate_item"><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='monospace'>
+    <mrow><mi>i</mi><mi>f</mi>&nbsp;
+     <mstyle mathvariant='monospace'>
+      <mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi>
+      </mrow>
+     </mstyle><mspace width="10px" />
+    </mrow>
+   </mstyle>
+   <msub>
+    <mrow><mi>e</mi>
+    </mrow>
+    <mrow><mn>2</mn>
+    </mrow>
+   </msub><mspace width="10px" />
+   <msub>
+    <mrow><mi>e</mi>
+    </mrow>
+    <mrow><mn>3</mn>
+    </mrow>
+   </msub><mo> &#x21A4; </mo>
+   <msub>
+    <mrow><mi>e</mi>
+    </mrow>
+    <mrow><mn>3</mn>
+    </mrow>
+   </msub>
+  </mrow>
+ </mrow></math>; </li>
+<li class="enumerate_item">Not: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mfrac>
+   <mrow>
+    <mstyle displaystyle='true' scriptlevel='0'>
+     <mrow><mi>e</mi><mo> &#x21A4; </mo><mi>e</mi><mo>'</mo>
+     </mrow>
+    </mstyle>
+   </mrow>
+   <mrow>
+    <mstyle displaystyle='true' scriptlevel='0'>
+     <mrow>
+      <mstyle mathvariant='monospace'>
+       <mrow><mi>n</mi><mi>o</mi><mi>t</mi>&nbsp;
+       </mrow>
+      </mstyle><mi>e</mi><mo> &#x21A4; </mo>
+      <mstyle mathvariant='monospace'>
+       <mrow><mi>n</mi><mi>o</mi><mi>t</mi>&nbsp;
+       </mrow>
+      </mstyle><mi>e</mi><mo>'</mo>
+     </mrow>
+    </mstyle>
+   </mrow>
+  </mfrac>
+ </mrow></math>;</li>
+<li class="enumerate_item">If: <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mrow><mi>e</mi><mo> &#x21A4; </mo><mi>e</mi><mo>'</mo>
+      </mrow>
+     </mstyle>
+    </mrow>
+    <mrow>
+     <mstyle displaystyle='true' scriptlevel='0'>
+      <mrow>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>i</mi><mi>f</mi>&nbsp;
+        </mrow>
+       </mstyle><mi>e</mi><mspace width="10px" />
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msub><mspace width="10px" />
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>3</mn>
+        </mrow>
+       </msub><mo> &#x21A4; </mo>
+       <mstyle mathvariant='monospace'>
+        <mrow><mi>i</mi><mi>f</mi>&nbsp;
+        </mrow>
+       </mstyle><mi>e</mi><mo>'</mo><mspace width="10px" />
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msub><mspace width="10px" />
+       <msub>
+        <mrow><mi>e</mi>
+        </mrow>
+        <mrow><mn>3</mn>
+        </mrow>
+       </msub>
+      </mrow>
+     </mstyle>
+    </mrow>
+   </mfrac><mn>.</mn>
+  </mrow>
+ </mrow></math></li>
+</ol>
+<div class="example_item"></div>
+</div>
+</body>
+</html>

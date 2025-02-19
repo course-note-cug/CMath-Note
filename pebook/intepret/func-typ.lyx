@@ -13,7 +13,9 @@
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{geometry}
+\usepackage[xetex]{attachfile2}
 \usepackage{mathrsfs}
+\usepackage{xsim}
 
 \usepackage{float}
 \usepackage{amsthm}
@@ -302,6 +304,11 @@ End
 \justification true
 \use_refstyle 1
 \use_minted 0
+\branch Question
+\selected 0
+\filename_suffix 0
+\color #ffffff
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -386,6 +393,21 @@ End
 \end_inset
 
 
+\begin_inset FormulaMacro
+\newcommand{\sem}[1]{\left\llbracket #1\right\rrbracket }
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\lr}[1]{\left\langle #1\right\rangle }
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\texttt{#1}}
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -404,6 +426,19 @@ filename "../../commands.lyx"
 
 \begin_layout Standard
 下面对于程序的语义进行定义, 这就需要系统地给每一个属于这个语言的内容赋予其语义.
+ 如满足语言
+\begin_inset Formula $\texttt{L}$
+\end_inset
+
+的程序
+\begin_inset Formula $p$
+\end_inset
+
+的语义是
+\begin_inset Formula $\sem p_{\texttt{L}}:\texttt{input}\to\texttt{output}$
+\end_inset
+
+.
  
 \end_layout
 
@@ -556,5 +591,313 @@ If:
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(解释器) 定义
+\begin_inset Formula $\t S$
+\end_inset
+
+是源语言, 
+\begin_inset Formula $\t L$
+\end_inset
+
+是用于实现解释器的语言.
+ 一个
+\begin_inset Formula $\t S$
+\end_inset
+
+语言的解释器
+\begin_inset Formula $\t{int}\in\t L$
+\end_inset
+
+有两个输入: 将要执行的源程序
+\begin_inset Formula $p\in\t S$
+\end_inset
+
+, 以及源程序的输入数据
+\begin_inset Formula $d\in D.$
+\end_inset
+
+ 需要满足在这个解释器上面跑这个数据和程序要和在
+\begin_inset Formula $\t S$
+\end_inset
+
+上面跑的输出相同.
+ 
+\end_layout
+
+\begin_layout Definition
+即, 
+\begin_inset Formula 
+\[
+\t{int}\text{是\t S的解释器}\iff\forall\t p\in\t S\text{程\text{序}}.\forall d\in D.\sem{\t p}_{\t S}d=\sem{\t{int}}_{\t L}\sem{\t p,d}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+所有解释器构成的集合够成一个集合, 
+\begin_inset Formula 
+\[
+\boxed{\begin{array}{c}
+\t S\\
+\t L
+\end{array}}:=\{\t{int}|\forall\t p,d.\sem{\t p}_{\t S}\t d=\sem{\t{int}}_{\t L}[\t p,d]\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(编译器) 
+\begin_inset Formula $\sem{\t p}_{\ub{\t S}{\text{源\text{语\text{言}}}}}d=\sem{\sem{\t{comp}}_{\ub{\t L}{\text{实\text{现编译器的语言}}}}\t p}_{\ub{\t T}{\text{目\text{标\text{语\text{言}}}}}}d$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Definition
+所有把
+\begin_inset Formula $\t S$
+\end_inset
+
+编译到
+\begin_inset Formula $\t T$
+\end_inset
+
+的编译器(用
+\begin_inset Formula $\t L$
+\end_inset
+
+写的)可以写作一个集合: 
+\begin_inset Formula 
+\[
+\boxed{\begin{array}{c}
+\t S\to\t T\\
+\t L
+\end{array}}:=\{\t{comp}|\sem{\t p}_{\t S}d=\sem{\sem{\t{comp}}_{\t L}\t p}_{\t T}d\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+无类型的
+\begin_inset Formula $\lambda$
+\end_inset
+
+演算
+\end_layout
+
+\begin_layout Subsection
+语法
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\lr{\text{Lam}}::= & \lr{\text{Constant}} & \text{常\text{数}}\\
+| & \lr{\text{Var}} & \text{变\text{量}}\\
+| & \lr{\text{Lam}}\lr{\text{Lam}} & \text{函\text{数应用}}\\
+| & \lambda\lr{\text{Var}}.\lr{\text{Lam}} & \text{函\text{数抽象}}\\
+| & \t{if}\ \lr{\text{Lam}}\ \t{then}\ \lr{\text{Lam}}\t{else}\ \lr{\text{Lam}} & \text{条\text{件}}\\
+| & \lr{\text{Op}}\lr{\text{Lam}}...\lr{\text{Lam}} & \text{基\text{础运算应用}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+推理规则
+\end_layout
+
+\begin_layout Standard
+如何求值: 一致按照对应的记号求值, 直到最终的答案.
+ 
+\begin_inset Formula $M\Rightarrow P$
+\end_inset
+
+表示
+\begin_inset Formula $M$
+\end_inset
+
+可以规约成
+\begin_inset Formula $P$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+一些基本概念和记号: 
+\end_layout
+
+\begin_layout Enumerate
+受约束出现的变量
+\begin_inset Formula $\t x$
+\end_inset
+
+: 变量
+\begin_inset Formula $\t x$
+\end_inset
+
+在
+\begin_inset Formula $\lambda$
+\end_inset
+
+表达式中出现, 并且函数声明是类似于
+\begin_inset Formula $\lambda\t x....$
+\end_inset
+
+的
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+例子: 
+\begin_inset Formula $\lambda x.\ub x{\text{受\text{约\text{束}}}}$
+\end_inset
+
+; 但是
+\begin_inset Formula $\lambda y.\ub x{\text{不\text{受\text{约\text{束}}}}}.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+自由出现的变量
+\begin_inset Formula $\t x.$
+\end_inset
+
+ 
+\begin_inset Formula $\lnot1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+变量
+\begin_inset Formula $\t x$
+\end_inset
+
+在(整个表达式)是自由的.
+ 存在一个自由出现的场景.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+例子: 
+\begin_inset Formula $\teal{\lambda y.x}(\lambda x.x);\lambda y.\lambda x.x.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+变量替换: 如果
+\begin_inset Formula $N,M$
+\end_inset
+
+是
+\begin_inset Formula $\lambda$
+\end_inset
+
+表达式, 
+\begin_inset Formula $[N/x]M$
+\end_inset
+
+表示把
+\begin_inset Formula $M$
+\end_inset
+
+中所有自由出现的
+\begin_inset Formula $x$
+\end_inset
+
+都替换为
+\begin_inset Formula $N.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $\alpha$
+\end_inset
+
+-转换: 
+\begin_inset Formula $\lambda x.M\Rightarrow\lambda y.[y/x]M$
+\end_inset
+
+.
+ 把受约束的变量
+\begin_inset Formula $x$
+\end_inset
+
+改成
+\begin_inset Formula $y$
+\end_inset
+
+, 要求: 
+\begin_inset Formula $y$
+\end_inset
+
+不能在
+\begin_inset Formula $M$
+\end_inset
+
+这个表达式中自由.
+ (否则 会把原有自由变量变成受约束的).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+\begin_inset Formula $\beta$
+\end_inset
+
+-转换: 
+\begin_inset Formula $(\lambda x.M)(N)\Rightarrow[N/x]M.$
+\end_inset
+
+ 函数应用.
+ 
+\end_layout
+
 \end_body
 \end_document

@@ -1,0 +1,734 @@
+<TMU|<tuple|1.0.5|1.2.9.7>>
+
+<style|<tuple|exam|chinese|indent-paragraphs|ornaments|std-frame|comment>>
+
+<\body>
+  <\hide-preamble>
+    \;
+
+    <assign|ite|<macro|if_then_else>>
+
+    <assign|question-text|<macro|<localize|Question>>>
+  </hide-preamble>
+
+  <doc-data|<doc-title|函数、变量代换及<math|\<lambda\>>-演算>>
+
+  <with|ornament-shape|angular|<\metal>
+    <center|<strong|前言 Prologue>>
+
+    \;
+
+    — 老师, 什么是变量? 什么是未知数? 为什么变量可以换元? 我能只换一个元不换其他的吗?
+
+    — 不行, 他们是一个整体.\ 
+
+    — 前面几个问题呢? 为什么?
+
+    — 这就要讲到我们眼里的数学算式到底是什意思了. 先从最简单的<math|\<lambda\>>-演算讲起吧!\ 
+
+    \;
+  </metal>>
+
+  \;
+
+  \;
+
+  本文我们引申数学中的一些概念, 使得其更加通用.\ 
+
+  <section|对于函数的探讨(粗浅地)>
+
+  在高中数学中, 我们学过了函数的概念.它看上去就是下面这样的:
+
+  <\definition>
+    (函数的朴素定义)<\footnote>
+      定义中大家熟悉的部分, 就直接用<with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/ridged-brushed-dark.png||>|灰色颜色的字体>标识了. 这里的函数定义采用了大学课本的定义: 这是为了为后文从函数到函数的对应关系(函数)埋下伏笔.\ 
+    </footnote> <with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/ridged-brushed-dark.png||>|设<math|A>、<math|B>是非空的<with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/granite-xdark.png||>|集合>，如果按照某个确定的对应关系<math|f>，使对于<with|color|black|集合><math|A>中的任意一个元素<math|x>，在集合<math|B>中都有唯一确定的元素<math|f(x)>和它对应，那么就称<math|f：A→B>为从<with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/granite-xdark.png||>|集合<math|A>到集合<math|B>的一个函数。>><math|A>称为定义域, <math|B>称为陪域. 如果<math|a\<in\> A,b\<in\> B,>要想表达<math|f<around*|(|a|)>=b>, 可以记为<math|a\<mapsto\> b>.
+  </definition>
+
+  但是在20世纪之前, 函数不长这个样子. 更普遍的观点为: “函数实际上是规则”. 它把输入按照规则翻译为输出. 例如, 当时的人们看到“<math|f<around*|(|x|)>=x<rsup|2>>”的类似物, 更可能思考的是:“这个规则说, 输入一个数, 输出这个数的平方.”
+
+  函数无处不在! 以我们每天都要接触的代数表达式为例, 代数表达式通常由三部分构成: 数字(1,2,3,1.4,<math|\<pi\>>, <gap|<show-reply||>>)、变量(<math|x,y,z>)、运算符(<math|+,-,\<times\>,\<div\> >,<sqrt| \<cdot\> >,<gap|<show-reply||>>). \ 我们写<math|x+y>实际上是指代的是<math|x+y>的<with|font-series|bold|结果>, 而不是关心如何实行加法这个<with|font-series|bold|过程>. 这样的记号一大好处是可以方便地把许多过程粘贴起来. 例如在做代数变形的时候读到<math|A=<around*|(|x+y|)>\<times\> z<rsup|2 >>, 我们不会再考虑“先把<math|x>和<math|y>加起来, 再把这个中间结果记做<math|t>; 对<math|z>平方, 中间结果记作<math|w>; 最后计算<math|t\<times\>w>就是结果”这种琐碎的事实.\ 
+
+  上世纪的人们实际上找到了一个非常精巧的表达方法来表示: “令<math|f>表示<math|x\<mapsto\> x<rsup|2>>这一对应关系, 然后我们考虑<math|A=f<around*|(|5|)>>.”这样一段话. 他们就会写:
+
+  <\equation*>
+    A=<around*|(|\<lambda\> x.x<rsup|2>|)>*<around*|(|5|)>,
+  </equation*>
+
+  这个式子中, <math|\<lambda\> >是一个特殊符号, 意思是:“我要定义一个函数”. 紧跟着的<math|x>是一个“占位符”,对这个虚拟的规则进行句点(“.”)后面的操作, 就形成了我们的规则. 也就是说, 映射<math|f\<mapsto\> f<around*|(|x|)>>, 在这里就写作了<math|\<lambda\> x.f<around*|(|x|)>.>\ 
+
+  倘若你把这个<math|\<lambda\> x.x<rsup|2>>视作函数的记号的话, 后面的<math|<around*|(|5|)>>就不难理解了. 它表示把这个规则应用到5身上.这里的括号是展示优先级的. 同代数变形时候规则一样, 没有括号的时候从左往右读.\ 
+
+  这个“占位符”实际上是一种特殊的变量, 称为<with|font-series|bold|受约束的变量>(bound variable). 其被后面的表达式“拴住了”– 即, 你不能把上述表达式改为<math|<around*|(|\<lambda\> y.x<rsup|2>|)><around*|(|5|)>, >但是可以<math|>改为<math|<around*|(|\<lambda\> y.y<rsup|2>|)><around*|(|5|)>.> 这里不做展开.
+
+  <unfolded|<\question>
+    计算<math|<around*|(|\<lambda\> x.<around*|(|x<rsup|3>+2x+1|)>|)><around*|(|1|)>>和<math|><math|<around*|(|\<lambda\> y.<around*|(|y<rsup|3>+2y+1<with|font-series|bold|>|)>|)><around*|(|1|)>>. 他们的结果一样吗?
+  </question>|<\answer*>
+    都是1+2+1=4.\ 
+  </answer*>>
+
+  这样的记号的好处之一是它可以很方便地表达复合函数. 回顾一下复合函数的概念.\ 
+
+  <\definition>
+    <with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/ridged-brushed-dark.png||>|设<math|y>是<math|u>的函数(即<math|y=f<around*|(|u|)>>), <math|u>是<math|x>的函数(即<math|u=\<phi\> <around*|(|x|)>>). 如果<math|\<phi\> <around*|(|x|)>>的值全部或部分在<math|f<around*|(|u|)>>的定义域内，则<math|y>通过<math|u>成为<math|x>的函数，记作<math|y=f<around*|(|\<phi\> <around*|(|x|)>|)> >, 称为由函数<math|y=f<around*|(|u|)>>以及<math|u=\<phi\> <around*|(|x|)>>复合而成的复合函数。>如果希望抛弃掉具体变量而研究对应关系本身的变化则可以写作<math|y=f\<circ\> \<phi\> >. 这表明对应规则<math|y>是由<math|f>和<math|\<phi\> >复合而来.\ 
+  </definition>
+
+  这样的记号是如何表示复合函数呢? 比如, 如果有一个规则<math|f>希望表达<math|f<around*|(|f<around*|(|x|)>|)>>这个函数(或<math|f\<circ\> f>). 一种简单的办法是:<math|\<lambda\> x.f<around*|(|f<around*|(|x|)>|)>.>\ 
+
+  前文说到, 我们可以完全把这些函数视作了“变化规则”. 我们当然可以概念上描述“变化规则”的“变化规则”. 这样的内容一般称为“高阶函数”. 如下的表达式表达了一个<math|>映射: <math|f\<mapsto\> f\<circ\> f>:<math|\<lambda\> f.<around*|(|\<lambda\> x.f<around*|(|f<around*|(|x|)><rsub|>|)>|)>>. 也就是这里面的函数也成了占位符. 要想求得确切的值, 需要给出一个函数和一个自变量才可以. 下面给一个例子. 对于多重<math|\<lambda\> >嵌套的情况, 我们先保证书写的时候每一个<math|\<lambda\> >后面的占位符都不同, 以避免混淆.\ 
+
+  <\example>
+    求<math|<around*|(|<around*|(|\<lambda\> f.\<lambda\> x.f<around*|(|f<around*|(|x|)>|)>|)><around*|(|\<lambda\> y.y<rsup|2>|)>|)><around*|(|5|)>>的值.\ 
+
+    <\solution*>
+      占位符<math|f>被替换为了<math|<around*|(|\<lambda\> y.y<rsup|2>|)>>. 原式变为了<math|\<lambda\> x.<around*|(|<around*|(|\<lambda\> y.y<rsup|2>|)><around*|(|\<lambda\> y.y<rsup|2>|)><around*|(|x|)>|)>>(5). 然后将占位符<math|x>替换为<math|5>, 就得到了<math|<around*|(|<around*|(|\<lambda\> y.y<rsup|2>|)><around*|(|\<lambda\> y.y<rsup|2>|)><around*|(|5|)>|)>=<around*|(|\<lambda\> y.y<rsup|2>|)><around*|(|25|)>>=<math|625>.
+    </solution*>
+  </example>
+
+  <unfolded|<\question>
+    求<math|<around*|(|<around*|(|<with|color|red|<around*|(|\<lambda\> f.\<lambda\> x.f<around*|(|f<around*|(|f<around*|(|x|)>|)>|)>|)>><with|color|dark green|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>>|)><with|color|blue|<around*|(|\<lambda\> z.z+1|)>>|)><around*|(|0|)>. >你可以创造更加方便的记号组织你的思路.\ 
+
+    提示1: 括号太多了? 下面的办法可以帮助你理清等式结构: 从0开始, 每一次遇见一个左括号就把数加一, 并在这个括号下面写上这个数当前的值; 遇见一个右括号就把数减一并写上当前的值. 最近的一样的数字就是一对完整的括号.\ 
+
+    提示2: 表达式复杂到一定程度的时候, 记得想一想其直观意义.\ 
+
+    当无法做出答案时: 做不出来也没关系, 因为有些定义没有很明确地给出. 向后面读完再看吧.\ 
+  </question>|<\answer*>
+    可以借鉴连等式的记号.\ 
+
+    <\equation*>
+      <\align*>
+        <tformat|<table|<row|<cell|>|<cell|<around*|(|<around*|(|<with|color|red|<around*|(|\<lambda\> <with|color|blue|f>.\<lambda\> x.<with|color|dark orange|f><around*|(|<with|color|orange|f><around*|(|<with|color|brown|f><around*|(|x|)>|)>|)>|)>><with|color|blue|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>>|)><with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/metal-brushed-dark.png||>|<around*|(|\<lambda\> z.z+1|)>>|)><with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/metal-brushed-medium.png||>|<around*|(|0|)>>>>|<row|<cell|=>|<cell|<around*|(|\<lambda\> x.<with|color|dark orange|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>><around*|(|<with|color|orange|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>><around*|(|<with|color|brown|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>><around*|(|x|)>|)>|)><with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/ridged-brushed-dark.png||>|<around*|(|\<lambda\> z.z+1|)>>|)><with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/metal-brushed-medium.png||>|<around*|(|0|)>>>>|<row|<cell|=>|<cell|<with|color|dark orange|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>><around*|(|<with|color|orange|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>><underline|<around*|(|<with|color|brown|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>><with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/ridged-brushed-dark.png||>|<around*|(|\<lambda\> z.z+1|)>>|)> >|)><with|color|<pattern|/Applications/MoganResearch.app/Contents/Resources/share/Xmacs/misc/patterns/vintage/ridged-brushed-dark.png||>|<around*|(|0|)>>>>|<row|<cell|=>|<cell|<with|color|dark orange|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>><around*|(|<with|color|orange|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)>><wide*|<around*|(|\<lambda\> y.<around*|(|<around*|(|\<lambda\> z.z+1|)><around*|(|<around*|(|\<lambda\> z.z+1|)><around*|(|y|)>|)>|)>|)> |\<wide-underbrace\>><rsub|对y应用2次加法\<assign\>Q>|)><around*|(|0|)>>>|<row|<cell|=>|<cell|<around*|(|\<lambda\> g.\<lambda\> y.g<around*|(|g<around*|(|y|)>|)>|)><wide*|<around*|(|\<lambda\> y.Q<around*|(|Q<around*|(|y|)>|)>|)> |\<wide-underbrace\>><rsub|对y应用4次加法\<assign\>R><around*|(|0|)>>>|<row|<cell|=>|<cell|\<lambda\> y.R<around*|(|R<around*|(|y|)>|)><around*|(|0|)>>>|<row|<cell|=>|<cell|0+8=8.>>>>
+      </align*>
+    </equation*>
+
+    \;
+  </answer*>>
+
+  上述仅仅说明了对应规则而忽略了对于定义域的讨论. 实际上, 对于定义域特殊的限制可以附加类型信息表示. 我们今天先不做讨论.\ 
+
+  <section|无类型的<math|\<lambda\>>-演算(untyped <math|\<lambda\> > calculus)>
+
+  实际上, 上面的计算过程和我们进行数学课程的化简工作并无二异. 我们为其起一个贴切的名字–演算. 由于其中包含<math|\<lambda\> >, 又不包含类型信息, 故称为无类型的<math|\<lambda\>>-演算. 现在是时候规范一下我们对它的定义了.\ 
+
+  有两方面定义需要被规范: 语法(grammar)和语义(semantics). 语法是指: 什么是对, 什么是错. 比如, “<math|\<lambda\> x.y>”算合法的算式吗? “<math|\<lambda\> \<lambda\> .Bonjour>”算合法的算式吗? 倘若不能对其语法合法验证, 就无从谈起其运算, 更无论正确的运算. 在定义了语法之后, 还需要知道“这个表示什么意思”, “我们可以进行怎样的操作”. 这就是语义.\ 
+
+  <\definition>
+    <math|\<cal-V\>>是变量构成的集合(通常有无穷多个), <math|A>是由<math|\<cal-V\>>中一个或者多个元素组成的集合(称为字母表, alphabet). 不能出现在<math|\<cal-V\>>中的特殊符号(special symbols)有“(”、“)”、“<math|\<lambda\>>”以及“.”. 令<math|A<rsup|*\<star\> >>为<math|A>中元素构成的有限字符串. 一个没有语法错误的的<math|><math|\<lambda\>><math|>表达式(lambda-term)是最小的<math|\<Lambda\>\<subseteq\> A<rsup|\<star\> >>, 使得<\footnote>
+      右边是每个规则的名称.\ 
+    </footnote>:
+
+    <\itemize>
+      <item>只要<math|x\<in\> \<cal-V\>,>那么<math|x\<in\> \<Lambda\>>. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <hrule>变量(variables)
+
+      <item>只要<math|M,N\<in\> \<cal-V\>,>那么<math|<around*|(|M N|)>\<in\> \<Lambda\>.> \ \ \ \ \ \ \ \ \ \ \ \ \ <hrule>应用函数规则(applications)
+
+      <item>只要<math|x\<in\> \<cal-V\>且N\<in\> \<Lambda\>>, 那么<math|<around*|(|\<lambda\> x.M|)>\<in\> \<Lambda\>>. \ \ \ \ \ \ <hrule>抽象函数声明(abstraction)
+    </itemize>
+  </definition>
+
+  <\example>
+    根据定义判断下列是否为合法的<math|\<lambda\> >项. 默认<math|\<cal-V\>>是英文二十六个字母构成的有限长度字符串以及整数下标(例如: succ<math|<rsub|1>>,<math|a,b,c>). 且<math|A=\<cal-V\>>. (实际上这也是默认情况下我们的假设, 以后不再指出)
+
+    (1) <math|\<lambda\>x.x>; (2) <math|<around*|(|<around*|(|\<lambda\>x.<around*|(|x x|)>|)><around*|(|\<lambda\>y.<around*|(|y y|)>|)>|)>>; (3) <math|<around*|(|\<lambda\>f.<around*|(|\<lambda\>x.<around*|(|f<around*|(|f <around*|\<nobracket\>|x|)>|)>|)>|)>|)>>.
+
+    <\solution*>
+      他们都是. 他们都可以由上述三条规则生成出来. 其中后面带有?的表示在匹配上述定义中还可以继续往下延伸的占位符(如<math|M,N,x>), 没有?的项是实际填入的值或者定义中不可再展开的符号.
+
+      (1) (<math|\<lambda\>><tree|<math|x?>|<math|x>>.<tree|<math|M?>|<math|x>>); (2) (<tree| <math|M?> |(|<math|\<lambda\> >|<tree|<math|x?>|<math|x>>|.|<tree|<math|M?>|(|<tree|<math|M?>|<math|x>>|<tree|<math|N?>|<math|x>>|)>|)><tree| <math|N?> |(|<math|\<lambda\> >|<tree|<math|x?>|<math|y>>|.|<tree|<math|M?>|(|<tree|<math|M?>|<math|y>>|<tree|<math|N?>|<math|y>>|)>|)>);\ 
+
+      (3) (<math|\<lambda\>> <tree|<math|x?> |<math|f>>. <tree| <math|M?>|<math|\<lambda\>>|<tree|<math|x?>|<math|x>>|.|<tree|<math|M?>|(|<tree|<math|M?>|<math|f>>|<math|<tree|<math|N?>|(|<tree|M?|f>|<tree|N?|x>|)>>|)>>).\ 
+    </solution*>
+  </example>
+
+  问题在于, 刚刚介绍的内容中, 括号使用太频繁了. 我们引入一些约定俗成的记号, 来减小对于括号使用的次数.\ 
+
+  <\convention>
+    \;
+
+    <\itemize>
+      <item>我们省略一整项最外面的表达式. 如<math|<around*|(|M N|)>>可以写作<math|M N>.
+
+      <item>“应用函数规则”规则是左结合的. 意味着当你看到<math|M N P>, 它意味着<math|<around*|(|*M N|)>P>而不是<math|M<around*|(|N P|)>>.<marginal-note|normal|c|<small| 这说明, 求值的时候, 结合律还能使用吗?>>
+
+      <item>“抽象函数声明”规则的身体(句点后面的元素)应该延伸的越远越好. 比如当你看到<math|\<lambda\>x.M N>意味着<math|\<lambda\>x.<around*|(|M N|)>>而不是<math|<around*|(|\<lambda\>x.M|)>N.>
+
+      <item>多个<math|\<lambda\>>抽象规则连续使用, 可以把前面缩写起来. 如<math|\<lambda\>x.\<lambda\>y.\<lambda\>z.M>可以写作<math|\<lambda\>x y z.M>.\ 
+    </itemize>
+
+    \;
+  </convention>
+
+  <subsection|自由和约束的变量, <math|\<alpha\>>-等价演算>
+
+  在最开头的时候, 你看到了<math|\<lambda\>x.x>中的<math|x>只是占位符, 所以<math|\<lambda\>x.x>和<math|\<lambda\>y.y>尽管形式不同, 表达的意思确是一样的. 我们说这两者是<math|\<alpha\>>-等价的. 即<math|M<long-arrow|\<rubber-equal\>||\<alpha\>>N .> 如果希望表达两者每一个字符都是相等的, 可以用<math|M\<equiv\> N.>
+
+  <unfolded|<\question>
+    有把大学数学忘记的老师这样教学生: “函数就是<math|f<around*|(|x|)>>或者<math|y<around*|(|x|)>>. 因变量不用<math|x>, 自变量不用<math|y>. 大家记住了吗?”试说明为什么这是非常严重的常识性错误.\ 
+  </question>|<\answer*>
+    请你自由发挥.\ 
+  </answer*>>
+
+  我们回到这个表示函数的这条“抽象函数声明”规则. 对于形如“<math|\<lambda\>x.M>”的式子, 由于有了<math|\<lambda\>x>这一个函数声明, 就导致了这一项里面所有的<math|x>都被约束了. 我们说这叫做变量<math|x><strong|受约束出现>(bound occurence). 这一项的<math|\<lambda\>x>, 我们称为<strong|绑定子>(binder).\ 
+
+  对于式子中的一个变量而言, 不是受约束出现, 就是<with|font-series|bold|自由出现>(free occurence).\ 
+
+  <\example>
+    请说明<math|<around*|(|\<lambda\>x.x y|)><around*|(|\<lambda\>y. y z|)>>中哪些变量是自由出现的? 哪些是约束出现的? (<math|\<lambda\>z.z<around*|(|\<lambda\>z.z z|)>>)呢?
+
+    <\solution*>
+      <math|<around*|(|\<lambda\>x.x y|)>>中, <math|x>是约束出现, <math|y>是自由出现的. <math|<around*|(|\<lambda\>y. y z|)>>中, <math|y>是约束出现的, <math|z>是自由出现的. 注意, 尽管有两个分项中都出现了<math|y>, 但是一个是自由出现的, 另一个是约束出现的. 如果把所有的受约束出现的变量周围画上<math| ><block|<tformat|<table|<row|<cell|方框>>>>> , 并用颜色标注出它的绑定子的话, 就像<math|<around*|(|\<lambda\><with|color|red|x>.<block|<tformat|<table|<row|<cell|<with|color|red|x> >>>>> y|)><around*|(|\<lambda\><with|color|blue|y>. <block|<tformat|<table|<row|<cell|<with|color|blue|y> >>>>> z|)>><math|> .
+
+      <unfolded|<\question>
+        (1) 演算<math|add <overline|2> <overline|3>>和<math|mult <overline|2> <overline|3>>. (2) 证明: <math|add <overline|n> <overline|m><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>><overline|n+m>>; (3) 证明<math|mult <overline|n> <overline|m><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>><overline|n\<cdot\> m >>. 第一个问题的<math|add <overline| 2 > <overline| 3 >>部分已经为你写好了.\ 
+
+        解答范例: (不唯一, 你可以使用“应用<math|n>次到函数<math|f>”这一算子 – <math|f<rsup|n>>, 这对后两问有巨大帮助).
+
+        <math|<align|<tformat|<table|<row|<cell|<with|color|red|<around*|(|add|)> ><with|color|blue|<around*|(|2|)>><with|color|green|<with|color|dark green|<around*|(|3|)>><with|color|dark green|>>=>|<cell|<with|color|red|<around*|(|\<lambda\> n m f x. n f<around*|(|m f x|)>|)> ><with|color|blue|<around*|(|\<lambda\>f x.f<around*|(|f <around*|\<nobracket\>|x|)>|)>|)>><with|color|dark green|<around*|(|\<lambda\>f x.f<around*|(|f<around*|(|f x|)>|)>|)>>>>|<row|<cell|\<twoheadrightarrow\><rsub|\<beta\>>>|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>f x.f<around*|(|f <around*|\<nobracket\>|x|)>|)>>|)>f<around*|(|<with|color|dark green|<around*|(|\<lambda\>f x.f<around*|(|f<around*|(|f x|)>|)>|)>>f x|)>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>f x.f<around*|(|f <around*|\<nobracket\>|x|)>|)>>|)><underline|f ><space|1em><underline|<around*|(|f<around*|(|f<around*|(|f x|)>|)>|)> > <small| 这是两个不同的部分>>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>g y.g<around*|(|g <around*|\<nobracket\>|y|)>|)>>|)>f<around*|(|f<around*|(|f<around*|(|f x|)>|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. <around*|(|\<lambda\>y. f<around*|(|f y|)>|)>f<around*|(|f<around*|(|f<around*|(|f x|)>|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. <around*|(| f<around*|(|f <around*|(|f<around*|(|f<around*|(|f x|)>|)>|)>|)>|)>>>|<row|<cell|=>|<cell|<overline| 5 >>>>>>>
+      </question>|<\answer*>
+        (1) 仿照上例,\ 
+
+        <\math>
+          <align|<tformat|<table|<row|<cell| mult <overline|2> <overline|3><long-arrow|\<rubber-equal\>|def>>|<cell|<around*|(|\<lambda\>n m f. n <around*|(|m f|)>|)> <around*|(|2|)> <around*|(|3|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.2<around*|(|3 f|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<around*|(|\<lambda\>f x. f<rsup|2>x|)> <around*|(|<around*|(|\<lambda\>f x.f<rsup|3>x|)>f|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<around*|(|\<lambda\>f x. f<rsup|2>x|)> <around*|(|\<lambda\> x.f<rsup|3>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|<around*|(|\<lambda\>f.\<lambda\>g y.g<rsup|2>y<around*|(|\<lambda\>x.f<rsup|3>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f.\<lambda\>y.f<rsup|6>y>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|\<lambda\>f.\<lambda\>x.f<rsup|6>x=<overline| 6 >.>>>>>
+
+          \ 
+        </math>
+
+        (2) 只要在合适的地方加上缩写即可.
+
+        <\equation*>
+          <tabular|<tformat|<cwith|2|-1|1|1|cell-halign|r>|<table|<row|<cell|<with|color|red|<around*|(|add|)> ><with|color|blue|<around*|(|p|)>><with|color|green|<with|color|dark green|<around*|(|q|)>><with|color|dark green|>>=>|<cell|<with|color|red|<around*|(|\<lambda\> n m f x. n f<around*|(|m f x|)>|)> ><with|color|blue|<around*|(|\<lambda\>f x.f<rsup|p> x|)>><with|color|dark green|<around*|(|\<lambda\>f x.f<rsup|q>x|)>>>>|<row|<cell|\<twoheadrightarrow\><rsub|\<beta\>>>|\<lambda\>f x.<with|color|blue|<around*|(|\<lambda\>f x.f<rsup|p> x|)>>f<around*|(|<with|color|dark green|<around*|(|\<lambda\>f x.f<rsup|q>x|)>>f x|)>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>f x.f<rsup|p><around*|\<nobracket\>| <around*|\<nobracket\>|x|)>|)>>|)><underline|f ><space|1em><underline|<around*|(|f<rsup|q>x|)> > <small| 这是两个不同的部分>>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>g y.g<rsup|p><around*|\<nobracket\>| <around*|\<nobracket\>|y|)>|)>>|)>f<around*|(|f<rsup|q>x|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. <around*|(|\<lambda\>y. f<rsup|p>y|)><around*|(|f<rsup|q>x|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. <around*|(|f<rsup|p+q>x|)>>>|<row|<cell|=>|<cell|<overline| p+q>. >>>>>
+        </equation*>
+
+        (3) 和上面的一样.\ 
+
+        <\equation*>
+          <tabular|<tformat|<cwith|2|-1|1|1|cell-halign|r>|<table|<row|<cell| mult <overline|p> <overline|q><long-arrow|\<rubber-equal\>|def>>|<cell|<around*|(|\<lambda\>n m f. n <around*|(|m f|)>|)> <around*|(|<overline|p >|)> <around*|(|<overline|q >|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<overline|p><around*|(|<overline|q> f|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<around*|(|\<lambda\>f x. f<rsup|p>x|)> <around*|(|<around*|(|\<lambda\>f x.f<rsup|q>x|)>f|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<around*|(|\<lambda\>f x. f<rsup|p>x|)> <around*|(|\<lambda\> x.f<rsup|q>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|<around*|(|\<lambda\>f.\<lambda\>g y.g<rsup|p>y<around*|(|\<lambda\>x.f<rsup|q>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f.\<lambda\>y.f<rsup|p q>y>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|\<lambda\>f.\<lambda\>x.f<rsup|p q>x=<overline| p q >.>>>>>
+        </equation*>
+      </answer*>>
+
+      对于后面的图示为<math|<around*|(|\<lambda\><with|color|red|z>.<block|<tformat|<table|<row|<cell|<with|color|red|z >>>>>><around*|(|\<lambda\><with|color|blue|z>.<block|<tformat|<table|<row|<cell|<with|color|blue|z> >>>>> <block|<tformat|<table|<row|<cell|<with|color|blue|z >>>>>>|)>|)>>. 注意这里的蓝色的<math|<with|color|blue|z>>并不是受红色的<with|color|red|<math|<with|color|blue|<with|color|red|z>>>>的约束!
+    </solution*>
+  </example>
+
+  为了方便起见, 在一项<math|\<lambda\>>-表达式中的自由变量构成的集合记作<math|FV<around*|(|M|)>>. 那么其可以由如下的定义计算:
+
+  <\itemize>
+    <item><math|FV<around*|(|x|)>=<around*|{|x|}>>
+
+    <item><math|FV<around*|(|M N|)>=FV<around*|(|M|)>\<cup\> FV<around*|(|N|)>>
+
+    <item><math|FV<around*|(|\<lambda\>x.M|)>=FV<around*|(|M|)>\<backslash\><around*|{|x|}>>
+  </itemize>
+
+  开头中说到, 希望对变量进行替换. 下面, 我们仔细地探讨变量替换到底是什么意思. 请你通过高中数学知识, 尝试判断下面的变量代换是否正确.\ 
+
+  <\question>
+    说一说, 下面的变量是正确的代换吗? 先从高中数学的感觉谈一谈为什么, 然后根据下面的运算法则核对你的答案.\ 
+
+    (1) <math|\<lambda\> x.x>, 在<math|x>替换为<math|y>之后, 有<math|\<lambda\>x.y>;\ 
+
+    (2) <math|\<lambda\>x.\<lambda\>y.x y>把<math|x>替换为<math|z>之后, 有<math|\<lambda\>x.\<lambda\>y.z y>.
+
+    <\answer*>
+      都不对. 第一个就像是把<math|f<around*|(|x|)>=x>替换为了<math|f<around*|(|x|)>=y>; 第二个是把<math|f<around*|(|x,y|)>=x y>替换为了<math|f<around*|(|x,y|)>=z y>. 变量的自由性改变了.\ 
+    </answer*>
+  </question>
+
+  <\convention>
+    如果<math|x,y>是变量, <math|M>是某一<math|\<lambda\>>项, 通常用<math|M<around*|{|y/x|}>>表示把<math|M>中的<math|x>字面上替换为<math|y>. 其遵循:
+
+    <\itemize>
+      <item><math|x<around*|{|y/x|}>\<equiv\> y>
+
+      <item><math|z<around*|{|y/x|}>\<equiv\> z>, 在<math|x\<neq\> z>的情况下
+
+      <item><math|M N<around*|{|y/x|}>\<equiv\><around*|(|M<around*|{|y/x|}>|)><around*|(|N<around*|{|y/x|}>|)>>
+
+      <item><math|<around*|(|\<lambda\>x.M|)><around*|{|y/x|}>\<equiv\> \<lambda\> y.<around*|(|M<around*|{|y/x|}>|)>>
+
+      <item><math|<around*|(|\<lambda\>z.M|)><around*|{|y/x|}>\<equiv\> \<lambda\> z.<around*|(|M<around*|{|y/x|}>|)>>, 在<math|x\<neq\> z>的情况下.\ 
+    </itemize>
+  </convention>
+
+  有了什么叫做变量代换的初步讨论, 我们就可以为<math|\<alpha\>>-等价下一个定义了.\ 
+
+  <\definition>
+    (<math|\<alpha\>>-等价) 对于任何一个<math|\<lambda\>>-项<math|M>, 只要变量<math|y>在<math|M>中没有出现过, 我们就可以把<math|M>中的一个变量<with|font-series|bold|重新命名>为<math|y>. 即<math|\<lambda\>x.M<long-arrow|\<rubber-equal\>||\<alpha\>>\<lambda\>y.<around*|(|M<around*|{|y/x|}>|)>>. 我们说这两个式子<math|\<alpha\>>-等价.\ 
+
+    <math|\<alpha\>>-等价关系具有对称性(如果<math|M<long-arrow|\<rubber-equal\>||\<alpha\>>N>, 那么自然<math|N<long-arrow|\<rubber-equal\>||\<alpha\>>M>); 传递性(如果<math|A<long-arrow|\<rubber-equal\>||\<alpha\> >B,B<long-arrow|\<rubber-equal\>||\<alpha\>>C>, 那么<math|A<long-arrow|\<rubber-equal\>||\<alpha\>>C>); 自反性(<math|M<long-arrow|\<rubber-equal\>||\<alpha\>>M>). \ 
+  </definition>
+
+  为了方便排版和阅读, 我们把若<math|P>则<math|Q>写作<math|<frac| P|Q>>: 上面是前提, 下面是结论. 实际上, <math|\<alpha\>>-等价的规则有如下几条:
+
+  <\equation*>
+    <\aligned>
+      <tformat|<cwith|1|-1|1|-1|cell-hyphen|t>|<cwith|1|1|1|1|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell| <around*|(|1,自反|)> <frac| |M=M>>|<cell|<around*|(|2,对称|)> <frac| M=N|N=M>>>|<row|<cell|<around*|(|3,传递|)> <frac| M=N<space|3em>N=P|M=P>>|<cell|<around*|(|4,等价|)> \ <frac| M=M'<space|2em>N=N<rprime|'>|M N=M<rprime|'>N<rprime|'>>>>|<row|<cell|<around*|(|5,\<xi\>|)> <frac| M=M<rprime|'>|\<lambda\>x.M=\<lambda\>x.M<rprime|'>>>|<cell|<around*|(|6,\<alpha\>|)> <frac| y\<notin\> M|\<lambda\>x.M=\<lambda\>y.<around*|(|M<around*|{|y/x|}>|)>>>>>>
+    </aligned>
+  </equation*>
+
+  <\example>
+    写出下列相互等价表达式的<math|\<alpha\>>-等价推演过程, 每一步骤只能使用一条规则:\ 
+
+    (1) <math|\<lambda\>x.\<lambda\>y.x y <long-arrow|\<rubber-equal\>||\<alpha\>>\<lambda\>x.\<lambda\>y. y x>. (2) <math|\<lambda\>z.z<around*|(|\<lambda\>z.z z|)><long-arrow|\<rubber-equal\>||\<alpha\>>\<lambda\>z.z<around*|(|\<lambda\>y.y y|)>>.
+
+    <\solution*>
+      (1)<math|\<lambda\>x.\<lambda\>y.x y <long-arrow|\<rubber-equal\>||\<alpha\>,6>\<lambda\>x.\<lambda\>z.x z<long-arrow|\<rubber-equal\>||\<alpha\>,6>\<lambda\>y.\<lambda\>z.y z<long-arrow|\<rubber-equal\>||\<alpha\>,6>\<lambda\>y.\<lambda\>x.y x>.
+
+      (2) <math|><math|\<lambda\>z.z<around*|(|\<lambda\>z.z z|)><long-arrow|\<rubber-equal\>||\<alpha\>,6>\<lambda\>z.z<around*|(|\<lambda\>y.y y|)>>.\ 
+    </solution*>
+  </example>
+
+  <unfolded|<\question>
+    判断下列的三个表达式中, 哪两个是<math|\<alpha\>>-等价的. 给出推演过程. (提示: 留意<with|font-series|bold|每一个位置上的>变量是自由出现的还是约束出现的有助于初步地判断).\ 
+
+    (1) <math|\<lambda\>x.y \<lambda\>a.a x>
+
+    (2) <math|\<lambda\>x.z \<lambda\>b.b x>
+
+    (3) <math|\<lambda\>a. y \<lambda\>b. b a>
+
+    \ 
+  </question>|<\answer*>
+    (1)和(3). 对于变量的自由性可以直接看出来. 推导和上例一样, 做一次交换变量即可.\ 
+  </answer*>>
+
+  <unfolded|<\question>
+    给出命题: 如果<math|P<long-arrow|\<rubber-equal\>||\<alpha\>>Q>, 那么<math|FV<around*|(|P|)>=FV<around*|(|Q|)>>. 先用自己的语言叙述这个命题, <verbatim|然后给出证明><\footnote>
+      完成此问题至少需要学过结构归纳法和集合的运算规则(即本科一年级«离散数学»课程内容). 高中生可跳过. 或参考OpenLogic项目的lam:syn:alp:lem:fv-one词条.\ 
+    </footnote>.\ 
+  </question>|<\answer*>
+    如果<math|P>和<math|Q>是<math|\<alpha\>>-等价的, 那么<math|P>和<math|Q>的自由变量构成的集合(在相对位置层面)是一样的. 考虑推导过程. 证明见OpenLogic项目的lam:syn:alp:lem:fv-one词条.\ 
+  </answer*>>
+
+  <unfolded|<\question>
+    有同学对求和记号产生了疑问: 对于<math|<big|sum> <rsub|i=0><rsup|10>i>来讲, 如果通过变量替换的方法把<math|i>代换为<math|i+1,>原式就会变为<math|<big|sum> <rsub|i+1=0><rsup|10>i>+1, 与原来的结果不一致. 这说明<math|\<alpha\>>-等价变换的核心思想失效了吗? 提示: <math|<big|sum> <rsub|i=a><rsup|b>f<around*|(|i|)>>只是<math|<big|sum> <rsub|a\<leqslant\>i\<leqslant\>b>f<around*|(|i|)>>的简写.\ 
+
+    \;
+  </question>|<\answer*>
+    使用<math|<big|sum> <rsub|a\<leqslant\>i\<leqslant\>b>f<around*|(|i|)>>就成立了. 实际上<math|<big|sum> <rsub|i=a><rsup|b>f<around*|(|i|)>>并没有选的足够好来满足这一特性, 这个记号只是足够简单.\ 
+  </answer*>>
+
+  <subsection|变量替换>
+
+  上节了解了如何对变量重新命名. 下面来探讨变量替换. 变量替换意味着我们可以把一个变量替换为一个<math|\<lambda\>>-项. 为了方便起见, 还是沿用上节的记号
+
+  <\convention>
+    用记号<math|M<around*|[|N/x|]>>表示在项<math|M>中把变量<math|x>换成另一项<math|N>.\ 
+  </convention>
+
+  \;
+
+  但是事情总是没有那么简单: 来源主要在引进的<math|\<lambda\>>-项中也可能有被绑定的变量, 万一这两部分重叠了, 我们的表意就不一样了.\ 
+
+  <\itemize>
+    <item>我们只能替换自由变量. 因为受约束的变量实质上只是一个占位符, 并不是一个具体的东西, 自然不能被具体的表达式所替换. 因此, <math|x<around*|(|\<lambda\> x y. x|)><around*|[|N/x|]>>实际的结果是<math|N<around*|(|\<lambda\>x y. x|)>>, 而不是<math|N<around*|(|\<lambda\> x y. N|)>.>
+
+    <item>需要注意不要不小心把原本是自由的变量变成约束的变量. 例如, 对于<math|M\<equiv\> \<lambda\>x. y x,N\<equiv\> \<lambda\>z. x z>. <math|x>在<math|N>中自由, 但是在<math|M>中受约束. 把<math|M>中的变量<math|y>替换为<math|N>应该怎么办呢?\ 
+
+    <\itemize>
+      <item>如果按照前面的规则, 就成了<math|M<around*|[|N/y|]>=<around*|(|\<lambda\>x.y x|)><around*|[|N/y|]>=\<lambda\>x. N x=\<lambda\><with|color|red|x>. <around*|(|\<lambda\>z. <with|color|red|<with|color|blue|x>> z|)><with|color|red|x>>.\ 
+
+      <item>不好! 后面本应该是自由的变量<math|<with|color|blue|x>>这里居然被最前的<math|<with|color|red|x>>约束了! 他们本不应该是同一个<math|x>, 但是现在他们却是同一个<math|x>了. 前后两个意思就不一样了. 怎么办?
+
+      <item>实际上在实际带入之前为它改个名就行了. 比如我们可以把<math|M>中受约束的变量经过<math|\<alpha\>>-等价变换变为另一个不冲突的名字. 比如<math|M<around*|[|N/y|]>=<around*|(|\<lambda\>x<rprime|'>.y x<rprime|'>|)><around*|[|N/y|]>=\<lambda\>x<rprime|'>.N x<rprime|'>=\<lambda\>x<rprime|'>.<around*|(|\<lambda\>z. x z|)>x<rprime|'>>. 可见这种代换有时候必须强制重新命名. 这时候最好选一个在两个式子中从来没有出现过的变量, 我们称这样的变量为<with|font-series|bold|新鲜的>(fresh).
+    </itemize>
+
+    \ 
+  </itemize>
+
+  <\definition>
+    为防止变量替换时造成的意外约束, 在替换<math|N>中的自由变量<math|x>为项<math|M>的时候, 可以用符号简单记作<math|M<around*|[|N/x|]>,>定义如下:
+
+    <\itemize>
+      <item><math|x<around*|[|N/x|]>\<equiv\> N,>
+
+      <item><math|y<around*|[|N/x|]>\<equiv\> y>, 当<math|x\<neq\> y>的时候
+
+      <item><math|<around*|(|M P|)><around*|[|N/x|]>\<equiv\> <around*|(|M<around*|[|N/x|]>|)><around*|(|P<around*|[|N/x|]>|)>>
+
+      <item><math|*<around*|(|\<lambda\>x. M|)><around*|[|N/x|]>\<equiv\> \<lambda\>x.M>
+
+      <item><math|<around*|(|\<lambda\>x.M|)><around*|[|N/x|]>\<equiv\> \<lambda\>y.<around*|(|M<around*|[|N/x|]>|)>>, 当<math|x\<neq\> y>且<math|y\<notin\> FV<around*|(|N|)>>的时候
+
+      <item><math|<around*|(|\<lambda\>x.M|)><around*|[|N/x|]>\<equiv\> \<lambda\>y<rprime|'>.<around*|(|M<around*|{|y<rprime|'>/y|}>|)><around*|[|N/x|]>,>当<math|x\<neq\> y,y\<notin\> FV<around*|(|N|)>,y<rprime|'>>是新鲜的时候
+    </itemize>
+  </definition>
+
+  <unfolded|<\question>
+    请对比<math|M<around*|{|y/x|}>>和<math|M<around*|[|N/x|]>>, 说说哪里有不同, 并且指出多加的部分是为了解决上面讨论的哪些问题.\ 
+  </question>|<\answer*>
+    多加了自由变量的限制. 为了防止替换掉受约束变量, 在前提条件中加了“自由变量<math|x>”这一限定词, 为了防止重名, 多出了(6), (7)两条规则.\ 
+  </answer*>>
+
+  \;
+
+  <subsection|<math|\<beta\>>-化简>
+
+  刚刚只是见到了通过变量的重命名、变量替换的手法在各个不同的<math|\<lambda\>>项之间替换. 接下来我们就要看如何将表达式进行化简. 也就是“意思上的相等”. 接下来我们要做的是如何表示“把某个值带到某个函数里面去”或“把一个值应用于函数”. 这就是<math|\<beta\>>-化简要做的事情.\ 
+
+  前文提到, 高中数学中写<math|f<around*|(|5|)>>表示按照对应规则<math|f>查找5会变成什么; 在<math|\<lambda\>>-表达式中我们会写<math|f 5>. 如果我们知道<math|f>的规则是<math|f<around*|(|x|)>=x+1>, 那么这里就可以写<math|<around*|(|\<lambda\>x.x+1|)>5>.
+
+  像这样<math|<around*|(|\<lambda\>x.M|)>N>的表达式 – 正如语法名称“应用函数规则”所隐含的那样 – 表示把前面的占位符全都代换为<math|N> – 即<math|M<around*|[|N/x|]>.> 这样的一步就可以看做对表达式进行了一次化简.\ 
+
+  <\example>
+    按上述规则化简<math|<around*|(|\<lambda\>x.y|)><around*|(|<around*|(|\<lambda\>z. z z|)><around*|(|\<lambda\>w. w|)>|)>>.
+
+    <\solution*>
+      <math|>
+
+      <\equation*>
+        <\align*>
+          <tformat|<table|<row|<cell| <around*|(|\<lambda\>x.y|)><around*|(|<underline|<around*|(|\<lambda\>z. z z|)><block|<tformat|<table|<row|<cell|<around*|(|\<lambda\>w. w|)> >>>>> >|)><long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>x.y|)><around*|(|<underline|<around*|(|\<lambda\>w. w|)> ><underline|<block|<tformat|<table|<row|<cell|<around*|(|\<lambda\>w. w|)> >>>>> >|)>>>|<row|<cell|<long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|<underline|<around*|(|\<lambda\>x.y|)><block|<tformat|<table|<row|<cell|<around*|(|\<lambda\>w.w|)> >>>>> >>>|<row|<cell|<long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|y.>>>>
+        </align*>
+      </equation*>
+
+      另一种方法是: <math|<underline|<around*|(|\<lambda\>x.y|)><block|<tformat|<table|<row|<cell|<around*|(|<around*|(|\<lambda\>z. z z|)><around*|(|\<lambda\>w. w|)>|)> >>>>> ><long-arrow|\<rubber-rightarrow\>||\<beta\>>y.> 可以发现选择不同的步骤进行化简的步数也不一样.\ 
+    </solution*>
+  </example>
+
+  实际上, 最终答案并不会因为我们如何化简这一过程而发生改变(后面会有证明). 最后化简的结果只要没有形如<math|<around*|(|\<lambda\>x.M|)>N>的形式, 我们就说它已经化简到<with|font-series|bold|最简形式>(normal form)了. 如果经过零步或多步, 化简操作把初始的<math|M>化为了<math|M<rprime|'>>(记作<math|M<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>M<rprime|'>>), 我们就说<math|M>的求值结果(evaluates to)为<math|M<rprime|'>>.
+
+  实际上, 并不是所有的式子都有最简结果的. 例如<math|<around*|(|\<lambda\>x.x x|)><around*|(|\<lambda\>y. y y y|)>>在求值过程中会持续膨胀!\ 
+
+  <unfolded|<\question>
+    根据规则, 写出<math|<around*|(|\<lambda\>x.x x|)><around*|(|\<lambda\>y. y y y|)>>的前几步. <math|<around*|(|\<lambda\>x.x x|)><around*|(|\<lambda\>x. x x|)>>有最简形式吗?
+
+    \;
+  </question>|<\answer*>
+    没有. 第一个一直膨胀, 第二个一直不变.\ 
+
+    <math|<align*|<tformat|<table|<row|<cell|<around*|(|\<lambda\>x.x x|)><around*|(|\<lambda\>y. y y y|)><long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>y. y y y|)><around*|(|\<lambda\>y. y y y|)>>>|<row|<cell|<long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>y. y y y|)><around*|(|\<lambda\>y. y y y|)><around*|(|\<lambda\>y. y y y|)>>>|<row|<cell|<long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>y. y y y|)><around*|(|\<lambda\>y. y y y|)><around*|(|\<lambda\>y. y y y|)><around*|(|\<lambda\>y. y y y|)>>>|<row|<cell|<long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|<gap|<show-reply||>>>>>>>>
+  </answer*>>
+
+  总结一下, <math|\<beta\>>-化简的操作规则大体有以下几条:
+
+  <\equation*>
+    <tabular|<tformat|<cwith|1|-1|1|-1|cell-halign|c>|<twith|table-lborder|1>|<twith|table-rborder|1>|<twith|table-bborder|1>|<twith|table-tborder|1>|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<around*|(|1,\<beta\>|)>>>>>>>|<cell|<frac| |<around*|(|\<lambda\>x.M|)>N<long-arrow|\<rubber-rightarrow\>||\<beta\>>M<around*|[|N/x|]>>>>|<row|<cell|<around*|(|2,等价<rsub|左>|)>>|<frac| M<long-arrow|\<rubber-rightarrow\>||\<beta\>>M'|M N<long-arrow|\<rubber-rightarrow\>||\<beta\>>M<rprime|'>N>>|<row|<cell|<around*|(|3,等价<rsub|右>|)>>|<cell|<frac| N<long-arrow|\<rubber-rightarrow\>||\<beta\>>N'|M N<long-arrow|\<rubber-rightarrow\>||\<beta\>>M N<rprime|'>>>>|<row|<cell|<around*|(|4,\<xi\> |)>>|<cell|<frac| M<long-arrow|\<rubber-rightarrow\>||\<beta\>>M'|\<lambda\>x. M <long-arrow|\<rubber-rightarrow\>||\<beta\>>\<lambda\>x.M<rprime|'>>>>>>>
+  </equation*>
+
+  \;
+
+  <section|表达一切!>
+
+  \;
+
+  我们前面说到, <math|\<lambda\>>-表达式只能有一堆奇怪的东西, 而似乎连加减法都没办法做. 接下来试图使用<math|\<lambda\>>-表达式来编码一些常见的概念.\ 
+
+  <subsection|真与假>
+
+  我们定义如下的表达式为真(True, <math|\<bbb-T\>>)与假(False, <math|\<bbb-F\>>):
+
+  <math|<align*|<tformat|<table|<row|<cell|\<bbb-T\>>|<cell|=\<lambda\>x y.x>>|<row|<cell|\<bbb-F\>>|<cell|=\<lambda\>x y.y>>>>>>
+
+  我们定义<math|and>算子为<math|and=\<lambda\> a b. a b \<bbb-F\>>. 可以发现在<math|\<beta\>>-化简的意义下的<math|and>和逻辑符号中的and只是记号上的不同.\ 
+
+  <unfolded|<\question>
+    通过<math|\<beta\>>-化简验证: (1) <math|and \<bbb-T\> \<bbb-T\> <long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-T\>>; (2) <math|and \<bbb-T\>\<bbb-F\><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-F\>>; (3) <math|and \<bbb-F\> \<bbb-T\><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-F\>>; (4) <math|and \<bbb-F\> \<bbb-F\><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\> >\<bbb-F\>>.提示: <math|and \<bbb-T\> \<bbb-T\> <long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-T\>>实际上是<math|<around*|(|and|)> <around*|(|\<bbb-T\>|)> <around*|(|\<bbb-T\>|)>>. 注意括号顺序!
+  </question>|<\answer*>
+    \;
+
+    <math|<aligned|<tformat|<table|<row|<cell| <around*|(|\<lambda\>a b. a b \<bbb-F\>|)><underline| \<bbb-T\> \<bbb-T\> >>|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-T\> <underline|\<bbb-T\> \<bbb-F\> >>>|<row|<cell|>|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-T\>>>|<row|<cell| <around*|(|\<lambda\>a b. a b \<bbb-F\>|)><underline| \<bbb-T\> \<bbb-F\> >>|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-T\><underline| \<bbb-F\> \<bbb-F\> >>>|<row|<cell|>|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-F\>>>|<row|<cell| <around*|(|\<lambda\>a b. a b \<bbb-F\>|)><underline| \<bbb-F\>\<bbb-T\>>>|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-F\><underline|\<bbb-T\>\<bbb-F\> >>>|<row|<cell|>|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-F\>>>|<row|<cell|<around*|(|\<lambda\>a b. a b \<bbb-F\>|)><underline| \<bbb-F\>\<bbb-F\>>>|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-F\><underline|\<bbb-F\>\<bbb-F\> >>>|<row|<cell|>|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<bbb-F\>.>>>>>>
+  </answer*>>
+
+  实际上<math|and>算子的定义不是唯一的, 定义<math|and=\<lambda\>a b.b a b>也可以完成一样的效果.\ 
+
+  <unfolded|<\question>
+    根据上面的推导过程, 请你构造出<math|or>算子和<math|not>算子.\ 
+  </question>|<\answer*>
+    首先定义<math|not>算子为<math|\<lambda\>a b. b a>; 然后实际上<math|or>算子就是<math|not and>.\ 
+  </answer*>>
+
+  实际上这种情形可以表达控制流. 比如<math|<text| if_then_else>=\<lambda\>x. x>. 比如,
+
+  <\equation*>
+    <tabular|<tformat|<table|<row|<cell|<ite> \<bbb-T\> M N<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>M>>|<row|<ite> \<bbb-F\> M N<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>N>>>>
+  </equation*>
+
+  <subsection|自然数>
+
+  在解决这个之前, 首先约定俗成地, 记<math|f<rsup|n >x\<assign\><wide*|f<around*|(|f<around*|(|f<gap|<show-reply||>><around*|(|f x|)><gap|<show-reply||>>|)>|)> <rsub|>|\<wide-underbrace\>><rsub|n次>>. 我们的自然数<math|n>被定义做:<math|<overline| n>=\<lambda\> f x.<around*|(|f<rsup|n>x|)>.>
+
+  <unfolded|<\question>
+    请你写出<overline|0> ,<overline|1>,<overline|2>,<overline|3>的<math|\<lambda\>>-表达式的定义.\ 
+  </question>|<\answer*>
+    \;
+
+    <math|<align|<tformat|<table|<row|<cell|<overline| 0>=>|<cell|\<lambda\>f x.x>>|<row|<cell|<overline| 1>=>|<cell|\<lambda\>f x. f x>>|<row|<cell|<overline| 2>=>|<cell|\<lambda\>f x. f <around*|(|f x|)>>>|<row|<cell|<overline| 3>=>|<cell|\<lambda\>f x.f<around*|(|f<around*|(|f x|)>|)>>>|<row|<cell|<gap|<show-reply||>>>|<cell|>>>>>>
+  </answer*>>
+
+  在定义了之后, 自然要定义其操作. 比如“寻找自然数的后继”, 即“加1”. 定义为
+
+  <\equation*>
+    succ=\<lambda\>n f x. f<around*|(|n f x|)>
+  </equation*>
+
+  比如要计算<math|succ <overline|1>=<around*|(|\<lambda\>n f x. f<around*|(|n f x|)>|)><around*|(|\<lambda\>f x. f x|)><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<lambda\>f x. f<around*|(|<around*|(|\<lambda\>f x. f x|)> f x|)><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>\<lambda\>f x.f<around*|(|f x|)>=<overline|2>.>
+
+  <unfolded|<\question>
+    请使用数学归纳法证明: <math|succ <overline|n>=<overline|n+1>>.\ 
+  </question>|<\answer*>
+    基础仿照上述可证明. 假设对于<math|n>成立, 那么
+
+    <\align>
+      <tformat|<table|<row|<cell|succ <overline|n>=>|<cell|<around*|(|\<lambda\>n f x. f<around*|(|n f x|)>|)><around*|(|\<lambda\> f x. f<rsup|n>x|)>>>|<row|<cell|<long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|\<lambda\>f x.f<around*|(|<around*|(|\<lambda\> f x. f<rsup|n>x|)>f x|)>>>|<row|<cell|<long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|\<lambda\>f x.f<around*|(|f<rsup|n> x|)>>>|<row|<cell|<long-arrow|\<rubber-rightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. f<rsup|n+1>x>>|<row|<cell|=>|<cell|<overline|n+1>.>>>>
+    </align>
+  </answer*>>
+
+  自然也可以定义自然数的加法和乘法. 可以定义
+
+  <math|<align|<tformat|<table|<row|<cell|add=>|<cell|\<lambda\> n m f x. n f<around*|(|m f x|)>>>|<row|<cell|mult=>|<cell|\<lambda\>n m f. n <around*|(|m f|)>>>>>>>
+
+  <unfolded|<\question>
+    (1) 演算<math|add <overline|2> <overline|3>>和<math|mult <overline|2> <overline|3>>. (2) 证明: <math|add <overline|n> <overline|m><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>><overline|n+m>>; (3) 证明<math|mult <overline|n> <overline|m><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>><overline|n\<cdot\> m >>. 第一个问题的<math|add <overline| 2 > <overline| 3 >>部分已经为你写好了.\ 
+
+    解答范例: (不唯一, 你可以使用“应用<math|n>次到函数<math|f>”这一算子 – <math|f<rsup|n>>, 这对后两问有巨大帮助).
+
+    <math|<align|<tformat|<table|<row|<cell|<with|color|red|<around*|(|add|)> ><with|color|blue|<around*|(|2|)>><with|color|green|<with|color|dark green|<around*|(|3|)>><with|color|dark green|>>=>|<cell|<with|color|red|<around*|(|\<lambda\> n m f x. n f<around*|(|m f x|)>|)> ><with|color|blue|<around*|(|\<lambda\>f x.f<around*|(|f <around*|\<nobracket\>|x|)>|)>|)>><with|color|dark green|<around*|(|\<lambda\>f x.f<around*|(|f<around*|(|f x|)>|)>|)>>>>|<row|<cell|\<twoheadrightarrow\><rsub|\<beta\>>>|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>f x.f<around*|(|f <around*|\<nobracket\>|x|)>|)>>|)>f<around*|(|<with|color|dark green|<around*|(|\<lambda\>f x.f<around*|(|f<around*|(|f x|)>|)>|)>>f x|)>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>f x.f<around*|(|f <around*|\<nobracket\>|x|)>|)>>|)><underline|f ><space|1em><underline|<around*|(|f<around*|(|f<around*|(|f x|)>|)>|)> > <small| 这是两个不同的部分>>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>g y.g<around*|(|g <around*|\<nobracket\>|y|)>|)>>|)>f<around*|(|f<around*|(|f<around*|(|f x|)>|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. <around*|(|\<lambda\>y. f<around*|(|f y|)>|)>f<around*|(|f<around*|(|f<around*|(|f x|)>|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. <around*|(| f<around*|(|f <around*|(|f<around*|(|f<around*|(|f x|)>|)>|)>|)>|)>>>|<row|<cell|=>|<cell|<overline| 5 >>>>>>>
+  </question>|<\answer*>
+    (1) 仿照上例,\ 
+
+    <\math>
+      <align|<tformat|<table|<row|<cell| mult <overline|2> <overline|3><long-arrow|\<rubber-equal\>|def>>|<cell|<around*|(|\<lambda\>n m f. n <around*|(|m f|)>|)> <around*|(|2|)> <around*|(|3|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.2<around*|(|3 f|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<around*|(|\<lambda\>f x. f<rsup|2>x|)> <around*|(|<around*|(|\<lambda\>f x.f<rsup|3>x|)>f|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<around*|(|\<lambda\>f x. f<rsup|2>x|)> <around*|(|\<lambda\> x.f<rsup|3>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|<around*|(|\<lambda\>f.\<lambda\>g y.g<rsup|2>y<around*|(|\<lambda\>x.f<rsup|3>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f.\<lambda\>y.f<rsup|6>y>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|\<lambda\>f.\<lambda\>x.f<rsup|6>x=<overline| 6 >.>>>>>
+
+      \ 
+    </math>
+
+    (2) 只要在合适的地方加上缩写即可.
+
+    <\equation*>
+      <tabular|<tformat|<cwith|2|-1|1|1|cell-halign|r>|<table|<row|<cell|<with|color|red|<around*|(|add|)> ><with|color|blue|<around*|(|p|)>><with|color|green|<with|color|dark green|<around*|(|q|)>><with|color|dark green|>>=>|<cell|<with|color|red|<around*|(|\<lambda\> n m f x. n f<around*|(|m f x|)>|)> ><with|color|blue|<around*|(|\<lambda\>f x.f<rsup|p> x|)>><with|color|dark green|<around*|(|\<lambda\>f x.f<rsup|q>x|)>>>>|<row|<cell|\<twoheadrightarrow\><rsub|\<beta\>>>|\<lambda\>f x.<with|color|blue|<around*|(|\<lambda\>f x.f<rsup|p> x|)>>f<around*|(|<with|color|dark green|<around*|(|\<lambda\>f x.f<rsup|q>x|)>>f x|)>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>f x.f<rsup|p><around*|\<nobracket\>| <around*|\<nobracket\>|x|)>|)>>|)><underline|f ><space|1em><underline|<around*|(|f<rsup|q>x|)> > <small| 这是两个不同的部分>>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|\<lambda\>f x.<around*|(|<with|color|blue|\<lambda\>g y.g<rsup|p><around*|\<nobracket\>| <around*|\<nobracket\>|y|)>|)>>|)>f<around*|(|f<rsup|q>x|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. <around*|(|\<lambda\>y. f<rsup|p>y|)><around*|(|f<rsup|q>x|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f x. <around*|(|f<rsup|p+q>x|)>>>|<row|<cell|=>|<cell|<overline| p+q>. >>>>>
+    </equation*>
+
+    (3) 和上面的一样.\ 
+
+    <\equation*>
+      <tabular|<tformat|<cwith|2|-1|1|1|cell-halign|r>|<table|<row|<cell| mult <overline|p> <overline|q><long-arrow|\<rubber-equal\>|def>>|<cell|<around*|(|\<lambda\>n m f. n <around*|(|m f|)>|)> <around*|(|<overline|p >|)> <around*|(|<overline|q >|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<overline|p><around*|(|<overline|q> f|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<around*|(|\<lambda\>f x. f<rsup|p>x|)> <around*|(|<around*|(|\<lambda\>f x.f<rsup|q>x|)>f|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>f.<around*|(|\<lambda\>f x. f<rsup|p>x|)> <around*|(|\<lambda\> x.f<rsup|q>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|<around*|(|\<lambda\>f.\<lambda\>g y.g<rsup|p>y<around*|(|\<lambda\>x.f<rsup|q>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>f.\<lambda\>y.f<rsup|p q>y>>|<row|<cell|<long-arrow|\<rubber-equal\>||\<alpha\>>>|<cell|\<lambda\>f.\<lambda\>x.f<rsup|p q>x=<overline| p q >.>>>>>
+    </equation*>
+  </answer*>>
+
+  上面的讨论中, 已经发现虽然写出来是一长串复杂难以理解的内容, 但是它与我们思想中的自然数、加法、乘法是具有一样的功能的. 我们说这就是<math|\<lambda\>>-表达式对我们思维的编码.\ 
+
+  我们再来看一个例子: 判断一个数是不是为0. 我们思想中的判定是否为0的函数为: <math|iszero<around*|(|0|)>=true,> <math|iszero<around*|(|m|)>=false<around*|(|m\<neq\> 0|)>.> 它的<math|\<lambda\>>-编码为:
+
+  <\equation*>
+    iszero=\<lambda\>n x y. n<around*|(|\<lambda\> z. y|)>x.
+  </equation*>
+
+  <\unfolded|<\question>
+    通过写出<math|iszero <overline|0>>, <math|iszero <overline|2>>的演算过程, 感受此定义为什么是正确的.
+
+    \ (<math|<tabular|<tformat|<table|<row|<cell|\<bbb-T\>>|<cell|=\<lambda\>x y.x>>>>>;<tabular|<tformat|<table|<row|<cell|\<bbb-F\>>|<cell|=\<lambda\>x y.y>>>>>>;<math|<overline| n>=\<lambda\> f x.<around*|(|f<rsup|n>x|)>.>).\ 
+
+    \;
+  </question>>
+    <\answer*>
+      首先看<math|iszero <overline|0>>:
+
+      <\math>
+        <align|<tformat|<table|<row|<cell|<around*|(|iszero|)><around*|(|<overline|0>|)>=>|<cell|<around*|(|\<lambda\>n x y. <around*|(|n<around*|(|\<lambda\> z. y|)>x|)>|)><around*|(|\<lambda\>f x. x|)>>>|<row|<cell|=>|<cell|<around*|(|\<lambda\>n x y. <around*|(|n<around*|(|\<lambda\> z. y|)>x|)>|)><around*|(|\<lambda\> g w. w|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>x y. <around*|(|<around*|(|\<lambda\>g w. w|)> <around*|(|\<lambda\> z. y|)>x|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>x y.x=\<bbb-T\>.>>>>>
+
+        \;
+
+        \;
+      </math>
+
+      但是
+
+      <math|<align|<tformat|<table|<row|<cell|<around*|(|iszero|)><around*|(|<overline|2>|)>=>|<cell|<around*|(|\<lambda\>n x y. <around*|(|n<around*|(|\<lambda\> z. y|)>x|)>|)><around*|(|\<lambda\>g w. g<rsup|2>w|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<around*|(|\<lambda\>x y. <around*|(|<around*|(|\<lambda\>g w. g<rsup|2>w|)><around*|(|\<lambda\> z. y|)>x|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>x y. \ <around*|(|\<lambda\> z. y|)><rsup|2>x>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|\<lambda\>x y. y=\<bbb-F\>.>>>>>>
+
+      \;
+    </answer*>
+  </unfolded>
+
+  当然, 上述的内容看上去相当的随机. 倘若自己思考可能要花费相当多的时间来尝试. 下面我们要做的是看一看能不能找到他们中间的公共部分, 从而机械化这个过程.\ 
+
+  在这之前, 最后再看最后一类函数的例子 – 递归函数.\ 
+
+  <subsection|不动点和递归函数>
+
+  <\definition>
+    点<math|x>是函数<math|f>的一个不动点, 满足<math|f<around*|(|x|)>=x>.\ 
+
+    类似地, 如果<math|F,N>是<math|\<lambda\>>-项, <math|N>是<math|F>的一个不动点如果<math|F N<long-arrow|\<rubber-equal\>||\<beta\>>N>.
+  </definition>
+
+  实际上, 令人惊讶的是:\ 
+
+  <\theorem>
+    在无类型的<math|\<lambda\>>-演算中, 每一个项<math|F>都有一个不动点.\ 
+  </theorem>
+
+  <\proof>
+    令<math|A=\<lambda\>x y.y*<around*|(|x x y|)>>, 定义<math|\<Theta\>=A A>. 令<math|F>是任意的<math|\<lambda\>>-项, 通过<math|N=\<Theta\> F>, 就可以声称<math|N>是<math|F>的一个不动点.\ 
+
+    <\math>
+      <align|<tformat|<table|<row|<cell|N=>|<cell|\<Theta\> F>>|<row|<cell|=>|<cell|A A F>>|<row|<cell|=>|<cell|\<lambda\>x y.y*<around*|(|x x y|)> AF>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|F<around*|(|A A F|)>>>|<row|<cell|=>|<cell|F<around*|(|\<Theta\> F|)>>>|<row|<cell|=>|<cell|F N>>>>>
+    </math>
+
+    这表明了<math|N=\<Theta\> F=F N.><label|thm15>
+
+    \;
+  </proof>
+
+  现在假设我们希望表达阶乘函数: <math|fact>. 从高中数学中我们知道<math|fact<around*|(|x|)>=<choice|<tformat|<table|<row|<cell|x\<cdot\> fact<around*|(|x-1|)>,x\<geqslant\>1>>|<row|<cell|1,x=0>>>>>;> 翻译为<math|\<lambda\>>-表达式就是:\ 
+
+  <\equation*>
+    fact n=\<lambda\>n.<ite> <around*|(|iszero n|)><around*|(|<overline|1>|)><around*|(|mult n<around*|(|fact <around*|(|pred n|)>|)>|)>
+  </equation*>
+
+  其中<math|pred>函数由于比较复杂, 在前面并没有展开介绍. 它大概实现的作用是: <math|pred<around*|(|<overline|n>|)>=<choice|<tformat|<table|<row|<cell|<overline|n-1>,n\<gtr\>0>>|<row|<cell|<overline|0>,n=0>>>>>.> 有兴趣的同学可以试着找到他们的<math|\<lambda\>>-表达式.\ 
+
+  \;
+
+  现在要做的是, 希望把等式右边的<math|fact>消去, 从而使得等式左右两边只有一边出现<math|fact>. 换句话说, 这就是“解含有fact的方程”.\ 
+
+  让我们看看不动点对解这样的方程有什么帮助. 首先改写形式为
+
+  <\equation*>
+    <\align>
+      <tformat|<table|<row|<cell|fact =>|<cell|\<lambda\>n.<ite> <around*|(|iszero n|)><around*|(|<overline|1>|)><around*|(|mult n<around*|(|fact <around*|(|pred n|)>|)>|)>>>|<row|<cell|=>|<cell|<wide*|\<lambda\><with|color|red|f >.<around*|(|\<lambda\>n.<ite> <around*|(|iszero n|)><around*|(|<overline|1>|)><around*|(|mult n<around*|(|<with|color|red|f > <around*|(|pred n|)>|)>|)>|)> |\<wide-underbrace\>><rsub|先记作F>fact>>|<row|<cell|=>|<cell|F fact>>>>
+    </align>
+  </equation*>
+
+  这时候使用不动点的定义, 就可以解出<math|fact>. 根据定理<reference|thm15>最后的等式知道:\ 
+
+  <math|<align|<tformat|<table|<row|<cell|fact=>|<cell|\<Theta\> F>>|<row|<cell|=>|<cell|\<Theta\> <around*|(|\<lambda\><with|color|red|f >.<around*|(|\<lambda\>n.<ite> <around*|(|iszero n|)><around*|(|<overline|1>|)><around*|(|mult n<around*|(|<with|color|red|f > <around*|(|pred n|)>|)>|)>|)>|)>>>>>>>
+
+  注意等式右边的<math|fact>就被消掉了, 转而就解出了fact的真实值.\ 
+
+  <\example>
+    求<math|fact <overline|2>>的前几步.\ 
+
+    <\solution*>
+      我们把多步求值放在一起, 以防止过于杂乱:
+
+      <math|<align|<tformat|<table|<row|<cell|fact <overline|2><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|F fact <overline|2><space|1em><small|<around*|(|定理 <reference|thm15>:\<Theta\> F<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>F<around*|(|\<Theta\> F|)>|)>>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<ite> <around*|(|iszero <overline| 2 >|)><around*|(|1|)><around*|(|mult <overline|2> <around*|(|fact <around*|(|pred <overline|2>|)>|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|<ite> <around*|(|\<bbb-F\>|)><around*|(|1|)><around*|(|mult <overline|2> <around*|(|fact <around*|(|pred <overline|2>|)>|)>|)>>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|mult <overline|2> <around*|(|fact <around*|(|pred <overline|2>|)>|)><long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>mult <overline|2> <around*|(|fact 1|)>>>|<row|<cell|<gap|>>|<cell|>>|<row|<cell|<long-arrow|\<rubber-twoheadrightarrow\>||\<beta\>>>|<cell|mult <around*|(|<overline|2> mult<around*|(|<overline|1> <overline|1>|)>|)>.>>>>>>
+    </solution*>
+  </example>
+
+  \;
+
+  \;
+
+  <\unfolded|<\question>
+    <dueto|选做>补充pred的推导过程. <todo| 这段应该有点问题, 尤其是后面的指数提前的操作前文没有说清楚.>
+
+    已知对于一个大于0的自然数<math|<overline| n>>, 如何得到<overline|<math|n-1>>? 在由<overline|2><math|=\<lambda\>f x. f <around*|(|f x|)>>变回<overline|1>=<math|\<lambda\> f x. f x>的时候, 主要是让外层的<math|f>去掉.\ 
+
+    大致的想法是: 用一个函数 value 把需要的值“包裹”起来. 如果我们希望从包裹中“取出”值, 可以使用extract函数. 规则如下:
+
+    <\equation*>
+      <\align>
+        <tformat|<table|<row|<cell|extract<around*|(|value v|)>>|<cell|=v>>>>
+      </align>
+    </equation*>
+
+    对于包裹函数的<math|value>的<math|\<lambda\>>-项为<math|value\<assign\>\<lambda\>v. <around*|(|\<lambda\> h. h v|)>>; extract的<math|\<lambda\>>-项为<math|extract k\<assign\>k \<lambda\>u.u>. 经过演算<block|<tformat|<table|<row|<cell| 1 >>>>>可以发现上述等式的确成立.\ 
+
+    下面对这个包裹“value”函数定义规则, 为
+
+    <\equation*>
+      inc<around*|(|value v|)>=value<around*|(|f v|)>
+    </equation*>
+
+    可以确定inc的<math|\<lambda\>>-项为<math|inc\<assign\>\<lambda\>g h.<block|<tformat|<table|<row|<cell| 2 >>>>>>. \ 
+
+    接下来通过上面的内容试图表达恒等函数(假设初始值为init:=value <math|x>, 即<math|inc\<assign\><block|<tformat|<table|<row|<cell| 3 >>>>>>):
+
+    <\equation*>
+      <\align>
+        <tformat|<table|<row|<cell|samenum\<assign\>>|<cell|\<lambda\>n f x. extract <around*|(| inc<rsup|n> init|)>>>|<row|<cell|=>|<cell|\<lambda\>n f x. extract<around*|(|value <around*|(|f<rsup|n> x|)>|)>=\<lambda\>n f x. extract<around*|(|value <around*|(|n f<rsup|> x|)>|)>>>|<row|<cell|=>|<cell|\<lambda\>n f x. n f<rsup|> x>>>>
+      </align>
+    </equation*>
+
+    这看上去没有任何用, 但是我们可以对这个容器做手脚, 使得其有意忽略第一个函数应用. 现在令<math|inc const=value x>(即<math|const\<assign\><block|<tformat|<table|<row|<cell| 4 >>>>>>),
+
+    <\equation*>
+      <\align>
+        <tformat|<table|<row|<cell|pred\<assign\>>|<cell|\<lambda\>n f x. extract<around*|(| inc<rsup|n> const|)>>>|<row|<cell|=>|<cell|\<lambda\>n f x. extract<around*|(|value<around*|(|f<rsup|n-1> x|)>|)>=\<lambda\>n f x. extract<around*|(|value<around*|(|n-1 f<rsup|> x|)>|)>>>|<row|<cell|=>|<cell|\<lambda\>n f x. <around*|(|n-1 f<rsup|> x|)>>>>>
+      </align>
+    </equation*>
+
+    于是<math|pred=\<lambda\>n f x. n<around*|(|\<lambda\>g h. h<around*|(|g f|)>|)><rsup|><around*|(|\<lambda\>u.x|)><around*|(|\<lambda\>u.u|)>>
+
+    补全上述文本空缺的地方. \ 
+  </question>>
+    <\answer*>
+      文本空缺的1\<sim\> 4如下所示:
+
+      <block|<tformat|<table|<row|<cell|1>>>>>\ 
+
+      <\aligned>
+        <tformat|<table|<row|<cell|extract<around*|(|value v|)>=>|<cell|<around*|(|value v|)><around*|(|\<lambda\>u. u|)>>>|<row|<cell|=>|<cell|<around*|(|\<lambda\>v.<around*|(|\<lambda\>h. h v|)>v|)><around*|(|\<lambda\>u.u|)>>>|<row|<cell|\<twoheadrightarrow\>>|<cell|<around*|(|\<lambda\>h.h v|)><around*|(|\<lambda\>u. u|)>>>|<row|<cell|\<twoheadrightarrow\>>|<cell|<around*|(|\<lambda\>u. u|)>v\<twoheadrightarrow\>v>>>>
+      </aligned>
+
+      \;
+    </answer*>
+
+    <block|<tformat|<table|<row|<cell|2>>>>> <math|h<around*|(|g f|)>>
+
+    <block|<tformat|<table|<row|<cell|3>>>>> <math|\<lambda\>h. h x>
+
+    <block|<tformat|<table|<row|<cell|4>>>>> <math|\<lambda\>u.x>.
+  </unfolded>
+
+  \;
+
+  \;
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-10|<tuple|3.4|13>>
+    <associate|auto-2|<tuple|2|2>>
+    <associate|auto-3|<tuple|2.1|3>>
+    <associate|auto-4|<tuple|2.2|6>>
+    <associate|auto-5|<tuple|2.3|7>>
+    <associate|auto-6|<tuple|3|8>>
+    <associate|auto-7|<tuple|3.1|8>>
+    <associate|auto-8|<tuple|3.2|9>>
+    <associate|auto-9|<tuple|3.3|11>>
+    <associate|footnote-1|<tuple|1|1>>
+    <associate|footnote-2|<tuple|2|2>>
+    <associate|footnote-3|<tuple|3|6>>
+    <associate|footnr-1|<tuple|1|1>>
+    <associate|footnr-2|<tuple|2|2>>
+    <associate|footnr-3|<tuple|3|6>>
+    <associate|thm15|<tuple|15|11>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>对于函数的探讨(粗浅地)> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>无类型的<with|mode|<quote|math>|\<lambda\>>-演算(untyped <with|mode|<quote|math>|\<lambda\> > calculus)> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-2><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|2.1<space|2spc>自由和约束的变量, <with|mode|<quote|math>|\<alpha\>>-等价演算 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-3>>
+
+      <with|par-left|<quote|1tab>|2.2<space|2spc>变量替换 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-4>>
+
+      <with|par-left|<quote|1tab>|2.3<space|2spc><with|mode|<quote|math>|\<beta\>>-化简 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-5>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>表达一切!> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-6><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|3.1<space|2spc>真与假 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-7>>
+
+      <with|par-left|<quote|1tab>|3.2<space|2spc>自然数 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-8>>
+
+      <with|par-left|<quote|1tab>|3.3<space|2spc>不动点和递归函数 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-9>>
+
+      <with|par-left|<quote|1tab>|3.4<space|2spc>数据结构 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-10>>
+    </associate>
+  </collection>
+</auxiliary>

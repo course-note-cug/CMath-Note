@@ -1,0 +1,48 @@
+<TMU|<tuple|1.0.5|1.2.9.7>>
+
+<style|<tuple|article|chinese>>
+
+<\body>
+  <doc-data|<doc-title|Pytorch 操作指南>>
+
+  <section|略有不同的线性代数>
+
+  <paragraph|shape操作>在大学课堂上学习的线性代数会介绍向量, 矩阵的内容. 这里可以把概念推广一些. 我们用<verbatim|shape>来表示我们希望表示的内容是什么. 比如常见的<math|<with|font|Bbb| R><rsup|n\<times\> m>>的矩阵的<verbatim|shape>是<math|<around*|(|n,m|)>>. <math|n>维向量的 shape 是<math|<around*|(|n|)>>. 在本文中, 会用小写字母(如<math|x>)表示标量, 用小写粗体字母(如<math|<with|font-series|bold| x>>)表示向量, 用大写粗体字母(如<math|<with|font-series|bold| X>>)表示矩阵.\ 
+
+  \;
+
+  <paragraph|数组索引>从MATLAB和Python的习惯, 可以对数组做切片或者索引. \ 先看一个简单的例子.
+
+  <\example>
+    对于<with|color|#aaf|>
+  </example>
+
+  \;
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|1|1>>
+    <associate|auto-3|<tuple|2|1>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>略有不同的线性代数> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <with|par-left|<quote|3tab>|shape操作 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-2>>
+
+      <with|par-left|<quote|3tab>|数组索引 <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-3>>
+    </associate>
+  </collection>
+</auxiliary>
